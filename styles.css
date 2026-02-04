@@ -1078,15 +1078,16 @@ li {
 }
 
 .checklist li::before {
-    content: '';
+    content: '' !important;
     position: absolute;
     left: 0;
     top: 0.4rem;
     width: 14px;
     height: 14px;
-    border: 2px solid var(--color-accent);
-    border-radius: 2px;
-    background-color: transparent;
+    border: 2px solid var(--color-accent) !important;
+    border-radius: 2px !important;
+    background-color: transparent !important;
+    background: none !important;
 }
 
 .checklist li strong {
