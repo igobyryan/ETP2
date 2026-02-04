@@ -713,7 +713,7 @@ li {
 /* Sidebar Boxes */
 .sidebar-box {
     background-color: var(--background-secondary);
-    padding: var(--space-lg);
+    padding: var(--space-md) var(--space-lg);
     margin-bottom: var(--space-lg);
     border-radius: var(--radius);
     border: 1px solid var(--border-color);
@@ -725,7 +725,12 @@ li {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-sm);
+}
+
+.sidebar-box a,
+.sidebar-box li {
+    display: block;
 }
 
 .sidebar-box.highlight {
@@ -1076,11 +1081,12 @@ li {
     content: '';
     position: absolute;
     left: 0;
-    top: 0.6rem;
-    width: 8px;
-    height: 8px;
-    background-color: var(--color-accent);
-    border-radius: 50%;
+    top: 0.4rem;
+    width: 14px;
+    height: 14px;
+    border: 2px solid var(--color-accent);
+    border-radius: 2px;
+    background-color: transparent;
 }
 
 .checklist li strong {
