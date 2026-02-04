@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoTipping Points - Transforming Ecosystems</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">EcoTipping Points</a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="foundations.html">Foundations</a></li>
+                <li class="has-dropdown">
+                    <a href="#" class="dropdown-toggle">Toolkit</a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-section">
+                            <h4>Systems Thinking</h4>
+                            <a href="systems-thinking-overview.html">Overview</a>
+                            <a href="systems-thinking-recognize.html">Part 1: Recognize It</a>
+                            <a href="systems-thinking-map.html">Part 2: Map It</a>
+                            <a href="systems-thinking-reverse.html">Part 3: Reverse It</a>
+                            <a href="systems-thinking-lock.html">Part 4: Lock It In</a>
+                        </div>
+                        <div class="dropdown-section">
+                            <h4>Ingredients for Success</h4>
+                            <span class="nav-disabled">Outside stimulation and facilitation</span>
+                            <a href="ingredient-shared-resolve.html">Shared community resolve</a>
+                            <span class="nav-disabled">Harmony between community and ecosystem</span>
+                            <span class="nav-disabled">Enduring commitment of local leadership</span>
+                            <span class="nav-disabled">Letting nature do the work</span>
+                            <span class="nav-disabled">Mobilizing community commitment</span>
+                            <span class="nav-disabled">Overcoming social obstacles</span>
+                            <span class="nav-disabled">Social and ecological diversity</span>
+                            <span class="nav-disabled">Social and ecological memory</span>
+                            <span class="nav-disabled">Building resilience</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="has-dropdown">
+                    <a href="#" class="dropdown-toggle">Success Stories</a>
+                    <div class="dropdown-menu dropdown-menu-narrow">
+                        <div class="dropdown-section">
+                            <h4>Community Stories</h4>
+                            <a href="story-apo-island.html">Marine Sanctuary - Philippines</a>
+                            <span class="nav-disabled">Agroforestry - Thailand</span>
+                            <span class="nav-disabled">Pesticide Trap - India</span>
+                            <span class="nav-disabled">Rainwater Harvesting - India</span>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="#">Resources</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const dropdownToggles = document.querySelectorAll('.has-dropdown > a');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+        
+        // Mobile dropdown toggle
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    toggle.parentElement.classList.toggle('active');
+                }
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.navbar')) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+    </script>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Transforming Ecosystems, Empowering Communities</h1>
+            <p>Discover how communities around the world are reversing environmental decline through systems thinking and community-led action.</p>
+            <div class="button-group">
+                <a href="systems-thinking-overview.html" class="btn btn-primary">Explore the Toolkit</a>
+                <a href="#" class="btn btn-outline btn-outline-light">Success Stories</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="section-header">
+            <h4>Featured Stories</h4>
+            <h2>Ecological Success in Action</h2>
+        </div>
+        
+        <div class="card-grid">
+            <div class="card">
+                <h3>Marine Reserve</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel mauris quam. Proin consequat sapien in massa consequat, vel bibendum tortor scelerisque.</p>
+                <a href="#" class="btn btn-secondary">Read Story</a>
+            </div>
+            
+            <div class="card">
+                <h3>Agro-Forestry</h3>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae.</p>
+                <a href="#" class="btn btn-secondary">Read Story</a>
+            </div>
+            
+            <div class="card">
+                <h3>Pesticide Trap</h3>
+                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores.</p>
+                <a href="#" class="btn btn-secondary">Read Story</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="callout">
+            <h3>The Ingredients for Success</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Curabitur hendrerit mauris eu sem bibendum, eget faucibus nisi hendrerit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
+            <a href="ingredients-overview.html" class="btn btn-primary">Explore the Framework</a>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="section-header">
+            <h4>Our Approach</h4>
+            <h2>Building Lasting Change</h2>
+        </div>
+        
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        
+        <div style="margin-top: var(--spacing-md);">
+            <a href="#" class="btn btn-outline">Learn Our Methodology</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <h4>Stay Connected</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Subscribe to receive updates about new stories and resources.</p>
+        </div>
+    </footer>
+</body>
+</html>

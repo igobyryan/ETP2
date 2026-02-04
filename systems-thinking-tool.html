@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finding Leverage Points: Systems Thinking Tool - EcoTipping Points</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* CONSTRUCTIVIST A: Deep Ink & Electric Coral */
+        
+        :root {
+            --color-primary: #FF6B57;        /* Electric Coral */
+            --color-primary-dark: #E8503D;   
+            --color-secondary: #FFD93D;      /* Bold Yellow */
+            --color-accent: #1B3A4B;         /* Deep Ink Blue */
+            
+            --color-dark: #0F1B23;           
+            --color-medium: #4A5964;         
+            --color-light: #F7F9FA;          
+            --color-white: #FFFFFF;
+            
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+            
+            --radius-sm: 2px;
+            --radius-md: 4px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--color-dark);
+            background-color: var(--color-white);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            letter-spacing: -0.01em;
+        }
+        
+        h3 {
+            font-size: 1.75rem;
+            font-weight: 600;
+        }
+        
+        h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        p {
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.125rem;
+            line-height: 1.7;
+        }
+        
+        ul, ol {
+            margin-bottom: var(--spacing-sm);
+            padding-left: var(--spacing-md);
+        }
+        
+        li {
+            margin-bottom: var(--spacing-xs);
+            font-size: 1.125rem;
+            line-height: 1.7;
+        }
+        
+        strong {
+            font-weight: 600;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--color-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 107, 87, 0.3);
+        }
+        
+        .btn-secondary {
+            background-color: var(--color-accent);
+            color: var(--color-white);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #15303E;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(27, 58, 75, 0.3);
+        }
+        
+        .navbar {
+            background-color: var(--color-white);
+            border-bottom: 3px solid var(--color-primary);
+            padding: var(--spacing-sm) 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-dark);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-md);
+            list-style: none;
+        }
+        
+        .nav-links a {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--color-dark);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--color-primary);
+        }
+        
+        .hero {
+            background-color: var(--color-accent);
+            color: var(--color-white);
+            padding: var(--spacing-xl) var(--spacing-md);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background-color: var(--color-secondary);
+            transform: skewX(-15deg);
+            transform-origin: top right;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            max-width: 900px;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .hero p {
+            max-width: 700px;
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .hero-meta {
+            font-family: var(--font-display);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.9;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .section {
+            padding: var(--spacing-xl) var(--spacing-md);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-alt {
+            background-color: var(--color-light);
+        }
+        
+        .section-header {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .section-header h4 {
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .callout {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            padding: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+            border-left: 6px solid var(--color-secondary);
+        }
+        
+        .callout h3 {
+            color: var(--color-white);
+        }
+        
+        .callout-blue {
+            background-color: var(--color-accent);
+            border-left-color: var(--color-primary);
+        }
+        
+        .sidebar {
+            background-color: var(--color-light);
+            border-left: 4px solid var(--color-secondary);
+            padding: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+        }
+        
+        .sidebar h4 {
+            color: var(--color-accent);
+            font-size: 1rem;
+        }
+        
+        .example-box {
+            background-color: var(--color-white);
+            border: 3px solid var(--color-dark);
+            padding: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+        }
+        
+        .example-box h4 {
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .placeholder-box {
+            background-color: var(--color-light);
+            border: 2px dashed var(--color-medium);
+            padding: var(--spacing-lg);
+            text-align: center;
+            color: var(--color-medium);
+            font-family: var(--font-display);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin: var(--spacing-md) 0;
+        }
+        
+        .step-grid {
+            display: grid;
+            gap: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .step-card {
+            background-color: var(--color-white);
+            border: 3px solid var(--color-dark);
+            padding: var(--spacing-md);
+        }
+        
+        .step-number {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            line-height: 1;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .footer {
+            background-color: var(--color-dark);
+            color: var(--color-white);
+            padding: var(--spacing-lg) var(--spacing-md);
+            margin-top: var(--spacing-xl);
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .footer h4 {
+            color: var(--color-secondary);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                gap: var(--spacing-sm);
+                font-size: 0.875rem;
+            }
+            
+            .hero {
+                padding: var(--spacing-lg) var(--spacing-md);
+            }
+            
+            .section {
+                padding: var(--spacing-lg) var(--spacing-md);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">EcoTipping Points</a>
+            <ul class="nav-links">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#recognize">Recognize</a></li>
+                <li><a href="#map">Map</a></li>
+                <li><a href="#reverse">Reverse</a></li>
+                <li><a href="#lock">Lock In</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-meta">Systems Thinking Tool</div>
+            <h1>Finding Leverage Points: Reversing Vicious Cycles</h1>
+            <p>Guide communities through a structured process to understand what's causing environmental problems and identify where doable interventions can create positive, self-reinforcing change.</p>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a href="#overview" class="btn btn-primary">Get Started</a>
+                <a href="#" class="btn btn-secondary">Download PDF</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="overview">
+        <div class="section-header">
+            <h4>Tool Overview</h4>
+            <h2>Understanding Systemic Change</h2>
+        </div>
+        
+        <p>When communities face environmental challenges like depleted fisheries, degraded forests, or water shortages, the problems are rarely simple. They're usually the result of interconnected causes that reinforce each other—what we call <strong>vicious cycles</strong>. A vicious cycle is when one problem makes another problem worse, which in turn makes the first problem worse, creating a downward spiral.</p>
+        
+        <div class="callout callout-blue">
+            <h3>What This Tool Does</h3>
+            <p>This tool guides you through a structured process to gather community knowledge, map vicious cycles, identify intervention points, evaluate which interventions make sense, and lock in gains by building mutually reinforcing success.</p>
+        </div>
+        
+        <div style="margin-top: var(--spacing-lg);">
+            <h3>Who This Tool Is For</h3>
+            <p>Community groups, NGO practitioners, and local leaders facing interconnected environmental and social challenges.</p>
+            
+            <h3 style="margin-top: var(--spacing-md);">Time Required</h3>
+            <p>Multiple sessions over 2-4 weeks, depending on community size and complexity.</p>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="recognize">
+        <div class="section-header">
+            <h4>Part 1: Recognize It</h4>
+            <h2>Identifying Vicious Cycles</h2>
+            <p style="font-size: 1.25rem; color: var(--color-medium); max-width: 800px;">Diagnose the Problem: Identify the circular patterns driving decline and the leverage points where intervention can reverse them.</p>
+        </div>
+        
+        <p>As you prepare to map your situation, these are the key patterns to look for. Understanding these dynamics will help you see how problems connect and reinforce each other, leading to crisis.</p>
+        
+        <h3 style="margin-top: var(--spacing-lg);">What to Look For:</h3>
+        
+        <div class="step-grid">
+            <div class="step-card">
+                <h4>Interconnected Problems</h4>
+                <p>Are you facing multiple problems that seem related rather than isolated issues? For example, not just "fewer fish" but also "damaged coral reefs," "fishers increasingly using destructive methods," and "declining income."</p>
+            </div>
+            
+            <div class="step-card">
+                <h4>Progressive Worsening Over Time</h4>
+                <p>Have problems gotten worse year by year, or even accelerated? This suggests reinforcing cycles at work rather than random fluctuations.</p>
+            </div>
+            
+            <div class="step-card">
+                <h4>A Shift from a Better Past</h4>
+                <p>Can community elders remember when things were different—when fish were more plentiful, forests were healthier, water was more accessible? Understanding what changed is crucial.</p>
+            </div>
+            
+            <div class="step-card">
+                <h4>The "Trigger" or Initial Change</h4>
+                <p>Was there a specific action or event that started the decline? This could be a new technology introduced or an old one abandoned, a change in land management or ownership, policy changes, population growth, or other pressures.</p>
+            </div>
+            
+            <div class="step-card">
+                <h4>Circular Patterns of Cause and Effect</h4>
+                <p>Do you see situations where Problem A worsens Problem B, which worsens Problem C, which then worsens Problem A again? These feedback loops are the hallmark of vicious cycles, and are what must be reversed.</p>
+            </div>
+            
+            <div class="step-card">
+                <h4>Thresholds or Tipping Points</h4>
+                <p>Have there been moments when the situation suddenly got much worse? Or are you worried about crossing a point of no return?</p>
+            </div>
+        </div>
+        
+        <div class="placeholder-box">
+            [Visual Diagram: Simple Vicious Cycle — For Placement Only]
+        </div>
+        
+        <div class="example-box">
+            <h4>Example: Apo Island, Philippines</h4>
+            <p>Community members could see <strong>interconnected problems</strong>: declining fish catches, damaged coral reefs from dynamite and cyanide fishing, and increasing poverty. Elders remembered when the reefs were healthy and fish were abundant.</p>
+            
+            <p>The <strong>trigger</strong> was the introduction of destructive fishing methods. This created a <strong>vicious cycle</strong>: destructive fishing methods → reef damage → fewer fish → more destructive fishing methods → more reef damage.</p>
+            
+            <p>A <strong>threshold</strong> was reached when fishermen could no longer make a living from the island fishing grounds, and had to move further from home to find fish. This only created new <strong>vicious cycles amplifying the first</strong>, because fishing further away → less incentive to protect fishery → more destructive fishing methods → more reef damage → fewer fish.</p>
+            
+            <p>Eventually, there was nowhere close by with adequate fish, and their community faced collapse.</p>
+        </div>
+    </section>
+
+    <section class="section" id="map">
+        <div class="section-header">
+            <h4>Part 2: Map It</h4>
+            <h2>Understanding Your Vicious Cycles</h2>
+            <p style="font-size: 1.25rem; color: var(--color-medium); max-width: 800px;">Create a diagram showing the feedback loops that have been driving decline in your community.</p>
+        </div>
+        
+        <p>This section provides step-by-step guidance for bringing the community together to understand what's causing their problems. You'll create a boxes-and-arrows diagram showing the feedback loops that have been driving decline.</p>
+        
+        <div style="margin-top: var(--spacing-lg);">
+            <div class="step-number">01</div>
+            <h3>Convene Your Mapping Group</h3>
+            
+            <h4 style="margin-top: var(--spacing-md);">Who to Include:</h4>
+            <ul>
+                <li>Elders who remember how the situation developed over time</li>
+                <li>Women who often hold passed-down knowledge and may observe different aspects of community life</li>
+                <li>Young people who understand current realities and possibilities</li>
+                <li>People from different roles in the community (farmers, fishers, merchants, etc.)</li>
+                <li>If you're an outside NGO, include diverse community members in this process</li>
+                <li>People with a history of community service</li>
+            </ul>
+            
+            <h4 style="margin-top: var(--spacing-md);">How to Convene:</h4>
+            <ul>
+                <li>Meet in a neutral, accessible space where all participants feel comfortable</li>
+                <li>Plan for 2-3 hours for initial mapping session</li>
+                <li>Ensure language and format work for all participants</li>
+                <li>Consider whether mixed-gender or separate groups work better in your context</li>
+            </ul>
+            
+            <div class="sidebar">
+                <h4>Ingredient: Building Shared Vision</h4>
+                <p>This process of gathering diverse community members to understand your situation together isn't just about analysis—it's building shared vision and commitment. When people participate in mapping the problem, they develop a common understanding and ownership of solutions.</p>
+            </div>
+        </div>
+        
+        <div style="margin-top: var(--spacing-xl);">
+            <div class="step-number">02</div>
+            <h3>Start With the Story</h3>
+            
+            <div class="callout">
+                <h3>First Question</h3>
+                <p><strong>Think back to the very first action or activity that began to set the decline in motion.</strong> This is what we call the "negative tipping point lever"—the trigger that started things going in the wrong direction.</p>
+            </div>
+            
+            <h4>Additional Guiding Questions:</h4>
+            <ul>
+                <li>What was different before this change happened?</li>
+                <li>When did you first notice things getting worse?</li>
+                <li>What else changed around that time?</li>
+            </ul>
+            
+            <h4 style="margin-top: var(--spacing-md);">Process:</h4>
+            <ul>
+                <li>Have participants share stories and memories</li>
+                <li>One person should capture key points (use large paper visible to all, or Post-it notes)</li>
+                <li>Look for: triggering events, changes in behavior, environmental shifts, outside pressures</li>
+                <li>Don't worry about getting everything perfect—you'll refine as you go</li>
+            </ul>
+            
+            <div class="example-box">
+                <h4>Example: Apo Island</h4>
+                <p>On Apo Island in the Philippines, elders remembered when fish were plentiful and coral reefs were healthy. The negative tipping point lever was the combination of population growth and the introduction of destructive fishing methods like dynamite and cyanide fishing in the 1970s and 1980s.</p>
+            </div>
+        </div>
+        
+        <div style="margin-top: var(--spacing-xl);">
+            <div class="step-number">03</div>
+            <h3>Map the First Feedback Loop</h3>
+            
+            <div class="callout callout-blue">
+                <h3>Key Question</h3>
+                <p>What happened in the ecosystem or community to form a circular chain of effects—a feedback loop—that kept the decline going?</p>
+            </div>
+            
+            <h4>Process:</h4>
+            <ol>
+                <li>Start with the trigger/negative tipping point lever you identified</li>
+                <li>Ask: What did this cause or make worse?</li>
+                <li>Then: What did that cause or make worse?</li>
+                <li>Continue until you complete a circle back to something that reinforces the original problem</li>
+                <li>Draw this as boxes (the problems/factors) connected by arrows (showing what affects what)</li>
+            </ol>
+            
+            <p style="margin-top: var(--spacing-md);"><strong>The boxes in your diagram represent:</strong></p>
+            <ul>
+                <li>The tipping point lever (the trigger)</li>
+                <li>The "bottom line" (the main problem you're trying to solve, like declining fish stocks or degraded forest)</li>
+                <li>Any ecosystem or community elements that complete the feedback loop</li>
+            </ul>
+            
+            <p style="margin-top: var(--spacing-md);"><strong>Arrows between boxes show what affects what.</strong></p>
+            
+            <div class="placeholder-box">
+                [Visual Diagram: Apo Island First Feedback Loop — For Placement Only]
+            </div>
+            
+            <div class="example-box">
+                <h4>Example: Apo Island — First Feedback Loop</h4>
+                <p><strong>Destructive fishing methods</strong> (negative tipping point lever) →<br>
+                <strong>Coral reefs damaged</strong> →<br>
+                <strong>Fish breeding grounds destroyed</strong> →<br>
+                <strong>Declining fish stocks</strong> (bottom line) →<br>
+                <strong>Fishers use even more destructive methods</strong> to catch remaining fish</p>
+                <p>[cycle repeats and intensifies]</p>
+            </div>
+        </div>
+        
+        <div style="margin-top: var(--spacing-xl);">
+            <div class="step-number">04</div>
+            <h3>Add Reinforcing Feedback Loops</h3>
+            
+            <div class="callout callout-blue">
+                <h3>Key Question</h3>
+                <p>What happened after that to intensify the decline even more?</p>
+            </div>
+            
+            <p><strong>Process:</strong> Look for additional circular chains of effects that reinforced the first feedback loop. Add more boxes and arrows to your diagram to show how the decline expanded or accelerated.</p>
+            
+            <p>You may find:</p>
+            <ul>
+                <li>Second-order effects (the decline caused other problems that made things worse)</li>
+                <li>Social dynamics that reinforced environmental decline</li>
+                <li>Economic pressures that developed as a result</li>
+                <li>Multiple reinforcing loops working together</li>
+            </ul>
+            
+            <div class="placeholder-box">
+                [Visual Diagram: Apo Island Reinforcing Loops — For Placement Only]
+            </div>
+            
+            <div class="example-box">
+                <h4>Example: Apo Island — Adding Reinforcing Loops</h4>
+                <p>The first loop was reinforced by economic and social dynamics:</p>
+                <p><strong>Declining catches</strong> → <strong>Reduced income</strong> → <strong>Economic desperation</strong> → <strong>More intensive use of destructive methods</strong> → <strong>Further reef damage</strong></p>
+                <p>And another loop:</p>
+                <p><strong>Fishers traveling farther</strong> → <strong>Less time protecting local waters</strong> → <strong>Reduced community cohesion</strong> → <strong>Weaker informal rules</strong> → <strong>More destructive fishing</strong></p>
+            </div>
+        </div>
+        
+        <div class="placeholder-box" style="margin-top: var(--spacing-lg);">
+            [Downloadable Resource: Blank Mapping Template — For Placement Only]
+        </div>
+    </section>
+
+    <section class="section section-alt" id="reverse">
+        <div class="section-header">
+            <h4>Part 3: Reverse It</h4>
+            <h2>Breaking the Cycle</h2>
+            <p style="font-size: 1.25rem; color: var(--color-medium); max-width: 800px;">Identify leverage points and design interventions that can reverse vicious cycles into virtuous ones.</p>
+        </div>
+        
+        <p>Now that you understand the vicious cycles driving decline, it's time to identify where you can intervene to reverse them. The goal is to find actions that can break the negative feedback loops and start positive ones.</p>
+        
+        <div style="margin-top: var(--spacing-lg);">
+            <div class="step-number">01</div>
+            <h3>Identify Potential Leverage Points</h3>
+            
+            <p>Look at your vicious cycle diagram and ask:</p>
+            
+            <h4 style="margin-top: var(--spacing-md);">Where could you intervene?</h4>
+            <ul>
+                <li>Which connections between problems could be broken?</li>
+                <li>Which elements could be replaced with positive alternatives?</li>
+                <li>Where is the community ready and able to act?</li>
+                <li>Are there examples from other communities that succeeded?</li>
+            </ul>
+            
+            <h4 style="margin-top: var(--spacing-md);">What resources or support do you have access to?</h4>
+            <ul>
+                <li>Community skills and knowledge</li>
+                <li>Natural resources that could regenerate</li>
+                <li>Traditional practices that worked in the past</li>
+                <li>Outside support (NGOs, government programs, etc.)</li>
+                <li>Economic opportunities tied to restoration</li>
+            </ul>
+            
+            <div class="sidebar">
+                <h4>Ingredient: Community Resolve</h4>
+                <p>The evaluation process helps surface whether you have the resolve needed. If community support seems low for a crucial intervention, that's valuable information—you may need to build resolve first through education and dialogue.</p>
+            </div>
+        </div>
+        
+        <div style="margin-top: var(--spacing-xl);">
+            <div class="step-number">02</div>
+            <h3>Envision the Positive Flip</h3>
+            
+            <p>For each potential intervention point, imagine what success would look like:</p>
+            
+            <ul>
+                <li>If this intervention works, what positive changes would ripple through the system?</li>
+                <li>Could it create new positive feedback loops that reinforce themselves?</li>
+                <li>How would the boxes and arrows in your diagram change?</li>
+            </ul>
+            
+            <div class="example-box">
+                <h4>Example: Apo Island</h4>
+                <p>When they created the marine sanctuary:</p>
+                <p><strong>Fish stocks recovered</strong> → <strong>More fish spilled over to fishing areas</strong> → <strong>Catches improved</strong> → <strong>Community saw benefits</strong> → <strong>More support for protection</strong> → <strong>Stronger enforcement</strong> → <strong>Better recovery</strong></p>
+                <p>[virtuous cycle]</p>
+            </div>
+            
+            <div class="placeholder-box">
+                [Visual Diagram: Virtuous Cycle — For Placement Only]
+            </div>
+        </div>
+        
+        <div style="margin-top: var(--spacing-xl);">
+            <div class="step-number">03</div>
+            <h3>Evaluate Feasibility and Impact</h3>
+            
+            <p>The positive tipping point lever consists of the actions taken to reverse those elements plus the environmental technology used for those actions and the community organization to make the technologies and actions effective.</p>
+            
+            <p>For each potential intervention, work through these questions as a group:</p>
+            
+            <h4 style="margin-top: var(--spacing-md);">Impact Questions:</h4>
+            <ul>
+                <li>How big a change could this make?</li>
+                <li>Does it address a root cause or just a symptom?</li>
+                <li>Will social and environmental gains go hand in hand?</li>
+                <li>Could it trigger positive reinforcement?</li>
+                <li>Is it powerful enough to reverse the bottom line?</li>
+            </ul>
+            
+            <h4 style="margin-top: var(--spacing-md);">Feasibility Questions:</h4>
+            <ul>
+                <li>What resources would this require? (money, time, skills, materials)</li>
+                <li>Do we have community support for this?</li>
+                <li>What obstacles might we face? (social, political, economic)</li>
+                <li>Do we have (or can we get) what we need to try this?</li>
+            </ul>
+            
+            <h4 style="margin-top: var(--spacing-md);">Risk Questions:</h4>
+            <ul>
+                <li>What could go wrong?</li>
+                <li>Are there unintended consequences we should consider?</li>
+                <li>Is this reversible if it doesn't work?</li>
+                <li>Will there be pushback from other entities?</li>
+                <li>Will there be encroachment or takeover from other entities?</li>
+            </ul>
+            
+            <div class="callout">
+                <h3>Process Tool: Simple Comparison Matrix</h3>
+                <ul>
+                    <li>List potential interventions down the left side</li>
+                    <li>Use columns for: Potential Impact (High/Medium/Low), Resource Needs, Community Support, Major Obstacles</li>
+                    <li>Fill in together as a group</li>
+                    <li>Discuss patterns and tradeoffs</li>
+                </ul>
+            </div>
+            
+            <div class="placeholder-box">
+                [Downloadable Resource: Evaluation Matrix Template — For Placement Only]
+            </div>
+        </div>
+        
+        <div style="margin-top: var(--spacing-xl);">
+            <div class="step-number">04</div>
+            <h3>Choose Your Starting Point</h3>
+            
+            <p><strong>You don't need perfect information to begin.</strong> Based on your evaluation:</p>
+            
+            <ul>
+                <li>Which 1-3 interventions seem most promising?</li>
+                <li>Is there a logical sequence? (some things need to happen before others)</li>
+                <li>Can you start with something achievable to build momentum?</li>
+            </ul>
+            
+            <h4 style="margin-top: var(--spacing-md);">Remember:</h4>
+            <ul>
+                <li>You can try multiple interventions, especially if they reinforce each other</li>
+                <li>Starting with a smaller, achievable win can build the community resolve needed for bigger changes</li>
+                <li>You'll learn by trying—your understanding will improve as you act</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section" id="lock">
+        <div class="section-header">
+            <h4>Part 4: Lock It In</h4>
+            <h2>Building Mutually Reinforcing Success</h2>
+            <p style="font-size: 1.25rem; color: var(--color-medium); max-width: 800px;">Sustain and Scale: Design for lasting change that reinforces itself and spreads to other communities.</p>
+        </div>
+        
+        <p>As ecosystem restoration proceeds, the next step is to lock in the gains and increase the sustainability of restoration by embarking on new enterprises that reinforce ecosystem restoration and integrate the restoration with the social fabric of the community.</p>
+        
+        <div class="callout callout-blue">
+            <h3>Key Concept</h3>
+            <p>Early success can die out if it's not built into the fabric of community life. Sustainability comes from creating multiple mutually reinforcing cycles that support each other.</p>
+        </div>
+        
+        <h3 style="margin-top: var(--spacing-lg);">Guiding Questions:</h3>
+        <ul>
+            <li>What new opportunities does initial success create?</li>
+            <li>How can benefits be shared broadly to build ongoing support?</li>
+            <li>What new activities or enterprises could build on this foundation?</li>
+            <li>How can this become "just the way things are done" rather than a special project?</li>
+        </ul>
+        
+        <div class="example-box">
+            <h4>Example: Apo Island</h4>
+            <p>Initial success (fish recovery) led to:</p>
+            <ul>
+                <li><strong>Marine tourism income</strong> → Funds for community → More resources for protection</li>
+                <li><strong>Educational programs</strong> → Pride in achievement → Stronger community identity</li>
+                <li><strong>Scientific recognition</strong> → Outside support → Enhanced credibility</li>
+            </ul>
+            <p>These multiple reinforcing cycles made the marine sanctuary permanent, not just a temporary project.</p>
+        </div>
+        
+        <h3 style="margin-top: var(--spacing-lg);">Process:</h3>
+        <ul>
+            <li>Revisit this 6-12 months after initial interventions</li>
+            <li>Map the new positive cycles that are emerging</li>
+            <li>Identify opportunities to strengthen and multiply them</li>
+            <li>Look for ways to institutionalize success (community rules, new traditions, ongoing activities)</li>
+        </ul>
+        
+        <div class="sidebar">
+            <h4>Ingredient: Success Breeds Success</h4>
+            <p>This is where the "success breeds success" dynamic becomes crucial. Initial wins create opportunities, resources, and motivation for further positive change.</p>
+        </div>
+        
+        <div class="placeholder-box">
+            [Visual Diagram: Mutually Reinforcing Success Cycles — For Placement Only]
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="section-header">
+            <h2>Resources & Next Steps</h2>
+        </div>
+        
+        <div class="callout">
+            <h3>Tools and Templates</h3>
+            <ul>
+                <li>Downloadable mapping template (PDF)</li>
+                <li>Evaluation matrix worksheet</li>
+                <li>Facilitator's guide</li>
+                <li>Video tutorials</li>
+            </ul>
+        </div>
+        
+        <h3 style="margin-top: var(--spacing-lg);">For Deeper Learning:</h3>
+        <ul>
+            <li>Introduction to systems thinking concepts</li>
+            <li>Case studies of community-led systems analysis</li>
+            <li>Resources on participatory rural appraisal</li>
+        </ul>
+        
+        <h3 style="margin-top: var(--spacing-md);">When to Seek Outside Help:</h3>
+        <p>If your situation involves complex technical systems (water infrastructure, forest ecology), consider engaging technical advisors. This tool can help you ask better questions of experts and integrate their advice with community knowledge.</p>
+        
+        <div style="margin-top: var(--spacing-lg); display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="#" class="btn btn-primary">Download Full Toolkit</a>
+            <a href="#" class="btn btn-secondary">Explore Success Stories</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <h4>EcoTipping Points</h4>
+            <p>Transforming ecosystems through community-led systemic change. Learn more about our framework and explore success stories from around the world.</p>
+            <p style="margin-top: var(--spacing-md); opacity: 0.7;">© 2026 EcoTipping Points. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const dropdownToggles = document.querySelectorAll('.has-dropdown > a');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+        
+        // Mobile dropdown toggle
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    toggle.parentElement.classList.toggle('active');
+                }
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.navbar')) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
