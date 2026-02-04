@@ -10,6 +10,9 @@
     --color-blue-4: hsl(200, 50%, 12%);
     --color-blue-5: hsl(200, 50%, 8%);
 
+    /* Dark turquoise for heroes */
+    --color-teal-dark: hsl(175, 45%, 18%);
+
     /* Eggshell/cream scale */
     --color-eggshell-1: hsl(55, 62%, 94%);
     --color-eggshell-2: hsl(55, 62%, 89%);
@@ -503,7 +506,7 @@ li {
 
 /* Hero */
 .hero {
-    background-color: var(--color-blue-4);
+    background-color: var(--color-teal-dark);
     color: var(--color-eggshell-1);
     padding: var(--space-3xl) var(--space-lg);
     position: relative;
@@ -542,7 +545,7 @@ li {
 
 /* Page Header */
 .page-header {
-    background-color: var(--color-blue-4);
+    background-color: var(--color-teal-dark);
     color: var(--color-eggshell-1);
     padding: var(--space-3xl) var(--space-lg) var(--space-xl);
 }
