@@ -1083,6 +1083,17 @@ li {
     border-radius: 50%;
 }
 
+.checklist li strong {
+    display: block;
+    color: var(--text-primary);
+    margin-bottom: var(--space-xs);
+}
+
+.checklist li p {
+    margin: 0;
+    font-size: var(--font-sm);
+}
+
 /* Placeholder */
 .placeholder-box {
     background-color: var(--background-tertiary);
