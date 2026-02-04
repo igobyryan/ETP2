@@ -827,6 +827,118 @@ li {
     color: var(--text-tertiary);
 }
 
+/* ==============================================
+   ACCORDION STYLES
+   ============================================== */
+
+.accordion-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-top: var(--space-lg);
+}
+
+.accordion {
+    background-color: var(--background-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.accordion summary {
+    padding: var(--space-md) var(--space-lg);
+    font-size: var(--text-base);
+    font-weight: 500;
+    color: var(--text-primary);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color var(--transition-fast);
+}
+
+.accordion summary::-webkit-details-marker {
+    display: none;
+}
+
+.accordion summary::after {
+    content: '+';
+    font-size: var(--text-xl);
+    font-weight: 300;
+    color: var(--color-accent);
+    transition: transform var(--transition-fast);
+}
+
+.accordion[open] summary::after {
+    content: '−';
+}
+
+.accordion summary:hover {
+    background-color: var(--background-tertiary);
+}
+
+.accordion-content {
+    padding: 0 var(--space-lg) var(--space-lg);
+}
+
+.accordion-content p {
+    margin-bottom: var(--space-sm);
+}
+
+.accordion-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Nested accordions (for strategy items) */
+.accordion-nested {
+    background-color: var(--background-tertiary);
+    margin-top: var(--space-md);
+}
+
+.accordion-nested summary {
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--text-sm);
+    color: var(--color-accent);
+}
+
+.accordion-nested .accordion-content {
+    padding: 0 var(--space-md) var(--space-md);
+}
+
+/* Strategy list styling */
+.strategy-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    margin-top: var(--space-lg);
+}
+
+.strategy-item {
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.strategy-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.strategy-item h4 {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.strategy-item p {
+    margin-bottom: var(--space-sm);
+}
+
+.strategy-item p:last-of-type {
+    margin-bottom: 0;
+}
+
 /* Cards - with hover scale */
 .card-grid {
     display: grid;
