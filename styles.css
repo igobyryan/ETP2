@@ -1716,9 +1716,20 @@ input:focus-visible {
     margin: var(--space-2xl) 0;
 }
 
+.story-diagrams-stacked {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+}
+
 .story-diagrams .placeholder-box {
     padding: var(--space-2xl);
     font-size: var(--text-sm);
+}
+
+/* Portrait video embed (9:16 aspect ratio) */
+.video-embed-portrait {
+    padding-bottom: 177.78%; /* 16/9 * 100 for portrait */
+    max-width: 350px;
 }
 
 @media (max-width: 48rem) {
