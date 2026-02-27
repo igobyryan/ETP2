@@ -1302,6 +1302,7 @@ li {
         align-items: flex-start;
         transition: right 0.3s var(--ease-out);
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .nav-links.active {
@@ -1319,9 +1320,10 @@ li {
     }
 
     .dropdown-menu {
-        position: static;
-        transform: none;
-        min-width: 100%;
+        position: static !important;
+        transform: none !important;
+        min-width: 0 !important;
+        width: 100%;
         max-height: 0;
         overflow: hidden;
         opacity: 0;
@@ -1338,11 +1340,20 @@ li {
     }
 
     .has-dropdown.active .dropdown-menu {
-        max-height: 1000px;
+        max-height: none;
         opacity: 1;
         pointer-events: all;
         padding: var(--space-md);
         margin-bottom: var(--space-md);
+        overflow: visible;
+    }
+
+    .dropdown-section {
+        margin-bottom: var(--space-md);
+    }
+
+    .dropdown-section:last-child {
+        margin-bottom: 0;
     }
 
     .card-grid {
