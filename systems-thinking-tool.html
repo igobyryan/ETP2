@@ -368,18 +368,7 @@
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">EcoTipping Points</a>
-            <ul class="nav-links">
-                <li><a href="#overview">Overview</a></li>
-                <li><a href="#recognize">Recognize</a></li>
-                <li><a href="#map">Map</a></li>
-                <li><a href="#reverse">Reverse</a></li>
-                <li><a href="#lock">Lock In</a></li>
-            </ul>
-        </div>
-    </nav>
+    <script src="nav.js"></script>
 
     <section class="hero">
         <div class="hero-content">
@@ -841,34 +830,5 @@
             <p style="margin-top: var(--spacing-md); opacity: 0.7;">© 2026 EcoTipping Points. All rights reserved.</p>
         </div>
     </footer>
-    <script>
-        // Mobile menu toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        const dropdownToggles = document.querySelectorAll('.has-dropdown > a');
-        
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-        
-        // Mobile dropdown toggle
-        dropdownToggles.forEach(toggle => {
-            toggle.addEventListener('click', (e) => {
-                if (window.innerWidth <= 768) {
-                    e.preventDefault();
-                    toggle.parentElement.classList.toggle('active');
-                }
-            });
-        });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.navbar')) {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-            }
-        });
-    </script>
 </body>
 </html>
