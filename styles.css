@@ -315,20 +315,18 @@ li {
     padding: 0 var(--space-lg);
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: flex-end;
 }
 
 .logo {
-    font-size: var(--text-sm);
-    line-height: 1;
     text-decoration: none;
+    margin-bottom: var(--space-sm);
 }
 
 .logo img {
-    height: 2em;
+    height: 28px;
     width: auto;
-    display: inline-block;
-    vertical-align: -0.55em;
+    display: block;
 }
 
 .logo:hover {
