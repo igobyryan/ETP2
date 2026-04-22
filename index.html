@@ -3,81 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoTipping Points - Transforming Ecosystems</title>
+    <title>EcoTipping Points</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .home-hero {
+            padding: var(--space-3xl) var(--space-lg);
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .home-hero p {
+            font-size: var(--text-lg);
+            color: var(--text-secondary);
+            max-width: 44rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .toolkit-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--space-lg) var(--space-3xl);
+        }
+
+        .toolkit-tile {
+            background-color: var(--background-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: var(--space-xl);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .toolkit-tile h3 {
+            font-family: var(--font-sans);
+            font-size: var(--text-base);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .toolkit-tile p {
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+            flex: 1;
+        }
+
+        .toolkit-tile a {
+            font-size: var(--text-sm);
+            font-weight: 500;
+            color: var(--color-accent);
+            text-decoration: none;
+        }
+
+        .toolkit-tile a:hover {
+            text-decoration: underline;
+        }
+
+        .home-cta {
+            border-top: 1px solid var(--border-color);
+            padding: var(--space-2xl) var(--space-lg);
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .home-cta a {
+            display: inline-block;
+        }
+
+        @media (max-width: 768px) {
+            .toolkit-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <script src="nav.js"></script>
 
+    <div class="home-hero">
+        <p>This toolkit gives facilitating organizations a practical framework for community-scale ecological restoration, grounded in systems thinking and field experience across the rural Global South.</p>
+    </div>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Transforming Ecosystems, Empowering Communities</h1>
-            <p>Discover how communities around the world are reversing environmental decline through systems thinking and community-led action.</p>
-            <div class="button-group">
-                <a href="systems-thinking-overview.html" class="btn btn-primary">Explore the Toolkit</a>
-                <a href="#" class="btn btn-outline btn-outline-light">Success Stories</a>
-            </div>
+    <div class="toolkit-grid">
+        <div class="toolkit-tile">
+            <h3>Systems Thinking</h3>
+            <p>A four-part framework for understanding how ecological decline happens and how to reverse it: recognize the pattern, map the causes, find the levers, tip the system back toward health.</p>
+            <a href="systems-thinking-overview.html">Explore Systems Thinking &rarr;</a>
         </div>
-    </section>
+        <div class="toolkit-tile">
+            <h3>Ingredients for Success</h3>
+            <p>Ten conditions that separated restoration efforts that lasted from those that didn't. Use these to assess what's present, what needs building, and what to work around.</p>
+            <a href="ingredients-overview.html">Explore the Ingredients &rarr;</a>
+        </div>
+        <div class="toolkit-tile">
+            <h3>Community Sessions</h3>
+            <p>Facilitation guides for leading a community through planning and implementing a successful restoration effort.</p>
+            <a href="community-sessions.html">Explore the Sessions &rarr;</a>
+        </div>
+    </div>
 
-    <section class="section section-alt">
-        <div class="section-header">
-            <h4>Featured Stories</h4>
-            <h2>Ecological Success in Action</h2>
-        </div>
-        
-        <div class="card-grid">
-            <div class="card">
-                <h3>Marine Reserve</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel mauris quam. Proin consequat sapien in massa consequat, vel bibendum tortor scelerisque.</p>
-                <a href="#" class="btn btn-secondary">Read Story</a>
-            </div>
-            
-            <div class="card">
-                <h3>Agro-Forestry</h3>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae.</p>
-                <a href="#" class="btn btn-secondary">Read Story</a>
-            </div>
-            
-            <div class="card">
-                <h3>Pesticide Trap</h3>
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores.</p>
-                <a href="#" class="btn btn-secondary">Read Story</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="callout">
-            <h3>The Ingredients for Success</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Curabitur hendrerit mauris eu sem bibendum, eget faucibus nisi hendrerit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
-            <a href="ingredients-overview.html" class="btn btn-primary">Explore the Framework</a>
-        </div>
-    </section>
-
-    <section class="section section-alt">
-        <div class="section-header">
-            <h4>Our Approach</h4>
-            <h2>Building Lasting Change</h2>
-        </div>
-        
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        
-        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        
-        <div style="margin-top: var(--spacing-md);">
-            <a href="#" class="btn btn-outline">Learn Our Methodology</a>
-        </div>
-    </section>
+    <div class="home-cta">
+        <a href="systems-thinking-overview.html" class="btn btn-primary">Get Started</a>
+    </div>
 
     <footer class="footer">
         <div class="footer-content">
-            <h4>Stay Connected</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Subscribe to receive updates about new stories and resources.</p>
+            <p>&copy; 2026 EcoTipping Points</p>
         </div>
     </footer>
 </body>

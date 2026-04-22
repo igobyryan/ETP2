@@ -450,9 +450,9 @@ li {
     background-color: var(--background-secondary);
     border: 1px solid var(--border-color);
     border-radius: var(--radius);
-    min-width: 520px;
+    min-width: 720px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: var(--space-lg);
     padding: var(--space-lg);
     opacity: 0;

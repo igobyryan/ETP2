@@ -24,6 +24,7 @@
                         </div>
                         <div class="dropdown-section">
                             <h4>Ingredients for Success</h4>
+                            <a href="ingredients-overview.html">Overview</a>
                             <a href="ingredient-outside-stimulation.html">Outside stimulation and facilitation</a>
                             <a href="ingredient-shared-awareness.html">Shared community awareness and commitment</a>
                             <a href="ingredient-harmony-ecosystem.html">Harmony between community and ecosystem</a>
