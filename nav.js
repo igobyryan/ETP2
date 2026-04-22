@@ -63,7 +63,7 @@
 
     document.currentScript.before(t.content);
 
-    document.addEventListener('DOMContentLoaded', function () {
+    function initNav() {
         var hamburger = document.querySelector('.hamburger');
         var navLinks = document.querySelector('.nav-links');
         var dropdownToggles = document.querySelectorAll('.has-dropdown > a');
@@ -95,14 +95,17 @@
         document.querySelectorAll('.story-carousel').forEach(function (carousel) {
             var track = carousel.querySelector('.carousel-track');
             var slides = carousel.querySelectorAll('.carousel-slide');
-            var prevBtn = carousel.querySelector('.carousel-btn:first-of-type');
-            var nextBtn = carousel.querySelector('.carousel-btn:last-of-type');
+            var navBtns = carousel.querySelectorAll('.carousel-btn');
+            var prevBtn = navBtns[0] || null;
+            var nextBtn = navBtns[navBtns.length - 1] || null;
             var dots = carousel.querySelectorAll('.carousel-dot');
             var current = 0;
             var total = slides.length;
 
+            if (!track || total === 0) return;
+
             function goTo(index) {
-                current = index;
+                current = Math.max(0, Math.min(index, total - 1));
                 track.style.transform = 'translateX(-' + (current * 100) + '%)';
                 dots.forEach(function (dot, i) {
                     dot.classList.toggle('active', i === current);
@@ -111,16 +114,8 @@
                 if (nextBtn) nextBtn.disabled = current === total - 1;
             }
 
-            if (prevBtn) {
-                prevBtn.addEventListener('click', function () {
-                    if (current > 0) goTo(current - 1);
-                });
-            }
-            if (nextBtn) {
-                nextBtn.addEventListener('click', function () {
-                    if (current < total - 1) goTo(current + 1);
-                });
-            }
+            if (prevBtn) prevBtn.addEventListener('click', function () { goTo(current - 1); });
+            if (nextBtn) nextBtn.addEventListener('click', function () { goTo(current + 1); });
             dots.forEach(function (dot) {
                 dot.addEventListener('click', function () {
                     goTo(parseInt(dot.dataset.index, 10));
@@ -129,5 +124,11 @@
 
             goTo(0);
         });
-    });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initNav);
+    } else {
+        initNav();
+    }
 }());
