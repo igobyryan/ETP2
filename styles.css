@@ -315,18 +315,19 @@ li {
     padding: 0 var(--space-lg);
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: baseline;
 }
 
 .logo {
     text-decoration: none;
-    margin-bottom: var(--space-sm);
+    line-height: 0;
 }
 
 .logo img {
     height: 28px;
     width: auto;
-    display: block;
+    display: inline-block;
+    margin-bottom: -6.65px;
 }
 
 .logo:hover {
