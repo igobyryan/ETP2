@@ -3,7 +3,7 @@
     t.innerHTML = `
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">EcoTipping Points</a>
+            <a href="index.html" class="logo"><img src="images/etp-logo.png" alt="EcoTipping Points"></a>
             <div class="hamburger">
                 <span></span>
                 <span></span>

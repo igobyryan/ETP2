@@ -319,17 +319,19 @@ li {
 }
 
 .logo {
-    font-family: var(--font-sans);
-    font-size: var(--text-lg);
-    font-weight: 600;
-    color: var(--text-primary);
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    letter-spacing: -0.02em;
     line-height: 1;
 }
 
+.logo img {
+    height: 28px;
+    width: auto;
+}
+
 .logo:hover {
-    color: var(--color-accent);
+    opacity: 0.8;
 }
 
 /* Subnav / Tab Navigation */

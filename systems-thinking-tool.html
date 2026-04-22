@@ -155,13 +155,19 @@
         }
         
         .logo {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--color-dark);
+            display: flex;
+            align-items: center;
             text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 0.02em;
+            line-height: 1;
+        }
+
+        .logo img {
+            height: 28px;
+            width: auto;
+        }
+
+        .logo:hover {
+            opacity: 0.8;
         }
         
         .nav-links {
