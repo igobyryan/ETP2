@@ -142,6 +142,9 @@ body {
     line-height: 1.6;
     color: var(--text-primary);
     background-color: var(--background-primary);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Typography */
@@ -1198,6 +1201,7 @@ li {
     color: var(--text-secondary);
     padding: var(--space-2xl) var(--space-lg);
     border-top: 1px solid var(--border-color);
+    margin-top: auto;
 }
 
 .footer-content {
