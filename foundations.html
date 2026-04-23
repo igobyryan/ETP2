@@ -96,5 +96,10 @@
     </section>
 
 
+    <script>
+        document.querySelectorAll('video').forEach(function(v) {
+            v.addEventListener('loadedmetadata', function() { v.currentTime = 0; });
+        });
+    </script>
 </body>
 </html>
