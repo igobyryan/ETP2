@@ -126,6 +126,11 @@
         });
     }
 
+    var footer = document.createElement('footer');
+    footer.className = 'footer';
+    footer.innerHTML = '<div class="footer-content"><p class="footer-tagline"><strong>EcoTipping Points:</strong> Transforming ecosystems through community-led systemic change.</p><nav class="footer-nav"><a href="#">About Us</a><a href="#">Contact Us</a></nav></div>';
+    document.body.appendChild(footer);
+
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initNav);
     } else {

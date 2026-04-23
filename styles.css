@@ -1202,7 +1202,7 @@ li {
 .footer {
     background-color: var(--background-secondary);
     color: var(--text-secondary);
-    padding: var(--space-2xl) var(--space-lg);
+    padding: var(--space-lg) var(--space-lg);
     border-top: 1px solid var(--border-color);
     margin-top: auto;
 }
@@ -1211,47 +1211,27 @@ li {
     max-width: var(--max-width);
     margin: 0 auto;
     display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2xl);
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-lg);
 }
 
-.footer-brand {
-    flex: 1 1 40%;
-}
-
-.footer-brand h1 {
-    font-size: var(--text-lg);
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: var(--space-sm);
-}
-
-.footer-brand h1:hover {
-    color: var(--color-accent);
-}
-
-.footer-brand p {
-    color: var(--text-tertiary);
-    max-width: 350px;
+.footer-tagline {
     font-size: var(--text-sm);
-}
-
-.footer-links {
-    flex: 1 1 20%;
-}
-
-.footer-links ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-links li {
-    margin-bottom: var(--space-sm);
-}
-
-.footer-links a {
     color: var(--text-secondary);
+    margin: 0;
+}
+
+.footer-nav {
+    display: flex;
+    gap: var(--space-lg);
+    flex-shrink: 0;
+}
+
+.footer-nav a {
     font-size: var(--text-sm);
+    color: var(--text-secondary);
+    white-space: nowrap;
 }
 
 .footer-links a:hover {
