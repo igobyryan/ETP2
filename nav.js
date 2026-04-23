@@ -56,7 +56,7 @@
                         </div>
                     </div>
                 </li>
-                <li><a href="#">Resources</a></li>
+                <li><a href="resources.html">Resources</a></li>
             </ul>
         </div>
     </nav>`;
