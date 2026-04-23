@@ -98,7 +98,8 @@
 
     <script>
         document.querySelectorAll('video').forEach(function(v) {
-            v.addEventListener('loadedmetadata', function() { v.currentTime = 0; });
+            v.load();
+            v.addEventListener('loadeddata', function() { this.currentTime = 0; });
         });
     </script>
 </body>
