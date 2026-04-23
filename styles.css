@@ -548,6 +548,9 @@ li {
 /* Page Header */
 .page-header {
     background-color: var(--color-teal-dark);
+    background-image: url('images/green_gradient_hero.png');
+    background-size: cover;
+    background-position: center;
     color: var(--color-eggshell-1);
     padding: var(--space-3xl) var(--space-lg) var(--space-xl);
 }
