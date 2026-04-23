@@ -218,6 +218,10 @@ p a:hover {
     text-decoration-color: var(--color-accent-hover);
 }
 
+h1 a, h2 a, h3 a, h4 a {
+    text-decoration: none;
+}
+
 ul, ol {
     margin-bottom: var(--space-md);
     padding-left: var(--space-lg);
@@ -560,6 +564,8 @@ li {
     background-position: center;
     color: var(--color-eggshell-1);
     padding: var(--space-3xl) var(--space-lg) var(--space-xl);
+    --color-accent: hsl(205, 80%, 75%);
+    --color-accent-hover: hsl(205, 80%, 85%);
 }
 
 .page-header-content {
