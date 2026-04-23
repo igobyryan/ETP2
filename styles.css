@@ -29,10 +29,14 @@
     --color-grey-4: hsl(200, 10%, 30%);
     --color-grey-5: hsl(200, 10%, 15%);
 
-    /* Accent */
-    --color-accent: hsl(208, 59%, 60%);
-    --color-accent-hover: hsl(208, 59%, 50%);
-    --color-accent-light: hsl(208, 59%, 90%);
+    /* Accent — globe blue */
+    --color-accent: hsl(210, 72%, 38%);
+    --color-accent-hover: hsl(210, 72%, 28%);
+    --color-accent-light: hsl(210, 72%, 92%);
+
+    /* Semantic UI tokens */
+    --color-primary: hsl(95, 28%, 33%);
+    --color-dark: var(--color-grey-5);
 
     /* Semantic colors - Light mode defaults */
     --background-primary: var(--color-white-2);
@@ -99,6 +103,9 @@
         --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
         --shadow-md: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
         --shadow-lg: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+        --color-accent: hsl(210, 72%, 58%);
+        --color-accent-hover: hsl(210, 72%, 68%);
+        --color-dark: var(--color-eggshell-1);
     }
 }
 
