@@ -96,20 +96,5 @@
     </section>
 
 
-    <script>
-        document.querySelectorAll('video').forEach(function(v) {
-            v.addEventListener('loadedmetadata', function() {
-                v.currentTime = 0;
-            });
-            v.addEventListener('seeking', function() {
-                if (v.currentTime > 0.5 && !v.dataset.userSeeked) {
-                    v.currentTime = 0;
-                }
-            });
-            v.addEventListener('play', function() {
-                v.dataset.userSeeked = 'true';
-            });
-        });
-    </script>
 </body>
 </html>
