@@ -9,112 +9,42 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        .home-hero {
-            padding: var(--space-3xl) var(--space-lg);
-            max-width: var(--max-width);
-            margin: 0 auto;
-        }
-
-        .home-hero p {
-            font-size: var(--text-lg);
-            color: var(--text-secondary);
-            max-width: 44rem;
-            line-height: 1.7;
-            margin: 0;
-        }
-
-        .toolkit-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-lg);
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 var(--space-lg) var(--space-3xl);
-        }
-
-        .toolkit-tile {
-            background-color: var(--background-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius);
-            padding: var(--space-xl);
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-md);
-        }
-
-        .toolkit-tile h3 {
-            font-family: var(--font-sans);
-            font-size: var(--text-base);
-            font-weight: 600;
-            color: var(--text-primary);
-            margin: 0;
-        }
-
-        .toolkit-tile p {
-            font-size: var(--text-sm);
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin: 0;
-            flex: 1;
-        }
-
-        .toolkit-tile a {
-            font-size: var(--text-sm);
-            font-weight: 500;
-            color: var(--color-accent);
-            text-decoration: none;
-        }
-
-        .toolkit-tile a:hover {
-            text-decoration: underline;
-        }
-
-        .home-cta {
-            border-top: 1px solid var(--border-color);
-            padding: var(--space-2xl) var(--space-lg);
-            max-width: var(--max-width);
-            margin: 0 auto;
-        }
-
-        .home-cta a {
-            display: inline-block;
-        }
-
-        @media (max-width: 768px) {
-            .toolkit-grid {
-                grid-template-columns: 1fr;
-            }
+        .page-header--compact {
+            padding: var(--space-xl) var(--space-lg);
         }
     </style>
 </head>
 <body>
     <script src="nav.js"></script>
 
-    <div class="home-hero">
-        <p>This toolkit gives facilitating organizations a practical framework for community-scale ecological restoration, grounded in systems thinking and field experience across the rural Global South.</p>
-    </div>
+    <section class="page-header page-header--compact">
+        <div class="page-header-content">
+            <h1>EcoTipping Points</h1>
+            <p class="intro">A practical toolkit for facilitating organizations working on community-scale ecological restoration, grounded in systems thinking and field experience across the rural Global South.</p>
+        </div>
+    </section>
 
-    <div class="toolkit-grid">
-        <div class="toolkit-tile">
-            <h3>Systems Thinking</h3>
-            <p>A four-part framework for understanding how ecological decline happens and how to reverse it: recognize the pattern, map the causes, find the levers, tip the system back toward health.</p>
-            <a href="systems-thinking-overview.html">Explore Systems Thinking &rarr;</a>
+    <section class="section">
+        <div class="content-block">
+            <div class="index-grid">
+                <a href="systems-thinking-overview.html" class="index-card">
+                    <div class="number">01</div>
+                    <h3>Systems Thinking</h3>
+                    <p>A four-part framework for understanding how ecological decline happens and how to reverse it: recognize the pattern, map the causes, find the levers, tip the system back toward health.</p>
+                </a>
+                <a href="ingredients-overview.html" class="index-card">
+                    <div class="number">02</div>
+                    <h3>Ingredients for Success</h3>
+                    <p>Ten conditions that separated restoration efforts that lasted from those that didn't. Use these to assess what's present, what needs building, and what to work around.</p>
+                </a>
+                <a href="community-sessions.html" class="index-card">
+                    <div class="number">03</div>
+                    <h3>Community Sessions</h3>
+                    <p>Facilitation guides for leading a community through planning and implementing a successful restoration effort.</p>
+                </a>
+            </div>
         </div>
-        <div class="toolkit-tile">
-            <h3>Ingredients for Success</h3>
-            <p>Ten conditions that separated restoration efforts that lasted from those that didn't. Use these to assess what's present, what needs building, and what to work around.</p>
-            <a href="ingredients-overview.html">Explore the Ingredients &rarr;</a>
-        </div>
-        <div class="toolkit-tile">
-            <h3>Community Sessions</h3>
-            <p>Facilitation guides for leading a community through planning and implementing a successful restoration effort.</p>
-            <a href="community-sessions.html">Explore the Sessions &rarr;</a>
-        </div>
-    </div>
-
-    <div class="home-cta">
-        <a href="systems-thinking-overview.html" class="btn btn-primary">Get Started</a>
-    </div>
+    </section>
 
 </body>
 </html>
