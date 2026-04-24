@@ -1477,6 +1477,12 @@ input:focus-visible {
     object-fit: cover;
 }
 
+.foundations-thumbnail iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
 .foundations-content {
     padding: var(--space-lg);
 }
