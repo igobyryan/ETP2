@@ -129,7 +129,7 @@
     function initFooter() {
         var footer = document.createElement('footer');
         footer.className = 'footer';
-        footer.innerHTML = '<div class="footer-content"><p class="footer-tagline"><span style="color: hsl(95, 28%, 33%);">v0.4.2 &middot; 6/1/26</span> &nbsp;&nbsp;&copy;2026 EcoTipping Points: Transforming ecosystems through community-led systemic change.</p><nav class="footer-nav"><a href="#">About Us</a><a href="#">Contact Us</a></nav></div>';
+        footer.innerHTML = '<div class="footer-content"><p class="footer-tagline"><span style="color: hsl(95, 28%, 33%);">v0.4.2 &middot; 6/9/26</span> &nbsp;&nbsp;&copy;2026 EcoTipping Points: Transforming ecosystems through community-led systemic change.</p><nav class="footer-nav"><a href="#">About Us</a><a href="#">Contact Us</a></nav></div>';
         document.body.appendChild(footer);
     }
 
