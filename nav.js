@@ -99,6 +99,7 @@
             var prevBtn = navBtns[0] || null;
             var nextBtn = navBtns[navBtns.length - 1] || null;
             var dots = carousel.querySelectorAll('.carousel-dot');
+            var counter = carousel.querySelector('.carousel-counter');
             var current = 0;
             var total = slides.length;
 
@@ -110,6 +111,7 @@
                 dots.forEach(function (dot, i) {
                     dot.classList.toggle('active', i === current);
                 });
+                if (counter) counter.textContent = 'Story ' + (current + 1) + ' of ' + total;
                 if (prevBtn) prevBtn.disabled = current === 0;
                 if (nextBtn) nextBtn.disabled = current === total - 1;
             }

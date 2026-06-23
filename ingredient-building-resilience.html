@@ -173,7 +173,17 @@
         <aside class="sidebar">
             <div class="sidebar-box highlight">
                 <h3>See It In Action</h3>
+                <div class="video-embed" style="margin-bottom: var(--space-lg);">
+                    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:var(--background-secondary);border-radius:var(--radius);border:2px dashed var(--border-color);">
+                        <span style="font-family:var(--font-mono);font-size:var(--text-sm);color:var(--text-tertiary);">FPO — Video</span>
+                    </div>
+                </div>
                 <div class="story-carousel" id="storyCarousel">
+                    <div class="carousel-controls" style="margin-top:0;padding-top:0;border-top:none;margin-bottom:var(--space-md);">
+                        <button class="carousel-btn" id="prevBtn" aria-label="Previous story">←</button>
+                        <span class="carousel-counter">Story 1 of 4</span>
+                        <button class="carousel-btn" id="nextBtn" aria-label="Next story">→</button>
+                    </div>
                     <div class="carousel-track">
                         <div class="carousel-slide">
                             <h4>Marine Sanctuary — Philippines</h4>
@@ -199,16 +209,6 @@
                             <p>The Gram Sabha councils (traditional village institutions revived alongside the physical restoration) provided the governance capacity to respond quickly and collectively to disruptions. The virtuous cycles that drove the restoration meant that the system became more resilient as it recovered, each gain reinforcing the next.</p>
                             <a href="story-gopalpura.html" class="btn btn-outline">Read Full Story →</a>
                         </div>
-                    </div>
-                    <div class="carousel-controls">
-                        <button class="carousel-btn" id="prevBtn" aria-label="Previous story">←</button>
-                        <div class="carousel-dots">
-                            <button class="carousel-dot active" data-index="0" aria-label="Story 1"></button>
-                            <button class="carousel-dot" data-index="1" aria-label="Story 2"></button>
-                            <button class="carousel-dot" data-index="2" aria-label="Story 3"></button>
-                            <button class="carousel-dot" data-index="3" aria-label="Story 4"></button>
-                        </div>
-                        <button class="carousel-btn" id="nextBtn" aria-label="Next story">→</button>
                     </div>
                 </div>
             </div>
