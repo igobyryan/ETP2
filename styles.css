@@ -1,112 +1,101 @@
-/* LAWS OF UX INSPIRED: Clean, accessible, dual-mode design */
+/* EcoTipping Points — Direction D (quieted) design system */
 
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 
 :root {
-    /* Blue scale */
-    --color-blue-1: hsl(200, 50%, 40%);
-    --color-blue-2: hsl(200, 50%, 30%);
-    --color-blue-3: hsl(200, 50%, 20%);
-    --color-blue-4: hsl(200, 50%, 12%);
-    --color-blue-5: hsl(200, 50%, 8%);
+    /* ---- Brand greens ---- */
+    --color-forest:        #21390f;
+    --color-forest-deep:   #1c2913;
+    --color-pine:          #2d5016;
+    --color-olive:         #4a5a3a;
+    --color-sage:          #aebb98;
 
-    /* Dark turquoise for heroes */
-    --color-teal-dark: hsl(175, 45%, 18%);
+    /* ---- Ink / neutrals (cool grey-green family) ---- */
+    --color-ink:           #262b26;
+    --color-slate:         #4d564e;
+    --color-mute:          #878f82;
 
-    /* Eggshell/cream scale */
-    --color-eggshell-1: hsl(55, 62%, 94%);
-    --color-eggshell-2: hsl(55, 62%, 89%);
-    --color-eggshell-3: hsl(55, 62%, 82%);
-    --color-eggshell-4: hsl(55, 62%, 70%);
-    --color-eggshell-5: hsl(55, 62%, 55%);
+    /* ---- Clay accent — the ONLY accent ---- */
+    --color-clay:          #9c5a2b;
+    --color-clay-hover:    #80471f;
+    --color-clay-tint:     #f0e6dd;
+    --color-gold:          #e2b53f;
 
-    /* Neutrals */
-    --color-white-1: hsl(0, 0%, 100%);
-    --color-white-2: hsl(55, 30%, 97%);
-    --color-grey-1: hsl(200, 10%, 90%);
-    --color-grey-2: hsl(200, 10%, 70%);
-    --color-grey-3: hsl(200, 10%, 50%);
-    --color-grey-4: hsl(200, 10%, 30%);
-    --color-grey-5: hsl(200, 10%, 15%);
+    /* ---- Grounds & surfaces ---- */
+    --color-ground:        #eaecea;
+    --color-surface:       #ffffff;
+    --color-surface-alt:   #f2f4f2;
+    --color-surface-foot:  #eef0ed;
+    --color-placeholder:   #dbe0db;
 
-    /* Accent — globe blue */
-    --color-accent: hsl(210, 72%, 38%);
-    --color-accent-hover: hsl(210, 72%, 28%);
-    --color-accent-light: hsl(210, 72%, 92%);
+    /* ---- Lines ---- */
+    --color-hairline:      #e4e7e3;
+    --color-rule:          #d9ddd7;
 
-    /* Semantic UI tokens */
-    --color-primary: hsl(95, 28%, 33%);
-    --color-dark: var(--color-grey-5);
+    /* ---- Semantic tokens ---- */
+    --color-accent:        var(--color-clay);
+    --color-accent-hover:  var(--color-clay-hover);
+    --color-accent-light:  var(--color-clay-tint);
 
-    /* Semantic colors - Light mode defaults */
-    --background-primary: var(--color-white-2);
-    --background-secondary: var(--color-white-1);
-    --background-tertiary: var(--color-eggshell-2);
-    --text-primary: var(--color-grey-5);
-    --text-secondary: var(--color-grey-4);
-    --text-tertiary: var(--color-grey-3);
-    --border-color: var(--color-grey-1);
-    --border-color-hover: var(--color-grey-2);
+    --color-primary:       var(--color-forest);
+    --color-dark:          var(--color-forest);
 
-    /* Typography */
-    --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-mono: 'IBM Plex Mono', 'SF Mono', 'Consolas', monospace;
+    --background-primary:   var(--color-ground);
+    --background-secondary: var(--color-surface);
+    --background-tertiary:  var(--color-surface-alt);
 
-    /* Type scale - fluid */
-    --text-xs: 0.75rem;
-    --text-sm: 0.875rem;
+    --text-primary:        var(--color-forest);
+    --text-secondary:      var(--color-slate);
+    --text-tertiary:       var(--color-mute);
+
+    --border-color:        var(--color-hairline);
+    --border-color-hover:  var(--color-rule);
+
+    --color-teal-dark:     var(--color-forest);
+
+    /* ---- Typography ---- */
+    --font-sans: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'Source Sans 3', sans-serif;
+
+    --text-xs:   0.75rem;
+    --text-sm:   0.9375rem;
     --text-base: 1rem;
-    --text-lg: 1.125rem;
-    --text-xl: clamp(1.25rem, 2vw, 1.5rem);
-    --text-2xl: clamp(1.5rem, 3vw, 2rem);
-    --text-3xl: clamp(2rem, 4vw, 2.75rem);
-    --text-4xl: clamp(2.5rem, 5vw, 3.5rem);
+    --text-lg:   1.25rem;
+    --text-xl:   clamp(1.25rem, 1.6vw, 1.4375rem);
+    --text-2xl:  clamp(1.625rem, 2.4vw, 1.875rem);
+    --text-3xl:  clamp(2rem, 3.4vw, 2.875rem);
+    --text-4xl:  clamp(2.5rem, 4.2vw, 3.5rem);
 
-    /* Spacing */
-    --space: 1rem;
-    --space-xs: calc(var(--space) * 0.25);
-    --space-sm: calc(var(--space) * 0.5);
-    --space-md: var(--space);
-    --space-lg: calc(var(--space) * 1.5);
-    --space-xl: calc(var(--space) * 2);
+    --tracking-heading: -0.02em;
+
+    /* ---- Spacing ---- */
+    --space:     1rem;
+    --space-xs:  calc(var(--space) * 0.25);
+    --space-sm:  calc(var(--space) * 0.5);
+    --space-md:  var(--space);
+    --space-lg:  calc(var(--space) * 1.5);
+    --space-xl:  calc(var(--space) * 2);
     --space-2xl: calc(var(--space) * 3);
-    --space-3xl: calc(var(--space) * 5);
+    --space-3xl: calc(var(--space) * 4);
 
-    /* Layout */
-    --max-width: 64rem;
+    /* ---- Layout ---- */
+    --max-width:        80rem;
     --max-width-narrow: 44rem;
 
-    /* Borders & Shadows */
-    --radius: 0.8rem;
-    --radius-sm: 0.4rem;
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 4px 8px 0 rgba(0, 0, 0, 0.12);
+    /* ---- Radii ---- */
+    --radius:      0.5rem;
+    --radius-sm:   0.375rem;
+    --radius-pill: 999px;
 
-    /* Transitions */
-    --ease-out: cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    /* ---- Shadows — minimal; hairlines do the structural work ---- */
+    --shadow-sm: none;
+    --shadow-md: 0 1px 2px rgba(33, 57, 15, 0.06);
+    --shadow-lg: 0 6px 24px rgba(33, 57, 15, 0.10);
+
+    /* ---- Motion ---- */
+    --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
     --transition-fast: 150ms var(--ease-out);
-    --transition-base: 250ms var(--ease-out);
-}
-
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background-primary: var(--color-blue-5);
-        --background-secondary: var(--color-blue-4);
-        --background-tertiary: var(--color-blue-3);
-        --text-primary: var(--color-eggshell-1);
-        --text-secondary: var(--color-eggshell-3);
-        --text-tertiary: var(--color-grey-2);
-        --border-color: var(--color-blue-3);
-        --border-color-hover: var(--color-blue-2);
-        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
-        --shadow-md: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
-        --shadow-lg: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
-        --color-accent: hsl(210, 72%, 58%);
-        --color-accent-hover: hsl(210, 72%, 68%);
-        --color-dark: var(--color-eggshell-1);
-    }
+    --transition-base: 240ms var(--ease-out);
 }
 
 /* Reset */
@@ -161,7 +150,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
     font-size: var(--text-4xl);
-    font-weight: 600;
+    font-weight: 700;
 }
 
 h2 {
@@ -267,14 +256,14 @@ li {
 
 .btn-primary {
     background-color: var(--color-accent);
-    color: var(--color-white-1);
+    color: #ffffff;
     border-color: var(--color-accent);
 }
 
 .btn-primary:hover {
     background-color: var(--color-accent-hover);
     border-color: var(--color-accent-hover);
-    color: var(--color-white-1);
+    color: #ffffff;
 }
 
 .btn-secondary {
@@ -298,14 +287,15 @@ li {
 }
 
 .btn-outline-light {
-    border-color: var(--color-eggshell-3);
-    color: var(--color-eggshell-1);
+    border-color: var(--color-sage);
+    color: #ffffff;
     background-color: transparent;
 }
 
 .btn-outline-light:hover {
-    background-color: var(--color-eggshell-1);
-    color: var(--color-blue-5);
+    background-color: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    border-color: #ffffff;
 }
 
 .button-group {
@@ -489,8 +479,8 @@ li {
     color: var(--text-tertiary);
     font-size: var(--text-xs);
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+    text-transform: none;
+    letter-spacing: 0;
     margin-bottom: var(--space-sm);
     padding-bottom: var(--space-sm);
     border-bottom: 1px solid var(--border-color);
@@ -525,7 +515,7 @@ li {
 /* Hero */
 .hero {
     background-color: var(--color-teal-dark);
-    color: var(--color-eggshell-1);
+    color: #ffffff;
     padding: var(--space-3xl) var(--space-lg);
     position: relative;
 }
@@ -536,7 +526,7 @@ li {
 }
 
 .hero h1 {
-    color: var(--color-eggshell-1);
+    color: #ffffff;
     max-width: 700px;
     margin-bottom: var(--space-lg);
 }
@@ -546,16 +536,16 @@ li {
     font-size: var(--text-lg);
     margin-bottom: var(--space-xl);
     line-height: 1.7;
-    color: var(--color-eggshell-3);
+    color: var(--color-sage);
 }
 
 /* Label / Eyebrow */
 .label {
-    font-family: var(--font-mono);
+    font-family: var(--font-sans);
     font-size: var(--text-xs);
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: 0;
     color: var(--color-accent);
     margin-bottom: var(--space-sm);
     display: block;
@@ -567,10 +557,8 @@ li {
     background-image: url('images/green_gradient_hero.png');
     background-size: cover;
     background-position: center;
-    color: var(--color-eggshell-1);
+    color: #ffffff;
     padding: var(--space-3xl) var(--space-lg) var(--space-xl);
-    --color-accent: hsl(205, 80%, 75%);
-    --color-accent-hover: hsl(205, 80%, 85%);
 }
 
 .page-header-content {
@@ -579,7 +567,7 @@ li {
 }
 
 .page-header h1 {
-    color: var(--color-eggshell-1);
+    color: #ffffff;
     max-width: 700px;
     margin-bottom: var(--space-md);
 }
@@ -588,7 +576,7 @@ li {
     max-width: 600px;
     font-size: var(--text-lg);
     line-height: 1.7;
-    color: var(--color-eggshell-3);
+    color: var(--color-sage);
 }
 
 /* Sections */
@@ -610,8 +598,8 @@ li {
 }
 
 .section-dark {
-    background-color: var(--color-blue-4);
-    color: var(--color-eggshell-1);
+    background-color: var(--color-forest);
+    color: #ffffff;
     max-width: none;
 }
 
@@ -624,24 +612,24 @@ li {
 .section-dark h2,
 .section-dark h3,
 .section-dark h4 {
-    color: var(--color-eggshell-1);
+    color: #ffffff;
 }
 
 .section-dark p {
-    color: var(--color-eggshell-3);
+    color: var(--color-sage);
 }
 
 .section-header {
     margin-bottom: var(--space-2xl);
-    text-align: center;
+    text-align: left;
 }
 
 .section-header h4 {
-    font-family: var(--font-mono);
+    font-family: var(--font-sans);
     font-size: var(--text-xs);
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: 0;
     color: var(--color-accent);
     margin-bottom: var(--space-sm);
 }
@@ -707,7 +695,7 @@ li {
 
 .callout-primary {
     background-color: var(--color-accent);
-    color: var(--color-white-1);
+    color: #ffffff;
     border-color: var(--color-accent);
     border-left-color: var(--color-accent-hover);
 }
@@ -715,23 +703,23 @@ li {
 .callout-primary h3,
 .callout-primary h4,
 .callout-primary p {
-    color: var(--color-white-1);
+    color: #ffffff;
 }
 
 .callout-dark {
-    background-color: var(--color-blue-4);
-    color: var(--color-eggshell-1);
-    border-color: var(--color-blue-3);
+    background-color: var(--color-forest);
+    color: #ffffff;
+    border-color: var(--color-olive);
     border-left-color: var(--color-accent);
 }
 
 .callout-dark h3,
 .callout-dark h4 {
-    color: var(--color-eggshell-1);
+    color: #ffffff;
 }
 
 .callout-dark p {
-    color: var(--color-eggshell-3);
+    color: var(--color-sage);
 }
 
 /* Sidebar Boxes */
@@ -747,8 +735,8 @@ li {
     color: var(--text-primary);
     font-size: var(--text-xs);
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+    text-transform: none;
+    letter-spacing: 0;
     margin-bottom: var(--space-sm);
 }
 
@@ -772,7 +760,7 @@ li {
 .sidebar-box .btn-outline-light:hover,
 .sidebar-box .btn-outline:hover {
     background-color: var(--color-accent);
-    color: var(--color-white-1);
+    color: #ffffff;
     border-color: var(--color-accent);
 }
 
@@ -808,7 +796,7 @@ li {
     width: 40px;
     height: 40px;
     background-color: var(--color-accent);
-    color: var(--color-white-1);
+    color: #ffffff;
     border: none;
     border-radius: var(--radius-sm);
     cursor: pointer;
@@ -819,7 +807,6 @@ li {
 
 .carousel-btn:hover {
     background-color: var(--color-accent-hover);
-    transform: scale(1.05);
 }
 
 .carousel-btn:disabled {
@@ -854,7 +841,7 @@ li {
 }
 
 .carousel-counter {
-    font-family: var(--font-mono);
+    font-family: var(--font-sans);
     font-size: var(--text-sm);
     color: var(--text-tertiary);
 }
@@ -989,8 +976,6 @@ li {
 }
 
 .card:hover {
-    box-shadow: var(--shadow-lg);
-    transform: scale(1.02);
     border-color: var(--border-color-hover);
 }
 
@@ -1027,15 +1012,13 @@ li {
 }
 
 .index-card:hover {
-    box-shadow: var(--shadow-lg);
-    transform: scale(1.02);
     border-color: var(--color-accent);
 }
 
 .index-card .number {
-    font-family: var(--font-mono);
+    font-family: var(--font-sans);
     font-size: var(--text-2xl);
-    font-weight: 500;
+    font-weight: 600;
     color: var(--color-accent);
     line-height: 1;
     margin-bottom: var(--space-sm);
@@ -1071,9 +1054,9 @@ li {
 }
 
 .stat-number {
-    font-family: var(--font-mono);
+    font-family: var(--font-sans);
     font-size: var(--text-4xl);
-    font-weight: 500;
+    font-weight: 600;
     color: var(--color-accent);
     line-height: 1;
     margin-bottom: var(--space-sm);
@@ -1083,8 +1066,8 @@ li {
     font-family: var(--font-sans);
     font-size: var(--text-xs);
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    text-transform: none;
+    letter-spacing: 0;
     color: var(--text-tertiary);
 }
 
@@ -1139,14 +1122,14 @@ li {
 
 /* Newsletter Section */
 .newsletter-section {
-    background-color: var(--color-blue-4);
-    color: var(--color-eggshell-1);
+    background-color: var(--color-forest);
+    color: #ffffff;
     padding: var(--space-3xl) var(--space-lg);
     text-align: center;
 }
 
 .newsletter-section h2 {
-    color: var(--color-eggshell-1);
+    color: #ffffff;
     font-size: var(--text-2xl);
     margin-bottom: var(--space-xl);
 }
@@ -1165,14 +1148,14 @@ li {
     padding: var(--space-md);
     font-size: var(--text-base);
     font-family: var(--font-sans);
-    background-color: var(--color-blue-5);
-    border: 1px solid var(--color-blue-3);
+    background-color: var(--color-forest-deep);
+    border: 1px solid var(--color-olive);
     border-radius: var(--radius-sm) 0 0 var(--radius-sm);
-    color: var(--color-eggshell-1);
+    color: #ffffff;
 }
 
 .newsletter-form input[type="email"]::placeholder {
-    color: var(--color-grey-3);
+    color: var(--color-sage);
 }
 
 .newsletter-form input[type="email"]:focus {
@@ -1188,7 +1171,7 @@ li {
     background-color: var(--color-accent);
     border: 1px solid var(--color-accent);
     border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-    color: var(--color-white-1);
+    color: #ffffff;
     cursor: pointer;
     transition: all var(--transition-fast);
 }
@@ -1200,7 +1183,7 @@ li {
 
 /* Footer */
 .footer {
-    background-color: var(--background-secondary);
+    background-color: var(--color-surface-foot);
     color: var(--text-secondary);
     padding: var(--space-lg) var(--space-lg);
     border-top: 1px solid var(--border-color);
@@ -1443,7 +1426,7 @@ input:focus-visible {
 /* Selection color */
 ::selection {
     background-color: var(--color-accent);
-    color: var(--color-white-1);
+    color: #ffffff;
 }
 
 /* ==============================================
@@ -1467,7 +1450,7 @@ input:focus-visible {
 
 .foundations-thumbnail {
     aspect-ratio: 16 / 9;
-    background-color: var(--color-blue-5);
+    background-color: var(--color-forest-deep);
 }
 
 .foundations-thumbnail video {
@@ -1629,7 +1612,7 @@ input:focus-visible {
     padding-bottom: 56.25%; /* 16:9 aspect ratio */
     height: 0;
     overflow: hidden;
-    background-color: var(--color-blue-5);
+    background-color: var(--color-forest-deep);
     border-radius: var(--radius);
 }
 
@@ -1748,17 +1731,15 @@ input:focus-visible {
 
 .related-card:hover {
     border-color: var(--color-accent);
-    box-shadow: var(--shadow-md);
-    transform: translateY(-2px);
 }
 
 .related-label {
     display: inline-block;
-    font-family: var(--font-mono);
+    font-family: var(--font-sans);
     font-size: var(--text-xs);
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: 0;
     color: var(--color-accent);
     margin-bottom: var(--space-sm);
 }
@@ -1810,7 +1791,22 @@ input:focus-visible {
     }
 
     .card:hover,
-    .index-card:hover {
+    .index-card:hover,
+    .related-card:hover {
         transform: none;
     }
+}
+
+@media print {
+    /* hide site chrome */
+    nav, header, footer, .sidebar, .related-ingredients { display: none !important; }
+
+    /* unhide all carousel slides, kill the dots */
+    .story-excerpt, .carousel-slide { display: block !important; position: static !important; opacity: 1 !important; }
+    .carousel-dots, .dot-nav { display: none !important; }
+
+    /* page break between major sections */
+    .ingredient-page, .story-section { page-break-before: always; }
+
+    body { background: white; }
 }
