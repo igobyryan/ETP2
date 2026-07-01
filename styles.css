@@ -1652,6 +1652,12 @@ input:focus-visible {
     margin: var(--space-2xl) 0;
 }
 
+.story-video video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 /* Responsive Video Embeds */
 .video-embed {
     position: relative;
