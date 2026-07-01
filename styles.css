@@ -1857,6 +1857,7 @@ input:focus-visible {
 .section-with-rail {
     display: flex;
     align-items: flex-start;
+    width: 100%;
     max-width: var(--max-width);
     margin: 0 auto;
 }
