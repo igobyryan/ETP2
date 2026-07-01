@@ -129,20 +129,64 @@
     }
 
     function initFooter() {
+        var F = "font-family:'Source Sans 3',sans-serif;";
+
+        function col(title, links) {
+            var items = links.map(function (l) {
+                return '<a href="' + l.href + '" style="' + F + 'display:block;font-size:14px;color:#4d564e;text-decoration:none;margin-bottom:9px;">' + l.text + '</a>';
+            }).join('');
+            return '<div><div style="' + F + 'font-size:11px;font-weight:600;color:#9c5a2b;margin-bottom:14px;">' + title + '</div>' + items + '</div>';
+        }
+
+        var upper =
+            '<div class="etp-foot-grid" style="max-width:1200px;margin:0 auto;padding:54px 52px 44px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;">' +
+                '<div>' +
+                    '<img src="images/etp-logo.png" alt="EcoTipping Points" style="height:26px;width:auto;display:block;margin-bottom:16px;">' +
+                    '<p style="' + F + 'font-size:16px;line-height:1.5;color:#4d564e;max-width:280px;margin:0;">A practical toolkit for facilitating community-scale ecological restoration, grounded in systems thinking and field experience.</p>' +
+                '</div>' +
+                col('The Toolkit', [
+                    { href: 'foundations.html', text: 'Foundations' },
+                    { href: 'systems-thinking-overview.html', text: 'Systems Thinking' },
+                    { href: 'ingredients-overview.html', text: 'Ingredients for Success' },
+                    { href: 'community-sessions.html', text: 'Community Sessions' }
+                ]) +
+                col('Success Stories', [
+                    { href: 'story-apo-island.html', text: 'Apo Island, Philippines' },
+                    { href: 'story-gopalpura.html', text: 'Gopalpura, India' },
+                    { href: 'story-khao-din.html', text: 'Khao Din, Thailand' },
+                    { href: 'story-punukula.html', text: 'Punukula, India' }
+                ]) +
+                col('More', [
+                    { href: 'resources.html', text: 'Resources' },
+                    { href: 'https://www.ecotippingpoints.org/', text: 'EcoTippingPoints.org' },
+                    { href: 'resources.html', text: 'About the project' }
+                ]) +
+            '</div>';
+
+        var bar =
+            '<div style="background:#173a2b;color:#a6c0b0;">' +
+                '<div style="max-width:1200px;margin:0 auto;padding:18px 52px;' + F + 'font-size:12px;letter-spacing:0.04em;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;">' +
+                    '<span>©2026 EcoTipping Points</span>' +
+                    '<span>v0.5.1 · 6/30/26</span>' +
+                '</div>' +
+            '</div>';
+
         var footer = document.createElement('footer');
         footer.className = 'footer';
-        footer.innerHTML =
-            '<div class="footer-upper">' +
-                '<div class="footer-content">' +
-                    '<p class="footer-tagline">A practical toolkit for facilitating community-scale ecological restoration.</p>' +
-                    '<nav class="footer-nav"><a href="#">About Us</a><a href="#">Contact Us</a></nav>' +
-                '</div>' +
-            '</div>' +
-            '<div class="footer-bar">' +
-                '<span>©2026 EcoTipping Points</span>' +
-                '<span>v0.5.0 · 6/30/26</span>' +
-            '</div>';
+        footer.style.background = '#eef0ed';
+        footer.style.borderTop = '1px solid #e4e7e3';
+        footer.innerHTML = upper + bar;
         document.body.appendChild(footer);
+
+        // Responsive: collapse the 4 columns on small screens.
+        if (!document.getElementById('etp-foot-style')) {
+            var st = document.createElement('style');
+            st.id = 'etp-foot-style';
+            st.textContent =
+                '@media (max-width:64rem){.etp-foot-grid{grid-template-columns:1fr 1fr!important;}}' +
+                '@media (max-width:40rem){.etp-foot-grid{grid-template-columns:1fr!important;padding:36px 22px 32px!important;}}';
+            document.head.appendChild(st);
+        }
     }
 
     function initSectionRail() {
