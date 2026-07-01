@@ -2050,5 +2050,8 @@ input:focus-visible {
     /* page break between major sections */
     .ingredient-page, .story-section { page-break-before: always; }
 
+    /* videos don't print; hide players and their wrappers */
+    video, iframe, .story-video, .video-embed { display: none !important; }
+
     body { background: white; }
 }
