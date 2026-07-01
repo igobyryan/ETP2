@@ -2040,12 +2040,12 @@ input:focus-visible {
 }
 
 @media print {
-    /* hide site chrome */
-    nav, header, footer, .sidebar, .related-ingredients { display: none !important; }
+    /* hide site chrome (sidebars print now — see below) */
+    nav, header, footer, .related-ingredients { display: none !important; }
 
-    /* unhide all carousel slides, kill the dots */
+    /* unhide all carousel slides as stacked sections, kill the dots/arrows/counter */
     .story-excerpt, .carousel-slide { display: block !important; position: static !important; opacity: 1 !important; }
-    .carousel-dots, .dot-nav { display: none !important; }
+    .carousel-dots, .dot-nav, .carousel-controls { display: none !important; }
 
     /* page break between major sections */
     .ingredient-page, .story-section { page-break-before: always; }
