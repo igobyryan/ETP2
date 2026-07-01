@@ -8,6 +8,90 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ---- Reverse It body redesign (mi-). Self-contained so it renders
+           correctly regardless of styles.css. All copy is the approved
+           live-site copy, verbatim. The top nav, footer, left section rail
+           (nav.js) and the .page-header green band are untouched. Matches
+           the Map It page pattern exactly (same classes/colors/type). ---- */
+        .mi-body { padding: 44px 52px 64px; font-family: 'Source Sans 3', sans-serif; }
+        .mi-body p { color: #4d564e; line-height: 1.65; font-size: 16px; }
+        .mi-body ul, .mi-body ol { color: #4d564e; line-height: 1.6; padding-left: 20px; margin: 10px 0; }
+        .mi-body li { margin-bottom: 8px; }
+        .mi-body h4 { font-size: 15px; font-weight: 700; color: #173a2b; margin: 22px 0 8px; }
+
+        .mi-intro { max-width: 760px; }
+        .mi-intro h2 { font-size: 28px; font-weight: 600; color: #173a2b; letter-spacing: -0.01em; margin: 0 0 12px; }
+
+        .mi-resources {
+            border: 1px solid #e4e7e3; border-radius: 8px; padding: 20px 24px;
+            margin: 26px 0; max-width: 760px; background: #fbfcfb;
+        }
+        .mi-resources .mi-eyebrow { font-size: 11px; font-weight: 600; color: #9c5a2b; margin-bottom: 12px; }
+        .mi-resources a { display: block; color: #262b26; text-decoration: none; font-weight: 600; font-size: 15px; margin-bottom: 8px; }
+        .mi-resources a:last-child { margin-bottom: 0; }
+        .mi-resources a:hover { color: #9c5a2b; }
+
+        .mi-step { border-top: 1px solid #e8ece8; padding-top: 34px; margin-top: 42px; }
+        .mi-step-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 4px; }
+        .mi-step-num { font-size: 30px; font-weight: 600; color: #9c5a2b; line-height: 1; flex: none; }
+        .mi-step-head h3 { font-size: 23px; font-weight: 600; color: #173a2b; margin: 0; letter-spacing: -0.01em; }
+        .mi-step-body { max-width: 760px; }
+
+        /* Question / prompt callouts */
+        .mi-note {
+            background: #ffffff; border: 1px solid #e4e7e3; border-left: 3px solid #9c5a2b;
+            border-radius: 0 8px 8px 0; padding: 18px 22px; margin: 18px 0; max-width: 760px;
+        }
+        .mi-note h4 { margin: 0 0 6px; color: #173a2b; font-size: 15px; }
+        .mi-note p { margin: 0; }
+
+        /* Ingredient / reflection callouts */
+        .mi-reflect {
+            background: #f1f5f2; border-left: 3px solid #2a5a44; border-radius: 0 8px 8px 0;
+            padding: 20px 24px; margin: 24px 0; max-width: 760px;
+        }
+        .mi-reflect h3, .mi-reflect h4 { margin: 0 0 8px; color: #173a2b; font-size: 17px; }
+        .mi-reflect p { margin: 0; }
+
+        /* Inline "On Apo Island" example */
+        .mi-apo {
+            background: #f6f8f6; border: 1px solid #e4e7e3; border-radius: 8px;
+            padding: 20px 22px; margin: 20px 0; max-width: 820px;
+        }
+        .mi-apo .mi-eyebrow { font-size: 11px; font-weight: 600; color: #9c5a2b; margin-bottom: 10px; }
+        .mi-apo h4 { margin-top: 0; }
+        .mi-apo p { margin: 0 0 12px; font-size: 15px; }
+        .mi-apo p:last-child { margin-bottom: 0; }
+
+        /* Feedback-loop chip chain */
+        .mi-chips { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 10px 0 4px; }
+        .mi-chip {
+            background: #eef2ef; border: 1px solid #d2dcd5; border-radius: 6px;
+            padding: 8px 12px; font-size: 13px; font-weight: 600; color: #173a2b;
+        }
+        .mi-arrow { color: #9c5a2b; font-size: 14px; }
+        .mi-loop {
+            background: transparent; border: 1px solid #9c5a2b; border-radius: 6px;
+            padding: 8px 12px; font-size: 13px; font-weight: 600; color: #9c5a2b;
+        }
+
+        .mi-btn {
+            display: inline-block; background: #9c5a2b; color: #fff; text-decoration: none;
+            font-weight: 600; font-size: 15px; padding: 12px 22px; border-radius: 6px; margin-top: 8px;
+        }
+        .mi-btn:hover { background: #80471f; }
+        .mi-btn-outline {
+            display: inline-block; background: transparent; color: #9c5a2b; text-decoration: none;
+            font-weight: 600; font-size: 13px; padding: 9px 16px; border: 1px solid #9c5a2b;
+            border-radius: 6px; margin-top: 6px;
+        }
+        .mi-btn-outline:hover { background: #9c5a2b; color: #fff; }
+
+        @media (max-width: 48rem) {
+            .mi-body { padding: 32px 22px 48px; }
+        }
+    </style>
 </head>
 <body>
     <script src="nav.js"></script>
@@ -30,38 +114,40 @@
         </div>
     </section>
 
-    <div class="two-col">
-        <div class="main-content">
-            <div class="callout" style="background-color: rgba(168, 184, 159, 0.15); border-left-color: var(--color-primary);">
-                <h4 style="color: var(--color-primary); margin-bottom: var(--spacing-sm);">Tool Resources</h4>
-                <a href="#" style="color: var(--color-dark); text-decoration: none; font-weight: 600; display: block; margin-bottom: var(--space-xs);">↓ Evaluation Matrix (PDF)</a>
-                <a href="#" style="color: var(--color-dark); text-decoration: none; font-weight: 600; display: block;">↓ Intervention Worksheet (PDF)</a>
-            </div>
+    <div class="mi-body">
 
-            <div class="content-block">
-                <h2>Breaking the Cycle</h2>
-                <p>Now that you understand the vicious cycles driving decline, it's time to identify where you can intervene to reverse them. The goal is to find actions that can break the negative feedback loops and start positive ones.</p>
-            </div>
+        <div class="mi-intro">
+            <h2>Breaking the Cycle</h2>
+            <p>You understand the vicious cycles driving decline. This step is about identifying where you can intervene to reverse them &mdash; finding actions that can break the negative feedback loops and start positive ones.</p>
+        </div>
 
-            <div class="story-video">
-                <video controls preload="metadata" poster="Videos/REVERSE%20IT_Apo-poster.jpg">
-                    <source src="Videos/REVERSE%20IT_Apo.mp4" type="video/mp4">
-                </video>
-            </div>
+        <div class="mi-resources">
+            <div class="mi-eyebrow">Tool Resources</div>
+            <a href="#">&darr; Evaluation Matrix (PDF)</a>
+            <a href="#">&darr; Intervention Worksheet (PDF)</a>
+        </div>
 
-            <div class="content-block" style="margin-top: var(--spacing-lg);">
-                <h3>Step 1: Identify Potential Leverage Points</h3>
+        <div class="story-video">
+            <video controls preload="metadata" poster="Videos/REVERSE%20IT_Apo-poster.jpg">
+                <source src="Videos/REVERSE%20IT_Apo.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="mi-step">
+            <div class="mi-step-head"><span class="mi-step-num">01</span><h3>Step 1: Identify Potential Leverage Points</h3></div>
+            <div class="mi-step-body">
                 <p>Look at your vicious cycle diagram and ask:</p>
-                
-                <h4 style="margin-top: var(--spacing-md);">Where could you intervene?</h4>
+
+                <h4>Where could you intervene?</h4>
                 <ul>
                     <li>Which connections between problems could be broken?</li>
                     <li>Which elements could be replaced with positive alternatives?</li>
                     <li>Where is the community ready and able to act?</li>
                     <li>Are there examples from other communities that succeeded?</li>
                 </ul>
-                
-                <h4 style="margin-top: var(--spacing-md);">What resources or support do you have access to?</h4>
+
+                <h4>What resources or support do you have access to?</h4>
                 <ul>
                     <li>Community skills and knowledge</li>
                     <li>Natural resources that could regenerate</li>
@@ -69,36 +155,70 @@
                     <li>Outside support (NGOs, government programs, etc.)</li>
                     <li>Economic opportunities tied to restoration</li>
                 </ul>
-            </div>
 
-            <div class="callout callout-light">
-                <h4>Ingredient: Community Resolve</h4>
-                <p>The evaluation process reveals whether you have the resolve needed. If community support seems low for a crucial intervention, that's valuable information; you may need to build resolve first through education and dialogue.</p>
+                <div class="mi-apo">
+                    <div class="mi-eyebrow">On Apo Island</div>
+                    <h4>Step 1: Leverage Point</h4>
+                    <p>The community identified that protecting a portion of their reef could allow fish populations to recover, which would then spill over into fishing areas.</p>
+                </div>
             </div>
+        </div>
 
-            <div class="content-block" style="margin-top: var(--spacing-lg);">
-                <h3>Step 2: Envision the Positive Flip</h3>
+        <div class="mi-reflect">
+            <h4>Ingredient: Community Resolve</h4>
+            <p>The evaluation process reveals whether you have the resolve needed. If community support seems low for a crucial intervention, that's valuable information; you may need to build resolve first through education and dialogue.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="mi-step">
+            <div class="mi-step-head"><span class="mi-step-num">02</span><h3>Step 2: Envision the Positive Flip</h3></div>
+            <div class="mi-step-body">
                 <p>For each potential intervention point, imagine what success would look like:</p>
                 <ul>
                     <li>If this intervention works, what positive changes would ripple through the system?</li>
                     <li>Could it start new positive feedback loops?</li>
                     <li>How would the boxes and arrows in your diagram change?</li>
                 </ul>
-                
+
                 <!-- FPO: uncomment when diagram is ready
                 <div class="placeholder-box">
                     [Visual Diagram: Virtuous Cycle, For Placement Only]
                 </div>
                 -->
-            </div>
 
-            <div class="content-block" style="margin-top: var(--spacing-lg);">
-                <h3>Step 3: Evaluate Feasibility and Impact</h3>
+                <div class="mi-apo">
+                    <div class="mi-eyebrow">On Apo Island</div>
+                    <h4>Step 2: The Vision</h4>
+                    <p>They envisioned creating a marine sanctuary on 10% of their fishing grounds.</p>
+                    <div class="mi-chips">
+                        <span class="mi-chip">Fish stocks recover</span>
+                        <span class="mi-arrow">&rarr;</span>
+                        <span class="mi-chip">More fish spill over to fishing areas</span>
+                        <span class="mi-arrow">&rarr;</span>
+                        <span class="mi-chip">Catches improve</span>
+                        <span class="mi-arrow">&rarr;</span>
+                        <span class="mi-chip">Community sees benefits</span>
+                        <span class="mi-arrow">&rarr;</span>
+                        <span class="mi-chip">More support for protection</span>
+                        <span class="mi-arrow">&rarr;</span>
+                        <span class="mi-chip">Stronger enforcement</span>
+                        <span class="mi-arrow">&rarr;</span>
+                        <span class="mi-loop">&#8634; Better recovery</span>
+                    </div>
+                    <p style="margin-top:10px; font-size:13px; font-weight:600; color:#9c5a2b;">[virtuous cycle]</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="mi-step">
+            <div class="mi-step-head"><span class="mi-step-num">03</span><h3>Step 3: Evaluate Feasibility and Impact</h3></div>
+            <div class="mi-step-body">
                 <p>The positive tipping point lever consists of the actions taken to reverse those elements plus the environmental technology used for those actions and the community organization to make the technologies and actions effective.</p>
-                
+
                 <p>For each potential intervention, work through these questions as a group:</p>
-                
-                <h4 style="margin-top: var(--spacing-md);">Impact Questions</h4>
+
+                <h4>Impact Questions</h4>
                 <ul>
                     <li>How big a change could this make?</li>
                     <li>Does it address a root cause or just a symptom?</li>
@@ -106,16 +226,16 @@
                     <li>Could it trigger positive reinforcement?</li>
                     <li>Is it strong enough to reverse the bottom line?</li>
                 </ul>
-                
-                <h4 style="margin-top: var(--spacing-md);">Feasibility Questions</h4>
+
+                <h4>Feasibility Questions</h4>
                 <ul>
                     <li>What resources would this require? (money, time, skills, materials)</li>
                     <li>Do we have community support for this?</li>
                     <li>What obstacles might we face? (social, political, economic)</li>
                     <li>Do we have (or can we get) what we need to try this?</li>
                 </ul>
-                
-                <h4 style="margin-top: var(--spacing-md);">Risk Questions</h4>
+
+                <h4>Risk Questions</h4>
                 <ul>
                     <li>What could go wrong?</li>
                     <li>Are there unintended consequences we should consider?</li>
@@ -123,84 +243,68 @@
                     <li>Will there be pushback from other entities?</li>
                     <li>Will there be encroachment or takeover from other entities?</li>
                 </ul>
-                
-                <div class="callout">
+
+                <div class="mi-note">
                     <h4>Process Tool: Simple Comparison Matrix</h4>
-                    <ul>
+                    <ul style="margin-top:8px;">
                         <li>List potential interventions down the left side</li>
                         <li>Use columns for: Potential Impact (High/Medium/Low), Resource Needs, Community Support, Major Obstacles</li>
                         <li>Fill in together as a group</li>
                         <li>Discuss patterns and tradeoffs</li>
                     </ul>
                 </div>
-                
+
                 <!-- FPO: uncomment when resource is ready
                 <div class="placeholder-box">
                     [Downloadable Resource: Evaluation Matrix Template, For Placement Only]
                 </div>
                 -->
-            </div>
 
-            <div class="content-block" style="margin-top: var(--spacing-lg);">
-                <h3>Step 4: Choose Your Starting Point</h3>
+                <div class="mi-apo">
+                    <div class="mi-eyebrow">On Apo Island</div>
+                    <h4>Step 3: Evaluation</h4>
+                    <p><strong>Impact:</strong> Could reverse the fundamental problem (declining fish stocks)</p>
+                    <p><strong>Feasibility:</strong> Drew on traditional decision-making practices; representatives from all families discussed until reaching consensus</p>
+                    <p><strong>Resources:</strong> Created volunteer Marine Guard; established clear rules</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="mi-step">
+            <div class="mi-step-head"><span class="mi-step-num">04</span><h3>Step 4: Choose Your Starting Point</h3></div>
+            <div class="mi-step-body">
                 <p><strong>You don't need perfect information to begin.</strong> Based on your evaluation:</p>
                 <ul>
                     <li>Which 1-3 interventions seem most promising?</li>
                     <li>Is there a logical sequence? (some things need to happen before others)</li>
                     <li>Can you start with something achievable to build momentum?</li>
                 </ul>
-                
-                <h4 style="margin-top: var(--spacing-md);">Remember</h4>
+
+                <h4>Remember</h4>
                 <ul>
                     <li>You can try multiple interventions, especially if they reinforce each other</li>
                     <li>Starting with a smaller, achievable win can build the community resolve needed for bigger changes</li>
                     <li>You'll learn by trying. Your understanding will improve as you act</li>
                 </ul>
-            </div>
 
-            <div class="content-block" style="margin-top: var(--spacing-lg);">
-                <h3>Next Steps</h3>
-                <p>Once you've started to see success, the final step is to lock in those gains by building mutually reinforcing positive cycles.</p>
-                <div style="margin-top: var(--spacing-md);">
-                    <a href="systems-thinking-lock.html" class="btn btn-primary">Continue to Part 4: Lock It In</a>
+                <div class="mi-apo">
+                    <div class="mi-eyebrow">On Apo Island</div>
+                    <h4>Step 4: Starting Point</h4>
+                    <p>They began with the marine sanctuary and community management, building on their existing consensus-based decision-making traditions.</p>
+                    <a href="story-apo-island.html" class="mi-btn-outline">Read Full Apo Island Story</a>
                 </div>
             </div>
         </div>
 
-        <aside class="sidebar">
-            <div class="sidebar-box highlight">
-                <h3>Example: Apo Island</h3>
-                
-                <h4>Step 1: Leverage Point</h4>
-                <p>The community identified that protecting a portion of their reef could allow fish populations to recover, which would then spill over into fishing areas.</p>
-                
-                <h4>Step 2: The Vision</h4>
-                <p>They envisioned creating a marine sanctuary on 10% of their fishing grounds.</p>
-                <p style="font-size: 0.9rem; line-height: 1.8;">
-                    <strong>Fish stocks recover</strong><br>
-                    → More fish spill over to fishing areas<br>
-                    → Catches improve<br>
-                    → Community sees benefits<br>
-                    → More support for protection<br>
-                    → Stronger enforcement<br>
-                    → Better recovery<br>
-                    [virtuous cycle]
-                </p>
-                
-                <h4>Step 3: Evaluation</h4>
-                <p><strong>Impact:</strong> Could reverse the fundamental problem (declining fish stocks)</p>
-                <p><strong>Feasibility:</strong> Drew on traditional decision-making practices; representatives from all families discussed until reaching consensus</p>
-                <p><strong>Resources:</strong> Created volunteer Marine Guard; established clear rules</p>
-                
-                <h4>Step 4: Starting Point</h4>
-                <p>They began with the marine sanctuary and community management, building on their existing consensus-based decision-making traditions.</p>
-                
-                <div style="margin-top: var(--spacing-md);">
-                    <a href="story-apo-island.html" class="btn btn-outline-light" style="font-size: 0.75rem;">Read Full Apo Island Story</a>
-                </div>
+        <div class="mi-step">
+            <div class="mi-step-head"><h3 style="margin:0;">Next Steps</h3></div>
+            <div class="mi-step-body">
+                <p>Once you've started to see success, the final step is to lock in those gains by building mutually reinforcing positive cycles.</p>
+                <a href="systems-thinking-lock.html" class="mi-btn">Continue to Part 4: Lock It In</a>
             </div>
+        </div>
 
-        </aside>
     </div>
 
 </body>

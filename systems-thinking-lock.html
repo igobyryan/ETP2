@@ -8,6 +8,91 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ---- Lock It In body redesign (mi-). Self-contained so it renders
+           correctly regardless of styles.css. All copy is the approved
+           live-site copy, verbatim. The top nav, footer, left section rail
+           (nav.js) and the .page-header green band are untouched. Matches
+           the Map It page pattern exactly (same classes/colors/type). ---- */
+        .mi-body { padding: 44px 52px 64px; font-family: 'Source Sans 3', sans-serif; }
+        .mi-body p { color: #4d564e; line-height: 1.65; font-size: 16px; }
+        .mi-body ul, .mi-body ol { color: #4d564e; line-height: 1.6; padding-left: 20px; margin: 10px 0; }
+        .mi-body li { margin-bottom: 8px; }
+        .mi-body h4 { font-size: 15px; font-weight: 700; color: #173a2b; margin: 22px 0 8px; }
+
+        .mi-intro { max-width: 760px; }
+        .mi-intro h2 { font-size: 28px; font-weight: 600; color: #173a2b; letter-spacing: -0.01em; margin: 0 0 12px; }
+
+        .mi-resources {
+            border: 1px solid #e4e7e3; border-radius: 8px; padding: 20px 24px;
+            margin: 26px 0; max-width: 760px; background: #fbfcfb;
+        }
+        .mi-resources .mi-eyebrow { font-size: 11px; font-weight: 600; color: #9c5a2b; margin-bottom: 12px; }
+        .mi-resources a { display: block; color: #262b26; text-decoration: none; font-weight: 600; font-size: 15px; margin-bottom: 8px; }
+        .mi-resources a:last-child { margin-bottom: 0; }
+        .mi-resources a:hover { color: #9c5a2b; }
+
+        .mi-step { border-top: 1px solid #e8ece8; padding-top: 34px; margin-top: 42px; }
+        .mi-step-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 4px; }
+        .mi-step-num { font-size: 30px; font-weight: 600; color: #9c5a2b; line-height: 1; flex: none; }
+        .mi-step-head h3 { font-size: 23px; font-weight: 600; color: #173a2b; margin: 0; letter-spacing: -0.01em; }
+        .mi-step-body { max-width: 760px; }
+
+        /* Question / prompt callouts */
+        .mi-note {
+            background: #ffffff; border: 1px solid #e4e7e3; border-left: 3px solid #9c5a2b;
+            border-radius: 0 8px 8px 0; padding: 18px 22px; margin: 18px 0; max-width: 760px;
+        }
+        .mi-note h4 { margin: 0 0 6px; color: #173a2b; font-size: 15px; }
+        .mi-note p { margin: 0; }
+
+        /* Ingredient / reflection callouts */
+        .mi-reflect {
+            background: #f1f5f2; border-left: 3px solid #2a5a44; border-radius: 0 8px 8px 0;
+            padding: 20px 24px; margin: 24px 0; max-width: 760px;
+        }
+        .mi-reflect h3, .mi-reflect h4 { margin: 0 0 8px; color: #173a2b; font-size: 17px; }
+        .mi-reflect p { margin: 0; }
+
+        /* Inline "On Apo Island" example */
+        .mi-apo {
+            background: #f6f8f6; border: 1px solid #e4e7e3; border-radius: 8px;
+            padding: 20px 22px; margin: 20px 0; max-width: 820px;
+        }
+        .mi-apo .mi-eyebrow { font-size: 11px; font-weight: 600; color: #9c5a2b; margin-bottom: 10px; }
+        .mi-apo h4 { margin-top: 40px; }
+        .mi-apo p { margin: 0 0 12px; font-size: 15px; }
+        .mi-apo p:last-child { margin-bottom: 0; }
+
+        /* Feedback-loop chip chain */
+        .mi-chips { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 10px 0 4px; }
+        .mi-chip {
+            background: #eef2ef; border: 1px solid #d2dcd5; border-radius: 6px;
+            padding: 8px 12px; font-size: 13px; font-weight: 600; color: #173a2b;
+        }
+        .mi-arrow { color: #9c5a2b; font-size: 14px; }
+        .mi-link { display: inline-flex; align-items: center; gap: 8px; }
+        .mi-loop {
+            background: transparent; border: 1px solid #9c5a2b; border-radius: 6px;
+            padding: 8px 12px; font-size: 13px; font-weight: 600; color: #9c5a2b;
+        }
+
+        .mi-btn {
+            display: inline-block; background: #9c5a2b; color: #fff; text-decoration: none;
+            font-weight: 600; font-size: 15px; padding: 12px 22px; border-radius: 6px; margin-top: 8px;
+        }
+        .mi-btn:hover { background: #80471f; }
+        .mi-btn-outline {
+            display: inline-block; background: transparent; color: #9c5a2b; text-decoration: none;
+            font-weight: 600; font-size: 13px; padding: 9px 16px; border: 1px solid #9c5a2b;
+            border-radius: 6px; margin-top: 6px;
+        }
+        .mi-btn-outline:hover { background: #9c5a2b; color: #fff; }
+
+        @media (max-width: 48rem) {
+            .mi-body { padding: 32px 22px 48px; }
+        }
+    </style>
 </head>
 <body>
     <script src="nav.js"></script>
@@ -30,32 +115,33 @@
         </div>
     </section>
 
-    <div class="two-col">
-        <div class="main-content">
-            <div class="callout" style="background-color: rgba(168, 184, 159, 0.15); border-left-color: var(--color-primary);">
-                <h4 style="color: var(--color-primary); margin-bottom: var(--spacing-sm);">Tool Resources</h4>
-                <a href="#" style="color: var(--color-dark); text-decoration: none; font-weight: 600; display: block; margin-bottom: var(--space-xs);">↓ Sustainability Checklist (PDF)</a>
-                <a href="#" style="color: var(--color-dark); text-decoration: none; font-weight: 600; display: block;">↓ Case Studies (PDF)</a>
-            </div>
+    <div class="mi-body">
 
-            <div class="content-block">
-                <h2>Building Mutually Reinforcing Success</h2>
-                <p>As ecosystem restoration proceeds, the next step is to lock in the gains and increase the sustainability of restoration through new enterprises that reinforce ecosystem restoration and integrate it with the social fabric of the community.</p>
-            </div>
+        <div class="mi-intro">
+            <h2>Building Mutually Reinforcing Success</h2>
+            <p>As ecosystem restoration proceeds, the next step is to lock in the gains and increase the sustainability of restoration through new enterprises that reinforce ecosystem restoration and integrate it with the social fabric of the community.</p>
+        </div>
 
-            <div class="story-video">
-                <video controls preload="metadata" poster="Videos/LOCK%20IT%20IN_Apo-poster.jpg">
-                    <source src="Videos/LOCK%20IT%20IN_Apo.mp4" type="video/mp4">
-                </video>
-            </div>
+        <div class="mi-resources">
+            <div class="mi-eyebrow">Tool Resources</div>
+            <a href="#">&darr; Sustainability Checklist (PDF)</a>
+            <a href="#">&darr; Case Studies (PDF)</a>
+        </div>
 
-            <div class="callout callout-blue">
-                <h3>Key Concept</h3>
-                <p>Early success can die out if it's not built into the fabric of community life. Sustainability comes from multiple mutually reinforcing cycles.</p>
-            </div>
+        <div class="story-video">
+            <video controls preload="metadata" poster="Videos/LOCK%20IT%20IN_Apo-poster.jpg">
+                <source src="Videos/LOCK%20IT%20IN_Apo.mp4" type="video/mp4">
+            </video>
+        </div>
 
-            <div class="content-block">
-                <h3>Guiding Questions</h3>
+        <div class="mi-reflect">
+            <h3>Key Concept</h3>
+            <p>Early success can die out if it's not built into the fabric of community life. Sustainability comes from multiple mutually reinforcing cycles.</p>
+        </div>
+
+        <div class="mi-step">
+            <div class="mi-step-head"><h3 style="margin:0;">Guiding Questions</h3></div>
+            <div class="mi-step-body">
                 <ul>
                     <li>What new opportunities does initial success create?</li>
                     <li>How can benefits be shared broadly to build ongoing support?</li>
@@ -63,15 +149,17 @@
                     <li>How can this become "just the way things are done" rather than a special project?</li>
                 </ul>
             </div>
+        </div>
 
-            <!-- FPO: uncomment when diagram is ready
-            <div class="placeholder-box">
-                [Visual Diagram: Mutually Reinforcing Success Cycles, For Placement Only]
-            </div>
-            -->
+        <!-- FPO: uncomment when diagram is ready
+        <div class="placeholder-box">
+            [Visual Diagram: Mutually Reinforcing Success Cycles, For Placement Only]
+        </div>
+        -->
 
-            <div class="content-block" style="margin-top: var(--spacing-lg);">
-                <h3>Process</h3>
+        <div class="mi-step">
+            <div class="mi-step-head"><h3 style="margin:0;">Process</h3></div>
+            <div class="mi-step-body">
                 <ul>
                     <li>Revisit this 6-12 months after initial interventions</li>
                     <li>Map the new positive cycles that are emerging</li>
@@ -79,14 +167,16 @@
                     <li>Look for ways to institutionalize success (community rules, new traditions, ongoing activities)</li>
                 </ul>
             </div>
+        </div>
 
-            <div class="callout callout-light">
-                <h4>Ingredient: Success Breeds Success</h4>
-                <p>This is where the "success breeds success" dynamic becomes crucial. Initial wins create opportunities, resources, and motivation for further positive change.</p>
-            </div>
+        <div class="mi-reflect">
+            <h4>Ingredient: Success Breeds Success</h4>
+            <p>This is where the "success breeds success" dynamic becomes crucial. Initial wins create opportunities, resources, and motivation for further positive change.</p>
+        </div>
 
-            <div class="content-block" style="margin-top: var(--spacing-lg);">
-                <h3>Making Change Permanent</h3>
+        <div class="mi-step">
+            <div class="mi-step-head"><h3 style="margin:0;">Making Change Permanent</h3></div>
+            <div class="mi-step-body">
                 <p>The goal is to shift from a special project requiring constant attention to a new normal that sustains itself through multiple reinforcing mechanisms. This might include:</p>
                 <ul>
                     <li>Economic enterprises that depend on and support restoration</li>
@@ -95,61 +185,56 @@
                     <li>Recognition and support from outside organizations</li>
                     <li>Clear rules and enforcement mechanisms that have community buy-in</li>
                 </ul>
-            </div>
 
-            <div class="callout" style="margin-top: var(--spacing-lg);">
-                <h3>Congratulations!</h3>
-                <p>You've completed the Systems Thinking tool. Remember that this is an iterative process. As you take action and learn, you'll refine your understanding and adjust your approach. The cycle of recognizing, mapping, reversing, and locking in continues as conditions change.</p>
-                <div style="margin-top: var(--spacing-md);">
-                    <a href="ingredients-overview.html" class="btn btn-primary">Explore the Ingredients for Success</a>
+                <div class="mi-apo">
+                    <div class="mi-eyebrow">On Apo Island</div>
+                    <p>Initial success (fish recovery) led to multiple mutually reinforcing cycles:</p>
+
+                    <h4>Economic Cycle</h4>
+                    <div class="mi-chips">
+                        <span class="mi-link"><span class="mi-chip">Marine tourism income</span><span class="mi-arrow">&rarr;</span></span>
+                        <span class="mi-link"><span class="mi-chip">Funds for community</span><span class="mi-arrow">&rarr;</span></span>
+                        <span class="mi-link"><span class="mi-chip">More resources for protection</span><span class="mi-arrow">&rarr;</span></span>
+                        <span class="mi-link"><span class="mi-chip">Better enforcement</span><span class="mi-arrow">&rarr;</span></span>
+                        <span class="mi-link"><span class="mi-chip">Healthier reefs</span><span class="mi-arrow">&rarr;</span></span>
+                        <span class="mi-loop">&#8634; More tourism</span>
+                    </div>
+
+                    <h4>Educational Cycle</h4>
+                    <div class="mi-chips">
+                        <span class="mi-link"><span class="mi-chip">Educational programs</span><span class="mi-arrow">&rarr;</span></span>
+                        <span class="mi-link"><span class="mi-chip">Pride in achievement</span><span class="mi-arrow">&rarr;</span></span>
+                        <span class="mi-link"><span class="mi-chip">Stronger community identity</span><span class="mi-arrow">&rarr;</span></span>
+                        <span class="mi-link"><span class="mi-chip">More support for protection</span><span class="mi-arrow">&rarr;</span></span>
+                        <span class="mi-link"><span class="mi-chip">Better outcomes</span><span class="mi-arrow">&rarr;</span></span>
+                        <span class="mi-loop">&#8634; More to teach about</span>
+                    </div>
+
+                    <h4>Recognition Cycle</h4>
+                    <div class="mi-chips">
+                        <span class="mi-link"><span class="mi-chip">Scientific recognition</span><span class="mi-arrow">&rarr;</span></span>
+                        <span class="mi-link"><span class="mi-chip">Outside support</span><span class="mi-arrow">&rarr;</span></span>
+                        <span class="mi-link"><span class="mi-chip">Enhanced credibility</span><span class="mi-arrow">&rarr;</span></span>
+                        <span class="mi-link"><span class="mi-chip">More resources</span><span class="mi-arrow">&rarr;</span></span>
+                        <span class="mi-link"><span class="mi-chip">Better monitoring</span><span class="mi-arrow">&rarr;</span></span>
+                        <span class="mi-loop">&#8634; More recognition</span>
+                    </div>
+
+                    <p style="margin-top:28px;"><strong>The Result:</strong> These multiple reinforcing cycles made the marine sanctuary permanent, not just a temporary project. It became integrated into the community's identity and economy.</p>
+
+                    <a href="story-apo-island.html" class="mi-btn-outline">Read Full Apo Island Story</a>
                 </div>
             </div>
         </div>
 
-        <aside class="sidebar">
-            <div class="sidebar-box highlight">
-                <h3>Example: Apo Island</h3>
-                
-                <p>Initial success (fish recovery) led to multiple mutually reinforcing cycles:</p>
-                
-                <h4>Economic Cycle</h4>
-                <p style="font-size: 0.9rem; line-height: 1.8;">
-                    <strong>Marine tourism income</strong><br>
-                    → Funds for community<br>
-                    → More resources for protection<br>
-                    → Better enforcement<br>
-                    → Healthier reefs<br>
-                    → More tourism
-                </p>
-                
-                <h4>Educational Cycle</h4>
-                <p style="font-size: 0.9rem; line-height: 1.8;">
-                    <strong>Educational programs</strong><br>
-                    → Pride in achievement<br>
-                    → Stronger community identity<br>
-                    → More support for protection<br>
-                    → Better outcomes<br>
-                    → More to teach about
-                </p>
-                
-                <h4>Recognition Cycle</h4>
-                <p style="font-size: 0.9rem; line-height: 1.8;">
-                    <strong>Scientific recognition</strong><br>
-                    → Outside support<br>
-                    → Enhanced credibility<br>
-                    → More resources<br>
-                    → Better monitoring<br>
-                    → More recognition
-                </p>
-                
-                <p style="margin-top: var(--spacing-md);"><strong>The Result:</strong> These multiple reinforcing cycles made the marine sanctuary permanent, not just a temporary project. It became integrated into the community's identity and economy.</p>
-                
-                <div style="margin-top: var(--spacing-md);">
-                    <a href="story-apo-island.html" class="btn btn-outline-light" style="font-size: 0.75rem;">Read Full Apo Island Story</a>
-                </div>
+        <div class="mi-step">
+            <div class="mi-step-head"><h3 style="margin:0;">Congratulations!</h3></div>
+            <div class="mi-step-body">
+                <p>You've completed the Systems Thinking tool. Remember that this is an iterative process. As you take action and learn, you'll refine your understanding and adjust your approach. The cycle of recognizing, mapping, reversing, and locking in continues as conditions change.</p>
+                <a href="ingredients-overview.html" class="mi-btn">Explore the Ingredients for Success</a>
             </div>
+        </div>
 
-        </aside>
     </div>
 
 </body>
