@@ -3,12 +3,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 
 :root {
-    /* ---- Brand greens ---- */
-    --color-forest:        #21390f;
-    --color-forest-deep:   #1c2913;
-    --color-pine:          #2d5016;
-    --color-olive:         #4a5a3a;
-    --color-sage:          #aebb98;
+    /* ---- Brand greens — cooler spruce/pine family ---- */
+    --color-forest:        #173a2b;
+    --color-forest-deep:   #102b20;
+    --color-pine:          #2a5a44;
+    --color-olive:         #445349;
+    --color-sage:          #a6c0b0;
 
     /* ---- Ink / neutrals (cool grey-green family) ---- */
     --color-ink:           #262b26;
@@ -22,11 +22,16 @@
     --color-gold:          #e2b53f;
 
     /* ---- Grounds & surfaces ---- */
-    --color-ground:        #eaecea;
+    --color-ground:        #ffffff;
+    --color-gutter:        #eef0ee;
     --color-surface:       #ffffff;
-    --color-surface-alt:   #f2f4f2;
+    --color-surface-alt:   #ffffff;
     --color-surface-foot:  #eef0ed;
     --color-placeholder:   #dbe0db;
+
+    /* ---- Hero sizing — slim band, not a billboard ---- */
+    --hero-min-height:     330px;
+    --page-header-pad:     34px 52px 38px;
 
     /* ---- Lines ---- */
     --color-hairline:      #e4e7e3;
@@ -248,9 +253,7 @@ li {
 }
 
 .btn:hover {
-    box-shadow: var(--shadow-md);
     border-color: var(--border-color-hover);
-    transform: translateY(-1px);
     color: var(--text-primary);
 }
 
@@ -551,19 +554,42 @@ li {
     display: block;
 }
 
-/* Page Header */
+/* Page Header — green gradient band for text-only pages */
 .page-header {
-    background-color: var(--color-teal-dark);
-    background-image: url('images/green_gradient_hero.png');
+    background-color: var(--color-forest);
+    background-image: linear-gradient(135deg, #173a2b, #2c5a47);
     background-size: cover;
     background-position: center;
     color: #ffffff;
-    padding: var(--space-3xl) var(--space-lg) var(--space-xl);
+    padding: var(--page-header-pad, 34px 52px 38px);
+    min-height: var(--hero-min-height, 330px);
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+}
+
+/* Photo hero variant — story pages with real photos */
+.page-header--photo {
+    background-image: none; /* photo provided via inline style; ::before handles overlay */
+}
+
+.page-header--photo::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(16, 43, 32, 0.85) 0%, rgba(16, 43, 32, 0.4) 50%, rgba(16, 43, 32, 0.15) 100%);
+    z-index: 0;
+}
+
+.page-header--photo .page-header-content {
+    position: relative;
+    z-index: 1;
 }
 
 .page-header-content {
     max-width: var(--max-width);
     margin: 0 auto;
+    width: 100%;
 }
 
 .page-header h1 {
@@ -572,11 +598,16 @@ li {
     margin-bottom: var(--space-md);
 }
 
+/* Gold eyebrow on green-gradient header */
+.page-header .label {
+    color: var(--color-gold);
+}
+
 .page-header .intro {
     max-width: 600px;
     font-size: var(--text-lg);
     line-height: 1.7;
-    color: var(--color-sage);
+    color: rgba(255, 255, 255, 0.9);
 }
 
 /* Sections */
@@ -1181,13 +1212,16 @@ li {
     border-color: var(--color-accent-hover);
 }
 
-/* Footer */
+/* Footer — two-part: light upper + dark bar */
 .footer {
-    background-color: var(--color-surface-foot);
-    color: var(--text-secondary);
-    padding: var(--space-lg) var(--space-lg);
-    border-top: 1px solid var(--border-color);
     margin-top: auto;
+}
+
+.footer-upper {
+    background-color: var(--color-surface-foot);
+    border-top: 1px solid var(--border-color);
+    padding: var(--space-lg) var(--space-lg);
+    color: var(--text-secondary);
 }
 
 .footer-content {
@@ -1217,8 +1251,20 @@ li {
     white-space: nowrap;
 }
 
-.footer-links a:hover {
+.footer-nav a:hover {
     color: var(--color-accent);
+}
+
+/* Dark green bar — ©2026 EcoTipping Points left · version right */
+.footer-bar {
+    background-color: var(--color-forest);
+    color: var(--color-sage);
+    padding: var(--space-md) var(--space-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--text-xs);
+    font-family: var(--font-sans);
 }
 
 .footer-bottom {
@@ -1794,6 +1840,196 @@ input:focus-visible {
     .index-card:hover,
     .related-card:hover {
         transform: none;
+    }
+}
+
+/* ==============================================
+   SECTION LEFT-RAIL SUBNAV
+   ============================================== */
+
+/* Container wrapping rail + page content */
+.section-with-rail {
+    display: flex;
+    align-items: flex-start;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+/* Existing layout classes inside rail-content lose their own max-width centering */
+.section-with-rail .section,
+.section-with-rail .two-col {
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* The aside rail */
+.section-rail {
+    width: 268px;
+    flex-shrink: 0;
+    border-right: 1px solid var(--color-hairline);
+    background-color: #fbfcfb;
+    padding: var(--space-xl) 0 var(--space-2xl);
+    position: sticky;
+    top: 24px;
+    align-self: flex-start;
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+}
+
+.section-rail .rail-label {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0;
+    color: var(--color-clay);
+    padding: 0 var(--space-lg) var(--space-sm);
+    display: block;
+}
+
+.section-rail .rail-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.section-rail .rail-list li {
+    margin: 0;
+}
+
+.section-rail .rail-list a {
+    display: block;
+    padding: 7px var(--space-lg);
+    font-size: var(--text-sm);
+    color: var(--color-slate);
+    text-decoration: none;
+    border-left: 3px solid transparent;
+    transition: color var(--transition-fast), background-color var(--transition-fast);
+    line-height: 1.4;
+}
+
+.section-rail .rail-list a:hover {
+    color: var(--color-forest);
+}
+
+.section-rail .rail-list a.rail-active {
+    color: #173a2b;
+    font-weight: 600;
+    border-left-color: var(--color-clay);
+    background-color: #eef2ef;
+}
+
+/* Overview item in clay unless it's active */
+.section-rail .rail-list li:first-child a:not(.rail-active) {
+    color: var(--color-clay);
+}
+
+/* Content column */
+.rail-content {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Mobile section menu — shown below ~900px instead of the rail */
+.section-mobile-nav {
+    display: none;
+    background-color: #fbfcfb;
+    border-bottom: 1px solid var(--color-hairline);
+}
+
+.section-menu-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    min-height: 44px;
+    padding: 10px var(--space-lg);
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: var(--font-sans);
+    gap: 2px;
+    transition: background-color var(--transition-fast);
+}
+
+.section-menu-btn[aria-expanded="true"] {
+    background-color: #173a2b;
+}
+
+.section-menu-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--color-clay);
+    line-height: 1;
+}
+
+.section-menu-btn[aria-expanded="true"] .section-menu-label {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.section-menu-current {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-forest);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.section-menu-btn[aria-expanded="true"] .section-menu-current {
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.section-menu-panel {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s var(--ease-out);
+}
+
+.section-menu-panel[aria-hidden="false"] {
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.section-menu-panel li {
+    margin: 0;
+}
+
+.section-menu-panel a {
+    display: block;
+    padding: 10px var(--space-lg);
+    font-size: var(--text-sm);
+    color: var(--color-slate);
+    text-decoration: none;
+    border-left: 3px solid transparent;
+}
+
+.section-menu-panel a.rail-active {
+    color: #173a2b;
+    font-weight: 600;
+    border-left-color: var(--color-clay);
+    background-color: #eef2ef;
+}
+
+@media (max-width: 56.25rem) {
+    .section-rail {
+        display: none;
+    }
+
+    .section-with-rail {
+        display: block;
+    }
+
+    .section-mobile-nav {
+        display: block;
     }
 }
 

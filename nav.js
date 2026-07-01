@@ -131,14 +131,156 @@
     function initFooter() {
         var footer = document.createElement('footer');
         footer.className = 'footer';
-        footer.innerHTML = '<div class="footer-content"><p class="footer-tagline"><span style="color: hsl(95, 28%, 33%);">v0.5.0 &middot; 6/30/26</span> &nbsp;&nbsp;&copy;2026 EcoTipping Points: Transforming ecosystems through community-led systemic change.</p><nav class="footer-nav"><a href="#">About Us</a><a href="#">Contact Us</a></nav></div>';
+        footer.innerHTML =
+            '<div class="footer-upper">' +
+                '<div class="footer-content">' +
+                    '<p class="footer-tagline">A practical toolkit for facilitating community-scale ecological restoration.</p>' +
+                    '<nav class="footer-nav"><a href="#">About Us</a><a href="#">Contact Us</a></nav>' +
+                '</div>' +
+            '</div>' +
+            '<div class="footer-bar">' +
+                '<span>©2026 EcoTipping Points</span>' +
+                '<span>v0.5.0 · 6/30/26</span>' +
+            '</div>';
         document.body.appendChild(footer);
     }
 
+    function initSectionRail() {
+        var subnav = document.querySelector('.subnav');
+        if (!subnav) return;
+
+        var page = window.location.pathname.split('/').pop() || 'index.html';
+
+        var sections = {
+            'systems-thinking': {
+                label: 'Systems Thinking',
+                items: [
+                    { href: 'systems-thinking-overview.html', text: 'Overview' },
+                    { href: 'systems-thinking-recognize.html', text: 'Part 1: Recognize It' },
+                    { href: 'systems-thinking-map.html', text: 'Part 2: Map It' },
+                    { href: 'systems-thinking-reverse.html', text: 'Part 3: Reverse It' },
+                    { href: 'systems-thinking-lock.html', text: 'Part 4: Lock It In' }
+                ]
+            },
+            'ingredient': {
+                label: 'Ingredients for Success',
+                items: [
+                    { href: 'ingredients-overview.html', text: 'Overview' },
+                    { href: 'ingredient-outside-stimulation.html', text: 'Outside stimulation and facilitation' },
+                    { href: 'ingredient-shared-awareness.html', text: 'Shared community awareness and commitment' },
+                    { href: 'ingredient-harmony-ecosystem.html', text: 'Harmony between community and ecosystem' },
+                    { href: 'ingredient-enduring-commitment.html', text: 'Enduring commitment of local leadership' },
+                    { href: 'ingredient-letting-nature-work.html', text: 'Letting nature do the work' },
+                    { href: 'ingredient-mobilizing-commitment.html', text: 'Mobilizing community commitment' },
+                    { href: 'ingredient-overcoming-obstacles.html', text: 'Overcoming social obstacles' },
+                    { href: 'ingredient-social-ecological-diversity.html', text: 'Social and ecological diversity' },
+                    { href: 'ingredient-social-ecological-memory.html', text: 'Social and ecological memory' },
+                    { href: 'ingredient-building-resilience.html', text: 'Building resilience' }
+                ]
+            },
+            'community-sessions': {
+                label: 'Community Sessions',
+                items: [
+                    { href: 'community-sessions.html', text: 'Overview' },
+                    { href: 'community-sessions-map-it.html', text: 'Map It' },
+                    { href: 'community-sessions-reverse-it.html', text: 'Reverse It' }
+                ]
+            }
+        };
+
+        var sectionKey = null;
+        if (page.indexOf('systems-thinking') === 0) sectionKey = 'systems-thinking';
+        else if (page.indexOf('ingredient') === 0) sectionKey = 'ingredient';
+        else if (page.indexOf('community-sessions') === 0) sectionKey = 'community-sessions';
+
+        if (!sectionKey) return;
+
+        var sec = sections[sectionKey];
+        var items = sec.items;
+
+        // Find current item by matching page
+        var currentIndex = 0;
+        items.forEach(function (item, i) { if (item.href === page) currentIndex = i; });
+        var total = items.length;
+
+        function makeItems(extraClass) {
+            return items.map(function (item, i) {
+                var isActive = (item.href === page);
+                return '<li><a href="' + item.href + '"' + (isActive ? ' class="rail-active"' : '') + '>' + item.text + '</a></li>';
+            }).join('');
+        }
+
+        var railItems = makeItems();
+
+        // Build desktop rail aside
+        var rail = document.createElement('aside');
+        rail.className = 'section-rail';
+        rail.setAttribute('aria-label', sec.label + ' navigation');
+        rail.innerHTML = '<span class="rail-label">' + sec.label + '</span><ul class="rail-list">' + railItems + '</ul>';
+
+        // Build rail-content wrapper
+        var railContent = document.createElement('div');
+        railContent.className = 'rail-content';
+
+        // Outer flex wrapper
+        var wrapper = document.createElement('div');
+        wrapper.className = 'section-with-rail';
+        wrapper.appendChild(rail);
+        wrapper.appendChild(railContent);
+
+        // Build mobile section menu
+        var mobileNav = document.createElement('div');
+        mobileNav.className = 'section-mobile-nav';
+        var panelId = 'section-menu-panel';
+        mobileNav.innerHTML =
+            '<button class="section-menu-btn" aria-expanded="false" aria-controls="' + panelId + '">' +
+                '<span class="section-menu-label">' + sec.label + '</span>' +
+                '<span class="section-menu-current"><span>' + items[currentIndex].text + '</span><span>' + (currentIndex + 1) + ' / ' + total + ' ▾</span></span>' +
+            '</button>' +
+            '<ul class="section-menu-panel" id="' + panelId + '" aria-hidden="true">' + railItems + '</ul>';
+
+        // Find page-header and move content after it
+        var pageHeader = document.querySelector('.page-header');
+        if (!pageHeader) return;
+
+        // Hide the original horizontal subnav
+        subnav.style.display = 'none';
+
+        // Collect all siblings after pageHeader, move into railContent
+        var node = pageHeader.nextSibling;
+        while (node) {
+            var next = node.nextSibling;
+            railContent.appendChild(node);
+            node = next;
+        }
+
+        // Insert mobile nav then desktop wrapper after pageHeader
+        pageHeader.insertAdjacentElement('afterend', mobileNav);
+        mobileNav.insertAdjacentElement('afterend', wrapper);
+
+        // Mobile toggle
+        var btn = mobileNav.querySelector('.section-menu-btn');
+        var panel = mobileNav.querySelector('.section-menu-panel');
+        btn.addEventListener('click', function () {
+            var expanded = btn.getAttribute('aria-expanded') === 'true';
+            btn.setAttribute('aria-expanded', String(!expanded));
+            panel.setAttribute('aria-hidden', String(expanded));
+        });
+
+        // Close panel on item click
+        panel.querySelectorAll('a').forEach(function (a) {
+            a.addEventListener('click', function () {
+                btn.setAttribute('aria-expanded', 'false');
+                panel.setAttribute('aria-hidden', 'true');
+            });
+        });
+    }
+
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', function () { initNav(); initFooter(); });
+        document.addEventListener('DOMContentLoaded', function () { initNav(); initFooter(); initSectionRail(); });
     } else {
         initNav();
         initFooter();
+        initSectionRail();
     }
 }());
