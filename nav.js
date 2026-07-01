@@ -167,7 +167,7 @@
             '<div style="background:#173a2b;color:#a6c0b0;">' +
                 '<div style="max-width:1200px;margin:0 auto;padding:18px 52px;' + F + 'font-size:12px;letter-spacing:0.04em;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;">' +
                     '<span>©2026 EcoTipping Points</span>' +
-                    '<span>v0.6.0 · 7/1/26</span>' +
+                    '<span>v0.6.4 · 7/1/26</span>' +
                 '</div>' +
             '</div>';
 
