@@ -321,10 +321,10 @@
     }
 
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', function () { initNav(); initFooter(); initSectionRail(); });
+        document.addEventListener('DOMContentLoaded', function () { initNav(); initSectionRail(); initFooter(); });
     } else {
         initNav();
-        initFooter();
         initSectionRail();
+        initFooter();
     }
 }());
