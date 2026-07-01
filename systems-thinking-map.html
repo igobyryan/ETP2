@@ -8,6 +8,88 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ---- Map It body redesign (mi-). Self-contained so it renders
+           correctly regardless of styles.css. All copy is the approved
+           live-site copy, verbatim. The top nav, footer, left section rail
+           (nav.js) and the .page-header green band are untouched. ---- */
+        .mi-body { padding: 44px 52px 64px; font-family: 'Source Sans 3', sans-serif; }
+        .mi-body p { color: #4d564e; line-height: 1.65; font-size: 16px; }
+        .mi-body ul, .mi-body ol { color: #4d564e; line-height: 1.6; padding-left: 20px; margin: 10px 0; }
+        .mi-body li { margin-bottom: 8px; }
+        .mi-body h4 { font-size: 15px; font-weight: 700; color: #173a2b; margin: 22px 0 8px; }
+
+        .mi-intro { max-width: 760px; }
+        .mi-intro h2 { font-size: 28px; font-weight: 600; color: #173a2b; letter-spacing: -0.01em; margin: 0 0 12px; }
+
+        .mi-resources {
+            border: 1px solid #e4e7e3; border-radius: 8px; padding: 20px 24px;
+            margin: 26px 0; max-width: 760px; background: #fbfcfb;
+        }
+        .mi-resources .mi-eyebrow { font-size: 11px; font-weight: 600; color: #9c5a2b; margin-bottom: 12px; }
+        .mi-resources a { display: block; color: #262b26; text-decoration: none; font-weight: 600; font-size: 15px; margin-bottom: 8px; }
+        .mi-resources a:last-child { margin-bottom: 0; }
+        .mi-resources a:hover { color: #9c5a2b; }
+
+        .mi-step { border-top: 1px solid #e8ece8; padding-top: 34px; margin-top: 42px; }
+        .mi-step-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 4px; }
+        .mi-step-num { font-size: 30px; font-weight: 600; color: #9c5a2b; line-height: 1; flex: none; }
+        .mi-step-head h3 { font-size: 23px; font-weight: 600; color: #173a2b; margin: 0; letter-spacing: -0.01em; }
+        .mi-step-body { max-width: 760px; }
+
+        /* Question / prompt callouts */
+        .mi-note {
+            background: #ffffff; border: 1px solid #e4e7e3; border-left: 3px solid #9c5a2b;
+            border-radius: 0 8px 8px 0; padding: 18px 22px; margin: 18px 0; max-width: 760px;
+        }
+        .mi-note h4 { margin: 0 0 6px; color: #173a2b; font-size: 15px; }
+        .mi-note p { margin: 0; }
+
+        /* Ingredient / reflection callouts */
+        .mi-reflect {
+            background: #f1f5f2; border-left: 3px solid #2a5a44; border-radius: 0 8px 8px 0;
+            padding: 20px 24px; margin: 24px 0; max-width: 760px;
+        }
+        .mi-reflect h3, .mi-reflect h4 { margin: 0 0 8px; color: #173a2b; font-size: 17px; }
+        .mi-reflect p { margin: 0; }
+
+        /* Inline "On Apo Island" example */
+        .mi-apo {
+            background: #f6f8f6; border: 1px solid #e4e7e3; border-radius: 8px;
+            padding: 20px 22px; margin: 20px 0; max-width: 820px;
+        }
+        .mi-apo .mi-eyebrow { font-size: 11px; font-weight: 600; color: #9c5a2b; margin-bottom: 10px; }
+        .mi-apo p { margin: 0 0 12px; font-size: 15px; }
+        .mi-apo p:last-child { margin-bottom: 0; }
+
+        /* Feedback-loop chip chain */
+        .mi-chips { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 10px 0 4px; }
+        .mi-chip {
+            background: #eef2ef; border: 1px solid #d2dcd5; border-radius: 6px;
+            padding: 8px 12px; font-size: 13px; font-weight: 600; color: #173a2b;
+        }
+        .mi-arrow { color: #9c5a2b; font-size: 14px; }
+        .mi-loop {
+            background: transparent; border: 1px solid #9c5a2b; border-radius: 6px;
+            padding: 8px 12px; font-size: 13px; font-weight: 600; color: #9c5a2b;
+        }
+
+        .mi-btn {
+            display: inline-block; background: #9c5a2b; color: #fff; text-decoration: none;
+            font-weight: 600; font-size: 15px; padding: 12px 22px; border-radius: 6px; margin-top: 8px;
+        }
+        .mi-btn:hover { background: #80471f; }
+        .mi-btn-outline {
+            display: inline-block; background: transparent; color: #9c5a2b; text-decoration: none;
+            font-weight: 600; font-size: 13px; padding: 9px 16px; border: 1px solid #9c5a2b;
+            border-radius: 6px; margin-top: 6px;
+        }
+        .mi-btn-outline:hover { background: #9c5a2b; color: #fff; }
+
+        @media (max-width: 48rem) {
+            .mi-body { padding: 32px 22px 48px; }
+        }
+    </style>
 </head>
 <body>
     <script src="nav.js"></script>
@@ -30,30 +112,31 @@
         </div>
     </section>
 
-    <div class="two-col">
-        <div class="main-content">
-            <div class="callout" style="background-color: rgba(168, 184, 159, 0.15); border-left-color: var(--color-primary);">
-                <h4 style="color: var(--color-primary); margin-bottom: var(--spacing-sm);">Tool Resources</h4>
-                <a href="#" style="color: var(--color-dark); text-decoration: none; font-weight: 600; display: block; margin-bottom: var(--space-xs);">↓ Mapping Template (PDF)</a>
-                <a href="#" style="color: var(--color-dark); text-decoration: none; font-weight: 600; display: block; margin-bottom: var(--space-xs);">↓ Facilitator Guide (PDF)</a>
-                <a href="#" style="color: var(--color-dark); text-decoration: none; font-weight: 600; display: block;">↓ Example Diagrams (PDF)</a>
-            </div>
+    <div class="mi-body">
 
-            <div class="content-block">
-                <h2>Understanding Your Vicious Cycles</h2>
-                <p>This section provides step-by-step guidance for bringing the community together to understand what's causing their problems. You'll create a boxes-and-arrows diagram showing the feedback loops that have been driving decline.</p>
-            </div>
+        <div class="mi-intro">
+            <h2>Understanding Your Vicious Cycles</h2>
+            <p>This section provides step-by-step guidance for bringing the community together to understand what's causing their problems. You'll create a boxes-and-arrows diagram showing the feedback loops that have been driving decline.</p>
+        </div>
 
-            <div class="story-video">
-                <video controls preload="metadata" poster="Videos/MAP%20IT_Apo-poster.jpg">
-                    <source src="Videos/MAP%20IT_Apo.mp4" type="video/mp4">
-                </video>
-            </div>
+        <div class="mi-resources">
+            <div class="mi-eyebrow">Tool Resources</div>
+            <a href="#">&darr; Mapping Template (PDF)</a>
+            <a href="#">&darr; Facilitator Guide (PDF)</a>
+            <a href="#">&darr; Example Diagrams (PDF)</a>
+        </div>
 
-            <div class="content-block" style="margin-top: var(--spacing-lg);">
-                <h3>Step 1: Convene Your Mapping Group</h3>
-                
-                <h4 style="margin-top: var(--spacing-md);">Who to Include</h4>
+        <div class="story-video">
+            <video controls preload="metadata" poster="Videos/MAP%20IT_Apo-poster.jpg">
+                <source src="Videos/MAP%20IT_Apo.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="mi-step">
+            <div class="mi-step-head"><span class="mi-step-num">01</span><h3>Convene Your Mapping Group</h3></div>
+            <div class="mi-step-body">
+                <h4>Who to Include</h4>
                 <ul>
                     <li>Elders who remember how the situation developed over time</li>
                     <li>Women who often hold passed-down knowledge and may observe different aspects of community life</li>
@@ -62,8 +145,8 @@
                     <li>If you're an outside NGO, include diverse community members in this process</li>
                     <li>People with a history of community service</li>
                 </ul>
-                
-                <h4 style="margin-top: var(--spacing-md);">How to Convene</h4>
+
+                <h4>How to Convene</h4>
                 <ul>
                     <li>Meet in a neutral, accessible space where all participants feel comfortable</li>
                     <li>Plan for 2-3 hours for initial mapping session</li>
@@ -71,45 +154,54 @@
                     <li>Consider whether mixed-gender or separate groups work better in your context</li>
                 </ul>
             </div>
+        </div>
 
-            <div class="callout callout-light">
-                <h4>Ingredient: Building Shared Vision</h4>
-                <p>This process of gathering diverse community members to understand your situation together isn't just about analysis; it's building shared vision and commitment. When people participate in mapping the problem, they develop a common understanding and ownership of solutions.</p>
-            </div>
+        <div class="mi-reflect">
+            <h4>Ingredient: Building Shared Vision</h4>
+            <p>Gathering diverse community members to understand your situation together builds shared vision and commitment, not only analysis. When people participate in mapping the problem, they develop a common understanding and ownership of solutions.</p>
+        </div>
 
-            <div class="content-block" style="margin-top: var(--spacing-lg);">
-                <h3>Step 2: Start With the Story</h3>
-                
-                <div class="callout">
+        <!-- Step 2 -->
+        <div class="mi-step">
+            <div class="mi-step-head"><span class="mi-step-num">02</span><h3>Start With the Story</h3></div>
+            <div class="mi-step-body">
+                <div class="mi-note">
                     <h4>First Question</h4>
                     <p><strong>Think back to the very first action or activity that set the decline in motion.</strong> This is what we call the "negative tipping point lever": the trigger that started things going in the wrong direction.</p>
                 </div>
-                
-                <h4 style="margin-top: var(--spacing-md);">Additional Guiding Questions</h4>
+
+                <h4>Additional Guiding Questions</h4>
                 <ul>
                     <li>What was different before this change happened?</li>
                     <li>When did you first notice things getting worse?</li>
                     <li>What else changed around that time?</li>
                 </ul>
-                
-                <h4 style="margin-top: var(--spacing-md);">Process</h4>
+
+                <h4>Process</h4>
                 <ul>
                     <li>Have participants share stories and memories</li>
                     <li>One person should capture key points (use large paper visible to all, or Post-it notes)</li>
                     <li>Look for: triggering events, changes in behavior, environmental shifts, outside pressures</li>
                     <li>Don't worry about getting everything perfect; you'll refine as you go</li>
                 </ul>
-            </div>
 
-            <div class="content-block" style="margin-top: var(--spacing-lg);">
-                <h3>Step 3: Map the First Feedback Loop</h3>
-                
-                <div class="callout callout-blue">
+                <div class="mi-apo">
+                    <div class="mi-eyebrow">On Apo Island</div>
+                    <p>Elders remembered when fish were plentiful and coral reefs were healthy. The trigger was the combination of population growth and the introduction of destructive fishing methods like dynamite and cyanide fishing in the 1970s and 1980s.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="mi-step">
+            <div class="mi-step-head"><span class="mi-step-num">03</span><h3>Map the First Feedback Loop</h3></div>
+            <div class="mi-step-body">
+                <div class="mi-note">
                     <h4>Key Question</h4>
                     <p>What happened in the ecosystem or community to form a circular chain of effects (a feedback loop) that kept the decline going?</p>
                 </div>
-                
-                <h4 style="margin-top: var(--spacing-md);">Process</h4>
+
+                <h4>Process</h4>
                 <ol>
                     <li>Start with the trigger/negative tipping point lever you identified</li>
                     <li>Ask: What did this cause or make worse?</li>
@@ -117,33 +209,46 @@
                     <li>Continue until you complete a circle back to something that reinforces the original problem</li>
                     <li>Draw this as boxes (the problems/factors) connected by arrows (showing what affects what)</li>
                 </ol>
-                
-                <p style="margin-top: var(--spacing-md);"><strong>The boxes in your diagram represent:</strong></p>
+
+                <p style="margin-top:16px;"><strong>The boxes in your diagram represent:</strong></p>
                 <ul>
                     <li>The tipping point lever (the trigger)</li>
                     <li>The "bottom line" (the main problem you're trying to solve, like declining fish stocks or degraded forest)</li>
                     <li>Any ecosystem or community elements that complete the feedback loop</li>
                 </ul>
-                
-                <p><strong>Arrows between boxes show what affects what.</strong></p>
-                
-                <!-- FPO: uncomment when diagram is ready
-                <div class="placeholder-box">
-                    [Visual Diagram: First Feedback Loop Template, For Placement Only]
-                </div>
-                -->
-            </div>
 
-            <div class="content-block" style="margin-top: var(--spacing-lg);">
-                <h3>Step 4: Add Reinforcing Feedback Loops</h3>
-                
-                <div class="callout callout-blue">
+                <p><strong>Arrows between boxes show what affects what.</strong></p>
+
+                <div class="mi-apo">
+                    <div class="mi-eyebrow">On Apo Island &mdash; first loop</div>
+                    <div class="mi-chips">
+                        <span class="mi-chip">Destructive fishing methods</span>
+                        <span class="mi-arrow">&rarr;</span>
+                        <span class="mi-chip">Coral reefs damaged</span>
+                        <span class="mi-arrow">&rarr;</span>
+                        <span class="mi-chip">Fish breeding grounds destroyed</span>
+                        <span class="mi-arrow">&rarr;</span>
+                        <span class="mi-chip">Declining fish stocks</span>
+                        <span class="mi-arrow">&rarr;</span>
+                        <span class="mi-chip">Fishers use even more destructive methods</span>
+                        <span class="mi-arrow">&rarr;</span>
+                        <span class="mi-loop">&#8634; Destructive fishing methods</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="mi-step">
+            <div class="mi-step-head"><span class="mi-step-num">04</span><h3>Add Reinforcing Feedback Loops</h3></div>
+            <div class="mi-step-body">
+                <div class="mi-note">
                     <h4>Key Question</h4>
                     <p>What happened after that to intensify the decline even more?</p>
                 </div>
-                
+
                 <p><strong>Process:</strong> Look for additional circular chains of effects that reinforced the first feedback loop. Add more boxes and arrows to your diagram to show how the decline expanded or accelerated.</p>
-                
+
                 <p>You may find:</p>
                 <ul>
                     <li>Second-order effects (the decline caused other problems that made things worse)</li>
@@ -151,78 +256,58 @@
                     <li>Economic pressures that developed as a result</li>
                     <li>Multiple reinforcing loops working together</li>
                 </ul>
-                
+
                 <p><strong>Keep mapping:</strong> Continue adding boxes and arrows until you've captured the major dynamics driving your decline.</p>
-                
-                <!-- FPO: uncomment when diagram is ready
-                <div class="placeholder-box">
-                    [Visual Diagram: Multiple Reinforcing Loops, For Placement Only]
-                </div>
-                -->
-            </div>
 
-            <div class="callout callout-light" style="margin-top: var(--spacing-lg);">
-                <h3>What You've Created</h3>
-                <p>By completing this mapping process, you now have a shared visual representation of the system causing your problems. This diagram is your main tool for identifying where interventions might be most effective.</p>
-            </div>
-
-            <!-- FPO: uncomment when resource is ready
-            <div class="placeholder-box">
-                [Downloadable Resource: Blank Mapping Template, For Placement Only]
-            </div>
-            -->
-
-            <div class="content-block" style="margin-top: var(--spacing-lg);">
-                <h3>Next Steps</h3>
-                <p>Now that you understand the vicious cycles driving decline, it's time to identify where you can intervene to reverse them.</p>
-                
-                <div style="margin-top: var(--spacing-md);">
-                    <a href="systems-thinking-reverse.html" class="btn btn-primary">Continue to Part 3: Reverse It</a>
+                <div class="mi-apo">
+                    <div class="mi-eyebrow">On Apo Island &mdash; reinforcing loops</div>
+                    <p>The first loop was reinforced by economic and social dynamics:</p>
+                    <div class="mi-chips">
+                        <span class="mi-chip">Declining catches</span>
+                        <span class="mi-arrow">&rarr;</span>
+                        <span class="mi-chip">Lower income</span>
+                        <span class="mi-arrow">&rarr;</span>
+                        <span class="mi-chip">More economic pressure</span>
+                        <span class="mi-arrow">&rarr;</span>
+                        <span class="mi-chip">More intensive/destructive fishing</span>
+                        <span class="mi-arrow">&rarr;</span>
+                        <span class="mi-chip">Further reef damage</span>
+                        <span class="mi-arrow">&rarr;</span>
+                        <span class="mi-loop">&#8634; Declining catches</span>
+                    </div>
+                    <p style="margin-top:14px;">And another loop:</p>
+                    <div class="mi-chips">
+                        <span class="mi-chip">Fishers traveling farther</span>
+                        <span class="mi-arrow">&rarr;</span>
+                        <span class="mi-chip">Less time protecting local waters</span>
+                        <span class="mi-arrow">&rarr;</span>
+                        <span class="mi-chip">Reduced community cohesion</span>
+                        <span class="mi-arrow">&rarr;</span>
+                        <span class="mi-chip">Weaker informal rules</span>
+                        <span class="mi-arrow">&rarr;</span>
+                        <span class="mi-chip">More destructive fishing</span>
+                        <span class="mi-arrow">&rarr;</span>
+                        <span class="mi-loop">&#8634; Fishers traveling farther</span>
+                    </div>
+                    <a href="story-apo-island.html" class="mi-btn-outline">See Full Apo Island Map</a>
                 </div>
             </div>
         </div>
 
-        <aside class="sidebar">
-            <div class="sidebar-box highlight">
-                <h3>Example: Apo Island</h3>
-                
-                <h4>Step 2: The Story</h4>
-                <p>Elders remembered when fish were plentiful and coral reefs were healthy. The trigger was the combination of population growth and the introduction of destructive fishing methods like dynamite and cyanide fishing in the 1970s and 1980s.</p>
-                
-                <h4>Step 3: First Loop</h4>
-                <p style="font-size: 0.9rem; line-height: 1.8;">
-                    <strong>Destructive fishing methods</strong><br>
-                    → Coral reefs damaged<br>
-                    → Fish breeding grounds destroyed<br>
-                    → Declining fish stocks<br>
-                    → Fishers use even more destructive methods<br>
-                    [cycle repeats]
-                </p>
-                
-                <h4>Step 4: Reinforcing Loops</h4>
-                <p>The first loop was reinforced by economic and social dynamics:</p>
-                <p style="font-size: 0.9rem; line-height: 1.8;">
-                    <strong>Declining catches</strong><br>
-                    → Lower income<br>
-                    → More economic pressure<br>
-                    → More intensive/destructive fishing<br>
-                    → Further reef damage
-                </p>
-                
-                <p>And another loop:</p>
-                <p style="font-size: 0.9rem; line-height: 1.8;">
-                    <strong>Fishers traveling farther</strong><br>
-                    → Less time protecting local waters<br>
-                    → Reduced community cohesion<br>
-                    → Weaker informal rules<br>
-                    → More destructive fishing
-                </p>
-                
-                <div style="margin-top: var(--spacing-md);">
-                    <a href="story-apo-island.html" class="btn btn-outline-light" style="font-size: 0.75rem;">See Full Apo Island Map</a>
-                </div>
-            </div>
+        <div class="mi-reflect">
+            <h3>What You've Created</h3>
+            <p>You now have a shared visual representation of the system causing your problems &mdash; your main tool for spotting where interventions will be most effective.</p>
+        </div>
 
-    </footer>
+        <div class="mi-step">
+            <div class="mi-step-head"><h3 style="margin:0;">Next Steps</h3></div>
+            <div class="mi-step-body">
+                <p>You now understand the vicious cycles driving decline. Next, identify where you can intervene to reverse them.</p>
+                <a href="systems-thinking-reverse.html" class="mi-btn">Continue to Part 3: Reverse It</a>
+            </div>
+        </div>
+
+    </div>
+
 </body>
 </html>

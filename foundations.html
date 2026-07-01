@@ -42,9 +42,16 @@
 
             <div class="foundations-card">
                 <div class="foundations-thumbnail">
-                    <video controls preload="metadata">
-                        <source src="Videos/2_What%20is%20the%20storyline%20of%20tipping%20point%20success%20stories.mp4" type="video/mp4">
-                    </video>
+                    <iframe
+                        id="yt-player-2"
+                        width="100%"
+                        height="100%"
+                        src="https://www.youtube.com/embed/BMKD6ch8yHo?autoplay=0&cc_load_policy=1&enablejsapi=1&rel=0&modestbranding=1"
+                        title="What is the storyline of tipping points success stories?"
+                        frameborder="0"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
                 </div>
                 <div class="foundations-content">
                     <h3>2. What is the storyline of tipping points success stories?</h3>
@@ -54,9 +61,16 @@
 
             <div class="foundations-card">
                 <div class="foundations-thumbnail">
-                    <video controls preload="metadata">
-                        <source src="Videos/3_Why%20are%20feedback%20loops%20important.mp4" type="video/mp4">
-                    </video>
+                    <iframe
+                        id="yt-player-3"
+                        width="100%"
+                        height="100%"
+                        src="https://www.youtube.com/embed/YT9_VnH-T24?autoplay=0&cc_load_policy=1&enablejsapi=1&rel=0&modestbranding=1"
+                        title="Why are feedback loops important?"
+                        frameborder="0"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
                 </div>
                 <div class="foundations-content">
                     <h3>3. Why are feedback loops important?</h3>
@@ -66,9 +80,16 @@
 
             <div class="foundations-card">
                 <div class="foundations-thumbnail">
-                    <video controls preload="metadata">
-                        <source src="Videos/4_How%20can%20communities%20devise%20effective%20positive%20tipping%20point%20levers.mp4" type="video/mp4">
-                    </video>
+                    <iframe
+                        id="yt-player-4"
+                        width="100%"
+                        height="100%"
+                        src="https://www.youtube.com/embed/W3bgxJwGBXU?autoplay=0&cc_load_policy=1&enablejsapi=1&rel=0&modestbranding=1"
+                        title="How can communities craft effective positive tipping point levers?"
+                        frameborder="0"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
                 </div>
                 <div class="foundations-content">
                     <h3>4. How can communities craft effective positive tipping point levers?</h3>
@@ -78,9 +99,16 @@
 
             <div class="foundations-card">
                 <div class="foundations-thumbnail">
-                    <video controls preload="metadata">
-                        <source src="Videos/5_How%20does%20tipping%20point%20success%20spread%20to%20other%20locations.mp4" type="video/mp4">
-                    </video>
+                    <iframe
+                        id="yt-player-5"
+                        width="100%"
+                        height="100%"
+                        src="https://www.youtube.com/embed/kACJkqmULbw?autoplay=0&cc_load_policy=1&enablejsapi=1&rel=0&modestbranding=1"
+                        title="How does tipping point success at one location spread to other locations?"
+                        frameborder="0"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
                 </div>
                 <div class="foundations-content">
                     <h3>5. How does tipping point success at one location spread to other locations?</h3>
@@ -90,9 +118,16 @@
 
             <div class="foundations-card">
                 <div class="foundations-thumbnail">
-                    <video controls preload="metadata">
-                        <source src="Videos/6_How%20does%20local%20tipping%20point%20action%20connect%20to%20global%20problems.mp4" type="video/mp4">
-                    </video>
+                    <iframe
+                        id="yt-player-6"
+                        width="100%"
+                        height="100%"
+                        src="https://www.youtube.com/embed/Z485VJMubR4?autoplay=0&cc_load_policy=1&enablejsapi=1&rel=0&modestbranding=1"
+                        title="How does local tipping point action contribute to the resolution of global problems such as Climate Change?"
+                        frameborder="0"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
                 </div>
                 <div class="foundations-content">
                     <h3>6. How does local tipping point action contribute to the resolution of global problems such as Climate Change?</h3>
@@ -110,27 +145,26 @@
             document.head.appendChild(tag);
         })();
 
-        var ytPlayer;
+        var ytPlayers = {};
+        var ytPlayerIds = ['yt-player', 'yt-player-2', 'yt-player-3', 'yt-player-4', 'yt-player-5', 'yt-player-6'];
 
         window.onYouTubeIframeAPIReady = function() {
-            ytPlayer = new YT.Player('yt-player', {
-                events: {
-                    onStateChange: function(event) {
-                        if (event.data === YT.PlayerState.PLAYING) {
-                            document.querySelectorAll('video').forEach(function(v) { v.pause(); });
+            ytPlayerIds.forEach(function(id) {
+                ytPlayers[id] = new YT.Player(id, {
+                    events: {
+                        onStateChange: function(event) {
+                            if (event.data === YT.PlayerState.PLAYING) {
+                                ytPlayerIds.forEach(function(otherId) {
+                                    if (otherId !== id && ytPlayers[otherId] && ytPlayers[otherId].pauseVideo) {
+                                        ytPlayers[otherId].pauseVideo();
+                                    }
+                                });
+                            }
                         }
                     }
-                }
+                });
             });
         };
-
-        document.querySelectorAll('video').forEach(function(v) {
-            v.addEventListener('play', function() {
-                if (ytPlayer && ytPlayer.pauseVideo) {
-                    ytPlayer.pauseVideo();
-                }
-            });
-        });
     </script>
 
 </body>
