@@ -8,6 +8,65 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ---- Recognize It body redesign (mi-). Self-contained so it renders
+           correctly regardless of styles.css. All copy is the approved
+           live-site copy, verbatim. The top nav, footer, left section rail
+           (nav.js) and the .page-header green band are untouched. Matches
+           the Map It page pattern exactly (same classes/colors/type). ---- */
+        .mi-body { padding: 44px 52px 64px; font-family: 'Source Sans 3', sans-serif; }
+        .mi-body p { color: #4d564e; line-height: 1.65; font-size: 16px; }
+        .mi-body ul, .mi-body ol { color: #4d564e; line-height: 1.6; padding-left: 20px; margin: 10px 0; }
+        .mi-body li { margin-bottom: 8px; }
+        .mi-body h4 { font-size: 15px; font-weight: 700; color: #173a2b; margin: 22px 0 8px; }
+
+        .mi-intro { max-width: 760px; }
+        .mi-intro h2 { font-size: 28px; font-weight: 600; color: #173a2b; letter-spacing: -0.01em; margin: 0 0 12px; }
+
+        .mi-step { border-top: 1px solid #e8ece8; padding-top: 34px; margin-top: 42px; }
+        .mi-step-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 4px; }
+        .mi-step-head h3 { font-size: 23px; font-weight: 600; color: #173a2b; margin: 0; letter-spacing: -0.01em; }
+        .mi-step-body { max-width: 760px; }
+
+        /* Inline "On Apo Island" example */
+        .mi-apo {
+            background: #f6f8f6; border: 1px solid #e4e7e3; border-radius: 8px;
+            padding: 20px 22px; margin: 20px 0; max-width: 820px;
+        }
+        .mi-apo .mi-eyebrow { font-size: 11px; font-weight: 600; color: #9c5a2b; margin-bottom: 10px; }
+        .mi-apo h4 { margin-top: 0; }
+        .mi-apo p { margin: 0 0 12px; font-size: 15px; }
+        .mi-apo p:last-child { margin-bottom: 0; }
+
+        /* Feedback-loop chip chain */
+        .mi-chips { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 10px 0 4px; }
+        .mi-chip {
+            background: #eef2ef; border: 1px solid #d2dcd5; border-radius: 6px;
+            padding: 8px 12px; font-size: 13px; font-weight: 600; color: #173a2b;
+        }
+        .mi-arrow { color: #9c5a2b; font-size: 14px; }
+        .mi-link { display: inline-flex; align-items: center; gap: 8px; }
+        .mi-loop {
+            background: transparent; border: 1px solid #9c5a2b; border-radius: 6px;
+            padding: 8px 12px; font-size: 13px; font-weight: 600; color: #9c5a2b;
+        }
+
+        .mi-btn {
+            display: inline-block; background: #9c5a2b; color: #fff; text-decoration: none;
+            font-weight: 600; font-size: 15px; padding: 12px 22px; border-radius: 6px; margin-top: 8px;
+        }
+        .mi-btn:hover { background: #80471f; }
+        .mi-btn-outline {
+            display: inline-block; background: transparent; color: #9c5a2b; text-decoration: none;
+            font-weight: 600; font-size: 13px; padding: 9px 16px; border: 1px solid #9c5a2b;
+            border-radius: 6px; margin-top: 6px;
+        }
+        .mi-btn-outline:hover { background: #9c5a2b; color: #fff; }
+
+        @media (max-width: 48rem) {
+            .mi-body { padding: 32px 22px 48px; }
+        }
+    </style>
 </head>
 <body>
     <script src="nav.js"></script>
@@ -30,28 +89,32 @@
         </div>
     </section>
 
-    <div class="two-col">
-        <div class="main-content">
+    <div class="mi-body">
 
-            <div class="content-block">
-                <h2>Your Goal</h2>
-                <p>Before you bring the full community together to map the problem, you need to understand the situation well enough to facilitate that conversation. Recognize It is fieldwork. You're building a picture of what happened, when, and to whom. The mapping session starts from shared story, not a blank page.</p>
-                <p>You'll come out of this step with two things: a rough timeline of how the decline unfolded, and a working list of losses and causes that the community will organize and diagram in Map It.</p>
-            </div>
+        <div class="mi-intro">
+            <h2>Your Goal</h2>
+            <p>Before you bring the full community together to map the problem, you need to understand the situation well enough to facilitate that conversation. Recognize It is fieldwork. You're building a picture of what happened, when, and to whom. The mapping session starts from shared story, not a blank page.</p>
+            <p>You'll come out of this step with two things: a rough timeline of how the decline unfolded, and a working list of losses and causes that the community will organize and diagram in Map It.</p>
+        </div>
 
-            <div class="content-block">
-                <h2>Start with Smaller Groups</h2>
+        <div class="mi-step">
+            <div class="mi-step-head"><h3 style="margin:0;">Start with Smaller Groups</h3></div>
+            <div class="mi-step-body">
                 <p>Don't begin with a community-wide forum. Meet first with smaller common-interest groups: fishing families, farmers, women's groups, elders. These conversations are easier to have honestly. People speak more directly in smaller settings, and you'll hear things that won't come up in a larger group.</p>
                 <p>Aim for broad representation across these early conversations. You're not looking for consensus yet. You're listening for the range of experience.</p>
             </div>
+        </div>
 
-            <div class="content-block">
-                <h2>Walk the Environment</h2>
+        <div class="mi-step">
+            <div class="mi-step-head"><h3 style="margin:0;">Walk the Environment</h3></div>
+            <div class="mi-step-body">
                 <p>If possible, walk the affected land or water with community members. The environment itself prompts memory. People recall specific losses when they're standing where they happened. Ask what used to be here. Ask what changed. Let them tell the story in place.</p>
             </div>
+        </div>
 
-            <div class="content-block">
-                <h2>Listen First</h2>
+        <div class="mi-step">
+            <div class="mi-step-head"><h3 style="margin:0;">Listen First</h3></div>
+            <div class="mi-step-body">
                 <p>Your role in this phase is to draw out the community's own account of what happened. Avoid offering explanations or solutions. Ask questions, then listen. The story needs to come from them.</p>
                 <p>Useful questions:</p>
                 <ul>
@@ -63,91 +126,91 @@
                 </ul>
                 <p>For each problem that surfaces, follow it: what did this lead to? What else got worse because of it?</p>
             </div>
+        </div>
 
-            <div class="content-block">
-                <h2>What You're Listening For</h2>
+        <div class="mi-step">
+            <div class="mi-step-head"><h3 style="margin:0;">What You're Listening For</h3></div>
+            <div class="mi-step-body">
                 <p>As you gather stories, keep these patterns in mind as a guide for when you have enough material to move on.</p>
-            </div>
 
-            <div class="content-block">
+                <div class="mi-apo">
+                    <div class="mi-eyebrow">On Apo Island</div>
+                    <p><strong>The Situation:</strong> Community members could see interconnected problems: declining fish catches, damaged coral reefs from dynamite and cyanide fishing, and increasing poverty.</p>
+                </div>
+
                 <h4>A trigger or starting point.</h4>
                 <p>Was there a specific event or change that set things in motion? A new technology introduced, a policy change, a shift in land use or ownership?</p>
-            </div>
 
-            <div class="content-block">
+                <div class="mi-apo">
+                    <div class="mi-eyebrow">On Apo Island</div>
+                    <p><strong>The Trigger:</strong> The introduction of destructive fishing methods created a vicious cycle:</p>
+                    <div class="mi-chips">
+                        <span class="mi-link"><span class="mi-chip">Destructive fishing methods</span><span class="mi-arrow">&rarr;</span></span>
+                        <span class="mi-link"><span class="mi-chip">Reef damage</span><span class="mi-arrow">&rarr;</span></span>
+                        <span class="mi-link"><span class="mi-chip">Fewer fish</span><span class="mi-arrow">&rarr;</span></span>
+                        <span class="mi-link"><span class="mi-chip">More destructive methods</span><span class="mi-arrow">&rarr;</span></span>
+                        <span class="mi-loop">&#8634; More reef damage</span>
+                    </div>
+                </div>
+
                 <h4>A sequence of connected problems.</h4>
                 <p>Does one problem seem to have caused another? You're looking for chains: this led to that, which made this worse, which caused that.</p>
-            </div>
 
-            <div class="content-block">
+                <div class="mi-apo">
+                    <div class="mi-eyebrow">On Apo Island</div>
+                    <p><strong>Amplifying Cycles:</strong> can reinforce existing vicious cycles and create new ones:</p>
+                    <div class="mi-chips">
+                        <span class="mi-link"><span class="mi-chip">Fishing further away</span><span class="mi-arrow">&rarr;</span></span>
+                        <span class="mi-link"><span class="mi-chip">Less incentive to protect local waters</span><span class="mi-arrow">&rarr;</span></span>
+                        <span class="mi-link"><span class="mi-chip">More destructive methods</span><span class="mi-arrow">&rarr;</span></span>
+                        <span class="mi-link"><span class="mi-chip">More reef damage</span><span class="mi-arrow">&rarr;</span></span>
+                        <span class="mi-loop">&#8634; Even fewer fish</span>
+                    </div>
+                </div>
+
                 <h4>A shift from a better past.</h4>
                 <p>Can elders describe conditions before the decline? That contrast sharpens the story and helps identify what the community is trying to recover.</p>
-            </div>
 
-            <div class="content-block">
+                <div class="mi-apo">
+                    <div class="mi-eyebrow">On Apo Island</div>
+                    <p><strong>The Memory:</strong> Elders remembered when the reefs were healthy and fish were abundant.</p>
+                </div>
+
                 <h4>Thresholds or turning points.</h4>
                 <p>Moments when things got noticeably worse, or faster. These often mark where the system crossed into a new state.</p>
-            </div>
 
-            <div class="content-block">
+                <div class="mi-apo">
+                    <div class="mi-eyebrow">On Apo Island</div>
+                    <p><strong>The Threshold:</strong> Fishermen could no longer make a living from island fishing grounds and had to travel farther from home.</p>
+                </div>
+
                 <h4>Impacts on livelihoods.</h4>
                 <p>For each environmental loss, what has it meant for people's lives, income, and work? These connections matter for building shared motivation in the mapping session.</p>
-            </div>
 
-            <div class="content-block">
-                <h2>What You're Building</h2>
+                <div class="mi-apo">
+                    <div class="mi-eyebrow">On Apo Island</div>
+                    <p><strong>The Crisis:</strong> Eventually, there was nowhere close by with adequate fish, and the community faced collapse.</p>
+                    <a href="story-apo-island.html" class="mi-btn-outline">Read Full Apo Island Story</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="mi-step">
+            <div class="mi-step-head"><h3 style="margin:0;">What You're Building</h3></div>
+            <div class="mi-step-body">
                 <p>As you work through these conversations, keep a running list. Two columns is enough: losses and causes. Don't worry about organizing it yet. That's Map It's job. You're collecting material.</p>
                 <p>By the time you convene the community forum, you should have a rough timeline of the decline and enough documented losses and causes that the mapping session has real content to work with from the start.</p>
             </div>
-
-            <div class="content-block">
-                <h2>The Community Forum</h2>
-                <p>Once you've completed your smaller-group fieldwork, bring the broader community together. The goal is to arrive at shared consensus on the story of decline. You're not generating the list from scratch here; you're validating, expanding, and agreeing on what you've gathered.</p>
-                <p>The forum ends when there's broad agreement on the losses, the causes, and roughly how they connect. The next step is to diagram that.</p>
-            </div>
-
-            <div class="content-block" style="margin-top: var(--spacing-lg);">
-                <a href="systems-thinking-map.html" class="btn btn-primary">Continue to Part 2: Map It</a>
-            </div>
-
         </div>
 
-        <aside class="sidebar">
-            <div class="sidebar-box highlight">
-                <h3>Example: Apo Island, Philippines</h3>
-                <p><strong>The Situation:</strong> Community members could see interconnected problems: declining fish catches, damaged coral reefs from dynamite and cyanide fishing, and increasing poverty.</p>
-
-                <p><strong>The Memory:</strong> Elders remembered when the reefs were healthy and fish were abundant.</p>
-
-                <p><strong>The Trigger:</strong> The introduction of destructive fishing methods created a vicious cycle:</p>
-
-                <p style="font-size: 0.9rem; line-height: 1.8;">
-                    <strong>Destructive fishing methods</strong> →<br>
-                    <strong>Reef damage</strong> →<br>
-                    <strong>Fewer fish</strong> →<br>
-                    <strong>More destructive methods</strong> →<br>
-                    <strong>More reef damage</strong>
-                </p>
-
-                <p><strong>The Threshold:</strong> Fishermen could no longer make a living from island fishing grounds and had to travel farther from home.</p>
-
-                <p><strong>Amplifying Cycles:</strong> can reinforce existing vicious cycles and create new ones:</p>
-
-                <p style="font-size: 0.9rem; line-height: 1.8;">
-                    <strong>Fishing further away</strong> →<br>
-                    <strong>Less incentive to protect local waters</strong> →<br>
-                    <strong>More destructive methods</strong> →<br>
-                    <strong>More reef damage</strong> →<br>
-                    <strong>Even fewer fish</strong>
-                </p>
-
-                <p><strong>The Crisis:</strong> Eventually, there was nowhere close by with adequate fish, and the community faced collapse.</p>
-
-                <div style="margin-top: var(--spacing-md);">
-                    <a href="story-apo-island.html" class="btn btn-outline-light" style="font-size: 0.75rem;">Read Full Apo Island Story</a>
-                </div>
+        <div class="mi-step">
+            <div class="mi-step-head"><h3 style="margin:0;">The Community Forum</h3></div>
+            <div class="mi-step-body">
+                <p>Once you've completed your smaller-group fieldwork, bring the broader community together. The goal is to arrive at shared consensus on the story of decline. You're not generating the list from scratch here; you're validating, expanding, and agreeing on what you've gathered.</p>
+                <p>The forum ends when there's broad agreement on the losses, the causes, and roughly how they connect. The next step is to diagram that.</p>
+                <a href="systems-thinking-map.html" class="mi-btn">Continue to Part 2: Map It</a>
             </div>
-        </aside>
+        </div>
 
     </div>
 
