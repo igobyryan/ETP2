@@ -14,16 +14,16 @@
         .hp-wrap { max-width: 1200px; margin: 0 auto; padding: 0 52px; }
         .hp-section { padding: 44px 0; }
         .hp-hero {
-            position: relative; min-height: 360px; display: flex; align-items: flex-end;
+            position: relative; min-height: 480px; display: flex; align-items: flex-end;
             overflow: hidden; background: #173a2b;
         }
         .hp-hero img.hp-hero-photo {
             position: absolute; inset: 0; width: 100%; height: 100%;
-            object-fit: cover; object-position: center 60%; filter: saturate(1.02) brightness(0.86);
+            object-fit: cover; object-position: center 76%; filter: saturate(1.02) brightness(0.86);
         }
         .hp-hero .hp-hero-scrim {
             position: absolute; inset: 0;
-            background: linear-gradient(180deg, rgba(20,18,10,0.15) 30%, rgba(20,18,10,0.8) 100%);
+            background: linear-gradient(180deg, transparent 0%, transparent 40%, rgba(20,18,10,0.85) 100%);
         }
         .hp-hero .hp-wrap { position: relative; padding-top: 60px; padding-bottom: 52px; }
         .hp-eyebrow { font-size: 12px; color: #E2B53F; margin-bottom: 18px; }
@@ -38,7 +38,7 @@
         .hp-head h2 { font-weight: 600; font-size: 28px; color: #173a2b; line-height: 1.1; letter-spacing: -0.01em; margin: 0; }
         .hp-head .hp-note { font-size: 12px; color: #9c5a2b; white-space: nowrap; }
 
-        .hp-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .hp-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
         .hp-card {
             background: #fff; border: 1px solid #e4e7e3; border-radius: 8px; padding: 22px;
             text-decoration: none; display: block; transition: border-color .2s ease;
@@ -49,13 +49,6 @@
         .hp-card p { font-size: 15px; line-height: 1.65; color: #4d564e; margin: 0; }
         .hp-card .hp-explore { font-size: 12px; color: #9c5a2b; margin-top: 18px; }
 
-        .hp-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-        .hp-step .hp-rule { height: 4px; border-radius: 2px; }
-        .hp-step .hp-step-body { padding-top: 18px; }
-        .hp-step .hp-num { font-weight: 600; font-size: 34px; color: #9c5a2b; line-height: 1; margin-bottom: 12px; }
-        .hp-step h3 { font-weight: 600; font-size: 20px; color: #173a2b; margin: 0 0 8px; }
-        .hp-step p { font-size: 13.5px; line-height: 1.55; color: #4d564e; margin: 0; }
-
         .hp-field { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
         .hp-field figure { margin: 0; }
         .hp-field figure.hp-banner { grid-column: 1 / -1; }
@@ -64,15 +57,15 @@
         .hp-field .hp-media img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(0.9); }
         .hp-field figcaption { margin-top: 11px; }
         .hp-field .hp-place { font-size: 10.5px; color: #9c5a2b; margin-bottom: 4px; }
-        .hp-field .hp-title { font-weight: 600; font-size: 17px; color: #262b26; line-height: 1.2; }
+        .hp-field .hp-title { font-weight: 600; font-size: var(--text-lg); color: #262b26; line-height: 1.2; }
 
         @media (max-width: 64rem) {
-            .hp-steps { grid-template-columns: repeat(2, 1fr); }
+            .hp-cards { grid-template-columns: repeat(2, 1fr); }
             .hp-field { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 48rem) {
             .hp-wrap { padding: 0 22px; }
-            .hp-cards, .hp-steps, .hp-field { grid-template-columns: 1fr; }
+            .hp-cards, .hp-field { grid-template-columns: 1fr; }
             .hp-field figure.hp-banner .hp-media { aspect-ratio: 16 / 9; }
             .hp-hero h1 { font-size: 34px; }
         }
@@ -96,72 +89,34 @@
     <section class="hp-section">
         <div class="hp-wrap">
             <div class="hp-head">
-                <h2>What&rsquo;s in this toolkit</h2>
-                <span class="hp-note">Three connected tools</span>
+                <h2>What&rsquo;s in the toolkit</h2>
+                <span class="hp-note">Four connected tools</span>
             </div>
             <div class="hp-cards">
-                <a class="hp-card" href="systems-thinking-overview.html">
+                <a class="hp-card" href="foundations.html">
                     <div class="hp-num">01</div>
+                    <h3>Foundations</h3>
+                    <p>Short videos covering the core concepts behind positive tipping points, for anyone new to the framework.</p>
+                    <div class="hp-explore">Explore</div>
+                </a>
+                <a class="hp-card" href="systems-thinking-overview.html">
+                    <div class="hp-num">02</div>
                     <h3>Systems Thinking</h3>
                     <p>A four-part framework for understanding how ecological decline happens and how to reverse it: recognize the pattern, map the causes, find the levers, tip the system back toward health.</p>
                     <div class="hp-explore">Explore</div>
                 </a>
                 <a class="hp-card" href="ingredients-overview.html">
-                    <div class="hp-num">02</div>
+                    <div class="hp-num">03</div>
                     <h3>Ingredients for Success</h3>
                     <p>Ten attributes found consistently in successful restoration efforts, and how to put each one to work in your community.</p>
                     <div class="hp-explore">Explore</div>
                 </a>
                 <a class="hp-card" href="community-sessions.html">
-                    <div class="hp-num">03</div>
+                    <div class="hp-num">04</div>
                     <h3>Community Sessions</h3>
                     <p>Facilitation guides for leading a community through planning and implementing a successful restoration effort.</p>
                     <div class="hp-explore">Explore</div>
                 </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- The four-part workshop sequence -->
-    <section class="hp-section">
-        <div class="hp-wrap">
-            <div class="hp-head">
-                <h2>The four-part workshop sequence</h2>
-                <span class="hp-note">Run in order</span>
-            </div>
-            <div class="hp-steps">
-                <div class="hp-step">
-                    <div class="hp-rule" style="background:#2a5a44;"></div>
-                    <div class="hp-step-body">
-                        <div class="hp-num">01</div>
-                        <h3>Recognize It</h3>
-                        <p>Identify the vicious cycles driving decline in your community.</p>
-                    </div>
-                </div>
-                <div class="hp-step">
-                    <div class="hp-rule" style="background:#6B8E23;"></div>
-                    <div class="hp-step-body">
-                        <div class="hp-num">02</div>
-                        <h3>Map It</h3>
-                        <p>Create a visual diagram of the feedback loops causing your problems.</p>
-                    </div>
-                </div>
-                <div class="hp-step">
-                    <div class="hp-rule" style="background:#E2B53F;"></div>
-                    <div class="hp-step-body">
-                        <div class="hp-num">03</div>
-                        <h3>Reverse It</h3>
-                        <p>Find leverage points where intervention can break negative cycles and start positive ones.</p>
-                    </div>
-                </div>
-                <div class="hp-step">
-                    <div class="hp-rule" style="background:#9c5a2b;"></div>
-                    <div class="hp-step-body">
-                        <div class="hp-num">04</div>
-                        <h3>Lock It In</h3>
-                        <p>Build mutually reinforcing success that becomes permanent.</p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -173,13 +128,14 @@
                 <h2>From the field</h2>
                 <span class="hp-note">Four documented cases</span>
             </div>
+            <p style="font-size: 15px; line-height: 1.6; color: #4d564e; margin: -14px 0 28px; max-width: 640px;">Four flagship stories from a growing archive of more than 100 documented cases.</p>
             <div class="hp-field">
                 <figure class="hp-banner">
                     <a href="story-apo-island.html" style="text-decoration:none;">
                         <div class="hp-media"><img src="images/HiRes/Apo/cherished%20way%20of%20life%2014%20copy%202.JPG" alt="When Stopping Fishing Saved the Fishery"></div>
                         <figcaption>
                             <div class="hp-place">Apo Island, Philippines</div>
-                            <div class="hp-title">When Stopping Fishing Saved the Fishery</div>
+                            <div class="hp-title">Saving a coral reef and its fishery</div>
                         </figcaption>
                     </a>
                 </figure>
@@ -188,7 +144,7 @@
                         <div class="hp-media"><img src="images/HiRes/rajasthan/1.JPG" alt="How a Dried-Up Village Learned to Bank Water"></div>
                         <figcaption>
                             <div class="hp-place">Gopalpura, India</div>
-                            <div class="hp-title">How a Dried-Up Village Learned to Bank Water</div>
+                            <div class="hp-title">Bringing back the water</div>
                         </figcaption>
                     </a>
                 </figure>
@@ -197,7 +153,7 @@
                         <div class="hp-media"><img src="images/HiRes/thai%20agroforestry/Thai%20agroforestry%20photos%20(Andy%20Mittelman)%2010-3-09_Page_07.jpg" alt="When Farming the Forest Brought the Forest Back"></div>
                         <figcaption>
                             <div class="hp-place">Khao Din, Thailand</div>
-                            <div class="hp-title">When Farming the Forest Brought the Forest Back</div>
+                            <div class="hp-title">Restoring a damaged tropical forest landscape</div>
                         </figcaption>
                     </a>
                 </figure>
@@ -206,7 +162,7 @@
                         <div class="hp-media"><img src="images/HiRes/the%20pesticide%20trap/16.%20pesticide%20container%20as%20dipper%20close%20up.JPG" alt="Escaping the Pesticide Trap"></div>
                         <figcaption>
                             <div class="hp-place">Punukula, India</div>
-                            <div class="hp-title">Escaping the Pesticide Trap</div>
+                            <div class="hp-title">Escaping the pesticide trap</div>
                         </figcaption>
                     </a>
                 </figure>

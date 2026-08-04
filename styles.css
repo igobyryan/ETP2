@@ -1354,6 +1354,16 @@ li {
         font-size: var(--text-lg);
     }
 
+    /* Section headers (e.g. "Systems Thinking") read as smaller, distinct
+       labels so the tappable links beneath them stay the visual focus. */
+    .dropdown-section h4 {
+        color: var(--color-accent);
+        font-size: var(--text-xs);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
     .dropdown-menu {
         position: static !important;
         transform: none !important;
@@ -2041,15 +2051,45 @@ input:focus-visible {
 }
 
 @media print {
-    /* hide site chrome (sidebars print now — see below) */
-    nav, header, footer, .related-ingredients { display: none !important; }
+    /* hide site chrome only: in-page step nav (.section-rail) and mobile nav.
+       the case-study/story sidebar (.sidebar, with the story carousel) is NOT
+       hidden here — it prints below, see the .two-col/.sidebar rule. */
+    nav, header, footer, .section-rail, .section-mobile-nav, .no-print { display: none !important; }
 
-    /* unhide all carousel slides as stacked sections, kill the dots/arrows/counter */
-    .story-excerpt, .carousel-slide { display: block !important; position: static !important; opacity: 1 !important; }
-    .carousel-dots, .dot-nav, .carousel-controls { display: none !important; }
+    /* stack case-study sidebar under main content so it prints in full, at full width.
+       .sidebar is `position: sticky` on screen — Safari/Chrome have a long-standing bug
+       where sticky elements can fail to print at all unless every positioning property
+       tied to that sticky context (not just `position` itself) is explicitly cleared. */
+    .two-col { display: block !important; }
+    .sidebar {
+        position: static !important;
+        top: auto !important;
+        bottom: auto !important;
+        width: auto !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+        display: block !important;
+        visibility: visible !important;
+        margin-top: var(--space-xl);
+    }
+    .sidebar-box.highlight,
+    .story-carousel,
+    #storyCarousel {
+        display: block !important;
+        visibility: visible !important;
+        height: auto !important;
+        max-height: none !important;
+    }
+
+    /* unhide every carousel slide as a stacked, static block instead of just the active one */
+    .story-carousel, .carousel-track { overflow: visible !important; height: auto !important; }
+    .carousel-track { display: block !important; transform: none !important; transition: none !important; }
+    .carousel-slide { display: block !important; position: static !important; opacity: 1 !important; visibility: visible !important; flex: none !important; width: auto !important; min-width: 0 !important; margin-bottom: var(--space-lg); page-break-inside: avoid; }
+    .carousel-controls { display: none !important; }
 
     /* page break between major sections */
-    .ingredient-page, .story-section { page-break-before: always; }
+    .content-block, .story-section { page-break-before: always; }
 
     /* videos don't print; hide players and their wrappers */
     video, iframe, .story-video, .video-embed { display: none !important; }

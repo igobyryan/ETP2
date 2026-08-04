@@ -45,7 +45,7 @@
                     </div>
                 </li>
                 <li class="has-dropdown">
-                    <a href="#" class="dropdown-toggle">Success Stories</a>
+                    <a href="#" class="dropdown-toggle">Case Studies</a>
                     <div class="dropdown-menu dropdown-menu-narrow">
                         <div class="dropdown-section">
                             <h4>Community Stories</h4>
@@ -150,7 +150,7 @@
                     { href: 'ingredients-overview.html', text: 'Ingredients for Success' },
                     { href: 'community-sessions.html', text: 'Community Sessions' }
                 ]) +
-                col('Success Stories', [
+                col('Case Studies', [
                     { href: 'story-apo-island.html', text: 'Apo Island, Philippines' },
                     { href: 'story-gopalpura.html', text: 'Gopalpura, India' },
                     { href: 'story-khao-din.html', text: 'Khao Din, Thailand' },
@@ -167,7 +167,10 @@
             '<div style="background:#173a2b;color:#a6c0b0;">' +
                 '<div style="max-width:1200px;margin:0 auto;padding:18px 52px;' + F + 'font-size:12px;letter-spacing:0.04em;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;">' +
                     '<span>©2026 EcoTipping Points</span>' +
-                    '<span>v0.6.4.1 · 7/1/26</span>' +
+                    '<div style="text-align:right;">' +
+                        '<div>v0.6.5.0 · 8/4/26</div>' +
+                        '<div style="margin-top:4px;">Archive: <a href="Archive/0.6.4.1/index.html" target="_blank" style="color:#a6c0b0;text-decoration:underline;">v0.6.4.1</a></div>' +
+                    '</div>' +
                 '</div>' +
             '</div>';
 
