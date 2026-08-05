@@ -2088,8 +2088,15 @@ input:focus-visible {
     .carousel-slide { display: block !important; position: static !important; opacity: 1 !important; visibility: visible !important; flex: none !important; width: auto !important; min-width: 0 !important; margin-bottom: var(--space-lg); page-break-inside: avoid; }
     .carousel-controls { display: none !important; }
 
-    /* page break between major sections */
-    .content-block, .story-section { page-break-before: always; }
+    /* buttons ("Explore ... Tool", "Read Full Story →", etc.) are dead links on paper */
+    .btn { display: none !important; }
+
+    /* let sections flow naturally instead of forcing a new page per block — that rule
+       was leaving near-empty pages whenever a section overflowed by only a line or two.
+       keep headings attached to their content and avoid splitting a paragraph mid-line. */
+    .content-block, .story-section { page-break-inside: avoid; }
+    h2, h3, h4 { page-break-after: avoid; }
+    p, li, blockquote { page-break-inside: avoid; }
 
     /* videos don't print; hide players and their wrappers */
     video, iframe, .story-video, .video-embed { display: none !important; }
