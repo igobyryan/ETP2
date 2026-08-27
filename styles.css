@@ -460,9 +460,9 @@ li {
     background-color: var(--background-secondary);
     border: 1px solid var(--border-color);
     border-radius: var(--radius);
-    min-width: 720px;
+    min-width: 480px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: var(--space-lg);
     padding: var(--space-lg);
     opacity: 0;
@@ -499,6 +499,13 @@ li {
 
 .dropdown-section a:hover {
     color: var(--color-accent);
+}
+
+/* Indented sub-links (e.g. "Map It in Practice") under a Toolkit dropdown heading */
+.dropdown-menu a.dropdown-sub {
+    padding-left: 1.25rem;
+    font-size: 0.9em;
+    color: var(--text-tertiary);
 }
 
 .nav-disabled {
@@ -2034,6 +2041,13 @@ input:focus-visible {
     font-weight: 600;
     border-left-color: var(--color-clay);
     background-color: #eef2ef;
+}
+
+/* Indented rail entries for the "In Practice" sub-pages */
+.section-rail .rail-list a.rail-indent,
+.section-menu-panel a.rail-indent {
+    padding-left: var(--space-2xl);
+    font-size: 0.9em;
 }
 
 @media (max-width: 56.25rem) {
