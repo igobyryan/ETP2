@@ -691,9 +691,6 @@ li {
 }
 
 .sidebar {
-    position: sticky;
-    top: calc(60px + var(--space-lg));
-    height: fit-content;
     min-width: 0;
 }
 
@@ -762,11 +759,11 @@ li {
 
 /* Sidebar Boxes */
 .sidebar-box {
-    background-color: var(--background-secondary);
+    background-color: #f2ffe1;
     padding: var(--space-md) var(--space-lg);
     margin-bottom: var(--space-lg);
     border-radius: var(--radius);
-    border: 1px solid var(--border-color);
+    border: 1px solid #d9e6c4;
 }
 
 .sidebar-box h4 {
@@ -1588,8 +1585,6 @@ input:focus-visible {
 }
 
 .story-sidebar {
-    position: sticky;
-    top: calc(60px + var(--space-lg));
     height: fit-content;
 }
 
