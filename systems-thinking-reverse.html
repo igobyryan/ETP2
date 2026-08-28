@@ -63,8 +63,9 @@
         .mi-ingredients a:hover { color: #9c5a2b; }
 
         .mi-practice {
-            background: #f2ffe1; border: 1px solid #d9e6c4; border-left: 4px solid #9c5a2b;
-            border-radius: 8px; padding: 18px 22px; margin: 26px 0; max-width: 760px;
+            float: right; width: 300px; margin: 4px 0 18px 32px;
+            background: #f1f5f2; border: 0; border-left: 3px solid #2a5a44;
+            border-radius: 0; padding: 16px 20px;
         }
         .mi-practice .mi-practice-label { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: #9c5a2b; text-transform: uppercase; }
         .mi-practice h4 { margin: 4px 0 6px; font-size: 17px; color: #173a2b; }
@@ -92,8 +93,14 @@
         }
         .mi-btn:hover { background: #80471f; }
 
+        /* Squared corners — match the Key Concept box */
+        .mi-reflect, .mi-note, .mi-apo, .mi-ingredients, .mi-practice, .mi-embed, .mi-embed img,
+        .placeholder, .mi-resources, .mi-flow li, figure img, .mi-chip, .mi-loop { border-radius: 0; }
+        .mi-ingredients { clear: both; }
+
         @media (max-width: 48rem) {
             .mi-body { padding: 32px 22px 48px; }
+            .mi-practice { float: none; width: auto; margin: 20px 0; }
         }
     </style>
 </head>
@@ -121,15 +128,15 @@
 
     <div class="mi-body">
 
-        <div class="mi-intro">
-            <h2>Your Goal</h2>
-            <p>Come away with one or more positive tipping point levers: sets of actions targeted at the points in the system most important to transform, powerful and achievable enough to set <em>virtuous cycles</em> of restoration in motion.</p>
-        </div>
-
         <div class="mi-practice">
             <span class="mi-practice-label">In the field</span>
             <h4><a href="systems-thinking-reverse-practice.html">Reverse It in Practice &rarr;</a></h4>
             <p>How to run a community reversal session: finding leverage points together, testing candidates, and closing with actionable commitments.</p>
+        </div>
+
+        <div class="mi-intro">
+            <h2>Your Goal</h2>
+            <p>Come away with one or more positive tipping point levers: sets of actions targeted at the points in the system most important to transform, powerful and achievable enough to set <em>virtuous cycles</em> of restoration in motion.</p>
         </div>
 
         <div class="mi-step">

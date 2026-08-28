@@ -64,8 +64,9 @@
         .mi-ingredients a:hover { color: #9c5a2b; }
 
         .mi-practice {
-            background: #f2ffe1; border: 1px solid #d9e6c4; border-left: 4px solid #9c5a2b;
-            border-radius: 8px; padding: 18px 22px; margin: 26px 0; max-width: 760px;
+            float: right; width: 300px; margin: 4px 0 18px 32px;
+            background: #f1f5f2; border: 0; border-left: 3px solid #2a5a44;
+            border-radius: 0; padding: 16px 20px;
         }
         .mi-practice .mi-practice-label { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: #9c5a2b; text-transform: uppercase; }
         .mi-practice h4 { margin: 4px 0 6px; font-size: 17px; color: #173a2b; }
@@ -89,8 +90,14 @@
         }
         .mi-btn:hover { background: #80471f; }
 
+        /* Squared corners — match the Key Concept box */
+        .mi-reflect, .mi-note, .mi-apo, .mi-ingredients, .mi-practice, .mi-embed, .mi-embed img,
+        .placeholder, .mi-resources, figure img, .mi-chip, .mi-loop { border-radius: 0; }
+        .mi-ingredients { clear: both; }
+
         @media (max-width: 48rem) {
             .mi-body { padding: 32px 22px 48px; }
+            .mi-practice { float: none; width: auto; margin: 20px 0; }
         }
     </style>
 </head>
@@ -118,15 +125,15 @@
 
     <div class="mi-body">
 
-        <div class="mi-intro">
-            <h2>Your Goal</h2>
-            <p>Come away with a boxes-and-arrows diagram that exposes the relationships of cause and effect across the human-environment system and shows where vicious cycles are driving decline.</p>
-        </div>
-
         <div class="mi-practice">
             <span class="mi-practice-label">In the field</span>
             <h4><a href="systems-thinking-map-practice.html">Map It in Practice &rarr;</a></h4>
             <p>How to run a community mapping session using this framework: session structure, prompting questions, and field notes on group dynamics.</p>
+        </div>
+
+        <div class="mi-intro">
+            <h2>Your Goal</h2>
+            <p>Come away with a boxes-and-arrows diagram that exposes the relationships of cause and effect across the human-environment system and shows where vicious cycles are driving decline.</p>
         </div>
 
         <div class="mi-step">
