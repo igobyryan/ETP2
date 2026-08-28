@@ -707,7 +707,7 @@ li {
 
 /* Callouts */
 .callout {
-    background-color: var(--background-secondary);
+    background-color: #f1f5f2;
     color: var(--text-primary);
     padding: var(--space-xl);
     margin: var(--space-2xl) 0;
