@@ -460,15 +460,16 @@ li {
     background-color: var(--background-secondary);
     border: 1px solid var(--border-color);
     border-radius: var(--radius);
-    min-width: 720px;
+    min-width: 480px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: var(--space-lg);
     padding: var(--space-lg);
     opacity: 0;
     pointer-events: none;
     transition: opacity var(--transition-fast), transform var(--transition-fast);
     box-shadow: var(--shadow-lg);
+    border-radius: 0;
     transform: translateX(-50%) translateY(8px);
 }
 
@@ -499,6 +500,13 @@ li {
 
 .dropdown-section a:hover {
     color: var(--color-accent);
+}
+
+/* Indented sub-links (e.g. "Map It in Practice") under a Toolkit dropdown heading */
+.dropdown-menu a.dropdown-sub {
+    padding-left: 1.25rem;
+    font-size: 0.9em;
+    color: var(--text-tertiary);
 }
 
 .nav-disabled {
@@ -684,9 +692,6 @@ li {
 }
 
 .sidebar {
-    position: sticky;
-    top: calc(60px + var(--space-lg));
-    height: fit-content;
     min-width: 0;
 }
 
@@ -702,11 +707,11 @@ li {
 
 /* Callouts */
 .callout {
-    background-color: var(--background-secondary);
+    background-color: #f1f5f2;
     color: var(--text-primary);
     padding: var(--space-xl);
     margin: var(--space-2xl) 0;
-    border-radius: var(--radius);
+    border-radius: 0;
     border: 1px solid var(--border-color);
     border-left: 4px solid var(--color-accent);
 }
@@ -753,13 +758,14 @@ li {
     color: var(--color-sage);
 }
 
-/* Sidebar Boxes */
+/* Sidebar Boxes — match the "Key Concept" box: tinted fill, squared, green rule */
 .sidebar-box {
-    background-color: var(--background-secondary);
+    background-color: #f1f5f2;
     padding: var(--space-md) var(--space-lg);
     margin-bottom: var(--space-lg);
-    border-radius: var(--radius);
-    border: 1px solid var(--border-color);
+    border-radius: 0;
+    border: 0;
+    border-left: 3px solid #2a5a44;
 }
 
 .sidebar-box h4 {
@@ -891,7 +897,7 @@ li {
 .accordion {
     background-color: var(--background-secondary);
     border: 1px solid var(--border-color);
-    border-radius: var(--radius);
+    border-radius: 0;
     overflow: hidden;
 }
 
@@ -1037,7 +1043,7 @@ li {
     text-decoration: none;
     display: block;
     border: 1px solid var(--border-color);
-    border-radius: var(--radius);
+    border-radius: 0;
     transition: all var(--transition-base);
     box-shadow: var(--shadow-sm);
 }
@@ -1143,7 +1149,7 @@ li {
 .placeholder-box {
     background-color: var(--background-tertiary);
     border: 2px dashed var(--border-color);
-    border-radius: var(--radius);
+    border-radius: 0;
     padding: var(--space-2xl);
     text-align: center;
     color: var(--text-tertiary);
@@ -1581,8 +1587,6 @@ input:focus-visible {
 }
 
 .story-sidebar {
-    position: sticky;
-    top: calc(60px + var(--space-lg));
     height: fit-content;
 }
 
@@ -1615,14 +1619,14 @@ input:focus-visible {
 }
 
 .sidebar-link-card p {
-    font-size: var(--text-xs);
+    font-size: var(--text-sm);
     color: var(--text-tertiary);
     margin-bottom: 0;
-    line-height: 1.5;
+    line-height: 1.55;
 }
 
 .sidebar-link-card .related-label {
-    font-size: 0.625rem;
+    font-size: var(--text-xs);
     margin-bottom: var(--space-xs);
 }
 
@@ -2034,6 +2038,13 @@ input:focus-visible {
     font-weight: 600;
     border-left-color: var(--color-clay);
     background-color: #eef2ef;
+}
+
+/* Indented rail entries for the "In Practice" sub-pages */
+.section-rail .rail-list a.rail-indent,
+.section-menu-panel a.rail-indent {
+    padding-left: var(--space-2xl);
+    font-size: 0.9em;
 }
 
 @media (max-width: 56.25rem) {

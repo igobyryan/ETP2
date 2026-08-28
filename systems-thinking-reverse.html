@@ -3,17 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Part 3: Reverse It - Systems Thinking - EcoTipping Points</title>
+    <title>Reverse It - Systems Thinking - EcoTipping Points</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* ---- Reverse It body redesign (mi-). Self-contained so it renders
-           correctly regardless of styles.css. All copy is the approved
-           live-site copy, verbatim. The top nav, footer, left section rail
-           (nav.js) and the .page-header green band are untouched. Matches
-           the Map It page pattern exactly (same classes/colors/type). ---- */
+        /* ---- Systems Thinking step body (mi-). Self-contained, matches the
+           Recognize It / Map It page pattern. ---- */
         .mi-body { padding: 44px 52px 64px; font-family: 'Source Sans 3', sans-serif; }
         .mi-body p { color: #4d564e; line-height: 1.65; font-size: 16px; }
         .mi-body ul, .mi-body ol { color: #4d564e; line-height: 1.6; padding-left: 20px; margin: 10px 0; }
@@ -23,30 +20,11 @@
         .mi-intro { max-width: 760px; }
         .mi-intro h2 { font-size: 28px; font-weight: 600; color: #173a2b; letter-spacing: -0.01em; margin: 0 0 12px; }
 
-        .mi-resources {
-            border: 1px solid #e4e7e3; border-radius: 8px; padding: 20px 24px;
-            margin: 26px 0; max-width: 760px; background: #fbfcfb;
-        }
-        .mi-resources .mi-eyebrow { font-size: 11px; font-weight: 600; color: #9c5a2b; margin-bottom: 12px; }
-        .mi-resources a { display: block; color: #262b26; text-decoration: none; font-weight: 600; font-size: 15px; margin-bottom: 8px; }
-        .mi-resources a:last-child { margin-bottom: 0; }
-        .mi-resources a:hover { color: #9c5a2b; }
-
         .mi-step { border-top: 1px solid #e8ece8; padding-top: 34px; margin-top: 42px; }
         .mi-step-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 4px; }
-        .mi-step-num { font-size: 30px; font-weight: 600; color: #9c5a2b; line-height: 1; flex: none; }
         .mi-step-head h3 { font-size: 23px; font-weight: 600; color: #173a2b; margin: 0; letter-spacing: -0.01em; }
         .mi-step-body { max-width: 760px; }
 
-        /* Question / prompt callouts */
-        .mi-note {
-            background: #ffffff; border: 1px solid #e4e7e3; border-left: 3px solid #9c5a2b;
-            border-radius: 0 8px 8px 0; padding: 18px 22px; margin: 18px 0; max-width: 760px;
-        }
-        .mi-note h4 { margin: 0 0 6px; color: #173a2b; font-size: 15px; }
-        .mi-note p { margin: 0; }
-
-        /* Ingredient / reflection callouts */
         .mi-reflect {
             background: #f1f5f2; border-left: 3px solid #2a5a44; border-radius: 0 8px 8px 0;
             padding: 20px 24px; margin: 24px 0; max-width: 760px;
@@ -54,26 +32,59 @@
         .mi-reflect h3, .mi-reflect h4 { margin: 0 0 8px; color: #173a2b; font-size: 17px; }
         .mi-reflect p { margin: 0; }
 
-        /* Inline "On Apo Island" example */
+        .mi-embed {
+            background: #f1f5f2; border: 1px solid #d2dcd5; border-radius: 8px;
+            padding: 26px 24px; margin: 16px 0; max-width: 760px;
+        }
+        .mi-embed .mi-embed-tag { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: #173a2b; }
+        .mi-embed p { margin: 6px 0 0; font-size: 15px; }
+        .mi-embed a { color: #9c5a2b; font-weight: 600; text-decoration: none; }
+        .mi-embed a:hover { text-decoration: underline; }
+
+        .placeholder {
+            background: #f6f8f6; border: 1px dashed #b7c3ba; border-radius: 8px;
+            padding: 20px 22px; margin: 18px 0; max-width: 760px; color: #5c665d;
+            font-size: 14px; font-style: italic;
+        }
+
+        figure { margin: 22px 0; max-width: 760px; }
+        figure img { display: block; width: 100%; height: auto; border: 1px solid #e4e7e3; border-radius: 8px; }
+        figure img + img { margin-top: 10px; }
+        figcaption { font-size: 13px; color: #5c665d; margin-top: 8px; font-style: italic; }
+        .mi-embed img { display: block; width: 100%; height: auto; border-radius: 6px; margin-bottom: 12px; border: 1px solid #d2dcd5; }
+
+        .mi-ingredients {
+            border: 1px solid #e4e7e3; border-radius: 8px; padding: 20px 24px;
+            margin: 30px 0; max-width: 760px; background: #f1f5f2;
+        }
+        .mi-ingredients h4 { margin: 0 0 10px; color: #9c5a2b; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; }
+        .mi-ingredients ul { margin: 0; padding-left: 18px; }
+        .mi-ingredients a { color: #262b26; font-weight: 600; text-decoration: none; }
+        .mi-ingredients a:hover { color: #9c5a2b; }
+
+        .mi-practice {
+            float: right; width: 300px; margin: 4px 0 18px 32px;
+            background: #f1f5f2; border: 0; border-left: 3px solid #2a5a44;
+            border-radius: 0; padding: 16px 20px;
+        }
+        .mi-practice .mi-practice-label { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: #9c5a2b; text-transform: uppercase; }
+        .mi-practice h4 { margin: 4px 0 6px; font-size: 17px; color: #173a2b; }
+        .mi-practice p { margin: 0; font-size: 14px; color: #4d564e; }
+        .mi-practice a { color: #9c5a2b; font-weight: 600; text-decoration: none; }
+        .mi-practice a:hover { text-decoration: underline; }
+
         .mi-apo {
-            background: #f6f8f6; border: 1px solid #e4e7e3; border-radius: 8px;
+            background: #f1f5f2; border: 1px solid #e4e7e3; border-radius: 8px;
             padding: 20px 22px; margin: 20px 0; max-width: 820px;
         }
         .mi-apo .mi-eyebrow { font-size: 11px; font-weight: 600; color: #9c5a2b; margin-bottom: 10px; }
-        .mi-apo h4 { margin-top: 0; }
         .mi-apo p { margin: 0 0 12px; font-size: 15px; }
         .mi-apo p:last-child { margin-bottom: 0; }
 
-        /* Feedback-loop chip chain */
-        .mi-chips { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 10px 0 4px; }
-        .mi-chip {
-            background: #eef2ef; border: 1px solid #d2dcd5; border-radius: 6px;
-            padding: 8px 12px; font-size: 13px; font-weight: 600; color: #173a2b;
-        }
-        .mi-arrow { color: #9c5a2b; font-size: 14px; }
-        .mi-loop {
-            background: transparent; border: 1px solid #9c5a2b; border-radius: 6px;
-            padding: 8px 12px; font-size: 13px; font-weight: 600; color: #9c5a2b;
+        .mi-flow { list-style: none; padding: 0; margin: 16px 0; max-width: 760px; }
+        .mi-flow li {
+            border-left: 3px solid #2a5a44; padding: 6px 0 6px 16px; margin: 0 0 10px;
+            font-size: 15px; color: #4d564e;
         }
 
         .mi-btn {
@@ -81,15 +92,15 @@
             font-weight: 600; font-size: 15px; padding: 12px 22px; border-radius: 6px; margin-top: 8px;
         }
         .mi-btn:hover { background: #80471f; }
-        .mi-btn-outline {
-            display: inline-block; background: transparent; color: #9c5a2b; text-decoration: none;
-            font-weight: 600; font-size: 13px; padding: 9px 16px; border: 1px solid #9c5a2b;
-            border-radius: 6px; margin-top: 6px;
-        }
-        .mi-btn-outline:hover { background: #9c5a2b; color: #fff; }
+
+        /* Squared corners — match the Key Concept box */
+        .mi-reflect, .mi-note, .mi-apo, .mi-ingredients, .mi-practice, .mi-embed, .mi-embed img,
+        .placeholder, .mi-resources, .mi-flow li, figure img, .mi-chip, .mi-loop { border-radius: 0; }
+        .mi-ingredients { clear: both; }
 
         @media (max-width: 48rem) {
             .mi-body { padding: 32px 22px 48px; }
+            .mi-practice { float: none; width: auto; margin: 20px 0; }
         }
     </style>
 </head>
@@ -99,6 +110,7 @@
     <nav class="subnav">
         <div class="subnav-container">
             <a href="systems-thinking-overview.html">Overview</a>
+            <a href="systems-thinking-understand.html">Understand It</a>
             <a href="systems-thinking-recognize.html">Recognize It</a>
             <a href="systems-thinking-map.html">Map It</a>
             <a href="systems-thinking-reverse.html" class="active">Reverse It</a>
@@ -108,43 +120,178 @@
 
     <section class="page-header">
         <div class="page-header-content">
-            <div class="label">Part 3</div>
+            <div class="label">Systems Thinking</div>
             <h1>Reverse It</h1>
-            <p class="intro">Identify leverage points and design interventions that can reverse vicious cycles into virtuous ones.</p>
+            <p class="intro">Use the diagram to identify root causes driving decline, sites for effective intervention, and feasible actions with enough force to trigger systemic change.</p>
         </div>
     </section>
 
     <div class="mi-body">
 
-        <div class="callout" style="background-color: rgba(168, 184, 159, 0.15); border-left-color: var(--color-primary); margin-top: 0;">
-            <h4 style="color: var(--color-primary); font-size: var(--text-xl); font-weight: 500; margin-bottom: var(--space-sm);">Systems Thinking Tool</h4>
-            <a href="Assets/ETP-Systems-Thinking-Tool.pdf" style="color: var(--color-dark); text-decoration: none; font-weight: 600; display: block;">↓ Download as PDF</a>
-            <p style="font-size: var(--text-sm); color: var(--text-tertiary); margin: var(--space-xs) 0 0;">A printable version of this tool to take into the field.</p>
+        <div class="mi-practice">
+            <span class="mi-practice-label">In the field</span>
+            <h4><a href="systems-thinking-reverse-practice.html">Reverse It in Practice &rarr;</a></h4>
+            <p>How to run a community reversal session: finding leverage points together, testing candidates, and closing with actionable commitments.</p>
         </div>
 
         <div class="mi-intro">
-            <h2>Breaking the Cycle</h2>
-            <p>You understand the vicious cycles driving decline. This step is about identifying where you can intervene to reverse them &mdash; finding actions that can break the negative feedback loops and start positive ones.</p>
+            <h2>Your Goal</h2>
+            <p>Come away with one or more positive tipping point levers: sets of actions targeted at the points in the system most important to transform, powerful and achievable enough to set <em>virtuous cycles</em> of restoration in motion.</p>
         </div>
 
-        <div class="story-video">
-            <video controls preload="metadata" poster="Videos/REVERSE%20IT_Apo-poster.jpg">
-                <source src="Videos/REVERSE%20IT_Apo.mp4" type="video/mp4">
-            </video>
-        </div>
-
-        <!-- Step 1 -->
         <div class="mi-step">
-            <div class="mi-step-head"><span class="mi-step-num">01</span><h3>Step 1: Identify Potential Leverage Points</h3></div>
+            <div class="mi-step-head"><h3>What is a positive tipping point lever?</h3></div>
             <div class="mi-step-body">
-                <p>Look at your vicious cycle diagram and ask:</p>
+                <p>This 1-minute video illustrates how a feedback loop driving decline can be reversed.</p>
+                <div class="mi-embed">
+                    <img src="images/systems-thinking/image27.png" alt="Video: What is a positive tipping point lever?">
+                    <span class="mi-embed-tag">EMBED FOUNDATIONS VIDEO #2</span>
+                    <p><a href="#">Read Script</a></p>
+                </div>
 
-                <h4>Where could you intervene?</h4>
+                <div class="mi-reflect">
+                    <h4>Key Concept</h4>
+                    <p>A positive tipping point lever is a package of actions that set in motion changes leading to a turnabout from decline to restoration and sustainability.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mi-step">
+            <div class="mi-step-head"><h3>Solutions as Sets of Actions</h3></div>
+            <div class="mi-step-body">
+                <p>Systems thinking looks at ecological problems as a web of cause and effect spread through the <em>human-environment system</em>. It looks for solutions in sets of actions that ignite change across the system by reversing the self-reinforcing <em>feedback loops</em> driving decline. We call those targeted actions that trigger systemic change <em>positive tipping point levers</em>. Positive tipping point levers have the power to create this change because they disrupt <em>vicious cycles</em>, and replace them with <em>virtuous cycles</em> that cascade restoration through the human-environment system. But not all actions, no matter how committed or resource intensive, can create a turnabout. And so, devising a set of actions that has the right leverage power is the key to setting restoration in motion.</p>
+                <p>Devising a positive tipping point lever means finding the points in the system most important to transform, and pairing them with actions powerful and achievable enough to set those changes in motion. That power comes from two sources at once: the ecosystem and the community. An action has enough power when it enlists nature's self-restorative processes and sets off chains of cause and effect within the ecosystem far beyond what any community could orchestrate. An action is feasible when the community has the time, labor, resources and commitment to carry it through. Both forces grow when the community's prosperity is tied to the health of its ecosystem. That alignment is what sets virtuous cycles of restoration in motion.</p>
+            </div>
+        </div>
+
+        <div class="mi-step">
+            <div class="mi-step-head"><h3>Seeing the System in Action</h3></div>
+            <div class="mi-step-body">
+                <p><strong>EcoTipping Points in Action: How can the right set of actions become a positive tipping point lever?</strong> This video illustrates how Apo Islanders created a turnabout in their system with a few well chosen actions. (Apo positive tip, Part 1.)</p>
+                <figure>
+                    <img src="images/systems-thinking/image28.png" alt="Video: Apo Island Fisheries — a virtuous cycle towards restoration">
+                    <figcaption>Video: Apo Island Fisheries — a virtuous cycle towards restoration.</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="mi-step">
+            <div class="mi-step-head"><h3>Devising a Positive Tipping Point Lever</h3></div>
+            <div class="mi-step-body">
+                <p>The commonalities in our case studies of success have shed light on what it takes to turn things around with a positive tipping point lever. In our flagship cases, communities began with assessing the scope and history of their problem and recognizing how their own damaging activity was degrading their ecosystem. They then decided to alter the community's role in perpetuating the vicious cycles of decline, by figuring out targeted actions that would let them replace damaging activities with sustainable activities aimed at ecosystem recovery. They chose actions that gave their ecosystem the opportunity to kick in its own self-restorative power, which instigated changes far beyond what they could orchestrate themselves. These actions re-aligned their community's methods of meeting basic needs with choices that would also benefit the ecosystem. The energy and resources they put into revitalizing their ecosystem quickly fed into visible gains for their community. Those gains reinforced their sustainable activity and their commitment to putting gains into new restorative efforts.</p>
+
+                <h4>Systems thinking describes their recoveries this way:</h4>
                 <ul>
-                    <li>Which connections between problems could be broken?</li>
-                    <li>Which elements could be replaced with positive alternatives?</li>
-                    <li>Where is the community ready and able to act?</li>
-                    <li>Are there examples from other communities that succeeded?</li>
+                    <li>Recognized the interconnected elements of their problem and amplifying feedback loops driving decline in the human-environment system</li>
+                    <li>Dedicated themselves to feasible actions that not only broke, but reversed those feedback loops</li>
+                    <li>Figured out where in the system feedback loops could be broken by a change in their actions</li>
+                    <li>Devised actions that replaced destructive activities with sustainable activities that were powerful enough to reverse feedback loops by triggering a new chain of cause and effect leading to ecosystem health</li>
+                    <li>Directed the benefits of ecosystem recovery into increasing sustainable activity</li>
+                    <li>Initiated new restorative amplifying feedback loops by putting gains into enterprises that aligned social health with ecological health</li>
+                    <li>Intentionally broke the vicious cycles and triggered restorative virtuous cycles with such amplifying force that the entire system crossed a threshold from decline to restoration</li>
+                </ul>
+
+                <h4>This process can be described in the following way:</h4>
+                <ol class="mi-flow">
+                    <li>Recognized vicious cycle.</li>
+                    <li>A leveraging action is where the reversal begins. It replaces the damaging activity with a sustainable one.</li>
+                    <li>The sustainable activity gives the ecosystem room to recover.</li>
+                    <li>A healthier ecosystem supports even more sustainable activity. There's more to work with, so the practice is easier to sustain. Sustainable activity and ecosystem health now reinforce each other. This is a virtuous cycle. Once it takes hold, it keeps building on itself.</li>
+                    <li>Community enterprises integrate restoration with the social fabric of the community to add new social virtuous cycles that consolidate gains.</li>
+                </ol>
+                <figure>
+                    <img src="images/systems-thinking/image6.png" alt="Diagram: the recognised vicious cycle — increasing damaging activity and a further degraded ecosystem">
+                    <img src="images/systems-thinking/image5.png" alt="Diagram: a leveraging action replaces the damaging activity with a sustainable one">
+                    <img src="images/systems-thinking/image20.png" alt="Diagram: the sustainable activity gives the ecosystem room to recover">
+                    <figcaption>The reversal process: a recognised vicious cycle, a leveraging action that replaces the damaging activity with a sustainable one, and an ecosystem given room to recover.</figcaption>
+                </figure>
+
+                <p>In the case of Apo Island, they devised a positive tipping point lever by creating a marine sanctuary on 10% of their fishing grounds in conjunction with strict enforcement of a ban on destructive fishing on the rest of the island. This is how their set of actions reversed decline:</p>
+                <figure>
+                    <img src="images/systems-thinking/image18.png" alt="Diagram: a healthier ecosystem supports still more sustainable activity — a virtuous cycle">
+                    <img src="images/systems-thinking/image33.png" alt="Diagram: the virtuous cycle reinforcing itself">
+                    <img src="images/systems-thinking/image32.png" alt="Diagram: community enterprises consolidate the gains">
+                    <img src="images/systems-thinking/image31.png" alt="Apo Island Reverse It: the mapped vicious cycles, then the marine sanctuary as the lever">
+                    <img src="images/systems-thinking/image30.png" alt="Apo Island: the sanctuary lets the reef heal and fish populations grow">
+                    <img src="images/systems-thinking/image29.png" alt="Apo Island: recovery feeds community commitment, and new virtuous cycles form">
+                    <figcaption>Apo Island, Reverse It: the community found its lever in the reef itself — a small no-fishing sanctuary along a tenth of the shoreline. Protected from fishing, the coral began to heal, fish populations grew, and the community's commitment grew with them.</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="mi-step">
+            <div class="mi-step-head"><h3>Finding an Action with Leverage</h3></div>
+            <div class="mi-step-body">
+                <p>Crossing a threshold from decline to restoration means flipping the feedback loops already at work in vicious cycles so they set virtuous cycles in motion instead. Using systems thinking, these are the steps to finding an action with that kind of leverage:</p>
+                <ul>
+                    <li>Understanding what makes a lever powerful</li>
+                    <li>Finding powerful actions in the system for leverage</li>
+                    <li>Choosing interventions that are feasible for the community</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mi-step">
+            <div class="mi-step-head"><h3>What Makes a Lever Powerful</h3></div>
+            <div class="mi-step-body">
+                <p>A positive tipping point lever must be powerful enough to transform the system by setting off virtuous cycles of change across it. Our case studies of communities that managed a turnabout show common qualities in their levers. We draw upon their Ingredients for Success to cast light on how to devise a lever. Though many vicious cycles can become sites for intervention, only actions that carry tremendous force can tip the balance of ecological degradation. That force comes from both the ecosystem and social system. There is no formula for choosing the right course of action in unique circumstances. But our case studies point to certain qualities of a powerful lever, grounded in how ecosystems function on their own and as part of the human-environment system.</p>
+                <p>Wherever human communities have developed, they have done so by settling in places where the land and water could sustain them. Where they have endured, it has been through adapting to their environments by building their communities and working their natural environments in ways that also allow the ecosystem to adapt to them. The ecosystem and social system co-adapted: each altered the other, in ways both could absorb while maintaining vitality. Those human-environment systems have been sustainable because enough of the choices made about how to build the society were also good for the ecosystem they relied upon. A powerful lever grounds gains for the community in gains for the ecosystem.</p>
+                <p>As an ecosystem copes with destructive human activity, it can slowly transform to the point of being uninhabitable as its complex internal relationships and processes can no longer function. When forests were cut down in Rajasthan, not only did many plants and animals lose their habitat, but it slowly shrank the rivers both above and below ground. These same complex internal relationships in nature are the key to devising a powerful positive tipping point lever. Even if those processes have endured tremendous destructive pressure, an infrastructure for regeneration is ingrained in nature's memory through its species' behaviors and ecosystem cycles. The living beings comprising the ecosystem will move towards revitalization if given the opportunity. Plants will grow again if they have access to groundwater. Tigers that left a desertified region will return with a thriving forest. Humans cannot micromanage these intricate ecosystem relationships, but we can create conditions that set nature's self-restorative powers in motion. In the case of Rajasthan, community members built dams to help replenish the aquifer, or underground rivers, and nature's own internal process took care of reviving dead and dry rivers, forests, wells, animals, irrigation systems, and the community.</p>
+                <p>Sometimes new innovations help kick in those natural processes. Just as often the answer lies in our memory of social practices built over long years of co-adaptation and then abandoned. Whether the technology is new or old, actions capable of transforming a spiraling decline must draw on nature's self-restorative power, because we do not have the strength or reach to do it on our own. We must ask what would have to be true for the ecosystem to begin recovering on its own, and look for ways to create those conditions.</p>
+            </div>
+        </div>
+
+        <div class="mi-step">
+            <div class="mi-step-head"><h3>Finding Powerful Actions for Strategic Points in the System</h3></div>
+            <div class="mi-step-body">
+                <p>A diagram of the problem is essential for devising a positive tipping point lever, because it shows where in the human-environment system the feedback loops driving decline can be reversed. The diagram clarifies where vicious cycles are at play, how they overlap and intensify each other's force, and which elements in those loops are most open to change. These are the places in the system that are points of leverage. The actions you choose must be effective, must draw on nature's self-restorative power, and must fit the community's current resources. Reviewing the history of the problem helps reveal a point before the decline when human activities were sustainable. Innovations and successes in other communities also offer rich possibilities. The experience of our case studies suggests that strong levers often come from a mixture of new ideas, the knowledge, experience and memories of community members, and the infusion of outside support.</p>
+                <p>A good starting place is to use your diagram to identify the feedback loops responsible for setting decline in motion. Making sense of how nature's self-restorative powers were damaged in that cycle will also provide clues to effective actions. Then locate feedback loops that play a role in instigating or maintaining multiple vicious cycles. These feedback loops may be particularly effective sites of change, since a transformation there could spiral change through the human-environment system. For each vicious cycle, scrutinize community action as a location for change, since we only have agency within the social system. Start by brainstorming whether the community actions maintaining the loop can be changed in ways that alter the cycle through a restorative impact on the ecosystem. Then imagine whether there are new actions the community could take that might alter the cycle in the same way. With each candidate, speculate on the downstream impacts, to gauge whether it would lead to improvements for the community that encourage sustaining the effort. All of this can point to parts of the system where change could happen with enough force to set a virtuous cycle in motion. Drawing your own maps of the chains of effects a new or changed action might trigger will help determine whether a location is an effective site for action, and whether the action can set virtuous cycles in motion.</p>
+
+                <h4>Questions to guide your analysis of leverage points:</h4>
+                <ul>
+                    <li>Where are the vicious cycles?</li>
+                    <li>Which vicious cycles are most responsible for driving other vicious cycles?</li>
+                    <li>Where is the community able to act?</li>
+                    <li>Which connections within vicious cycles can be broken by community intervention?</li>
+                    <li>Are there any actions that are preventing nature from restoring itself?</li>
+                    <li>Are there any destructive activities that the community can discontinue or alter to encourage ecosystem recovery?</li>
+                    <li>Are there new activities that could be tried that could redirect the vicious cycle? Any old practices, rules, or resources that were abandoned that could be revitalized?</li>
+                    <li>Has this problem been solved in another community? What did they do to interrupt their decline?</li>
+                </ul>
+
+                <p>Intervention in a vicious cycle is not always possible. Some may be set in motion by ecological or social processes outside of the community's control, require more resources from the community than they have, or be located in a historical incident that cannot be undone. Recognizing the places in the system that cannot be changed is an important step towards finding where change is possible. In our case study in Rajasthan, the community could not change the fact that their ancient forests had been clear cut for timber, which set in motion their water scarcity. Since that damaging activity could not be replaced, they needed to find some other place in the system with vicious cycles that could be reversed.</p>
+                <p>If they had searched for leverage points on a diagram of their crisis, it would look like this:</p>
+                <figure>
+                    <img src="images/systems-thinking/image7.png" alt="Rajasthan Reverse It: the full mapped system with 'Logging the forest' as the negative lever">
+                    <img src="images/systems-thinking/image8.png" alt="Rajasthan: the historical lever cannot be undone, so other points in the system are examined">
+                    <img src="images/systems-thinking/image21.png" alt="Rajasthan: a candidate leverage point identified in the pond-maintenance loop">
+                    <img src="images/systems-thinking/image23.png" alt="Rajasthan: rebuilding the dams as the leveraging action">
+                    <img src="images/systems-thinking/image24.png" alt="Rajasthan: the aquifer recharges and water returns to wells and fields">
+                    <img src="images/systems-thinking/image25.png" alt="Rajasthan: recovery draws labour back to the village and the virtuous cycles compound">
+                    <figcaption>Rajasthan, Reverse It: the negative lever — logging the forest — cannot be undone, so the search moves to the reinforcing loops that can be reversed.</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="mi-step">
+            <div class="mi-step-head"><h3>Choosing Actions That Are Feasible for the Community</h3></div>
+            <div class="mi-step-body">
+                <p>Even if you locate an action that could break multiple vicious cycles, enlist nature's self-restorative power, increase harmony between the social system and ecosystem, and set off a chain of virtuous cycles, it still must be within the community's reach. A potential lever will only have enough force to trigger a turnabout if the community has the resources and commitment to carry it through and sustain the effort through tremendous sacrifice. Outside resources and support often help. But our case studies demonstrate that enduring success is most likely when a community has the time, energy, and finances to execute the plan, and the leadership to keep momentum through changing conditions and the serious obstacles that may emerge from social, political, and economic factors. A positive tipping point lever draws part of its force from the community itself, so its feasibility also comes down to the community's resolve.</p>
+
+                <h4>Considerations for gauging feasibility:</h4>
+                <ul>
+                    <li>Is there community support for the action?</li>
+                    <li>What resources would this require? (money, time, skills, materials)</li>
+                    <li>Can the community provide the time, energy, and resources to carry it out?</li>
+                    <li>Are there outside organizations that can provide support for these resources?</li>
+                    <li>Does the community have the leadership needed to manage and enforce commitments?</li>
+                    <li>Does it require governance structures that don't yet exist?</li>
+                    <li>What obstacles might arise? (social, political, economic)</li>
+                    <li>Will there be pushback from other entities?</li>
+                    <li>Will there be encroachment or takeover from other entities?</li>
+                    <li>What could go wrong?</li>
+                    <li>Will it involve short-term sacrifices that create excessive burdens for some members? If so, how will those burdens be shared?</li>
+                    <li>Does this change who benefits from the resource?</li>
                 </ul>
 
                 <h4>What resources or support do you have access to?</h4>
@@ -155,155 +302,24 @@
                     <li>Outside support (NGOs, government programs, etc.)</li>
                     <li>Economic opportunities tied to restoration</li>
                 </ul>
-
-                <div class="mi-apo">
-                    <div class="mi-eyebrow">On Apo Island</div>
-                    <h4>Step 1: Leverage Point</h4>
-                    <p>The community identified that protecting a portion of their reef could allow fish populations to recover, which would then spill over into fishing areas.</p>
-                </div>
             </div>
         </div>
 
-        <div class="mi-reflect">
-            <h4>Ingredient: Community Resolve</h4>
-            <p>The evaluation process reveals whether you have the resolve needed. If community support seems low for a crucial intervention, that's valuable information; you may need to build resolve first through education and dialogue.</p>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="mi-step">
-            <div class="mi-step-head"><span class="mi-step-num">02</span><h3>Step 2: Envision the Positive Flip</h3></div>
-            <div class="mi-step-body">
-                <p>For each potential intervention point, imagine what success would look like:</p>
-                <ul>
-                    <li>If this intervention works, what positive changes would ripple through the system?</li>
-                    <li>Could it start new positive feedback loops?</li>
-                    <li>How would the boxes and arrows in your diagram change?</li>
-                </ul>
-
-                <!-- FPO: uncomment when diagram is ready
-                <div class="placeholder-box">
-                    [Visual Diagram: Virtuous Cycle, For Placement Only]
-                </div>
-                -->
-
-                <div class="mi-apo">
-                    <div class="mi-eyebrow">On Apo Island</div>
-                    <h4>Step 2: The Vision</h4>
-                    <p>They envisioned creating a marine sanctuary on 10% of their fishing grounds.</p>
-                    <div class="mi-chips">
-                        <span class="mi-chip">Fish stocks recover</span>
-                        <span class="mi-arrow">&rarr;</span>
-                        <span class="mi-chip">More fish spill over to fishing areas</span>
-                        <span class="mi-arrow">&rarr;</span>
-                        <span class="mi-chip">Catches improve</span>
-                        <span class="mi-arrow">&rarr;</span>
-                        <span class="mi-chip">Community sees benefits</span>
-                        <span class="mi-arrow">&rarr;</span>
-                        <span class="mi-chip">More support for protection</span>
-                        <span class="mi-arrow">&rarr;</span>
-                        <span class="mi-chip">Stronger enforcement</span>
-                        <span class="mi-arrow">&rarr;</span>
-                        <span class="mi-loop">&#8634; Better recovery</span>
-                    </div>
-                    <p style="margin-top:10px; font-size:13px; font-weight:600; color:#9c5a2b;">[virtuous cycle]</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="mi-step">
-            <div class="mi-step-head"><span class="mi-step-num">03</span><h3>Step 3: Evaluate Feasibility and Impact</h3></div>
-            <div class="mi-step-body">
-                <p>The positive tipping point lever consists of the actions taken to reverse those elements plus the environmental technology used for those actions and the community organization to make the technologies and actions effective.</p>
-
-                <p>For each potential intervention, work through these questions as a group:</p>
-
-                <h4>Impact Questions</h4>
-                <ul>
-                    <li>How big a change could this make?</li>
-                    <li>Does it address a root cause or just a symptom?</li>
-                    <li>Will social and environmental gains go hand in hand?</li>
-                    <li>Could it trigger positive reinforcement?</li>
-                    <li>Is it strong enough to reverse the bottom line?</li>
-                </ul>
-
-                <div class="mi-note">
-                    <h4>Tool Download: Impact Worksheet</h4>
-                    <p>Quantify the impact of your interventions</p>
-                    <a href="Assets/ETP-Impact-worksheet.pdf" target="_blank" class="mi-btn-outline">Download PDF</a>
-                </div>
-
-                <h4>Feasibility Questions</h4>
-                <ul>
-                    <li>What resources would this require? (money, time, skills, materials)</li>
-                    <li>Do we have community support for this?</li>
-                    <li>What obstacles might we face? (social, political, economic)</li>
-                    <li>Do we have (or can we get) what we need to try this?</li>
-                </ul>
-
-                <h4>Risk Questions</h4>
-                <ul>
-                    <li>What could go wrong?</li>
-                    <li>Are there unintended consequences we should consider?</li>
-                    <li>Is this reversible if it doesn't work?</li>
-                    <li>Will there be pushback from other entities?</li>
-                    <li>Will there be encroachment or takeover from other entities?</li>
-                </ul>
-
-                <div class="mi-note">
-                    <h4>Tool Download: Feasibility Worksheet</h4>
-                    <p>Understand the challenges, risks, and their impact</p>
-                    <a href="Assets/ETP-Feasibility-Worksheet.pdf" target="_blank" class="mi-btn-outline">Download PDF</a>
-                </div>
-
-                <!-- FPO: uncomment when resource is ready
-                <div class="placeholder-box">
-                    [Downloadable Resource: Evaluation Matrix Template, For Placement Only]
-                </div>
-                -->
-
-                <div class="mi-apo">
-                    <div class="mi-eyebrow">On Apo Island</div>
-                    <h4>Step 3: Evaluation</h4>
-                    <p><strong>Impact:</strong> Could reverse the fundamental problem (declining fish stocks)</p>
-                    <p><strong>Feasibility:</strong> Drew on traditional decision-making practices; representatives from all families discussed until reaching consensus</p>
-                    <p><strong>Resources:</strong> Created volunteer Marine Guard; established clear rules</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Step 4 -->
-        <div class="mi-step">
-            <div class="mi-step-head"><span class="mi-step-num">04</span><h3>Step 4: Choose Your Starting Point</h3></div>
-            <div class="mi-step-body">
-                <p><strong>You don't need perfect information to begin.</strong> Based on your evaluation:</p>
-                <ul>
-                    <li>Which 1-3 interventions seem most promising?</li>
-                    <li>Is there a logical sequence? (some things need to happen before others)</li>
-                    <li>Can you start with something achievable to build momentum?</li>
-                </ul>
-
-                <h4>Remember</h4>
-                <ul>
-                    <li>You can try multiple interventions, especially if they reinforce each other</li>
-                    <li>Starting with a smaller, achievable win can build the community resolve needed for bigger changes</li>
-                    <li>You'll learn by trying. Your understanding will improve as you act</li>
-                </ul>
-
-                <div class="mi-apo">
-                    <div class="mi-eyebrow">On Apo Island</div>
-                    <h4>Step 4: Starting Point</h4>
-                    <p>They began with the marine sanctuary and community management, building on their existing consensus-based decision-making traditions.</p>
-                    <a href="story-apo-island.html" class="mi-btn-outline">Read Full Apo Island Story</a>
-                </div>
-            </div>
+        <div class="mi-ingredients">
+            <h4>Ingredients for Success</h4>
+            <ul>
+                <li><a href="ingredient-social-ecological-memory.html">Social and ecological memory</a></li>
+                <li><a href="ingredient-harmony-ecosystem.html">Harmony between community and ecosystem</a></li>
+                <li><a href="ingredient-letting-nature-work.html">Letting nature do the work</a></li>
+                <li><a href="ingredient-shared-awareness.html">Shared community awareness and commitment</a></li>
+            </ul>
         </div>
 
         <div class="mi-step">
             <div class="mi-step-head"><h3 style="margin:0;">Next Steps</h3></div>
             <div class="mi-step-body">
-                <p>Once you've started to see success, the final step is to lock in those gains by building mutually reinforcing positive cycles.</p>
-                <a href="systems-thinking-lock.html" class="mi-btn">Continue to Part 4: Lock It In</a>
+                <p>Once interventions start to take hold, the final step is to lock in the gains by building mutually reinforcing virtuous cycles.</p>
+                <a href="systems-thinking-lock.html" class="mi-btn">Continue to Lock It In</a>
             </div>
         </div>
 

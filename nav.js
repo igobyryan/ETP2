@@ -17,10 +17,13 @@
                         <div class="dropdown-section">
                             <h4>Systems Thinking</h4>
                             <a href="systems-thinking-overview.html">Overview</a>
-                            <a href="systems-thinking-recognize.html">Part 1: Recognize It</a>
-                            <a href="systems-thinking-map.html">Part 2: Map It</a>
-                            <a href="systems-thinking-reverse.html">Part 3: Reverse It</a>
-                            <a href="systems-thinking-lock.html">Part 4: Lock It In</a>
+                            <a href="systems-thinking-understand.html">Understand It</a>
+                            <a href="systems-thinking-recognize.html">Recognize It</a>
+                            <a href="systems-thinking-map.html">Map It</a>
+                            <a href="systems-thinking-map-practice.html" class="dropdown-sub">Map It in Practice</a>
+                            <a href="systems-thinking-reverse.html">Reverse It</a>
+                            <a href="systems-thinking-reverse-practice.html" class="dropdown-sub">Reverse It in Practice</a>
+                            <a href="systems-thinking-lock.html">Lock It In</a>
                         </div>
                         <div class="dropdown-section">
                             <h4>Ingredients for Success</h4>
@@ -35,12 +38,6 @@
                             <a href="ingredient-social-ecological-diversity.html">Social and ecological diversity</a>
                             <a href="ingredient-social-ecological-memory.html">Social and ecological memory</a>
                             <a href="ingredient-building-resilience.html">Building resilience</a>
-                        </div>
-                        <div class="dropdown-section">
-                            <h4>Community Sessions</h4>
-                            <a href="community-sessions.html">Overview</a>
-                            <a href="community-sessions-map-it.html">Map It</a>
-                            <a href="community-sessions-reverse-it.html">Reverse It</a>
                         </div>
                     </div>
                 </li>
@@ -147,8 +144,7 @@
                 col('The Toolkit', [
                     { href: 'foundations.html', text: 'Foundations' },
                     { href: 'systems-thinking-overview.html', text: 'Systems Thinking' },
-                    { href: 'ingredients-overview.html', text: 'Ingredients for Success' },
-                    { href: 'community-sessions.html', text: 'Community Sessions' }
+                    { href: 'ingredients-overview.html', text: 'Ingredients for Success' }
                 ]) +
                 col('Case Studies', [
                     { href: 'story-apo-island.html', text: 'Apo Island, Philippines' },
@@ -158,6 +154,7 @@
                 ]) +
                 col('More', [
                     { href: 'resources.html', text: 'Resources' },
+                    { href: 'glossary.html', text: 'Glossary' },
                     { href: 'https://www.ecotippingpoints.org/', text: 'EcoTippingPoints.org' },
                     { href: 'about.html', text: 'About the project' }
                 ]) +
@@ -168,8 +165,8 @@
                 '<div style="max-width:1200px;margin:0 auto;padding:18px 52px;' + F + 'font-size:12px;letter-spacing:0.04em;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;">' +
                     '<span>©2026 EcoTipping Points</span>' +
                     '<div style="text-align:right;">' +
-                        '<div>v0.6.5.2 · 8/6/26</div>' +
-                        '<div style="margin-top:4px;">Archive: <a href="Archive/0.6.4.1/index.html" target="_blank" style="color:#a6c0b0;text-decoration:underline;">v0.6.4.1</a></div>' +
+                        '<div>v0.6.6.0 · 8/27/26</div>' +
+                        '<div style="margin-top:4px;">Archive: <a href="Archive/0.6.5.2/index.html" target="_blank" style="color:#a6c0b0;text-decoration:underline;">v0.6.5.2</a> · <a href="Archive/0.6.4.1/index.html" target="_blank" style="color:#a6c0b0;text-decoration:underline;">v0.6.4.1</a></div>' +
                     '</div>' +
                 '</div>' +
             '</div>';
@@ -203,10 +200,13 @@
                 label: 'Systems Thinking',
                 items: [
                     { href: 'systems-thinking-overview.html', text: 'Overview' },
-                    { href: 'systems-thinking-recognize.html', text: 'Part 1: Recognize It' },
-                    { href: 'systems-thinking-map.html', text: 'Part 2: Map It' },
-                    { href: 'systems-thinking-reverse.html', text: 'Part 3: Reverse It' },
-                    { href: 'systems-thinking-lock.html', text: 'Part 4: Lock It In' }
+                    { href: 'systems-thinking-understand.html', text: 'Understand It' },
+                    { href: 'systems-thinking-recognize.html', text: 'Recognize It' },
+                    { href: 'systems-thinking-map.html', text: 'Map It' },
+                    { href: 'systems-thinking-map-practice.html', text: 'Map It in Practice', indent: true },
+                    { href: 'systems-thinking-reverse.html', text: 'Reverse It' },
+                    { href: 'systems-thinking-reverse-practice.html', text: 'Reverse It in Practice', indent: true },
+                    { href: 'systems-thinking-lock.html', text: 'Lock It In' }
                 ]
             },
             'ingredient': {
@@ -224,21 +224,12 @@
                     { href: 'ingredient-social-ecological-memory.html', text: 'Social and ecological memory' },
                     { href: 'ingredient-building-resilience.html', text: 'Building resilience' }
                 ]
-            },
-            'community-sessions': {
-                label: 'Community Sessions',
-                items: [
-                    { href: 'community-sessions.html', text: 'Overview' },
-                    { href: 'community-sessions-map-it.html', text: 'Map It' },
-                    { href: 'community-sessions-reverse-it.html', text: 'Reverse It' }
-                ]
             }
         };
 
         var sectionKey = null;
         if (page.indexOf('systems-thinking') === 0) sectionKey = 'systems-thinking';
         else if (page.indexOf('ingredient') === 0) sectionKey = 'ingredient';
-        else if (page.indexOf('community-sessions') === 0) sectionKey = 'community-sessions';
 
         if (!sectionKey) return;
 
@@ -250,10 +241,12 @@
         items.forEach(function (item, i) { if (item.href === page) currentIndex = i; });
         var total = items.length;
 
-        function makeItems(extraClass) {
-            return items.map(function (item, i) {
+        function makeItems() {
+            return items.map(function (item) {
                 var isActive = (item.href === page);
-                return '<li><a href="' + item.href + '"' + (isActive ? ' class="rail-active"' : '') + '>' + item.text + '</a></li>';
+                var cls = isActive ? 'rail-active' : '';
+                if (item.indent) cls += (cls ? ' ' : '') + 'rail-indent';
+                return '<li><a href="' + item.href + '"' + (cls ? ' class="' + cls + '"' : '') + '>' + item.text + '</a></li>';
             }).join('');
         }
 
