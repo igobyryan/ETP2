@@ -83,6 +83,13 @@
     --space-2xl: calc(var(--space) * 3);
     --space-3xl: calc(var(--space) * 4);
 
+    /* Aliases — some page markup uses --spacing-* names */
+    --spacing-xs: var(--space-xs);
+    --spacing-sm: var(--space-sm);
+    --spacing-md: var(--space-md);
+    --spacing-lg: var(--space-lg);
+    --spacing-xl: var(--space-xl);
+
     /* ---- Layout ---- */
     --max-width:        80rem;
     --max-width-narrow: 44rem;
