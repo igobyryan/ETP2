@@ -152,13 +152,72 @@ The 5 "For context:" story links (Brief 9) reformatted to a two-line layout: an 
 - New CSS rule `.mi-context-label` added to the inline `<style>` of `systems-thinking-map.html`, `systems-thinking-reverse.html`, `systems-thinking-recognize.html` — same declaration as `.mi-practice-label` ("IN THE FIELD" style: 11px, 700, `letter-spacing: 0.06em`, `#9c5a2b`, `text-transform: uppercase`) plus `display: block; margin-bottom: 3px`.
 - Each `<p>For context: <a …>…</a> (N min)</p>` → `<p><span class="mi-context-label">For context</span><a …>…</a> (N min)</p>`. The "(N min)" stays inline after the link on the second line. Locations: map (×2), reverse (×2), recognize (×1).
 
+## Brief — Replace Map It step-by-step images
+
+`systems-thinking-map.html`, "Step by Step: Mapping a Negative Tipping Point on Apo Island" step + the "A More Complex Case in Rajasthan" figure.
+
+- 9 new PNGs added to `images/systems-thinking/`: `map_it_workshop_1.png` … `map_it_workshop_9.png` (already in place).
+- Swapped the `src` on the 9 `<figure><img>` in order: `image22 → workshop_1`, `image2 → 2`, `image1 → 3`, `image3 → 4`, `image4 → 5`, `image12 → 6`, `image11 → 7`, `image10 → 8`, `image9 → 9` (the last is the Rajasthan diagram). `alt` text unchanged; `<figure>`/`<img>` wrappers unchanged.
+- Deleted the `<figcaption>` from all 9 of those figures.
+- Left untouched: the video figure `image19.png` ("Seeing the System in Action"), the `image16.png` foundations-video embed box, all step `<p>` text, section headings/intros, and the Rajasthan "For context" link.
+- The old files `image1.png`–`image4.png`, `image9.png`–`image12.png`, `image22.png` are now unreferenced anywhere in the live site (still present on disk and in `Archive/` — left in place, not deleted).
+
+## Brief — Understand It: swap "generic diagram" for a YouTube video
+
+`systems-thinking-understand.html`, "Seeing the System in Action" step.
+
+- Replaced the `<figure>`'s `<img src="images/systems-thinking/image15.png">` + `<figcaption>GENERIC DIAGRAM</figcaption>` with a responsive YouTube embed: `<div class="video-embed"><iframe src="https://www.youtube.com/embed/dAwzXLs2GLo?rel=0" …></iframe></div>` (video "What are ecotipping points?", `@iamryanh`). `<figure>` wrapper kept; `.video-embed` styling comes from `styles.css` (16:9 responsive).
+- `image15.png` now unreferenced in the live site (left on disk).
+
+## Brief — Map It: de-indent and resize the numbered mapping steps
+
+`systems-thinking-map.html` inline `<style>`, `.mi-mapseq` (the "Step by Step" numbered list).
+
+- Root cause of the indent: `.mi-body ul, .mi-body ol { padding-left: 20px }` (specificity 0,1,1) was overriding `.mi-mapseq { padding: 0 }` (0,1,0). Bumped the selector to `.mi-body ol.mi-mapseq` (0,2,1) so `padding: 0` wins — the numbered items now sit flush-left with the "Step by Step" intro paragraph and the first (un-numbered) image above them.
+- `.mi-mapseq` `max-width` `820px` → `760px`, matching `.mi-step-body` and the first image.
+- Step number (`.mi-mapseq > li::before`) `font-size` `18px` → `16px`; added explicit `font-size: 16px` to `.mi-mapseq > li p` — both now match the intro paragraph's body size.
+
+## Brief — Reverse It: replace the last Rajasthan diagram + drop its caption
+
+`systems-thinking-reverse.html`, last `<figure>` on the page ("Finding Powerful Actions for Strategic Points in the System" step).
+
+- Swapped only the **last** `<img>` in that figure: `image25.png` → `reverse_it_rajasthan_6.png` (alt kept). The five images above it (`image7`, `image8`, `image21`, `image23`, `image24`) are untouched.
+- Deleted the `<figcaption>` ("Rajasthan, Reverse It: the negative lever — logging the forest…").
+- `image25.png` now unreferenced in the live site (left on disk / in `Archive/`).
+
+## Brief — About page: replace placeholder copy
+
+`about.html`, the `.content-block`.
+
+- Removed all placeholder content: 4 `<div class="placeholder-box">Content pending…</div>` blocks, the `<h2>Gerry Marten</h2>`, the "Fieldwork researcher / Writer / Professor / Awards" `<h3>`s, and the interim "Writer" paragraph.
+- Replaced with the approved copy: `<h2>About EcoTipping Points</h2>` + 4 `<p>` paragraphs. Markdown links converted to `<a … target="_blank" rel="noopener">` (repo's external-link convention): ecotippingpoints.org, gerrymarten.com/experience, gerrymarten.com/articles-chapters, the two book URLs (title text wrapped in `<em>` inside the link). `content-block` `max-width: 680px` kept.
+- `.placeholder-box` no longer used on this page (CSS left in `styles.css`).
+- LLM tells pass — clean; copy is approved verbatim.
+
+## Brief — Reverse It: "Seeing the System in Action" video swap
+
+`systems-thinking-reverse.html`, "Seeing the System in Action" step.
+
+- Removed the trailing parenthetical " (Apo positive tip, Part 1.)" from the intro `<p>` (now ends "…with a few well chosen actions.").
+- Replaced `<img src="images/systems-thinking/image28.png">` with a YouTube embed (`<div class="video-embed"><iframe src="https://www.youtube.com/embed/OHgXMIKKOrY?rel=0" …></iframe></div>`), `<figure>` wrapper kept.
+- Deleted the `<figcaption>` ("Video: Apo Island Fisheries — a virtuous cycle towards restoration.").
+- `image28.png` now unreferenced in the live site (left on disk). Note: could not verify the new video ID via oembed (403) — worth a quick check that it plays/embeds.
+
+## Brief — Map It: "Seeing the System in Action" video swap
+
+`systems-thinking-map.html`, "Seeing the System in Action" step.
+
+- Replaced `<img src="images/systems-thinking/image19.png">` with a YouTube embed (`<div class="video-embed"><iframe src="https://www.youtube.com/embed/oiodLWrhS_8?rel=0" …></iframe></div>`), `<figure>` wrapper kept.
+- Deleted the `<figcaption>` ("Video: Apo Island Fisheries — a vicious cycle towards collapse."). No figcaptions remain on the page.
+- Intro `<p>` and the "For context" link below are unchanged. `image19.png` now unreferenced in the live site (left on disk). Supersedes the earlier "leave image19 alone" note in the step-by-step image-swap brief.
+
 ## Files touched
 
 | File | Briefs |
 |------|--------|
-| `systems-thinking-understand.html` | 1 |
-| `systems-thinking-map.html` | 1, 9, 9-fu, 12 |
-| `systems-thinking-reverse.html` | 1, 2, 6, 7, 9, 9-fu, 12 |
+| `systems-thinking-understand.html` | 1, video-swap |
+| `systems-thinking-map.html` | 1, 9, 9-fu, 12, img-swap, mapseq-style, video-swap |
+| `systems-thinking-reverse.html` | 1, 2, 6, 7, 9, 9-fu, 12, img-swap, video-swap |
 | `systems-thinking-recognize.html` | 9, 9-fu |
 | `systems-thinking-reverse-practice.html` | 1 |
 | `ingredient-harmony-ecosystem.html` | 1, 11 |
@@ -175,5 +234,6 @@ The 5 "For context:" story links (Brief 9) reformatted to a two-line layout: an 
 | `glossary.html` | 3 |
 | `resources.html` | 3 |
 | `index.html` | 10 |
+| `about.html` | about-copy |
 | `styles.css` | 11 |
 | `nav.js` | footer bump |

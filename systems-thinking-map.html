@@ -76,14 +76,14 @@
         .mi-practice a:hover { text-decoration: underline; }
 
         /* Numbered Apo Island mapping sequence with diagram slots */
-        .mi-mapseq { list-style: none; padding: 0; margin: 20px 0; max-width: 820px; counter-reset: mapstep; }
+        .mi-body ol.mi-mapseq { list-style: none; padding: 0; margin: 20px 0; max-width: 760px; counter-reset: mapstep; }
         .mi-mapseq > li { counter-increment: mapstep; border-top: 1px solid #e8ece8; padding-top: 22px; margin-top: 22px; }
         .mi-mapseq > li:first-child { border-top: 0; margin-top: 0; padding-top: 0; }
         .mi-mapseq > li::before {
             content: counter(mapstep); display: inline-block; font-weight: 700; color: #9c5a2b;
-            font-size: 18px; margin-right: 10px;
+            font-size: 16px; margin-right: 10px;
         }
-        .mi-mapseq > li p { display: inline; }
+        .mi-mapseq > li p { display: inline; font-size: 16px; }
 
         .mi-btn {
             display: inline-block; background: #9c5a2b; color: #fff; text-decoration: none;
@@ -158,8 +158,15 @@
             <div class="mi-step-body">
                 <p><strong>How do vicious cycles cause collapse?</strong> This video illustrates how a vicious cycle of collapse unfolded in Apo Island.</p>
                 <figure>
-                    <img src="images/systems-thinking/image19.png" alt="Video: Apo Island Fisheries — a vicious cycle towards collapse">
-                    <figcaption>Video: Apo Island Fisheries — a vicious cycle towards collapse.</figcaption>
+                    <div class="video-embed">
+                        <iframe
+                            src="https://www.youtube.com/embed/oiodLWrhS_8?rel=0"
+                            title="How do vicious cycles cause collapse?"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
                 </figure>
                 <p><span class="mi-context-label">For context</span><a href="story-apo-island.html">Watch the Apo Island story on marine sanctuary restoration in the Philippines</a> (7 min)</p>
             </div>
@@ -179,57 +186,49 @@
             <div class="mi-step-body">
                 <p>We use the example of Apo Island to illustrate, step by step, one way a negative tipping point can be mapped.</p>
                 <figure>
-                    <img src="images/systems-thinking/image22.png" alt="Apo Island — Map It: Building the Map">
-                    <figcaption>Apo Island, Map It: Building the Map. A group of fishing families has come together to understand why their situation keeps getting worse, and to find where they might be able to change it.</figcaption>
+                    <img src="images/systems-thinking/map_it_workshop_1.png" alt="Apo Island — Map It: Building the Map">
                 </figure>
                 <ol class="mi-mapseq">
                     <li>
                         <p>If the negative tipping point lever is obvious, you can begin there. If not, then pick one item, usually a core resource loss, and draw it in the center to begin your map.</p>
                         <figure>
-                            <img src="images/systems-thinking/image2.png" alt="Apo Island map: a single 'Fewer Fish' node in the center">
-                            <figcaption>Apo Island map — the core resource loss in the center.</figcaption>
+                            <img src="images/systems-thinking/map_it_workshop_2.png" alt="Apo Island map: a single 'Fewer Fish' node in the center">
                         </figure>
                     </li>
                     <li>
                         <p>What caused the core loss? Add the cause, noting whether it is an action or an impact. If it is an impact, you know that you have not arrived at the root causes.</p>
                         <figure>
-                            <img src="images/systems-thinking/image1.png" alt="Apo Island map: 'More damaged coral habitat and less fish' leads to 'Fewer Fish'">
-                            <figcaption>Apo Island map — the first cause added.</figcaption>
+                            <img src="images/systems-thinking/map_it_workshop_3.png" alt="Apo Island map: 'More damaged coral habitat and less fish' leads to 'Fewer Fish'">
                         </figure>
                     </li>
                     <li>
                         <p>Continue adding causes as you move backwards in time towards root causes. If a cause is an action, it does not necessarily mean it is the negative tipping point lever. It may be a response to prior actions and effects.</p>
                         <figure>
-                            <img src="images/systems-thinking/image3.png" alt="Apo Island map: destructive fishing lever and action added to the chain of causes">
-                            <figcaption>Apo Island map — the chain of causes extended back in time to the negative lever.</figcaption>
+                            <img src="images/systems-thinking/map_it_workshop_4.png" alt="Apo Island map: destructive fishing lever and action added to the chain of causes">
                         </figure>
                     </li>
                     <li>
                         <p>What happened before that? Continue back through time until you arrive at an event or set of events that seems responsible for triggering the systemic change. You can label the triggers as the negative tipping point lever.</p>
                         <figure>
-                            <img src="images/systems-thinking/image4.png" alt="Apo Island map: the loop closes from 'Fewer Fish' back to 'More use of destructive fishing'">
-                            <figcaption>Apo Island map — the loop closes: fewer fish drive still more destructive fishing.</figcaption>
+                            <img src="images/systems-thinking/map_it_workshop_5.png" alt="Apo Island map: the loop closes from 'Fewer Fish' back to 'More use of destructive fishing'">
                         </figure>
                     </li>
                     <li>
                         <p>Then look forward in time to how one thing affected another. What happened next? If you see a resulting impact aggravating the problem that caused it, you have revealed a self-reinforcing vicious cycle where the worse things get the worse it makes everything else.</p>
                         <figure>
-                            <img src="images/systems-thinking/image12.png" alt="Apo Island map: a branch to 'Fishing further away from home' added">
-                            <figcaption>Apo Island map — a second chain branches off: fishers travel further from home.</figcaption>
+                            <img src="images/systems-thinking/map_it_workshop_6.png" alt="Apo Island map: a branch to 'Fishing further away from home' added">
                         </figure>
                     </li>
                     <li>
                         <p>Many elements of your diagram will have more than one resulting impact. Lead those separate directions, so that you can follow the multiple chains of effects being created.</p>
                         <figure>
-                            <img src="images/systems-thinking/image11.png" alt="Apo Island map: 'Less incentive for sustaining fishery' added, forming a second loop">
-                            <figcaption>Apo Island map — the second loop closes back into the first.</figcaption>
+                            <img src="images/systems-thinking/map_it_workshop_7.png" alt="Apo Island map: 'Less incentive for sustaining fishery' added, forming a second loop">
                         </figure>
                     </li>
                     <li>
                         <p>As you see new chains of effects unfold, new vicious cycles will likely feed back into earlier vicious cycles, reinforcing and amplifying each other. It is these amplifying vicious cycles that spiral a system into decline.</p>
                         <figure>
-                            <img src="images/systems-thinking/image10.png" alt="Apo Island map: the full connected system of two reinforcing loops">
-                            <figcaption>Apo Island map — the full connected system: not a list of problems, but two reinforcing loops.</figcaption>
+                            <img src="images/systems-thinking/map_it_workshop_8.png" alt="Apo Island map: the full connected system of two reinforcing loops">
                         </figure>
                     </li>
                     <li>
@@ -244,8 +243,7 @@
             <div class="mi-step-body">
                 <p>This diagram for a village in semi-arid Rajasthan that faced the loss of precious irrigation water is more complex. Although diagrams like this can take more effort to understand, they provide an accurate picture of what the community is facing. The details will help you find parts of the system to target with a positive tipping point lever for setting restoration in motion.</p>
                 <figure>
-                    <img src="images/systems-thinking/image9.png" alt="The Rajasthan systems diagram: 'Logging the forest' lever feeding many interacting loops">
-                    <figcaption>The Rajasthan map has the same basic structure — causes feeding losses, losses feeding more causes — but there are more loops, and they interact.</figcaption>
+                    <img src="images/systems-thinking/map_it_workshop_9.png" alt="The Rajasthan systems diagram: 'Logging the forest' lever feeding many interacting loops">
                 </figure>
                 <p><span class="mi-context-label">For context</span><a href="story-gopalpura.html">Watch the Gopalpura story on rainwater harvesting in Rajasthan, India</a> (11 min)</p>
             </div>
