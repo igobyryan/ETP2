@@ -141,16 +141,25 @@ All 10 ingredient pages (`ingredient-shared-awareness.html` first as the approve
 - Moved the `<div class="mi-practice">` block verbatim (label, `<h4><a>`, `<p>` — no copy changes) from the top of the column into the `<aside>`.
 - Inline `<style>`: `.mi-body` padding `44px 52px 64px` → removed (`.two-col` now supplies outer padding + max-width + centering; `font-family` kept). `.mi-practice` `float: right; width: 300px; margin: 4px 0 18px 32px` → `margin: 0` (fills the 280px sidebar column). Removed the now-dead `@media (max-width: 48rem)` block (its two rules — `.mi-body` padding and `.mi-practice` float reset — no longer apply). `.mi-ingredients { clear: both }` left in place (harmless no-op now).
 
+**Follow-up (Ryan):** removed the `<div class="placeholder">Diagram placeholder: Apo Island map — completed map of the vicious cycles driving decline.</div>` box from the last step of the `.mi-mapseq` list on `systems-thinking-map.html`. Its step text (the `<li>`'s `<p>`) is kept; only the FPO box is gone. `.placeholder` CSS left in place (unused now, still referenced by the shared border-radius rule).
+
 **Responsive note (flagged, not changed):** at ≤64rem `.two-col` collapses to one column, so the "In the Field" box now stacks at the **bottom** of the page on tablet/mobile. Previously it stacked at the top (full-width, above "Your Goal"). Standard sidebar-below-content behavior, but it is a position change on narrow screens — say if you want it kept near the top there.
+
+## Brief 9 follow-up — "For context:" links restyled
+
+The 5 "For context:" story links (Brief 9) reformatted to a two-line layout: an eyebrow label on its own line, the link on the next.
+
+- New CSS rule `.mi-context-label` added to the inline `<style>` of `systems-thinking-map.html`, `systems-thinking-reverse.html`, `systems-thinking-recognize.html` — same declaration as `.mi-practice-label` ("IN THE FIELD" style: 11px, 700, `letter-spacing: 0.06em`, `#9c5a2b`, `text-transform: uppercase`) plus `display: block; margin-bottom: 3px`.
+- Each `<p>For context: <a …>…</a> (N min)</p>` → `<p><span class="mi-context-label">For context</span><a …>…</a> (N min)</p>`. The "(N min)" stays inline after the link on the second line. Locations: map (×2), reverse (×2), recognize (×1).
 
 ## Files touched
 
 | File | Briefs |
 |------|--------|
 | `systems-thinking-understand.html` | 1 |
-| `systems-thinking-map.html` | 1, 9, 12 |
-| `systems-thinking-reverse.html` | 1, 2, 6, 7, 9, 12 |
-| `systems-thinking-recognize.html` | 9 |
+| `systems-thinking-map.html` | 1, 9, 9-fu, 12 |
+| `systems-thinking-reverse.html` | 1, 2, 6, 7, 9, 9-fu, 12 |
+| `systems-thinking-recognize.html` | 9, 9-fu |
 | `systems-thinking-reverse-practice.html` | 1 |
 | `ingredient-harmony-ecosystem.html` | 1, 11 |
 | `ingredient-outside-stimulation.html` | 1, 11 |
