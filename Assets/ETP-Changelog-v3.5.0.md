@@ -190,7 +190,7 @@ The 5 "For context:" story links (Brief 9) reformatted to a two-line layout: an 
 `about.html`, the `.content-block`.
 
 - Removed all placeholder content: 4 `<div class="placeholder-box">Content pending…</div>` blocks, the `<h2>Gerry Marten</h2>`, the "Fieldwork researcher / Writer / Professor / Awards" `<h3>`s, and the interim "Writer" paragraph.
-- Replaced with the approved copy: `<h2>About EcoTipping Points</h2>` + 4 `<p>` paragraphs. Markdown links converted to `<a … target="_blank" rel="noopener">` (repo's external-link convention): ecotippingpoints.org, gerrymarten.com/experience, gerrymarten.com/articles-chapters, the two book URLs (title text wrapped in `<em>` inside the link). `content-block` `max-width: 680px` kept.
+- Replaced with the approved copy: `<h2>About EcoTipping Points</h2>` + 4 `<p>` paragraphs. Markdown links converted to `<a … target="_blank" rel="noopener">` (repo's external-link convention): ecotippingpoints.org, gerrymarten.com/experience, gerrymarten.com/articles-chapters, the two book URLs (title text wrapped in `<em>` inside the link). `content-block` `max-width: 680px` kept. (Final paragraph revised once by Ryan: "distills lessons from those cases … study of relationships between people and their environments … decades of fieldwork".)
 - `.placeholder-box` no longer used on this page (CSS left in `styles.css`).
 - LLM tells pass — clean; copy is approved verbatim.
 
@@ -211,6 +211,31 @@ The 5 "For context:" story links (Brief 9) reformatted to a two-line layout: an 
 - Deleted the `<figcaption>` ("Video: Apo Island Fisheries — a vicious cycle towards collapse."). No figcaptions remain on the page.
 - Intro `<p>` and the "For context" link below are unchanged. `image19.png` now unreferenced in the live site (left on disk). Supersedes the earlier "leave image19 alone" note in the step-by-step image-swap brief.
 
+## Brief — Glossary: "human/environment" → "human-environment"
+
+`glossary.html` was the only live page using the slash form. Changed all 8 occurrences to the hyphen to match the systems-thinking pages: the `<dt>Human-environment system</dt>` term plus 7 `<dd>` uses (EcoTipping Points, Negative/Positive tipping point lever, Negative/Positive tip, Vicious cycle, Virtuous cycle). No other text changed. `Archive/` copies left as-is.
+
+## Brief 13 — Lock It In: full page rebuild on the V3.5 content
+
+`systems-thinking-lock.html` — replaced wholesale, structured on the `systems-thinking-reverse.html` template.
+
+- **Head/style:** copied reverse's inline `<style>` block; removed the `.mi-practice` rule and its entry in the "squared corners" list (no sidebar). Other unused rules (`.mi-mapseq`, `.mi-flow`, `.mi-btn`, `.placeholder`, `.mi-embed`) kept verbatim per the brief's "copy exactly". Title set to "Lock It In - Systems Thinking - EcoTipping Points".
+- **Layout:** subnav with `Lock It In` active; `page-header` (label / h1 "Lock It In" / `p.intro`); `two-col` > `mi-body main-content` with **no `<aside>`** and **no "Next Steps"** step (terminal page).
+- **Content (verbatim from brief):** `mi-intro` "Your Goal" + 8 `mi-step` sections — How Gains Get Locked In (with an `mi-apo` "ON APO ISLAND" callout: three `<h4>` + `<p>` arrow-chain cycles using `→` / `↺` verbatim, then "The Result:" paragraph); Seeing the System in Action (YouTube `video-embed` iframe); a standalone `mi-reflect` Key Concept box; a standalone `mi-ingredients` box; Planning for Positive Spin-Offs (bulleted list, `ingredients-overview.html` link on "Our Ingredients for Success tool", `mi-context-label` "For context" link to `story-gopalpura.html`); Mobilizing Community Commitment; Enduring Commitment of Local Leadership; Ecological and Social Diversity; Overcoming Social Obstacles; Building Resilience (7 separate `<p>`, not a list).
+- **Filename fixes:** brief's `ingredient-enduring-leadership.html` doesn't exist → linked `ingredient-enduring-commitment.html` (link text unchanged). All other links verified.
+- **Gopalpura naming:** first mention reads "Gopalpura, Rajasthan" (Section 3 transition line); all later mentions "Gopalpura". No "Golpapura" in the output.
+- Old `Videos/LOCK IT IN_Apo.mp4` (~49 MB) + poster now unreferenced (page uses the YouTube embed).
+
+Section 2 video corrected by Ryan after the rebuild: `dAwzXLs2GLo` (which is the Understand It video) → `1E76zoe6buw`.
+
+Section 6 "Gram Sabah" → "Gram Sabha" (typo fix, matches rest of site) — per Ryan.
+
+Section 8 spaced en dashes converted to parentheses (per Ryan, matching the site's prose-dash cleanup):
+- "adaptive capacity – its openness … learned – plays a major role" → "adaptive capacity (its openness … learned) plays a major role".
+- "positive change – more water … aquifer – and the related social benefits (e.g., men returning to the village) ensured…" → "positive change (more water … aquifer) and the related social benefits, such as men returning to the village, ensured…" (the inner "(e.g., …)" recast to a comma clause to avoid nested parentheses).
+No en dashes remain in the page's prose.
+- `two-col` with only `main-content` renders fine, but leaves the 280px sidebar column empty — content sits in a ~900px column with blank space on the right. Not broken; flag if you want it to use full width.
+
 ## Files touched
 
 | File | Briefs |
@@ -219,6 +244,7 @@ The 5 "For context:" story links (Brief 9) reformatted to a two-line layout: an 
 | `systems-thinking-map.html` | 1, 9, 9-fu, 12, img-swap, mapseq-style, video-swap |
 | `systems-thinking-reverse.html` | 1, 2, 6, 7, 9, 9-fu, 12, img-swap, video-swap |
 | `systems-thinking-recognize.html` | 9, 9-fu |
+| `systems-thinking-lock.html` | 13 |
 | `systems-thinking-reverse-practice.html` | 1 |
 | `ingredient-harmony-ecosystem.html` | 1, 11 |
 | `ingredient-outside-stimulation.html` | 1, 11 |
@@ -231,7 +257,7 @@ The 5 "For context:" story links (Brief 9) reformatted to a two-line layout: an 
 | `ingredient-letting-nature-work.html` | 11 |
 | `ingredient-overcoming-obstacles.html` | 11, 11b |
 | `community-sessions-reverse-it.html` | 1 |
-| `glossary.html` | 3 |
+| `glossary.html` | 3, term-hyphen |
 | `resources.html` | 3 |
 | `index.html` | 10 |
 | `about.html` | about-copy |
