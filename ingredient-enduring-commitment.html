@@ -8,6 +8,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Brief 11. "See It In Action" sidebar: hierarchy swap plus story photo. */
+        .sidebar-box.highlight h3 { font-size: var(--text-base); }
+        .sidebar-box.highlight .carousel-slide h4 { font-size: var(--text-xl); }
+        .sidebar-box.highlight .carousel-slide img {
+            display: block; width: 100%; height: auto; margin-bottom: var(--space-md);
+        }
+    </style>
 </head>
 <body>
     <script src="nav.js"></script>
@@ -46,15 +54,7 @@
                 <p style="font-size: var(--text-sm); color: var(--text-tertiary); margin: var(--space-xs) 0 0;">A printable version of this tool to take into the field.</p>
             </div>
 
-            <!-- RELATED INGREDIENTS -->
-            <div class="sidebar-box" style="margin-bottom: var(--space-xl);">
-                <h4>Related Ingredients</h4>
-                <a href="ingredient-shared-awareness.html" style="display: block; margin-bottom: var(--space-xs);">→ Shared community awareness and commitment</a>
-                <a href="ingredient-overcoming-obstacles.html" style="display: block; margin-bottom: var(--space-xs);">→ Overcoming social obstacles</a>
-                <a href="ingredient-mobilizing-commitment.html" style="display: block;">→ Mobilizing community commitment with powerful symbols and rapid results</a>
-            </div>
-
-            <p class="lead">Community ecological restoration doesn't happen in a single season. It requires sustained effort over years: navigating early skepticism, managing setbacks, negotiating with outside authorities, and keeping people engaged through the long period between commitment and visible results. Local leadership is what makes that sustained effort possible. Not necessarily a single charismatic individual, but people within the community (formal or informal leaders, council members, women's groups, early adopters) who remain committed to the work and credible enough to bring others along. The most durable leadership grows from the community's own institutions and expands over time as success creates new leaders.</p>
+            <p class="lead">Community ecological restoration doesn't happen in a single season. It requires sustained effort over years: working through early skepticism, managing setbacks, negotiating with outside authorities, and keeping people engaged through the long period between commitment and visible results. Local leadership is what makes that sustained effort possible. Not necessarily a single charismatic individual, but people within the community (formal or informal leaders, council members, women's groups, early adopters) who remain committed to the work and credible enough to bring others along. The most durable leadership grows from the community's own institutions and expands over time as success creates new leaders.</p>
 
             <!-- RECOGNIZE IT -->
             <div class="content-block">
@@ -167,6 +167,14 @@
                 </div>
             </div>
 
+            <!-- RELATED INGREDIENTS -->
+            <div class="sidebar-box" style="margin-bottom: var(--space-xl);">
+                <h4>Related Ingredients</h4>
+                <a href="ingredient-shared-awareness.html" style="display: block; margin-bottom: var(--space-xs);">→ Shared community awareness and commitment</a>
+                <a href="ingredient-overcoming-obstacles.html" style="display: block; margin-bottom: var(--space-xs);">→ Overcoming social obstacles</a>
+                <a href="ingredient-mobilizing-commitment.html" style="display: block;">→ Mobilizing community commitment with powerful symbols and rapid results</a>
+            </div>
+
             <div class="callout">
                 <h3>Learn More</h3>
                 <p>Learn about systems thinking and how committed local leadership sustains restoration through years of effort.</p>
@@ -187,30 +195,30 @@
                     </div>
                     <div class="carousel-track">
                         <div class="carousel-slide">
-                            <!-- <div class="carousel-slide-fpo">FPO — Image</div> -->
-                            <h4>Marine Sanctuary — Philippines</h4>
+                            <h4>Marine Sanctuary: Philippines</h4>
+                            <img src="images/Ingredients_sidebar_photos/4_Enduring%20Leadership/Apo_leadership.JPG" alt="">
                             <p>From the beginning, Apo Island's barangay leaders committed to the marine sanctuary even when not everyone was convinced. They persisted through early skepticism until results made the benefits undeniable, and long-term community commitment followed.</p>
                             <p>When national government questioned the Island's authority to regulate its own fishery, leaders negotiated until that authority was affirmed. They then used the tourism revenue the sanctuary made possible to fund education for the next generation. Leadership that began as the commitment of a few became the foundation for everything the community built.</p>
                             <a href="story-apo-island.html" class="btn btn-outline">Read Full Story →</a>
                         </div>
                         <div class="carousel-slide">
-                            <!-- <div class="carousel-slide-fpo">FPO — Image</div> -->
-                            <h4>Agroforestry — Thailand</h4>
+                            <h4>Agroforestry: Thailand</h4>
+                            <img src="images/Ingredients_sidebar_photos/4_Enduring%20Leadership/Khao%20Din_leadership.jpg" alt="">
                             <p>Ajaan Thanawm and the Khao Din leadership didn't stop when their own village succeeded; they built an organization to spread agroforestry to other villages, creating farmer-to-farmer connections that gave those villages the practical knowledge they needed.</p>
                             <p>Reflecting on what made spread work, the Khao Din leaders named the single most important factor: the quality of existing leadership in each receiving village. Not outside facilitation, not technical assistance; but motivated, competent, trusted local leaders who could convince others to try something new.</p>
                             <a href="story-khao-din.html" class="btn btn-outline">Read Full Story →</a>
                         </div>
                         <div class="carousel-slide">
-                            <!-- <div class="carousel-slide-fpo">FPO — Image</div> -->
-                            <h4>Pesticide Trap — India</h4>
+                            <h4>Pesticide Trap: India</h4>
+                            <img src="images/Ingredients_sidebar_photos/4_Enduring%20Leadership/Punukula_leadership.JPG" alt="">
                             <p>In Punukula, leadership took multiple forms at once. The village council guided the adoption of NPM from the beginning. Women stepped into leadership when they pushed reluctant husbands to make the switch. SECURE provided leadership as an outside facilitator: helping the community understand its situation and connect to outside resources.</p>
                             <p>And as NPM spread, the entire village became a leadership entity, hosting thousands of visitors from other communities who came to see what was possible. Leadership that started with a few individuals became a collective identity.</p>
                             <a href="story-punukula.html" class="btn btn-outline">Read Full Story →</a>
                         </div>
                         <div class="carousel-slide">
-                            <!-- <div class="carousel-slide-fpo">FPO — Image</div> -->
-                            <h4>Rainwater Harvesting — India</h4>
-                            <p>The foundation of Gopalpura's johad restoration was a village elder who redirected TBS from building a health clinic to addressing water, then provided food from his own stores to feed the laborers who built the first dam.</p>
+                            <h4>Rainwater Harvesting: India</h4>
+                            <img src="images/Ingredients_sidebar_photos/4_Enduring%20Leadership/Gopalpura_leadership.JPG" alt="">
+                            <p>The foundation of the johad restoration in Gopalpura, Rajasthan, was a village elder who redirected TBS from building a health clinic to addressing water, then provided food from his own stores to feed the laborers who built the first dam.</p>
                             <p>TBS leader Rajendra Singh has sustained his commitment to the johad movement from that beginning to the present: continuing to host visitors, facilitate new village partnerships, and insist on contracts that hold communities to their commitments. Leadership rooted in that early moment of a community elder knowing what his village needed has compounded into a regional movement.</p>
                             <a href="story-gopalpura.html" class="btn btn-outline">Read Full Story →</a>
                         </div>

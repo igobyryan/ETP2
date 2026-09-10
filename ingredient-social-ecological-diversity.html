@@ -8,6 +8,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Brief 11. "See It In Action" sidebar: hierarchy swap plus story photo. */
+        .sidebar-box.highlight h3 { font-size: var(--text-base); }
+        .sidebar-box.highlight .carousel-slide h4 { font-size: var(--text-xl); }
+        .sidebar-box.highlight .carousel-slide img {
+            display: block; width: 100%; height: auto; margin-bottom: var(--space-md);
+        }
+    </style>
 </head>
 <body>
     <script src="nav.js"></script>
@@ -44,14 +52,6 @@
                 <h4 style="color: var(--color-primary); font-size: var(--text-xl); font-weight: 500; margin-bottom: var(--space-sm);">Ingredients for Success Tool</h4>
                 <a href="#" onclick="window.print(); return false;" style="color: var(--color-dark); text-decoration: none; font-weight: 600; display: block;">↓ Download as PDF</a>
                 <p style="font-size: var(--text-sm); color: var(--text-tertiary); margin: var(--space-xs) 0 0;">A printable version of this tool to take into the field.</p>
-            </div>
-
-            <!-- RELATED INGREDIENTS -->
-            <div class="sidebar-box" style="margin-bottom: var(--space-xl);">
-                <h4>Related Ingredients</h4>
-                <a href="ingredient-letting-nature-work.html" style="display: block; margin-bottom: var(--space-xs);">→ Letting nature do the work</a>
-                <a href="ingredient-building-resilience.html" style="display: block; margin-bottom: var(--space-xs);">→ Building resilience</a>
-                <a href="ingredient-social-ecological-memory.html" style="display: block;">→ Social and ecological memory</a>
             </div>
 
             <p class="lead">Monocultures (ecological or social) are fragile. A single crop fails in a bad season. A single income source collapses when markets shift. A single decision-making voice misses what others would have caught. Diversity, by contrast, provides options: if one crop fails, another succeeds; if one livelihood is disrupted, another absorbs the shock; if one perspective is wrong, another corrects it. In restoration, social and ecological diversity reinforce each other. A more diverse ecosystem provides more livelihood options. More diverse livelihoods reduce the pressure on any single ecosystem resource. And a community with diverse knowledge, skills, and connections is better equipped to manage a complex ecosystem over time.</p>
@@ -167,6 +167,14 @@
                 </div>
             </div>
 
+            <!-- RELATED INGREDIENTS -->
+            <div class="sidebar-box" style="margin-bottom: var(--space-xl);">
+                <h4>Related Ingredients</h4>
+                <a href="ingredient-letting-nature-work.html" style="display: block; margin-bottom: var(--space-xs);">→ Letting nature do the work</a>
+                <a href="ingredient-building-resilience.html" style="display: block; margin-bottom: var(--space-xs);">→ Building resilience</a>
+                <a href="ingredient-social-ecological-memory.html" style="display: block;">→ Social and ecological memory</a>
+            </div>
+
             <div class="callout">
                 <h3>Learn More</h3>
                 <p>Learn about systems thinking and how social and ecological diversity creates resilience and expands options.</p>
@@ -187,30 +195,30 @@
                     </div>
                     <div class="carousel-track">
                         <div class="carousel-slide">
-                            <!-- <div class="carousel-slide-fpo">FPO — Image</div> -->
-                            <h4>Marine Sanctuary — Philippines</h4>
+                            <h4>Marine Sanctuary: Philippines</h4>
+                            <img src="images/Ingredients_sidebar_photos/8_Diversity/Apo_diversity.jpg" alt="">
                             <p>Apo Island's coral reef recovery did more than restore fish stocks; it created the ecological diversity that made the reef attractive for tourism, which diversified the Island's economy far beyond what fishing alone could support.</p>
                             <p>Before the sanctuary, income came from fishing, farming, mat-weaving, and boat service. After recovery, tourism added hotels, catering, retail, home-stay lodging, and expanded transport. Education opened professional careers for the younger generation. Each new livelihood reduced dependence on any single source, and the ecological diversity of the reef, with its species richness, was both the foundation for tourism and a sign of the ecosystem's own capacity for continued recovery.</p>
                             <a href="story-apo-island.html" class="btn btn-outline">Read Full Story →</a>
                         </div>
                         <div class="carousel-slide">
-                            <!-- <div class="carousel-slide-fpo">FPO — Image</div> -->
-                            <h4>Agroforestry — Thailand</h4>
+                            <h4>Agroforestry: Thailand</h4>
+                            <img src="images/Ingredients_sidebar_photos/8_Diversity/Khao%20Din_diversity.jpg" alt="">
                             <p>Khao Din's shift to agroforestry was a deliberate move away from the fragility of export crop monoculture toward the security of diversity. Annual and perennial crops on the ground, fruit trees overhead, fishponds, home gardens, cottage industries, communal forest management: each element served multiple functions and buffered against the failure of others.</p>
                             <p>In a bad season for one crop, others compensated. When cash income was low, food from the farm and forest was available. With diversified livelihoods, families no longer needed to split apart to seek city work; the village population rebalanced across age groups, and the social fragmentation of the export crop years began to heal.</p>
                             <a href="story-khao-din.html" class="btn btn-outline">Read Full Story →</a>
                         </div>
                         <div class="carousel-slide">
-                            <!-- <div class="carousel-slide-fpo">FPO — Image</div> -->
-                            <h4>Pesticide Trap — India</h4>
+                            <h4>Pesticide Trap: India</h4>
+                            <img src="images/Ingredients_sidebar_photos/8_Diversity/Punukula_diversity.JPG" alt="">
                             <p>The NPM toolkit was itself a form of ecological diversity in action: multiple pest management methods operating simultaneously, so that if one fell short, others compensated. When natural biodiversity returned to the landscape (predatory birds and insects, diverse plant species), it added more layers of natural pest control, each reinforcing the others.</p>
                             <p>The diversity of farming initiatives extended outward: new enterprises, community projects, a marketing cooperative, entrepreneurial activities that created livelihoods beyond the cotton fields. Success in one domain opened options in others, and the diversity of those options is what made Punukula's recovery durable rather than fragile.</p>
                             <a href="story-punukula.html" class="btn btn-outline">Read Full Story →</a>
                         </div>
                         <div class="carousel-slide">
-                            <!-- <div class="carousel-slide-fpo">FPO — Image</div> -->
-                            <h4>Rainwater Harvesting — India</h4>
-                            <p>In Gopalpura, the Gram Sabha's inclusive governance (drawing on the full range of community perspectives) produced decisions with broad legitimacy and community backing. Diverse technical expertise, from village elders' knowledge of johad construction to TBS engineering support, ensured the dams were sound.</p>
+                            <h4>Rainwater Harvesting: India</h4>
+                            <img src="images/Ingredients_sidebar_photos/8_Diversity/gopalpura_diversity.JPG" alt="">
+                            <p>In Gopalpura, Rajasthan, the Gram Sabha's inclusive governance (drawing on the full range of community perspectives) produced decisions with broad legitimacy and community backing. Diverse technical expertise, from village elders' knowledge of johad construction to TBS engineering support, ensured the dams were sound.</p>
                             <p>As water was restored, women had time to build cooperatives producing milk products, handicrafts, and soap: diversifying income at the household level. Farmers expanded from wheat into sugarcane, potatoes, and onions, spreading agricultural risk. Forest recovery brought back wildlife diversity, including leopards and tigers, top predators whose return marked an ecosystem complex enough to support them again.</p>
                             <a href="story-gopalpura.html" class="btn btn-outline">Read Full Story →</a>
                         </div>

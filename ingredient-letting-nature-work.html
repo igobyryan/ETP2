@@ -8,6 +8,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Brief 11. "See It In Action" sidebar: hierarchy swap plus story photo. */
+        .sidebar-box.highlight h3 { font-size: var(--text-base); }
+        .sidebar-box.highlight .carousel-slide h4 { font-size: var(--text-xl); }
+        .sidebar-box.highlight .carousel-slide img {
+            display: block; width: 100%; height: auto; margin-bottom: var(--space-md);
+        }
+    </style>
 </head>
 <body>
     <script src="nav.js"></script>
@@ -44,14 +52,6 @@
                 <h4 style="color: var(--color-primary); font-size: var(--text-xl); font-weight: 500; margin-bottom: var(--space-sm);">Ingredients for Success Tool</h4>
                 <a href="#" onclick="window.print(); return false;" style="color: var(--color-dark); text-decoration: none; font-weight: 600; display: block;">↓ Download as PDF</a>
                 <p style="font-size: var(--text-sm); color: var(--text-tertiary); margin: var(--space-xs) 0 0;">A printable version of this tool to take into the field.</p>
-            </div>
-
-            <!-- RELATED INGREDIENTS -->
-            <div class="sidebar-box" style="margin-bottom: var(--space-xl);">
-                <h4>Related Ingredients</h4>
-                <a href="ingredient-social-ecological-memory.html" style="display: block; margin-bottom: var(--space-xs);">→ Social and ecological memory</a>
-                <a href="ingredient-building-resilience.html" style="display: block; margin-bottom: var(--space-xs);">→ Building resilience</a>
-                <a href="ingredient-harmony-ecosystem.html" style="display: block;">→ Harmony between community and ecosystem</a>
             </div>
 
             <p class="lead">Every ecosystem carries within it the biological design for its own recovery. Given the right conditions (reduced pressure, restored habitat, returning species), nature mobilizes self-organizing processes that no human intervention could replicate at the same scale or complexity. The most effective restoration strategies work with these processes rather than trying to substitute for them. This doesn't mean doing nothing. It means understanding how the local ecosystem works, identifying what's preventing natural recovery, removing those barriers, and then designing human interventions that align with and build on what nature is already trying to do.</p>
@@ -167,6 +167,14 @@
                 </div>
             </div>
 
+            <!-- RELATED INGREDIENTS -->
+            <div class="sidebar-box" style="margin-bottom: var(--space-xl);">
+                <h4>Related Ingredients</h4>
+                <a href="ingredient-social-ecological-memory.html" style="display: block; margin-bottom: var(--space-xs);">→ Social and ecological memory</a>
+                <a href="ingredient-building-resilience.html" style="display: block; margin-bottom: var(--space-xs);">→ Building resilience</a>
+                <a href="ingredient-harmony-ecosystem.html" style="display: block;">→ Harmony between community and ecosystem</a>
+            </div>
+
             <div class="callout">
                 <h3>Learn More</h3>
                 <p>Learn about systems thinking and how working with natural recovery processes creates sustainable restoration.</p>
@@ -187,29 +195,29 @@
                     </div>
                     <div class="carousel-track">
                         <div class="carousel-slide">
-                            <!-- <div class="carousel-slide-fpo">FPO — Image</div> -->
-                            <h4>Marine Sanctuary — Philippines</h4>
+                            <h4>Marine Sanctuary: Philippines</h4>
+                            <img src="images/Ingredients_sidebar_photos/5_Let%20nature%20work/Apo_Nature.JPG" alt="">
                             <p>When Apo Island established its no-take sanctuary and ended destructive fishing around the Island's grounds, the community didn't engineer a coral reef recovery; they created the conditions for one. Fish populations, freed from overharvest, repopulated the sanctuary through their own reproduction.</p>
                             <p>The coral ecosystem set in motion a complex restoration process that no human management could have designed or replicated. The community's role was to remove the pressure and protect the space. Nature did the rest, at a scale and complexity that made the eventual recovery far more valuable than anything the community could have built directly.</p>
                             <a href="story-apo-island.html" class="btn btn-outline">Read Full Story →</a>
                         </div>
                         <div class="carousel-slide">
-                            <!-- <div class="carousel-slide-fpo">FPO — Image</div> -->
-                            <h4>Agroforestry — Thailand</h4>
+                            <h4>Agroforestry: Thailand</h4>
+                            <img src="images/Ingredients_sidebar_photos/5_Let%20nature%20work/Khao%20Din_Nature.jpg" alt="">
                             <p>Khao Din's agroforestry system worked because it was designed to function like a forest. The polyculture mixture of trees and crops meant that pest insects (which typically attack a single plant species) couldn't build up damaging populations when their food source was scattered among plants they couldn't eat.</p>
                             <p>Dense foliage shaded out weeds. Leaf litter continuously replenished soil fertility. Fishponds and diverse plantings let nature provide food that would otherwise have required cash purchases. The system reduced dependence on chemical inputs not through substitution but through design: by recreating the ecological structure that makes those inputs unnecessary.</p>
                             <a href="story-khao-din.html" class="btn btn-outline">Read Full Story →</a>
                         </div>
                         <div class="carousel-slide">
-                            <!-- <div class="carousel-slide-fpo">FPO — Image</div> -->
-                            <h4>Pesticide Trap — India</h4>
+                            <h4>Pesticide Trap: India</h4>
+                            <img src="images/Ingredients_sidebar_photos/5_Let%20nature%20work/punukula_Nature.jpg" alt="">
                             <p>The NPM toolkit in Punukula was essentially a catalog of ways to recruit natural processes as active partners in crop protection. Neem's evolved chemical defenses against insects became a spray. Naturally occurring bollworm viruses became biological control agents. Trap crops redirected pest pressure away from cotton. Bird perches brought insect-eating birds into the fields.</p>
                             <p>As predator populations recovered (birds, beneficial insects, natural enemies of pest species) each growing season required fewer interventions. Nature, given the conditions to function, progressively took over work that had previously required expensive chemical inputs and the debt that came with them.</p>
                             <a href="story-punukula.html" class="btn btn-outline">Read Full Story →</a>
                         </div>
                         <div class="carousel-slide">
-                            <!-- <div class="carousel-slide-fpo">FPO — Image</div> -->
-                            <h4>Rainwater Harvesting — India</h4>
+                            <h4>Rainwater Harvesting: India</h4>
+                            <img src="images/Ingredients_sidebar_photos/5_Let%20nature%20work/Gopalpura_Nature.JPG" alt="">
                             <p>The johads of Rajasthan worked because they aligned with how water moves through a landscape. Earthen dams captured monsoon runoff and held it long enough for it to percolate underground, recharging the aquifer and replenishing wells: without pipes, without pumps, without ongoing energy costs.</p>
                             <p>Rivers and streams restored themselves to year-round flows as the water table rose. Forests recovered as water became available, reducing erosion and protecting the johads from silting up. Each natural process that recovered made others more likely: water enabled vegetation, vegetation reduced erosion, reduced erosion protected water storage, stored water enabled more vegetation. The community built the dams; nature built the rest.</p>
                             <a href="story-gopalpura.html" class="btn btn-outline">Read Full Story →</a>

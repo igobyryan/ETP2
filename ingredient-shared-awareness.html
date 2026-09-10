@@ -8,6 +8,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Brief 11. "See It In Action" sidebar: hierarchy swap plus story photo. */
+        .sidebar-box.highlight h3 { font-size: var(--text-base); }
+        .sidebar-box.highlight .carousel-slide h4 { font-size: var(--text-xl); }
+        .sidebar-box.highlight .carousel-slide img {
+            display: block; width: 100%; height: auto; margin-bottom: var(--space-md);
+        }
+    </style>
 </head>
 <body>
     <script src="nav.js"></script>
@@ -44,14 +52,6 @@
                 <h4 style="color: var(--color-primary); font-size: var(--text-xl); font-weight: 500; margin-bottom: var(--space-sm);">Ingredients for Success Tool</h4>
                 <a href="#" onclick="window.print(); return false;" style="color: var(--color-dark); text-decoration: none; font-weight: 600; display: block;">↓ Download as PDF</a>
                 <p style="font-size: var(--text-sm); color: var(--text-tertiary); margin: var(--space-xs) 0 0;">A printable version of this tool to take into the field.</p>
-            </div>
-
-            <!-- RELATED INGREDIENTS -->
-            <div class="sidebar-box" style="margin-bottom: var(--space-xl);">
-                <h4>Related Ingredients</h4>
-                <a href="ingredient-outside-stimulation.html" style="display: block; margin-bottom: var(--space-xs);">→ Outside stimulation and facilitation</a>
-                <a href="ingredient-enduring-commitment.html" style="display: block; margin-bottom: var(--space-xs);">→ Enduring commitment of local leadership</a>
-                <a href="ingredient-overcoming-obstacles.html" style="display: block;">→ Overcoming social obstacles</a>
             </div>
 
             <p class="lead">A community's shared understanding of a problem and how to address it is essential for effective action, including a common recognition of the issue and its causes, a shared vision of possible solutions, a collective sense of ownership over decisions, and a united commitment to follow through. While outside ideas can inspire action, it is ultimately the community's collective experience, decision-making, manpower, and financial resources that drive meaningful progress.</p>
@@ -174,6 +174,14 @@
                 </div>
             </div>
 
+            <!-- RELATED INGREDIENTS -->
+            <div class="sidebar-box" style="margin-bottom: var(--space-xl);">
+                <h4>Related Ingredients</h4>
+                <a href="ingredient-outside-stimulation.html" style="display: block; margin-bottom: var(--space-xs);">→ Outside stimulation and facilitation</a>
+                <a href="ingredient-enduring-commitment.html" style="display: block; margin-bottom: var(--space-xs);">→ Enduring commitment of local leadership</a>
+                <a href="ingredient-overcoming-obstacles.html" style="display: block;">→ Overcoming social obstacles</a>
+            </div>
+
             <div class="callout">
                 <h3>Learn More</h3>
                 <p>Learn about Positive Tipping Points and how shared community awareness and commitment enables communities to reverse vicious cycles and make things better.</p>
@@ -194,30 +202,30 @@
                     </div>
                     <div class="carousel-track">
                         <div class="carousel-slide">
-                            <!-- <div class="carousel-slide-fpo">FPO — Image</div> -->
-                            <h4>Marine Sanctuary — Philippines</h4>
+                            <h4>Marine Sanctuary: Philippines</h4>
+                            <img src="images/Ingredients_sidebar_photos/2_Shared%20Awareness/apo_awareness.jpg" alt="">
                             <p>Apo Islanders reversed the collapse of their coral reef and fisheries by creating a marine sanctuary on 10% of their fishing grounds and establishing community management across the entire area.</p>
                             <p>Drawing on traditional decision-making practices, representatives from all island families assembled to discuss the crisis until reaching consensus, even if it took days.</p>
                             <a href="story-apo-island.html" class="btn btn-outline">Read Full Story →</a>
                         </div>
                         <div class="carousel-slide">
-                            <!-- <div class="carousel-slide-fpo">FPO — Image</div> -->
-                            <h4>Agroforestry — Thailand</h4>
+                            <h4>Agroforestry: Thailand</h4>
+                            <img src="images/Ingredients_sidebar_photos/2_Shared%20Awareness/Khao%20Din_awareness.jpg" alt="">
                             <p>Khao Din villagers transformed their failing monoculture farms into thriving agroforestry systems through collective awareness of the crisis and shared commitment to change.</p>
                             <p>Community discussions led to consensus on adopting integrated farming methods, with families supporting each other through the transition period.</p>
                             <a href="story-khao-din.html" class="btn btn-outline">Read Full Story →</a>
                         </div>
                         <div class="carousel-slide">
-                            <!-- <div class="carousel-slide-fpo">FPO — Image</div> -->
-                            <h4>Pesticide Trap — India</h4>
+                            <h4>Pesticide Trap: India</h4>
+                            <img src="images/Ingredients_sidebar_photos/2_Shared%20Awareness/punukula_awareness.JPG" alt="">
                             <p>Punukula farmers collectively recognized the destructive cycle of pesticide dependency and committed together to adopt Non-Pesticide Management.</p>
                             <p>The village council's unified decision and community-wide commitment made the transition possible, with shared knowledge and mutual support enabling success.</p>
                             <a href="story-punukula.html" class="btn btn-outline">Read Full Story →</a>
                         </div>
                         <div class="carousel-slide">
-                            <!-- <div class="carousel-slide-fpo">FPO — Image</div> -->
-                            <h4>Rainwater Harvesting — India</h4>
-                            <p>Gopalpura villagers developed shared awareness of their water crisis and committed collectively to restoring traditional johads through the revived Gram Sabha councils.</p>
+                            <h4>Rainwater Harvesting: India</h4>
+                            <img src="images/Ingredients_sidebar_photos/2_Shared%20Awareness/Gopalpura_awareness.JPG" alt="">
+                            <p>Villagers in Gopalpura, Rajasthan, developed shared awareness of their water crisis and committed collectively to restoring traditional johads through the revived Gram Sabha councils.</p>
                             <p>Community-wide participation in construction and maintenance, guided by collective decision-making, enabled the transformation of their watershed.</p>
                             <a href="story-gopalpura.html" class="btn btn-outline">Read Full Story →</a>
                         </div>

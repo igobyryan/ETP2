@@ -8,6 +8,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Brief 11. "See It In Action" sidebar: hierarchy swap plus story photo. */
+        .sidebar-box.highlight h3 { font-size: var(--text-base); }
+        .sidebar-box.highlight .carousel-slide h4 { font-size: var(--text-xl); }
+        .sidebar-box.highlight .carousel-slide img {
+            display: block; width: 100%; height: auto; margin-bottom: var(--space-md);
+        }
+    </style>
 </head>
 <body>
     <script src="nav.js"></script>
@@ -44,14 +52,6 @@
                 <h4 style="color: var(--color-primary); font-size: var(--text-xl); font-weight: 500; margin-bottom: var(--space-sm);">Ingredients for Success Tool</h4>
                 <a href="#" onclick="window.print(); return false;" style="color: var(--color-dark); text-decoration: none; font-weight: 600; display: block;">↓ Download as PDF</a>
                 <p style="font-size: var(--text-sm); color: var(--text-tertiary); margin: var(--space-xs) 0 0;">A printable version of this tool to take into the field.</p>
-            </div>
-
-            <!-- RELATED INGREDIENTS -->
-            <div class="sidebar-box" style="margin-bottom: var(--space-xl);">
-                <h4>Related Ingredients</h4>
-                <a href="ingredient-harmony-ecosystem.html" style="display: block; margin-bottom: var(--space-xs);">→ Harmony between community and ecosystem</a>
-                <a href="ingredient-social-ecological-memory.html" style="display: block; margin-bottom: var(--space-xs);">→ Social and ecological memory</a>
-                <a href="ingredient-letting-nature-work.html" style="display: block;">→ Letting nature do the work</a>
             </div>
 
             <p class="lead">Every restoration faces disruption. Weather events, market shocks, political pressure, population change, the unexpected consequences of success itself: these aren't exceptional circumstances, they're the normal conditions in which restored ecosystems and communities have to survive. Resilience is the capacity to absorb those disruptions, reorganize around them, and keep adapting over time. It doesn't emerge automatically from success; it has to be built deliberately. Communities that build resilience alongside their restoration (strengthening governance, diversifying livelihoods, restoring ecological buffers, developing their own capacity to learn and adjust) protect what they've worked to create.</p>
@@ -167,6 +167,14 @@
                 </div>
             </div>
 
+            <!-- RELATED INGREDIENTS -->
+            <div class="sidebar-box" style="margin-bottom: var(--space-xl);">
+                <h4>Related Ingredients</h4>
+                <a href="ingredient-harmony-ecosystem.html" style="display: block; margin-bottom: var(--space-xs);">→ Harmony between community and ecosystem</a>
+                <a href="ingredient-social-ecological-memory.html" style="display: block; margin-bottom: var(--space-xs);">→ Social and ecological memory</a>
+                <a href="ingredient-letting-nature-work.html" style="display: block;">→ Letting nature do the work</a>
+            </div>
+
             <div class="callout">
                 <h3>Learn More</h3>
                 <p>Learn about systems thinking and how building resilience enables communities to protect their restoration gains through inevitable disruptions.</p>
@@ -187,30 +195,30 @@
                     </div>
                     <div class="carousel-track">
                         <div class="carousel-slide">
-                            <!-- <div class="carousel-slide-fpo">FPO — Image</div> -->
-                            <h4>Marine Sanctuary — Philippines</h4>
+                            <h4>Marine Sanctuary: Philippines</h4>
+                            <img src="images/Ingredients_sidebar_photos/10_Resilience/Apo_resilience.jpg" alt="">
                             <p>Apo Island's resilience was tested repeatedly as success brought new pressures. When tourism grew heavy enough that diving and snorkeling were damaging the coral, the community drew on the governance capacity it had built to impose restrictions, even at the cost of short-term tourism income.</p>
                             <p>When outside fishing pressure threatened the sanctuary, they drew on the legal authority they had established to defend it. The spinoffs of their success (tourist income, women's associations, strengthened community solidarity) built resilience that extended far beyond the fishery itself.</p>
                             <a href="story-apo-island.html" class="btn btn-outline">Read Full Story →</a>
                         </div>
                         <div class="carousel-slide">
-                            <!-- <div class="carousel-slide-fpo">FPO — Image</div> -->
-                            <h4>Agroforestry — Thailand</h4>
+                            <h4>Agroforestry: Thailand</h4>
+                            <img src="images/Ingredients_sidebar_photos/10_Resilience/Khao%20Din_resilience.jpg" alt="">
                             <p>Khao Din built resilience through the diversification that agroforestry made possible. Polyculture farming reduced dependence on any single crop, soil restoration reduced dependence on outside inputs, and improved family finances reduced the desperate vulnerability that had driven overexploitation in the first place.</p>
                             <p>The revival of community social structures provided a further layer of resilience: the capacity to respond collectively to challenges as they arose. One resilience challenge remains unresolved: a trend of young people leaving for cities.</p>
                             <a href="story-khao-din.html" class="btn btn-outline">Read Full Story →</a>
                         </div>
                         <div class="carousel-slide">
-                            <!-- <div class="carousel-slide-fpo">FPO — Image</div> -->
-                            <h4>Pesticide Trap — India</h4>
+                            <h4>Pesticide Trap: India</h4>
+                            <img src="images/Ingredients_sidebar_photos/10_Resilience/Punukula_resilience.jpg" alt="">
                             <p>In Punukula, resilience came from the self-reinforcing nature of NPM itself. When chemical pesticides stopped, natural predator populations recovered, restoring the ecological balance that had kept pest outbreaks in check.</p>
                             <p>As farm expenses and medical bills fell, families paid off debts and rebuilt financial resilience: freeing children from indentured labor, funding new community enterprises, and strengthening the mutual-aid networks that support the community through hard times. Success built confidence, and confidence built solidarity.</p>
                             <a href="story-punukula.html" class="btn btn-outline">Read Full Story →</a>
                         </div>
                         <div class="carousel-slide">
-                            <!-- <div class="carousel-slide-fpo">FPO — Image</div> -->
-                            <h4>Rainwater Harvesting — India</h4>
-                            <p>The johads of Gopalpura created resilience at every level. Underground water storage provided a buffer against drought. Healthy watershed forests protected against erosion and regulated water flow.</p>
+                            <h4>Rainwater Harvesting: India</h4>
+                            <img src="images/Ingredients_sidebar_photos/10_Resilience/gopalpura_resilience.jpg" alt="">
+                            <p>The johads of Gopalpura, Rajasthan, created resilience at every level. Underground water storage buffered against drought, while healthy watershed forests protected against erosion and regulated water flow.</p>
                             <p>The Gram Sabha councils (traditional village institutions revived alongside the physical restoration) provided the governance capacity to respond quickly and collectively to disruptions. The virtuous cycles that drove the restoration meant that the system became more resilient as it recovered, each gain reinforcing the next.</p>
                             <a href="story-gopalpura.html" class="btn btn-outline">Read Full Story →</a>
                         </div>

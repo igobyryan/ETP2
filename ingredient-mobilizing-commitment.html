@@ -8,6 +8,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Brief 11. "See It In Action" sidebar: hierarchy swap plus story photo. */
+        .sidebar-box.highlight h3 { font-size: var(--text-base); }
+        .sidebar-box.highlight .carousel-slide h4 { font-size: var(--text-xl); }
+        .sidebar-box.highlight .carousel-slide img {
+            display: block; width: 100%; height: auto; margin-bottom: var(--space-md);
+        }
+    </style>
 </head>
 <body>
     <script src="nav.js"></script>
@@ -44,14 +52,6 @@
                 <h4 style="color: var(--color-primary); font-size: var(--text-xl); font-weight: 500; margin-bottom: var(--space-sm);">Ingredients for Success Tool</h4>
                 <a href="#" onclick="window.print(); return false;" style="color: var(--color-dark); text-decoration: none; font-weight: 600; display: block;">↓ Download as PDF</a>
                 <p style="font-size: var(--text-sm); color: var(--text-tertiary); margin: var(--space-xs) 0 0;">A printable version of this tool to take into the field.</p>
-            </div>
-
-            <!-- RELATED INGREDIENTS -->
-            <div class="sidebar-box" style="margin-bottom: var(--space-xl);">
-                <h4>Related Ingredients</h4>
-                <a href="ingredient-shared-awareness.html" style="display: block; margin-bottom: var(--space-xs);">→ Shared community awareness and commitment</a>
-                <a href="ingredient-enduring-commitment.html" style="display: block; margin-bottom: var(--space-xs);">→ Enduring commitment of local leadership</a>
-                <a href="ingredient-building-resilience.html" style="display: block;">→ Building resilience</a>
             </div>
 
             <p class="lead">It is common for charismatic leaders, cherished sites in a local landscape, or other prominent features of a community's success to serve as symbols that inspire commitment and endurance. Quick success, or "payback," in early stages of community action helps to mobilize commitment even further. Once positive results cascade through community and ecosystem, normal social, economic, and political processes reinforce the turnabout.</p>
@@ -174,6 +174,14 @@
                 </div>
             </div>
 
+            <!-- RELATED INGREDIENTS -->
+            <div class="sidebar-box" style="margin-bottom: var(--space-xl);">
+                <h4>Related Ingredients</h4>
+                <a href="ingredient-shared-awareness.html" style="display: block; margin-bottom: var(--space-xs);">→ Shared community awareness and commitment</a>
+                <a href="ingredient-enduring-commitment.html" style="display: block; margin-bottom: var(--space-xs);">→ Enduring commitment of local leadership</a>
+                <a href="ingredient-building-resilience.html" style="display: block;">→ Building resilience</a>
+            </div>
+
             <div class="callout">
                 <h3>Learn More</h3>
                 <p>Learn about systems thinking and how mobilizing commitment enables communities to sustain effort through the challenging work of reversing vicious cycles.</p>
@@ -194,27 +202,27 @@
                     </div>
                     <div class="carousel-track">
                         <div class="carousel-slide">
-                            <!-- <div class="carousel-slide-fpo">FPO — Image</div> -->
-                            <h4>Marine Sanctuary — Philippines</h4>
+                            <h4>Marine Sanctuary: Philippines</h4>
+                            <img src="images/Ingredients_sidebar_photos/6_Mobilize%20Commitment/Apo_mobilize.jpg" alt="">
                             <p>The Apo Island sanctuary became a symbol the community treats as sacred. Islanders say it saved the reef, the fishery, and their way of life. Three years after establishing it, fish stocks had recovered enough that the community extended its management to fishing grounds outside the sanctuary. Tourism followed the reef's recovery, and a substantial portion of that income went back into community infrastructure (water supply, a school renovation, micro-financing), further deepening the commitment.</p>
                             <a href="story-apo-island.html" class="btn btn-outline">Read Full Story →</a>
                         </div>
                         <div class="carousel-slide">
-                            <!-- <div class="carousel-slide-fpo">FPO — Image</div> -->
-                            <h4>Agroforestry — Thailand</h4>
+                            <h4>Agroforestry: Thailand</h4>
+                            <img src="images/Ingredients_sidebar_photos/6_Mobilize%20Commitment/Khao%20Din_mobilize.jpg" alt="">
                             <p>Khao Din's leader Lungta became a focal point for community commitment during the years when results were uncertain. His credibility with neighboring farmers, and his willingness to let his own land serve as a demonstration site, gave others a concrete reason to trust the approach before they had personal evidence it worked. As farms recovered and visitors arrived from across the region, the community's shared story of achievement reinforced the commitment of those who had taken the earliest risks.</p>
                             <a href="story-khao-din.html" class="btn btn-outline">Read Full Story →</a>
                         </div>
                         <div class="carousel-slide">
-                            <!-- <div class="carousel-slide-fpo">FPO — Image</div> -->
-                            <h4>Pesticide Trap — India</h4>
+                            <h4>Pesticide Trap: India</h4>
+                            <img src="images/Ingredients_sidebar_photos/6_Mobilize%20Commitment/Punukula_mobilize.jpg" alt="">
                             <p>In Punukula, the first farmer to try Non-Pesticide Management became the evidence that made it possible for others to follow. His visible results in year one shifted the conversation from theory to proof. The village council's formal commitment gave the transition social legitimacy; the early wins gave it momentum. By year three, the entire village had converted.</p>
                             <a href="story-punukula.html" class="btn btn-outline">Read Full Story →</a>
                         </div>
                         <div class="carousel-slide">
-                            <!-- <div class="carousel-slide-fpo">FPO — Image</div> -->
-                            <h4>Rainwater Harvesting — India</h4>
-                            <p>Gopalpura's water recovery produced results visible enough to draw other villages to learn from them, and that recognition deepened the community's commitment to what it had built. The johads became symbols of what collective action could achieve. Early improvements in water availability reinforced participation in maintenance, which sustained the recovery through subsequent dry years.</p>
+                            <h4>Rainwater Harvesting: India</h4>
+                            <img src="images/Ingredients_sidebar_photos/6_Mobilize%20Commitment/Gopalpura_mobilize.JPG" alt="">
+                            <p>The water recovery in Gopalpura, Rajasthan, produced results visible enough to draw other villages to learn from them, and that recognition deepened the community's commitment to what it had built. The johads became symbols of what collective action could achieve. Early improvements in water availability reinforced participation in maintenance, which sustained the recovery through subsequent dry years.</p>
                             <a href="story-gopalpura.html" class="btn btn-outline">Read Full Story →</a>
                         </div>
                     </div>
