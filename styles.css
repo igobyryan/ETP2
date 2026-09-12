@@ -2136,3 +2136,58 @@ input:focus-visible {
 
     body { background: white; }
 }
+
+/* Glossary term tooltips (dfn popover) */
+dfn {
+    font-style: normal;
+    border-bottom: 1px dotted var(--color-clay);
+    cursor: help;
+}
+
+.dfn-popover {
+    position: fixed;
+    z-index: 500;
+    max-width: 320px;
+    background: var(--color-surface);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--color-accent);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-md);
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--text-sm);
+    line-height: 1.5;
+    display: none;
+}
+
+.dfn-popover.is-open {
+    display: block;
+}
+
+.dfn-popover-close {
+    display: none;
+}
+
+@media (max-width: 48rem) {
+    .dfn-popover {
+        left: var(--space-md) !important;
+        right: var(--space-md);
+        max-width: none;
+        padding: var(--space-md);
+        padding-right: calc(var(--space-md) + 1.5rem);
+    }
+
+    .dfn-popover-close {
+        display: block;
+        position: absolute;
+        top: var(--space-xs);
+        right: var(--space-xs);
+        width: 1.5rem;
+        height: 1.5rem;
+        line-height: 1.5rem;
+        text-align: center;
+        color: var(--text-tertiary);
+        cursor: pointer;
+        font-size: var(--text-base);
+    }
+}

@@ -316,11 +316,57 @@
         });
     }
 
+    function initDfnPopovers() {
+        var dfns = document.querySelectorAll('dfn[data-definition]');
+        if (!dfns.length) return;
+
+        var popover = document.createElement('div');
+        popover.className = 'dfn-popover';
+        popover.innerHTML = '<span class="dfn-popover-close">&times;</span><span class="dfn-popover-text"></span>';
+        document.body.appendChild(popover);
+        var textEl = popover.querySelector('.dfn-popover-text');
+        var closeEl = popover.querySelector('.dfn-popover-close');
+        var isTouch = window.matchMedia('(hover: none)').matches;
+
+        function show(term) {
+            textEl.textContent = term.dataset.definition;
+            popover.classList.add('is-open');
+            var rect = term.getBoundingClientRect();
+            popover.style.top = (rect.bottom + 8) + 'px';
+            if (!isTouch) {
+                var maxLeft = window.innerWidth - popover.offsetWidth - 16;
+                popover.style.left = Math.max(16, Math.min(rect.left, maxLeft)) + 'px';
+            }
+        }
+
+        function hide() {
+            popover.classList.remove('is-open');
+        }
+
+        dfns.forEach(function (term) {
+            if (isTouch) {
+                term.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    show(term);
+                });
+            } else {
+                term.addEventListener('mouseenter', function () { show(term); });
+                term.addEventListener('mouseleave', hide);
+            }
+        });
+
+        closeEl.addEventListener('click', hide);
+        document.addEventListener('click', function (e) {
+            if (isTouch && !e.target.closest('.dfn-popover') && !e.target.closest('dfn')) hide();
+        });
+    }
+
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', function () { initNav(); initSectionRail(); initFooter(); });
+        document.addEventListener('DOMContentLoaded', function () { initNav(); initSectionRail(); initFooter(); initDfnPopovers(); });
     } else {
         initNav();
         initSectionRail();
         initFooter();
+        initDfnPopovers();
     }
 }());

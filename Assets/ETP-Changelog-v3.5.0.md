@@ -266,36 +266,62 @@ No en dashes remain in the page's prose.
 
 - `systems-thinking-overview.html` — deleted the `<div class="placeholder">Video players: the two case-study story narratives.</div>` box, after the "we suggest watching these two videos…" paragraph. Containing `<div>` kept (holds the intro list/paragraphs above it); no empty wrapper left behind.
 
+## Brief 16 — Glossary term tooltips (site-wide)
+
+Built a `<dfn>` pattern for the 16 glossary terms: dotted underline on first mention per page, definition popover on hover (desktop) / tap (mobile), definitions carried in `data-definition` attributes.
+
+**Shared CSS** (`styles.css`, appended at end) — `dfn` styling (dotted underline, `font-style: normal` override, `cursor: help`); `.dfn-popover` (fixed position, callout-style border/shadow, hidden by default via `.is-open`); `@media (max-width: 48rem)` block spanning near-full width with a `.dfn-popover-close` × button.
+
+**Shared JS** (`nav.js`, new `initDfnPopovers()` function, called alongside the existing `initNav()/initSectionRail()/initFooter()`) — single reusable popover element appended to `<body>`; `window.matchMedia('(hover: none)')` branches desktop (mouseenter/mouseleave) vs touch (tap to open, tap-outside to dismiss); position computed from `getBoundingClientRect()`. No new `<script>` tag needed anywhere since `nav.js` already loads on every page.
+
+**Automated find-and-wrap:** wrote a Python/BeautifulSoup script to scan `<p>` tags in main content only (excluding `<nav>`, `<footer>`, `<aside>`, `<figcaption>`, and boxes classed `callout`/`sidebar-box`/`sidebar-link-card`/`mi-reflect`/`mi-apo`/`mi-practice`/`mi-ingredients`/`page-header`/`page-header-content`), skipping text already inside `<a>/<strong>/<em>/<dfn>`, matching whole words/phrases (case-insensitive, natural plural allowed on the term's final word) with longest-term-first span-claiming so e.g. "Human-environment system" isn't double-claimed by bare "System." Wrapped the first surviving match per term per page; 121 `<dfn>` tags inserted across 27 pages.
+
+**Decisions confirmed with Ryan before wrapping:**
+- Hero/page-header `<p class="intro">` subtitles excluded from "main content" (they sit structurally outside the article/body container on every page type).
+- `.mi-reflect` ("Key Concept") and `.mi-apo` ("ON APO ISLAND") boxes treated as callout boxes and excluded, despite not using the literal `callout` class.
+- Plural matching allowed (e.g. "vicious cycle" also matches "vicious cycles") rather than exact-singular-only.
+- `about.html` — manual override: skipped "System" (only candidate was "**Systems** ecologist Gerry Marten," a job title, not the glossary concept); no other candidate exists on that page.
+
+**Terms with zero occurrences anywhere on the live site** (skipped on every page, definitions never used): `Negative tip`, `Positive tip`, `EcoTipping Point success story`. Only ever appear inside `glossary.html`'s own `<dd>` text.
+
+**Pages with zero eligible matches** (untouched): `ingredient-enduring-commitment.html`, `ingredient-overcoming-obstacles.html` — every term mention on both is inside a nav link, a heading, or the "Learn More" `callout` box.
+
+`glossary.html` itself excluded from scanning (its own definitions aren't self-referential).
+
 ## Files touched
 
 | File | Briefs |
 |------|--------|
-| `systems-thinking-understand.html` | 1, video-swap, 14 |
-| `systems-thinking-map.html` | 1, 9, 9-fu, 12, img-swap, mapseq-style, video-swap |
-| `systems-thinking-reverse.html` | 1, 2, 6, 7, 9, 9-fu, 12, img-swap, video-swap |
-| `systems-thinking-recognize.html` | 9, 9-fu |
-| `systems-thinking-lock.html` | 13, 14 |
-| `systems-thinking-reverse-practice.html` | 1 |
-| `ingredient-harmony-ecosystem.html` | 1, 11 |
-| `ingredient-outside-stimulation.html` | 1, 11 |
-| `ingredient-social-ecological-memory.html` | 1, 11 |
-| `ingredient-social-ecological-diversity.html` | 1, 11 |
-| `ingredient-mobilizing-commitment.html` | 1, 11 |
-| `ingredient-building-resilience.html` | 1, 11 |
-| `ingredient-shared-awareness.html` | 1, 11 |
+| `systems-thinking-understand.html` | 1, video-swap, 14, 16 |
+| `systems-thinking-map.html` | 1, 9, 9-fu, 12, img-swap, mapseq-style, video-swap, 16 |
+| `systems-thinking-reverse.html` | 1, 2, 6, 7, 9, 9-fu, 12, img-swap, video-swap, 16 |
+| `systems-thinking-recognize.html` | 9, 9-fu, 16 |
+| `systems-thinking-lock.html` | 13, 14, 16 |
+| `systems-thinking-reverse-practice.html` | 1, 16 |
+| `systems-thinking-map-practice.html` | 16 |
+| `ingredient-harmony-ecosystem.html` | 1, 11, 16 |
+| `ingredient-outside-stimulation.html` | 1, 11, 16 |
+| `ingredient-social-ecological-memory.html` | 1, 11, 16 |
+| `ingredient-social-ecological-diversity.html` | 1, 11, 16 |
+| `ingredient-mobilizing-commitment.html` | 1, 11, 16 |
+| `ingredient-building-resilience.html` | 1, 11, 16 |
+| `ingredient-shared-awareness.html` | 1, 11, 16 |
 | `ingredient-enduring-commitment.html` | 1, 11, 11b |
-| `ingredient-letting-nature-work.html` | 11 |
+| `ingredient-letting-nature-work.html` | 11, 16 |
 | `ingredient-overcoming-obstacles.html` | 11, 11b |
-| `community-sessions-reverse-it.html` | 1 |
+| `community-sessions-reverse-it.html` | 1, 16 |
+| `community-sessions.html` | 16 |
+| `community-sessions-map-it.html` | 16 |
+| `foundations.html` | 16 |
 | `glossary.html` | 3, term-hyphen |
-| `resources.html` | 3 |
-| `index.html` | 10, 14 |
-| `about.html` | about-copy |
-| `styles.css` | 11 |
-| `nav.js` | footer bump |
-| `ingredients-overview.html` | 14 |
-| `story-apo-island.html` | 14 |
-| `story-khao-din.html` | 14 |
-| `story-punukula.html` | 14 |
-| `story-gopalpura.html` | 14 |
-| `systems-thinking-overview.html` | 15 |
+| `resources.html` | 3, 16 |
+| `index.html` | 10, 14, 16 |
+| `about.html` | about-copy, 16 |
+| `styles.css` | 11, 16 |
+| `nav.js` | footer bump, 16 |
+| `ingredients-overview.html` | 14, 16 |
+| `story-apo-island.html` | 14, 16 |
+| `story-khao-din.html` | 14, 16 |
+| `story-punukula.html` | 14, 16 |
+| `story-gopalpura.html` | 14, 16 |
+| `systems-thinking-overview.html` | 15, 16 |
