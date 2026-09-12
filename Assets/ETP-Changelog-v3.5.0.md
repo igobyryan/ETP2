@@ -236,15 +236,45 @@ Section 8 spaced en dashes converted to parentheses (per Ryan, matching the site
 No en dashes remain in the page's prose.
 - `two-col` with only `main-content` renders fine, but leaves the 280px sidebar column empty — content sits in a ~900px column with blank space on the right. Not broken; flag if you want it to use full width.
 
+## Brief 14 — Multi-page text swaps and structural fixes
+
+**Item 1 — Understand It video intro swap**
+
+- `systems-thinking-understand.html` — "Seeing the System in Action": `<strong>What are EcoTipping Points?</strong> This video illustrates how EcoTipping Points occur through chains of cause and effect." → `<strong>How Feedback Diagrams Reveal Root Causes and Solutions.</strong> This video uses 'boxes and arrows' diagrams to show how circular chains of cause and effect drive both environmental decline and the success of interventions that tip a human-environment system toward restoration and sustainability."
+
+**Item 2 — Homepage hero text swap**
+
+- `index.html` (`.hp-lead`) — "find durable solutions for environmental decline that are most likely to succeed" → "devise effective and durable solutions for reversing environmental decline"; "field work" → "field experience"; "global south" → "global South".
+
+**Item 3 — Lock It In: new "Ingredients for Success" closing section**
+
+- `systems-thinking-lock.html` — added a `mi-step` section after Building Resilience, matching the Reverse It page's "Next Steps" pattern exactly (`<h3 style="margin:0;">`, `mi-step-body` paragraph, `mi-btn` link) → `ingredients-overview.html`.
+
+**Item 4 — Ingredients Overview: removed bottom callout**
+
+- `ingredients-overview.html` — deleted the `callout callout-light` box ("Using Ingredients with Systems Thinking" + two paragraphs + "Explore Systems Thinking Tool" button). Containing `<section>` kept (holds other content); no empty wrapper left behind.
+
+**Item 5 — Homepage: "flagship" → "success"**
+
+- `index.html` — "Four flagship stories from a growing archive of more than 100 documented cases." → "Four success stories…".
+
+**Item 6 — Story pages: repositioned "One of many stories" line**
+
+- `story-apo-island.html`, `story-khao-din.html`, `story-punukula.html`, `story-gopalpura.html` — moved the small/muted/italic "One of many stories…" `<p>` from between the first and second `.lead` paragraphs (inside `.story-lede`) to right after `<div class="story-main">` opens, before `<div class="story-video">`. Text and inline styling unchanged.
+
+## Brief 15 — Delete FPO video box from Systems Thinking Overview
+
+- `systems-thinking-overview.html` — deleted the `<div class="placeholder">Video players: the two case-study story narratives.</div>` box, after the "we suggest watching these two videos…" paragraph. Containing `<div>` kept (holds the intro list/paragraphs above it); no empty wrapper left behind.
+
 ## Files touched
 
 | File | Briefs |
 |------|--------|
-| `systems-thinking-understand.html` | 1, video-swap |
+| `systems-thinking-understand.html` | 1, video-swap, 14 |
 | `systems-thinking-map.html` | 1, 9, 9-fu, 12, img-swap, mapseq-style, video-swap |
 | `systems-thinking-reverse.html` | 1, 2, 6, 7, 9, 9-fu, 12, img-swap, video-swap |
 | `systems-thinking-recognize.html` | 9, 9-fu |
-| `systems-thinking-lock.html` | 13 |
+| `systems-thinking-lock.html` | 13, 14 |
 | `systems-thinking-reverse-practice.html` | 1 |
 | `ingredient-harmony-ecosystem.html` | 1, 11 |
 | `ingredient-outside-stimulation.html` | 1, 11 |
@@ -259,7 +289,13 @@ No en dashes remain in the page's prose.
 | `community-sessions-reverse-it.html` | 1 |
 | `glossary.html` | 3, term-hyphen |
 | `resources.html` | 3 |
-| `index.html` | 10 |
+| `index.html` | 10, 14 |
 | `about.html` | about-copy |
 | `styles.css` | 11 |
 | `nav.js` | footer bump |
+| `ingredients-overview.html` | 14 |
+| `story-apo-island.html` | 14 |
+| `story-khao-din.html` | 14 |
+| `story-punukula.html` | 14 |
+| `story-gopalpura.html` | 14 |
+| `systems-thinking-overview.html` | 15 |
