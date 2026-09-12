@@ -328,14 +328,13 @@
         var closeEl = popover.querySelector('.dfn-popover-close');
         var isTouch = window.matchMedia('(hover: none)').matches;
 
-        function show(term) {
+        function show(term, x, y) {
             textEl.textContent = term.dataset.definition;
             popover.classList.add('is-open');
-            var rect = term.getBoundingClientRect();
-            popover.style.top = (rect.bottom + 8) + 'px';
+            popover.style.top = (y + 8) + 'px';
             if (!isTouch) {
                 var maxLeft = window.innerWidth - popover.offsetWidth - 16;
-                popover.style.left = Math.max(16, Math.min(rect.left, maxLeft)) + 'px';
+                popover.style.left = Math.max(16, Math.min(x, maxLeft)) + 'px';
             }
         }
 
@@ -347,10 +346,11 @@
             if (isTouch) {
                 term.addEventListener('click', function (e) {
                     e.stopPropagation();
-                    show(term);
+                    var point = (e.touches && e.touches[0]) || e;
+                    show(term, point.clientX, point.clientY);
                 });
             } else {
-                term.addEventListener('mouseenter', function () { show(term); });
+                term.addEventListener('mouseenter', function (e) { show(term, e.clientX, e.clientY); });
                 term.addEventListener('mouseleave', hide);
             }
         });

@@ -288,14 +288,34 @@ Built a `<dfn>` pattern for the 16 glossary terms: dotted underline on first men
 
 `glossary.html` itself excluded from scanning (its own definitions aren't self-referential).
 
+## Brief 17 — Swap remaining `<em>` glossary terms to `<dfn>` tooltips
+
+Fixed the gap Brief 16 left: several glossary terms were already wrapped in `<em>` on the Systems Thinking pages, so Brief 16 (which skips text already inside `<a>/<strong>/<em>/<dfn>`) landed its `<dfn>` on a later plain-text mention instead of the term's true first appearance — leaving an earlier italicized-but-no-tooltip instance ahead of it.
+
+Wrote a script (same term list/definitions as Brief 16) that, per page: finds every `<em>` whose full text matches a glossary term (case-insensitive, natural plural allowed) and every existing `<dfn data-definition>` (reverse-mapped back to its term via the definition text), orders all of them by true document position, keeps the first occurrence as the page's one `<dfn>` for that term, and unwraps every later duplicate back to plain text (regardless of whether the duplicate started as `<em>` or as Brief 16's original `<dfn>`). Non-matching `<em>` tags (bare "tipping point levers," the Recognize It "scoping goals" prose paragraph, etc.) were left untouched.
+
+**Pages processed:** `systems-thinking-overview.html`, `systems-thinking-understand.html`, `systems-thinking-recognize.html`, `systems-thinking-map.html`, `systems-thinking-reverse.html` (all had matching `<em>` terms); `systems-thinking-lock.html`, `systems-thinking-map-practice.html`, `systems-thinking-reverse-practice.html` checked, no matching `<em>` terms found — untouched.
+
+**Results:** 22 `<em>` → `<dfn>` swaps (15 became the page's surviving tooltip; 7 were themselves later duplicates and got deduped back to plain text right after), 21 total `<dfn>` deduplication removals (7 em-derived + 14 of Brief 16's original plain-text dfns, superseded because an earlier `<em>` mention existed on the same page). Net: same 5 pages, +7 new "first occurrence" tooltips now correctly on the term's true first mention instead of a later one (e.g. `systems-thinking-overview.html`: "EcoTipping Points," "human-environment system," and "positive tipping point lever" all moved earlier).
+
+**Verification:** re-scanned all 8 pages — zero glossary-matching `<em>` tags remain, zero terms have more than one `<dfn>` per page, all `<dfn>`/`<em>` open/close tags balance.
+
+## Brief 18 — Fix `<dfn>` popover positioning for wrapped terms
+
+`nav.js`, `initDfnPopovers()`.
+
+- Problem: a `<dfn>` that wraps across a line break has a `getBoundingClientRect()` spanning both lines, so the popover anchored to the far end of that combined rectangle instead of near the cursor/tap.
+- Fix: `show()` now takes explicit `x`/`y` coordinates instead of reading the term element's rect. Desktop passes `event.clientX`/`clientY` from the `mouseenter` handler; mobile passes `event.touches[0].clientX`/`clientY` (falling back to the click event's own `clientX`/`clientY` when no touch list is present) from the `click` handler.
+- Mobile full-width popover CSS and both dismiss behaviors (`mouseleave` on desktop, outside-tap on mobile) are unchanged — no HTML or CSS touched.
+
 ## Files touched
 
 | File | Briefs |
 |------|--------|
-| `systems-thinking-understand.html` | 1, video-swap, 14, 16 |
-| `systems-thinking-map.html` | 1, 9, 9-fu, 12, img-swap, mapseq-style, video-swap, 16 |
-| `systems-thinking-reverse.html` | 1, 2, 6, 7, 9, 9-fu, 12, img-swap, video-swap, 16 |
-| `systems-thinking-recognize.html` | 9, 9-fu, 16 |
+| `systems-thinking-understand.html` | 1, video-swap, 14, 16, 17 |
+| `systems-thinking-map.html` | 1, 9, 9-fu, 12, img-swap, mapseq-style, video-swap, 16, 17 |
+| `systems-thinking-reverse.html` | 1, 2, 6, 7, 9, 9-fu, 12, img-swap, video-swap, 16, 17 |
+| `systems-thinking-recognize.html` | 9, 9-fu, 16, 17 |
 | `systems-thinking-lock.html` | 13, 14, 16 |
 | `systems-thinking-reverse-practice.html` | 1, 16 |
 | `systems-thinking-map-practice.html` | 16 |
@@ -318,10 +338,10 @@ Built a `<dfn>` pattern for the 16 glossary terms: dotted underline on first men
 | `index.html` | 10, 14, 16 |
 | `about.html` | about-copy, 16 |
 | `styles.css` | 11, 16 |
-| `nav.js` | footer bump, 16 |
+| `nav.js` | footer bump, 16, 18 |
 | `ingredients-overview.html` | 14, 16 |
 | `story-apo-island.html` | 14, 16 |
 | `story-khao-din.html` | 14, 16 |
 | `story-punukula.html` | 14, 16 |
 | `story-gopalpura.html` | 14, 16 |
-| `systems-thinking-overview.html` | 15, 16 |
+| `systems-thinking-overview.html` | 15, 16, 17 |
