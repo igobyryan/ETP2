@@ -308,6 +308,14 @@ Wrote a script (same term list/definitions as Brief 16) that, per page: finds ev
 - Fix: `show()` now takes explicit `x`/`y` coordinates instead of reading the term element's rect. Desktop passes `event.clientX`/`clientY` from the `mouseenter` handler; mobile passes `event.touches[0].clientX`/`clientY` (falling back to the click event's own `clientX`/`clientY` when no touch list is present) from the `click` handler.
 - Mobile full-width popover CSS and both dismiss behaviors (`mouseleave` on desktop, outside-tap on mobile) are unchanged — no HTML or CSS touched.
 
+## Brief 19 — Strip misplaced `<dfn>` tooltips + Foundations intro width fix
+
+**Item 1 — dfn tags in hero/page-header sections:** site-wide scan of every `<section class="page-header...">` and the homepage's `<section class="hp-hero">` (its own distinct hero class, not `page-header`) for `<dfn>` tags. Found exactly one: `index.html`'s `.hp-hero` `<p class="hp-lead">` had "systems thinking" wrapped — Brief 16's exclusion list only named `page-header`/`page-header-content`, missing this page's differently-named hero class. Unwrapped it to plain text. No other page had any `<dfn>` inside a header/hero section (Brief 16's exclusion already covered all the `.page-header` variants correctly).
+
+**Item 2 — story page intro line:** all four story pages (`story-apo-island.html`, `story-khao-din.html`, `story-punukula.html`, `story-gopalpura.html`) had "Ingredients for Success" and "Systems Thinking" wrapped in `<dfn>` on the italic "One of many stories…" line. Stripped both wraps on all four pages, back to plain text. Other `<dfn>` wraps further down each story's main content (`Ecosystem`, `Feedback loop`, `Vicious cycle`/`Virtuous cycle`, `System`) were left untouched — confirmed by re-scanning each page after the edit.
+
+**Item 3 — Foundations intro width:** `foundations.html`, the `<p class="lead">` below the hero had an inline `max-width: 860px`, narrower than the `.foundations-grid` video section beneath it (which inherits `max-width: var(--max-width)` from `styles.css`, unconstrained further by its own rule). Changed the paragraph's inline `max-width` from `860px` to `var(--max-width)` — same token the grid uses — so both now render at identical width. CSS-only; no text or structural change.
+
 ## Files touched
 
 | File | Briefs |
@@ -332,16 +340,16 @@ Wrote a script (same term list/definitions as Brief 16) that, per page: finds ev
 | `community-sessions-reverse-it.html` | 1, 16 |
 | `community-sessions.html` | 16 |
 | `community-sessions-map-it.html` | 16 |
-| `foundations.html` | 16 |
+| `foundations.html` | 16, 19 |
 | `glossary.html` | 3, term-hyphen |
 | `resources.html` | 3, 16 |
-| `index.html` | 10, 14, 16 |
+| `index.html` | 10, 14, 16, 19 |
 | `about.html` | about-copy, 16 |
 | `styles.css` | 11, 16 |
 | `nav.js` | footer bump, 16, 18 |
 | `ingredients-overview.html` | 14, 16 |
-| `story-apo-island.html` | 14, 16 |
-| `story-khao-din.html` | 14, 16 |
-| `story-punukula.html` | 14, 16 |
-| `story-gopalpura.html` | 14, 16 |
+| `story-apo-island.html` | 14, 16, 19 |
+| `story-khao-din.html` | 14, 16, 19 |
+| `story-punukula.html` | 14, 16, 19 |
+| `story-gopalpura.html` | 14, 16, 19 |
 | `systems-thinking-overview.html` | 15, 16, 17 |
