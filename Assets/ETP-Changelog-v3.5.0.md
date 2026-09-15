@@ -339,17 +339,29 @@ Wrote a script (same term list/definitions as Brief 16) that, per page: finds ev
 
 - `nav.js` — version string `v0.6.7.0 · 9/8/26` → `v0.6.7.2 · 9/14/26`. No archive snapshot added (not requested this time).
 
+## Brief 22 — Update slide deck links on Practice pages
+
+**Page 1 — `systems-thinking-reverse-practice.html`:** Resources box, "Reverse It Slide Deck" item — swapped the Google Slides URL to the corrected deck (`.../1y1YOfWO8fj4jP2SbxIKMAp8BEtfteD0FkwE0J-UCgsY/edit?usp=sharing`); description text extended with "Review before running a session."; added a secondary "↗ Make your own copy" link (`.../copy`) below it.
+
+**Page 2 — `systems-thinking-map-practice.html`:** Resources box, "Map It Slide Deck" item — link and description left untouched per the brief; added the same secondary "↗ Make your own copy" link (`.../1YHDR0sjMOY2bI61RrLy8xaZb8yodRkQ_DLB0cJaq0NQ/copy`) below it.
+
+Secondary-link styling (no prior pattern existed on the site for this): `color: var(--text-tertiary); font-weight: 600; font-size: var(--text-sm); display: block; margin-top: var(--spacing-xs);` — matches the description span's size/color one step down from the bold `--color-dark` primary link, `↗` prefix per the brief.
+
+**Page 3 — `systems-thinking-reverse.html`:** the 6-image Rajasthan leverage-points figure ("If they had searched for leverage points on a diagram of their crisis, it would look like this:") — swapped all 6 `<img src>` in order to the corrected files: `images/ETP-reverse-it-lever-1.png` through `-6.png` (replacing `image7`, `image8`, `image21`, `image23`, `image24`, `reverse_it_rajasthan_6.png`). Verified all 6 new files exist before swapping. `alt` text, `<figure>` wrapper, and all surrounding markup unchanged.
+
+**Version bump:** `nav.js` footer — `v0.6.7.2 · 9/14/26` → `v0.6.7.3 · 9/14/26`.
+
 ## Files touched
 
 | File | Briefs |
 |------|--------|
 | `systems-thinking-understand.html` | 1, video-swap, 14, 16, 17 |
 | `systems-thinking-map.html` | 1, 9, 9-fu, 12, img-swap, mapseq-style, video-swap, 16, 17 |
-| `systems-thinking-reverse.html` | 1, 2, 6, 7, 9, 9-fu, 12, img-swap, video-swap, 16, 17, 21 |
+| `systems-thinking-reverse.html` | 1, 2, 6, 7, 9, 9-fu, 12, img-swap, video-swap, 16, 17, 21, 22 |
 | `systems-thinking-recognize.html` | 9, 9-fu, 16, 17 |
 | `systems-thinking-lock.html` | 13, 14, 16 |
-| `systems-thinking-reverse-practice.html` | 1, 16 |
-| `systems-thinking-map-practice.html` | 16, 20 |
+| `systems-thinking-reverse-practice.html` | 1, 16, 22 |
+| `systems-thinking-map-practice.html` | 16, 20, 22 |
 | `ingredient-harmony-ecosystem.html` | 1, 11, 16 |
 | `ingredient-outside-stimulation.html` | 1, 11, 16 |
 | `ingredient-social-ecological-memory.html` | 1, 11, 16 |
@@ -369,7 +381,7 @@ Wrote a script (same term list/definitions as Brief 16) that, per page: finds ev
 | `index.html` | 10, 14, 16, 19 |
 | `about.html` | about-copy, 16 |
 | `styles.css` | 11, 16 |
-| `nav.js` | footer bump, 16, 18, footer bump 2 |
+| `nav.js` | footer bump, 16, 18, footer bump 2, 22 |
 | `ingredients-overview.html` | 14, 16 |
 | `story-apo-island.html` | 14, 16, 19 |
 | `story-khao-din.html` | 14, 16, 19 |
