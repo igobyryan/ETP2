@@ -316,17 +316,40 @@ Wrote a script (same term list/definitions as Brief 16) that, per page: finds ev
 
 **Item 3 — Foundations intro width:** `foundations.html`, the `<p class="lead">` below the hero had an inline `max-width: 860px`, narrower than the `.foundations-grid` video section beneath it (which inherits `max-width: var(--max-width)` from `styles.css`, unconstrained further by its own rule). Changed the paragraph's inline `max-width` from `860px` to `var(--max-width)` — same token the grid uses — so both now render at identical width. CSS-only; no text or structural change.
 
+## Brief 20 — Remove feasibility/impact sheets from Map It
+
+**Finding:** the brief named `systems-thinking-map.html`, but that page has no resources section and no feasibility/impact worksheet references at all (confirmed by grepping for "feasibility," "worksheet," and any resources-section markup — only an unused leftover `.mi-resources` CSS selector, no matching HTML). Checked `systems-thinking-reverse.html` too, per Ryan's request — same result, nothing there either. The actual "Impact Worksheet" + "Feasibility Worksheet" PDF links live in the Resources sidebar box on the two **practice** pages (`systems-thinking-map-practice.html`, `systems-thinking-reverse-practice.html`), not on the two main tool pages.
+
+**Resolution (per Ryan):** treated `systems-thinking-map-practice.html` as the intended target (closest match to "Map It").
+
+- `systems-thinking-map-practice.html` — removed the "Impact Worksheet (PDF)" and "Feasibility Worksheet (PDF)" `<li>` items (links + descriptive `<span>`) from the "Resources" `sidebar-box`. The box itself stays — it still holds the Map It Slide Deck and Session Guide PDF items, unrelated to this brief.
+- `systems-thinking-reverse-practice.html` — left untouched; Ryan asked to remove from Map It in Practice only, not both practice pages.
+
+## Brief 21 — Reverse It feasibility section edits
+
+`systems-thinking-reverse.html`, "Choosing Actions That Are Feasible for the Community" step.
+
+- Blurb: "...so its feasibility also comes down to the community's resolve." → "...the community's resolve, what they already have in place and what can be built."
+- "Considerations for gauging feasibility" list: "Is there community support for the action?" split into two items — "What is the existing community support for the action?" and "What additional community support will be needed?"
+- "What resources would this require?" → "What resources will this require?" (same parenthetical kept)
+- "Does the community have the leadership needed to manage and enforce commitments?" → "Does the community already have the leadership needed to manage and enforce commitments?"
+- "Does this change who benefits from the resource?" → "Does this change who benefits from the resource in ways that will create conflict?"
+
+## Footer version bump (2026-09-14)
+
+- `nav.js` — version string `v0.6.7.0 · 9/8/26` → `v0.6.7.2 · 9/14/26`. No archive snapshot added (not requested this time).
+
 ## Files touched
 
 | File | Briefs |
 |------|--------|
 | `systems-thinking-understand.html` | 1, video-swap, 14, 16, 17 |
 | `systems-thinking-map.html` | 1, 9, 9-fu, 12, img-swap, mapseq-style, video-swap, 16, 17 |
-| `systems-thinking-reverse.html` | 1, 2, 6, 7, 9, 9-fu, 12, img-swap, video-swap, 16, 17 |
+| `systems-thinking-reverse.html` | 1, 2, 6, 7, 9, 9-fu, 12, img-swap, video-swap, 16, 17, 21 |
 | `systems-thinking-recognize.html` | 9, 9-fu, 16, 17 |
 | `systems-thinking-lock.html` | 13, 14, 16 |
 | `systems-thinking-reverse-practice.html` | 1, 16 |
-| `systems-thinking-map-practice.html` | 16 |
+| `systems-thinking-map-practice.html` | 16, 20 |
 | `ingredient-harmony-ecosystem.html` | 1, 11, 16 |
 | `ingredient-outside-stimulation.html` | 1, 11, 16 |
 | `ingredient-social-ecological-memory.html` | 1, 11, 16 |
@@ -346,7 +369,7 @@ Wrote a script (same term list/definitions as Brief 16) that, per page: finds ev
 | `index.html` | 10, 14, 16, 19 |
 | `about.html` | about-copy, 16 |
 | `styles.css` | 11, 16 |
-| `nav.js` | footer bump, 16, 18 |
+| `nav.js` | footer bump, 16, 18, footer bump 2 |
 | `ingredients-overview.html` | 14, 16 |
 | `story-apo-island.html` | 14, 16, 19 |
 | `story-khao-din.html` | 14, 16, 19 |
