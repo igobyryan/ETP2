@@ -40,7 +40,8 @@
 
     /* ---- Hero sizing — slim band, not a billboard ---- */
     --hero-min-height:     330px;
-    --page-header-pad:     34px 52px 38px;
+    --content-pad-x:       52px;
+    --page-header-pad:     34px var(--content-pad-x) 38px;
 
     /* ---- Lines ---- */
     --color-hairline:      #e4e7e3;
@@ -636,13 +637,18 @@ li {
 
 /* Sections */
 .section {
-    padding: var(--space-3xl) var(--space-lg);
-    max-width: var(--max-width);
+    padding: var(--space-3xl) var(--content-pad-x);
+    max-width: calc(var(--max-width) + 2 * var(--content-pad-x));
     margin: 0 auto;
+    /* body is a flex column; without this, `margin: 0 auto` cancels the
+       default cross-axis stretch and the section shrink-to-fits its content
+       instead of filling the width, throwing its left edge off. */
+    width: 100%;
 }
 
 .section-alt {
     background-color: var(--background-secondary);
+    padding: var(--space-3xl) var(--content-pad-x);
     max-width: none;
 }
 
@@ -655,6 +661,7 @@ li {
 .section-dark {
     background-color: var(--color-forest);
     color: #ffffff;
+    padding: var(--space-3xl) var(--content-pad-x);
     max-width: none;
 }
 
@@ -698,9 +705,10 @@ li {
     display: grid;
     grid-template-columns: 1fr 280px;
     gap: var(--space-2xl);
-    max-width: var(--max-width);
+    max-width: calc(var(--max-width) + 2 * var(--content-pad-x));
     margin: 0 auto;
-    padding: var(--space-2xl) var(--space-lg);
+    padding: var(--space-2xl) var(--content-pad-x);
+    width: 100%;
 }
 
 .main-content {
@@ -1353,6 +1361,7 @@ li {
 @media (max-width: 48rem) {
     :root {
         --space-3xl: calc(var(--space) * 3);
+        --content-pad-x: var(--space-md);
     }
 
     /* Mobile Navigation */
@@ -1454,10 +1463,6 @@ li {
 
     .newsletter-form input[type="email"] {
         margin-bottom: var(--space-sm);
-    }
-
-    .section {
-        padding: var(--space-2xl) var(--space-md);
     }
 
     .index-grid {
@@ -1608,9 +1613,10 @@ input:focus-visible {
     display: grid;
     grid-template-columns: 1fr 300px;
     gap: var(--space-2xl);
-    max-width: var(--max-width);
+    max-width: calc(var(--max-width) + 2 * var(--content-pad-x));
     margin: 0 auto;
-    padding: var(--space-3xl) var(--space-lg);
+    padding: var(--space-3xl) var(--content-pad-x);
+    width: 100%;
 }
 
 .story-main {
@@ -1903,8 +1909,10 @@ input:focus-visible {
     display: flex;
     align-items: flex-start;
     width: 100%;
-    max-width: var(--max-width);
+    max-width: calc(var(--max-width) + 2 * var(--content-pad-x));
     margin: 0 auto;
+    padding-left: var(--content-pad-x);
+    padding-right: var(--content-pad-x);
 }
 
 /* Existing layout classes inside rail-content lose their own max-width centering */
@@ -2085,6 +2093,10 @@ input:focus-visible {
 
     .section-with-rail {
         display: block;
+        /* The rail is gone, so the inner .two-col / .section supplies the
+           gutter on its own; keeping it here too would double it. */
+        padding-left: 0;
+        padding-right: 0;
     }
 
     .section-mobile-nav {

@@ -375,14 +375,34 @@ Secondary-link styling (no prior pattern existed on the site for this): `color: 
 
 **Not verified in a live browser** — no Chrome connection available this session; verified via structural checks (brace/comment balance, selector audit against every page's actual DOM) and manual trace of the cascade, not a rendered print preview. Worth a spot-check print-preview on an ingredient page, a story page, and the homepage before relying on it.
 
+## Content alignment — shared horizontal padding token (2026-09-21)
+
+Left edges of content blocks didn't line up across the site: `.page-header` used 52px side padding while `.section`, `.two-col` and friends used `--space-lg` (24px), so content started at different x positions despite everything being capped at `80rem` and centred.
+
+**The token:** new `--content-pad-x: 52px` in `:root`, overridden to `var(--space-md)` (16px) at the 48rem breakpoint. `--page-header-pad` now reads `34px var(--content-pad-x) 38px`. Applied to `.section`, `.section-alt`, `.section-dark`, `.section-with-rail`, `.two-col`. Dropped the now-redundant `.section` padding override in the 48rem block.
+
+**Three things the brief's edit list didn't cover, found by measuring rather than eyeballing:**
+
+- `.story-two-col` still carried `--space-lg`, so the 4 story pages stayed 28px out — even though story pages were named in the brief's own verification list.
+- Containers holding *both* `max-width` and the side padding cap their **content** at 80rem, but `.page-header` puts its padding *outside* its max-width box. Left edges therefore agreed at ≤1280px and diverged by a full 52px above it. Fixed by making those containers `max-width: calc(var(--max-width) + 2 * var(--content-pad-x))`, so both models measure the same content box at every width. `.section-alt`/`.section-dark` don't need it — they're `max-width: none` and cap their children instead, which already matches the header's model.
+- `.section-with-rail`'s padding stacked on the padding of the `.two-col` inside it. Harmless while the rail occupies the gap, but once the rail hides at 56.25rem the two paddings doubled into a 104px gutter. Zeroed the wrapper's side padding in that breakpoint.
+
+**Root cause of the worst offender:** `glossary.html`, `resources.html` and `about.html` sat 300px out at 1600px. `body` is `display: flex; flex-direction: column`, so a top-level `.section` is a flex item — and `margin: 0 auto` on a flex item cancels the default cross-axis stretch, leaving it to shrink-to-fit its content (784px = 680px content + 104px padding) and then centre. Their content is narrow, so it showed; `foundations.html` has a full-width grid so it happened to look right. `.section-with-rail` already had `width: 100%`, which is why rail pages were never affected. Added `width: 100%` to `.section`, `.two-col` and `.story-two-col`.
+
+Also brought `.page-header--compact` (defined only in the `glossary`/`resources`/`about` page style blocks) and `.mi-body` on `systems-thinking-recognize`/`-understand` onto the token — the latter's desktop 52px already matched by coincidence, but its mobile 22px didn't. `index.html` left alone per the brief; its hero and card grid are self-contained.
+
+**Verified by measurement, not by eye:** h1 left edge vs first body block on 9 pages × 7 widths (1600/1440/1280/1000/900/600/375) — 63 combos, 0 misaligned. Separately, 31 pages × 6 widths — 186 combos, 0 unclipped horizontal overflow.
+
+**Version bump:** `nav.js` footer — `v0.6.7.3 · 9/14/26` → `v0.6.7.4 · 9/21/26`.
+
 ## Files touched
 
 | File | Briefs |
 |------|--------|
-| `systems-thinking-understand.html` | 1, video-swap, 14, 16, 17 |
+| `systems-thinking-understand.html` | 1, video-swap, 14, 16, 17, content-pad-x |
 | `systems-thinking-map.html` | 1, 9, 9-fu, 12, img-swap, mapseq-style, video-swap, 16, 17 |
 | `systems-thinking-reverse.html` | 1, 2, 6, 7, 9, 9-fu, 12, img-swap, video-swap, 16, 17, 21, 22 |
-| `systems-thinking-recognize.html` | 9, 9-fu, 16, 17 |
+| `systems-thinking-recognize.html` | 9, 9-fu, 16, 17, content-pad-x |
 | `systems-thinking-lock.html` | 13, 14, 16 |
 | `systems-thinking-reverse-practice.html` | 1, 16, 22 |
 | `systems-thinking-map-practice.html` | 16, 20, 22 |
@@ -400,12 +420,12 @@ Secondary-link styling (no prior pattern existed on the site for this): `color: 
 | `community-sessions.html` | 16 |
 | `community-sessions-map-it.html` | 16 |
 | `foundations.html` | 16, 19 |
-| `glossary.html` | 3, term-hyphen |
-| `resources.html` | 3, 16 |
+| `glossary.html` | 3, term-hyphen, content-pad-x |
+| `resources.html` | 3, 16, content-pad-x |
 | `index.html` | 10, 14, 16, 19 |
-| `about.html` | about-copy, 16 |
-| `styles.css` | 11, 16, print-rewrite |
-| `nav.js` | footer bump, 16, 18, footer bump 2, 22 |
+| `about.html` | about-copy, 16, content-pad-x |
+| `styles.css` | 11, 16, print-rewrite, content-pad-x |
+| `nav.js` | footer bump, 16, 18, footer bump 2, 22, footer bump 3 |
 | `ingredients-overview.html` | 14, 16 |
 | `story-apo-island.html` | 14, 16, 19 |
 | `story-khao-din.html` | 14, 16, 19 |
