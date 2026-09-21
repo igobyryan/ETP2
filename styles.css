@@ -15,10 +15,13 @@
     --color-slate:         #4d564e;
     --color-mute:          #878f82;
 
-    /* ---- Clay accent — the ONLY accent ---- */
-    --color-clay:          #9c5a2b;
-    --color-clay-hover:    #80471f;
-    --color-clay-tint:     #f0e6dd;
+    /* ---- Accent — the ONLY accent. Vermilion; --clay names kept so the
+         ~40 call sites below stay untouched. Hover and tint are derived
+         from it: hover is the same hue and saturation at 0.78 lightness,
+         tint is 15% of it over white. ---- */
+    --color-clay:          #EA4B38;
+    --color-clay-hover:    #CD2916;
+    --color-clay-tint:     #FCE4E1;
     --color-gold:          #e2b53f;
 
     /* ---- Grounds & surfaces ---- */
