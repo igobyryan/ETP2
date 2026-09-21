@@ -23,7 +23,12 @@
     --color-clay:          #C92914;
     --color-clay-hover:    #8B190A;
     --color-clay-tint:     #FDCFCE;
-    --color-gold:          #e2b53f;
+    /* Eyebrow on the dark page headers. Ramp 4 col 1 of the accent palette,
+       so the eyebrow belongs to the accent family instead of being an
+       unrelated gold. Measured against the actual ground behind it:
+       8.45:1 on the ingredient header, 7.51:1 on a story photo, 11.56:1 on
+       the homepage hero. The --gold name is kept; it has one call site. */
+    --color-gold:          #FDCFCE;
 
     /* ---- Grounds & surfaces ---- */
     --color-ground:        #ffffff;
