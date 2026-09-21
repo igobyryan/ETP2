@@ -2092,16 +2092,21 @@ input:focus-visible {
     }
 }
 
-@media print {
-    /* hide site chrome only: in-page step nav (.section-rail) and mobile nav.
-       the case-study/story sidebar (.sidebar, with the story carousel) is NOT
-       hidden here — it prints below, see the .two-col/.sidebar rule. */
-    nav, header, footer, .section-rail, .section-mobile-nav, .no-print { display: none !important; }
+/* ==============================================
+   PRINT STYLESHEET — v1 (superseded, kept for reference)
+   ==============================================
+   Replaced below because it only covered the ingredient-page sidebar
+   (.two-col/.sidebar): the story pages use different wrapper class names
+   (.story-two-col/.story-sidebar) and never actually got the "stack under
+   main content" treatment. It also didn't touch .mi-btn CTAs, left dead
+   nav-colored links looking clickable, and printed the dark-green/photo
+   page headers with white text and no background-safety net (most
+   browsers don't print background-images/colors unless the reader opts
+   into "background graphics" in the print dialog, which would leave that
+   white text invisible on white paper).
 
-    /* stack case-study sidebar under main content so it prints in full, at full width.
-       .sidebar is `position: sticky` on screen — Safari/Chrome have a long-standing bug
-       where sticky elements can fail to print at all unless every positioning property
-       tied to that sticky context (not just `position` itself) is explicitly cleared. */
+@media print {
+    nav, header, footer, .section-rail, .section-mobile-nav, .no-print { display: none !important; }
     .two-col { display: block !important; }
     .sidebar {
         position: static !important;
@@ -2123,25 +2128,210 @@ input:focus-visible {
         height: auto !important;
         max-height: none !important;
     }
-
-    /* unhide every carousel slide as a stacked, static block instead of just the active one */
     .story-carousel, .carousel-track { overflow: visible !important; height: auto !important; }
     .carousel-track { display: block !important; transform: none !important; transition: none !important; }
     .carousel-slide { display: block !important; position: static !important; opacity: 1 !important; visibility: visible !important; flex: none !important; width: auto !important; min-width: 0 !important; margin-bottom: var(--space-lg); page-break-inside: avoid; }
     .carousel-controls { display: none !important; }
-
-    /* buttons ("Explore ... Tool", "Read Full Story →", etc.) are dead links on paper */
     .btn { display: none !important; }
-
-    /* let sections flow naturally instead of forcing a new page per block — that rule
-       was leaving near-empty pages whenever a section overflowed by only a line or two.
-       keep headings attached to their content and avoid splitting a paragraph mid-line. */
     .content-block, .story-section { page-break-inside: avoid; }
     h2, h3, h4 { page-break-after: avoid; }
     p, li, blockquote { page-break-inside: avoid; }
-
-    /* videos don't print; hide players and their wrappers */
     video, iframe, .story-video, .video-embed { display: none !important; }
+    body { background: white; }
+}
+*/
+
+@media print {
+    /* ---- 1. Chrome: hide anything with zero function once you can't click,
+       hover, or navigate — nav bar, in-page step rail, mobile nav, hamburger,
+       "Download as PDF" callouts (.no-print, already used on 5 ingredient
+       pages), and the footer. ---- */
+    nav, header, footer, .section-rail, .section-mobile-nav, .hamburger, .no-print {
+        display: none !important;
+    }
+
+    /* ---- 2. Dead-end controls: buttons and carousel arrows/counter do
+       nothing on paper and have no informational content of their own
+       (unlike a labeled resource link), so they're hidden outright rather
+       than de-styled. .mi-btn ("Continue to Lock It In", etc.) wasn't
+       covered by v1's .btn-only rule. ---- */
+    .btn, .mi-btn, .hp-explore, .carousel-controls {
+        display: none !important;
+    }
+
+    /* ---- 3. Links: none of them function on paper or in an offline PDF,
+       so strip the accent-color/underline styling that promises otherwise —
+       links read as plain text, same color as the prose around them. Their
+       label/description text is left in place; it's real content.
+       External links (target="_blank" — Slide Decks, EcoTippingPoints.org,
+       Gerry Marten's site, etc.) get their URL appended in parentheses so a
+       reader can still find them later; same-site links to other toolkit
+       pages don't, since a bare relative path is meaningless offline. ---- */
+    a {
+        color: inherit !important;
+        text-decoration: none !important;
+    }
+    a[target="_blank"]::after {
+        content: " (" attr(href) ")";
+        font-weight: 400;
+        font-size: 0.85em;
+        color: #555;
+        word-break: break-all;
+    }
+
+    /* ---- 4. Glossary <dfn> tooltips can't be hovered on paper, so print
+       the definition inline instead of just losing it. ---- */
+    dfn {
+        border-bottom: none;
+        font-style: italic;
+        cursor: auto;
+    }
+    dfn::after {
+        content: " (" attr(data-definition) ")";
+        font-style: normal;
+        font-size: 0.85em;
+        color: #555;
+    }
+
+    /* ---- 5. Page headers/hero: both the dark-gradient .page-header and the
+       photo .hp-hero render white text over a background-image or
+       background-color, neither of which print by default — force a plain
+       white background and dark text so the title stays legible either way. ---- */
+    .page-header,
+    .page-header--photo {
+        background: #ffffff !important;
+        background-image: none !important;
+        min-height: 0 !important;
+        padding: 24px 0 !important;
+        border-bottom: 2px solid #173a2b;
+    }
+    .page-header--photo::before { display: none !important; }
+    .page-header h1,
+    .page-header .intro { color: #173a2b !important; text-shadow: none !important; }
+    .page-header .label { color: #555 !important; }
+
+    .hp-hero {
+        background: #ffffff !important;
+        min-height: 0 !important;
+        padding: 24px 0 !important;
+        display: block !important;
+    }
+    .hp-hero img.hp-hero-photo,
+    .hp-hero .hp-hero-scrim { display: none !important; }
+    .hp-hero h1,
+    .hp-hero p.hp-lead { color: #173a2b !important; text-shadow: none !important; }
+    .hp-eyebrow { color: #555 !important; }
+
+    /* ---- 6. Two-column layouts: stack the sidebar under the main column,
+       at full width. Covers both wrapper naming schemes on the site —
+       .two-col/.sidebar (ingredient + systems-thinking pages) and
+       .story-two-col/.story-sidebar (the 4 story pages), which v1 missed
+       entirely since it only targeted the first pair. ---- */
+    .two-col, .story-two-col {
+        display: block !important;
+    }
+    .sidebar, .story-sidebar {
+        position: static !important;
+        top: auto !important;
+        bottom: auto !important;
+        width: auto !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+        display: block !important;
+        visibility: visible !important;
+        margin-top: var(--space-xl);
+    }
+    .story-main { max-width: none !important; }
+
+    /* ---- 7. Carousels ("See It In Action" on ingredient pages): unroll
+       every slide as a stacked, static block instead of showing only the
+       active one, and drop the now-meaningless height/overflow clipping.
+       These are scene-setting story photos, not diagrams — shrink them to
+       a small floated thumbnail with the caption text wrapping around it,
+       rather than the full-width block they'd otherwise render at now that
+       the sidebar prints at full column width (Map It / Reverse It's own
+       figure diagrams are untouched by this — different markup, no
+       .carousel-slide ancestor). ---- */
+    .sidebar-box.highlight,
+    .story-carousel,
+    #storyCarousel {
+        display: block !important;
+        visibility: visible !important;
+        height: auto !important;
+        max-height: none !important;
+    }
+    .story-carousel, .carousel-track {
+        overflow: visible !important;
+        height: auto !important;
+    }
+    .carousel-track {
+        display: block !important;
+        transform: none !important;
+        transition: none !important;
+    }
+    .carousel-slide {
+        display: block !important;
+        position: static !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        flex: none !important;
+        width: auto !important;
+        min-width: 0 !important;
+        margin-bottom: var(--space-lg);
+        page-break-inside: avoid;
+    }
+    .carousel-slide img {
+        float: left;
+        width: 100px !important;
+        height: auto !important;
+        margin: 0 var(--space-md) var(--space-sm) 0 !important;
+    }
+    .carousel-slide::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /* ---- 8. Video embeds can't play in print/PDF. Hide the player and
+       flatten its wrapper to a plain, legible placeholder note instead of
+       leaving a blank box or a dark background with invisible text. ---- */
+    video, iframe { display: none !important; }
+    .video-embed, .story-video, .foundations-thumbnail {
+        background: #f1f5f2 !important;
+    }
+    .video-embed::after,
+    .story-video::after,
+    .foundations-thumbnail::after {
+        content: "\25B6 Video omitted from print \2014 view online at the original page.";
+        display: block;
+        font-style: italic;
+        font-size: 0.85em;
+        color: #555;
+        padding: 14px;
+    }
+
+    /* ---- 9. Content boxes (.callout, .sidebar-box, .mi-reflect, .mi-apo,
+       .mi-embed) rely on a background fill to read as a distinct box —
+       add a border so the grouping survives even if background graphics
+       are off. ---- */
+    .callout, .sidebar-box, .mi-reflect, .mi-apo, .mi-embed {
+        border: 1px solid #ccc !important;
+        background: #fafafa !important;
+    }
+
+    /* ---- 10. Page-break hygiene: let large sections (.content-block,
+       .story-section, .mi-step) flow and break naturally across pages —
+       avoiding a break *inside* one of those forces the whole section to
+       start fresh on the next page whenever it doesn't fit the remaining
+       space, which is exactly what leaves a near-empty page behind (e.g.
+       ingredient-shared-awareness.html's "Amplify It" section, longer than
+       one page, jumping to a new page and stranding blank space above it).
+       Scope "avoid" down to small, genuinely atomic pieces instead: a
+       heading orphaned without its next line, a single paragraph, list
+       item, figure, or carousel slide split across the page break. ---- */
+    h2, h3, h4 { page-break-after: avoid; }
+    p, li, blockquote, figure { page-break-inside: avoid; }
 
     body { background: white; }
 }

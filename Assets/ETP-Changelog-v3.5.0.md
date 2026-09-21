@@ -351,6 +351,30 @@ Secondary-link styling (no prior pattern existed on the site for this): `color: 
 
 **Version bump:** `nav.js` footer — `v0.6.7.2 · 9/14/26` → `v0.6.7.3 · 9/14/26`.
 
+## Print stylesheet rewrite (2026-09-21)
+
+`styles.css`, `@media print` — full rewrite. Goal: a PDF (via browser Print → Save as PDF) that reads as a sensible offline substitute for the page, not just a clipped screenshot. Old block commented out in place (kept for reference, not deleted) rather than removed.
+
+**What v1 got right, kept:** carousel slides unrolled and stacked (all "See It In Action" slides visible instead of just the active one), `.btn` CTAs hidden, sensible page-break-inside avoidance on paragraphs/lists/headings.
+
+**Gaps found and fixed:**
+- v1's sidebar-stacking rule only targeted `.two-col`/`.sidebar` (ingredient + systems-thinking pages). The 4 story pages use differently-named wrappers (`.story-two-col`/`.story-sidebar`) and were never actually covered — their sidebar would have kept trying to render in a 300px CSS grid column mid-print. Added matching rules for both class pairs.
+- `.mi-btn` ("Continue to Lock It In," etc. on systems-thinking pages) wasn't covered by v1's `.btn`-only hide rule — a dead button would have printed. Added, along with `.hp-explore` (homepage card "Explore" labels).
+- Dark-background `.page-header` and photo `.hp-hero` headers render white H1/label/intro text over a background-image or background-color — neither prints by default in most browsers unless the reader manually enables "background graphics," which would have left the title invisible (white on white). Forced a plain white background and dark text so headers stay legible either way.
+
+**New, beyond v1's scope (per Ryan's request — no links with no function on a PDF):**
+- All `<a>` de-styled to plain inherited text color, no underline — nothing looks clickable when nothing is. Labels/descriptions stay as real content.
+- External links (`target="_blank"` — slide decks, EcoTippingPoints.org, Gerry Marten's site) get their URL appended in parentheses after the link text, so a reader can find them again later; same-site links to other toolkit pages don't (a bare relative path is meaningless offline).
+- Glossary `<dfn>` tooltips can't be hovered on paper — print the definition inline in parentheses instead of silently losing it.
+- Video embeds (YouTube iframes, Foundations thumbnails) can't play in a PDF — replaced with a plain placeholder note ("▶ Video omitted from print — view online...") instead of a blank or dark box.
+- Content boxes (`.callout`, `.sidebar-box`, `.mi-reflect`, `.mi-apo`, `.mi-embed`) get an explicit border + light background so they still read as a distinct box if background graphics are off — previously relied entirely on a background-color fill.
+
+**Follow-up (Ryan):** the carousel photos were printing at full column width once the sidebar stacks to full page width — wasting ink/space for what are scene-setting story photos, not content the reader needs at size. `.carousel-slide img` now floats left at a fixed 100px with a clearfix on `.carousel-slide`, so the caption title sits full-width above and the description paragraphs wrap around the small thumbnail. Scoped to `.carousel-slide img` only (ingredient-page "See It In Action" carousels) — doesn't touch the Map It / Reverse It diagram `<figure>` images, which use unrelated markup and keep printing at full size as intended.
+
+**Follow-up 2 (Ryan):** `.content-block`/`.story-section`/`.mi-step` all had `page-break-inside: avoid` — fine for a short section, but on a long one (e.g. `ingredient-shared-awareness.html`'s "Amplify It", a full strategy list taller than one page) the browser can't honor "don't break inside," so it pushes the *entire* section to start fresh on the next page instead, stranding a near-empty page behind it (visible right after the "Recognize It" checklist). Dropped `page-break-inside: avoid` from those three large container classes so long sections flow and break naturally; kept it only on genuinely small, atomic pieces (`p`, `li`, `blockquote`, `figure`, `.carousel-slide`) plus `page-break-after: avoid` on headings so a heading doesn't get orphaned without its next line.
+
+**Not verified in a live browser** — no Chrome connection available this session; verified via structural checks (brace/comment balance, selector audit against every page's actual DOM) and manual trace of the cascade, not a rendered print preview. Worth a spot-check print-preview on an ingredient page, a story page, and the homepage before relying on it.
+
 ## Files touched
 
 | File | Briefs |
@@ -380,7 +404,7 @@ Secondary-link styling (no prior pattern existed on the site for this): `color: 
 | `resources.html` | 3, 16 |
 | `index.html` | 10, 14, 16, 19 |
 | `about.html` | about-copy, 16 |
-| `styles.css` | 11, 16 |
+| `styles.css` | 11, 16, print-rewrite |
 | `nav.js` | footer bump, 16, 18, footer bump 2, 22 |
 | `ingredients-overview.html` | 14, 16 |
 | `story-apo-island.html` | 14, 16, 19 |
