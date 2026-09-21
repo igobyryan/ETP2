@@ -15,13 +15,14 @@
     --color-slate:         #4d564e;
     --color-mute:          #878f82;
 
-    /* ---- Accent — the ONLY accent. Vermilion; --clay names kept so the
-         ~40 call sites below stay untouched. Hover and tint are derived
-         from it: hover is the same hue and saturation at 0.78 lightness,
-         tint is 15% of it over white. ---- */
-    --color-clay:          #EA4B38;
-    --color-clay-hover:    #CD2916;
-    --color-clay-tint:     #FCE4E1;
+    /* ---- Accent — the ONLY accent. Vermilion, taken from the generated
+         palette's ramp 4 (accent / hover / tint are cols 4, 5 and 1 of the
+         one ramp, so they stay in step). 5.51:1 on white, where the clay
+         brown it replaces was 5.37:1. The --clay names are kept so the
+         ~40 call sites below stay untouched. ---- */
+    --color-clay:          #C92914;
+    --color-clay-hover:    #8B190A;
+    --color-clay-tint:     #FDCFCE;
     --color-gold:          #e2b53f;
 
     /* ---- Grounds & surfaces ---- */

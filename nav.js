@@ -132,7 +132,7 @@
             var items = links.map(function (l) {
                 return '<a href="' + l.href + '" style="' + F + 'display:block;font-size:14px;color:#4d564e;text-decoration:none;margin-bottom:9px;">' + l.text + '</a>';
             }).join('');
-            return '<div><div style="' + F + 'font-size:11px;font-weight:600;color:#EA4B38;margin-bottom:14px;">' + title + '</div>' + items + '</div>';
+            return '<div><div style="' + F + 'font-size:11px;font-weight:600;color:#C92914;margin-bottom:14px;">' + title + '</div>' + items + '</div>';
         }
 
         var upper =
