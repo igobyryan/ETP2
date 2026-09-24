@@ -475,6 +475,14 @@ Every page now shares one left edge: nav logo, page-header title, body content (
 
 - Brief 25: View/Hide Script added to the Map It (vicious cycle), Reverse It (positive tip) and Lock It In diagram videos. `<details class="video-script">` inserted directly after each video's `</figure>` (`9lj0-a6Wp1g`, `g9oi8DMJpFQ`, `un-BTpdRoUU`); script text pasted as supplied, except one typo fix in the Reverse It script ("Island’ s" → "Island’s"). Uses existing `.video-script` CSS and the `nav.js` beforeprint handler; no new CSS/JS.
 
+## Brief 26 — View/Hide Script on story videos (2026-09-24)
+
+- Brief 26: View/Hide Script added to the four case-study story videos (Apo Island, Khao Din, Gopalpura, Punukula). Contents of `_incoming/story-*-script.html` inserted inside `.story-video`, directly after the `.video-embed` closing `</div>`, re-indented only (text unchanged). Uses existing `.video-script` CSS and `nav.js` beforeprint handler. `_incoming/` deleted afterwards.
+
+## Brief 27 — Homepage "From the field" spacing (2026-09-24)
+
+- Brief 27: Homepage "From the field": tighter label-to-title spacing, more space between rows and before the footer. `index.html` `<style>`: `.hp-field .hp-place` margin-bottom 8px → 3px; `.hp-field` `gap: 22px` → `row-gap: 36px; column-gap: 22px`; new `.hp-section:last-of-type { padding-bottom: 72px; }` (targets "From the field", the last `<section>` in `<body>`). Media queries unchanged.
+
 ## Files touched
 
 | File | Briefs |
@@ -502,13 +510,13 @@ Every page now shares one left edge: nav logo, page-header title, body content (
 | `foundations.html` | 16, 19 |
 | `glossary.html` | 3, term-hyphen, content-pad-x |
 | `resources.html` | 3, 16, content-pad-x |
-| `index.html` | 10, 14, 16, 19, align-pass |
+| `index.html` | 10, 14, 16, 19, align-pass, 27 |
 | `about.html` | about-copy, 16, content-pad-x |
 | `styles.css` | 11, 16, print-rewrite, content-pad-x, caption-space, embed-bg, foundations-videos, print-black, print-dfn, align-pass, 23, 24 |
-| `nav.js` | footer bump, 16, 18, footer bump 2, 22, footer bump 3, print-scripts, align-pass, 23, 24, 25 |
+| `nav.js` | footer bump, 16, 18, footer bump 2, 22, footer bump 3, print-scripts, align-pass, 23, 24, 25, 26, 27 |
 | `ingredients-overview.html` | 14, 16 |
-| `story-apo-island.html` | 14, 16, 19 |
-| `story-khao-din.html` | 14, 16, 19 |
-| `story-punukula.html` | 14, 16, 19 |
-| `story-gopalpura.html` | 14, 16, 19 |
+| `story-apo-island.html` | 14, 16, 19, 26 |
+| `story-khao-din.html` | 14, 16, 19, 26 |
+| `story-punukula.html` | 14, 16, 19, 26 |
+| `story-gopalpura.html` | 14, 16, 19, 26 |
 | `systems-thinking-overview.html` | 15, 16, 17 |
