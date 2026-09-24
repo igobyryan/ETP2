@@ -1799,6 +1799,10 @@ input:focus-visible {
     max-width: 350px;
 }
 
+.video-embed-caption-space {
+    padding-bottom: 65.625%; /* 1920x1260: 16:9 frame + 180px caption space */
+}
+
 @media (max-width: 48rem) {
     .story-diagrams {
         grid-template-columns: 1fr;

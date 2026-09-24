@@ -395,13 +395,20 @@ Also brought `.page-header--compact` (defined only in the `glossary`/`resources`
 
 **Version bump:** `nav.js` footer — `v0.6.7.3 · 9/14/26` → `v0.6.7.4 · 9/21/26`.
 
+## Reverse It video — caption-space version (2026-09-24)
+
+- `systems-thinking-reverse.html` — "Seeing the System in Action" embed: Reverse It video swapped to `g9oi8DMJpFQ` (caption-space version, 1920x1260), replacing `OHgXMIKKOrY`. Container now `video-embed video-embed-caption-space`; iframe title/allow/other attributes unchanged.
+- `styles.css` — added `.video-embed-caption-space { padding-bottom: 65.625%; }` directly after `.video-embed-portrait`. Base `.video-embed` (16:9) untouched; other videos still use it.
+
+**Not verified in a live browser** — no Chrome connection this session. Local server serves the new ID and rule correctly. Open question: YouTube's oEmbed reports `g9oi8DMJpFQ` as 4:3 (1280x960), not 1920x1260 — if that's the processed aspect, a 65.625% box would show side bars. Needs a visual check.
+
 ## Files touched
 
 | File | Briefs |
 |------|--------|
 | `systems-thinking-understand.html` | 1, video-swap, 14, 16, 17, content-pad-x |
 | `systems-thinking-map.html` | 1, 9, 9-fu, 12, img-swap, mapseq-style, video-swap, 16, 17 |
-| `systems-thinking-reverse.html` | 1, 2, 6, 7, 9, 9-fu, 12, img-swap, video-swap, 16, 17, 21, 22 |
+| `systems-thinking-reverse.html` | 1, 2, 6, 7, 9, 9-fu, 12, img-swap, video-swap, 16, 17, 21, 22, caption-space |
 | `systems-thinking-recognize.html` | 9, 9-fu, 16, 17, content-pad-x |
 | `systems-thinking-lock.html` | 13, 14, 16 |
 | `systems-thinking-reverse-practice.html` | 1, 16, 22 |
@@ -424,7 +431,7 @@ Also brought `.page-header--compact` (defined only in the `glossary`/`resources`
 | `resources.html` | 3, 16, content-pad-x |
 | `index.html` | 10, 14, 16, 19 |
 | `about.html` | about-copy, 16, content-pad-x |
-| `styles.css` | 11, 16, print-rewrite, content-pad-x |
+| `styles.css` | 11, 16, print-rewrite, content-pad-x, caption-space |
 | `nav.js` | footer bump, 16, 18, footer bump 2, 22, footer bump 3 |
 | `ingredients-overview.html` | 14, 16 |
 | `story-apo-island.html` | 14, 16, 19 |
