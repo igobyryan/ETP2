@@ -483,6 +483,11 @@ Every page now shares one left edge: nav logo, page-header title, body content (
 
 - Brief 27: Homepage "From the field": tighter label-to-title spacing, more space between rows and before the footer. `index.html` `<style>`: `.hp-field .hp-place` margin-bottom 8px → 3px; `.hp-field` `gap: 22px` → `row-gap: 36px; column-gap: 22px`; new `.hp-section:last-of-type { padding-bottom: 72px; }` (targets "From the field", the last `<section>` in `<body>`). Media queries unchanged.
 
+## Brief 29 — Apo Island story diagram videos (2026-09-24)
+
+- Brief 29: Apo Island story: diagram videos swapped to current caption-space versions (`9lj0-a6Wp1g`, `g9oi8DMJpFQ`) and retitled to match YouTube; Lock It In video (`un-BTpdRoUU`) added as a third; all three with View/Hide Script.
+  - `story-apo-island.html` `.story-diagrams-stacked`: headings/iframe titles → "Apo Island Fisheries: Map it" / "Reverse It" / "Lock it in"; replaced `o7ILnJ2n9us` and `4bCn2wlPnVM`; all three containers `video-embed video-embed-caption-space`. Script blocks copied unchanged (re-indented only) from the Brief 25 blocks on Map It, Reverse It and Lock It In. No CSS changes; the stacked single column (max 600px) takes a third item without layout changes.
+
 ## Files touched
 
 | File | Briefs |
@@ -513,9 +518,9 @@ Every page now shares one left edge: nav logo, page-header title, body content (
 | `index.html` | 10, 14, 16, 19, align-pass, 27 |
 | `about.html` | about-copy, 16, content-pad-x |
 | `styles.css` | 11, 16, print-rewrite, content-pad-x, caption-space, embed-bg, foundations-videos, print-black, print-dfn, align-pass, 23, 24 |
-| `nav.js` | footer bump, 16, 18, footer bump 2, 22, footer bump 3, print-scripts, align-pass, 23, 24, 25, 26, 27 |
+| `nav.js` | footer bump, 16, 18, footer bump 2, 22, footer bump 3, print-scripts, align-pass, 23, 24, 25, 26, 27, 29 |
 | `ingredients-overview.html` | 14, 16 |
-| `story-apo-island.html` | 14, 16, 19, 26 |
+| `story-apo-island.html` | 14, 16, 19, 26, 29 |
 | `story-khao-din.html` | 14, 16, 19, 26 |
 | `story-punukula.html` | 14, 16, 19, 26 |
 | `story-gopalpura.html` | 14, 16, 19, 26 |

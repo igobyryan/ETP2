@@ -165,7 +165,7 @@
                 '<div style="max-width:calc(var(--max-width) + 2 * var(--content-pad-x));margin:0 auto;padding:18px var(--content-pad-x);' + F + 'font-size:12px;letter-spacing:0.04em;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;">' +
                     '<span>©2026 EcoTipping Points</span>' +
                     '<div style="text-align:right;">' +
-                        '<div>v0.6.7.5.14 · 9/24/26</div>' +
+                        '<div>v0.6.7.5.15 · 9/24/26</div>' +
                         '<div style="margin-top:4px;">Archive: <a href="Archive/v0.6.6.0/index.html" target="_blank" style="color:#a6c0b0;text-decoration:underline;">v0.6.6.0</a> · <a href="Archive/0.6.5.2/index.html" target="_blank" style="color:#a6c0b0;text-decoration:underline;">v0.6.5.2</a> · <a href="Archive/0.6.4.1/index.html" target="_blank" style="color:#a6c0b0;text-decoration:underline;">v0.6.4.1</a></div>' +
                     '</div>' +
                 '</div>' +
