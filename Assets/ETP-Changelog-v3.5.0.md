@@ -418,15 +418,23 @@ Also brought `.page-header--compact` (defined only in the `glossary`/`resources`
   - `systems-thinking-reverse.html` — `image27.png` → `W3bgxJwGBXU`
 - `styles.css` — `.video-script` toggle rules added after `.video-embed-caption-space`; link colours use `--color-accent` / `--color-accent-hover`. Image files kept on disk.
 
+## Map It — vicious-cycle video, caption-space version (2026-09-24)
+
+- `systems-thinking-map.html` — Map It vicious-cycle video swapped to `9lj0-a6Wp1g` (caption-space version, 1920x1260), replacing `oiodLWrhS_8`; container uses `.video-embed-caption-space`. Title/allow/other attributes unchanged; no CSS changes.
+
+## Lock It In — video, caption-space version (2026-09-24)
+
+- `systems-thinking-lock.html` — Lock It In video swapped to `un-BTpdRoUU` (caption-space version, 1920x1260), replacing `1E76zoe6buw`; container uses `.video-embed-caption-space`. Title/allow/other attributes unchanged; no CSS changes.
+
 ## Files touched
 
 | File | Briefs |
 |------|--------|
 | `systems-thinking-understand.html` | 1, video-swap, 14, 16, 17, content-pad-x, foundations-videos |
-| `systems-thinking-map.html` | 1, 9, 9-fu, 12, img-swap, mapseq-style, video-swap, 16, 17, foundations-videos |
+| `systems-thinking-map.html` | 1, 9, 9-fu, 12, img-swap, mapseq-style, video-swap, 16, 17, foundations-videos, caption-space |
 | `systems-thinking-reverse.html` | 1, 2, 6, 7, 9, 9-fu, 12, img-swap, video-swap, 16, 17, 21, 22, caption-space, foundations-videos |
 | `systems-thinking-recognize.html` | 9, 9-fu, 16, 17, content-pad-x, apo-video, foundations-videos |
-| `systems-thinking-lock.html` | 13, 14, 16 |
+| `systems-thinking-lock.html` | 13, 14, 16, caption-space |
 | `systems-thinking-reverse-practice.html` | 1, 16, 22 |
 | `systems-thinking-map-practice.html` | 16, 20, 22 |
 | `ingredient-harmony-ecosystem.html` | 1, 11, 16 |
