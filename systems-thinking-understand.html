@@ -13,7 +13,7 @@
            Map It / Recognize It / Reverse It page pattern. Top nav, footer and
            left section rail (nav.js) and the .page-header green band are
            untouched. ---- */
-        .mi-body { padding: 44px var(--content-pad-x) 64px; font-family: 'Source Sans 3', sans-serif; }
+        .mi-body { font-family: 'Source Sans 3', sans-serif; }
         .mi-body p { color: #4d564e; line-height: 1.65; font-size: 16px; }
         .mi-body ul, .mi-body ol { color: #4d564e; line-height: 1.6; padding-left: 20px; margin: 10px 0; }
         .mi-body li { margin-bottom: 8px; }
@@ -74,9 +74,7 @@
         .mi-reflect, .mi-note, .mi-apo, .mi-ingredients, .mi-embed, .mi-embed img,
         .placeholder, .mi-resources, figure img, .mi-chip, .mi-loop { border-radius: 0; }
 
-        @media (max-width: 48rem) {
-            .mi-body { padding: 32px var(--content-pad-x) 48px; }
-        }
+        .two-col { grid-template-columns: 1fr; }
     </style>
 </head>
 <body>
@@ -101,7 +99,8 @@
         </div>
     </section>
 
-    <div class="mi-body">
+    <div class="two-col">
+        <div class="mi-body main-content">
 
         <div class="mi-intro">
             <h2>Your Goal</h2>
@@ -174,6 +173,8 @@
                 <p>With the concept in hand, the next step is to recognize the specific web of interconnected problems at the place you're working.</p>
                 <a href="systems-thinking-recognize.html" class="mi-btn">Continue to Recognize It</a>
             </div>
+        </div>
+
         </div>
 
     </div>

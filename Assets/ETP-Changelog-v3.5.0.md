@@ -437,14 +437,26 @@ Also brought `.page-header--compact` (defined only in the `glossary`/`resources`
   - Page `<style>` blocks: `.two-col { grid-template-columns: 1fr; }` (all three); `.mi-body > .mi-practice { margin-top: 42px; max-width: 760px; }` (Map It, Reverse It). Shared `.two-col` in `styles.css` unchanged.
   - Map It, Reverse It: `<aside class="sidebar">` deleted after moving its `.mi-practice` box; box text/markup unchanged.
 
+## Print — glossary terms italic only (2026-09-24)
+
+- Print: glossary terms print in italics only; inline definitions and dotted underline removed. `styles.css` print section 4: `dfn` rule now `!important` on border/italic/cursor; `dfn::after` definition rule deleted. Screen `dfn` rule unchanged.
+
+## Understand It, Recognize It — .two-col wrapper (2026-09-24)
+
+- Understand It, Recognize It: wrapped in `.two-col` (single column) to match Map It, Reverse It and Lock It In widths. `.mi-body` now `mi-body main-content`; page `<style>` blocks add `.two-col { grid-template-columns: 1fr; }`. Existing `.mi-body` padding left in place (doubles up with `.two-col` padding; flagged, not changed).
+
+## Understand It, Recognize It — .mi-body padding removed (2026-09-24)
+
+- Understand It, Recognize It: removed page-level `.mi-body` padding; spacing now comes from `.two-col`, matching Map It, Reverse It and Lock It In. Desktop `.mi-body` rule keeps `font-family`; the mobile `@media (max-width: 48rem)` block held only the padding rule and was removed.
+
 ## Files touched
 
 | File | Briefs |
 |------|--------|
-| `systems-thinking-understand.html` | 1, video-swap, 14, 16, 17, content-pad-x, foundations-videos |
+| `systems-thinking-understand.html` | 1, video-swap, 14, 16, 17, content-pad-x, foundations-videos, two-col-wrap, mi-body-pad |
 | `systems-thinking-map.html` | 1, 9, 9-fu, 12, img-swap, mapseq-style, video-swap, 16, 17, foundations-videos, caption-space, no-sidebar |
 | `systems-thinking-reverse.html` | 1, 2, 6, 7, 9, 9-fu, 12, img-swap, video-swap, 16, 17, 21, 22, caption-space, foundations-videos, no-sidebar |
-| `systems-thinking-recognize.html` | 9, 9-fu, 16, 17, content-pad-x, apo-video, foundations-videos |
+| `systems-thinking-recognize.html` | 9, 9-fu, 16, 17, content-pad-x, apo-video, foundations-videos, two-col-wrap, mi-body-pad |
 | `systems-thinking-lock.html` | 13, 14, 16, caption-space, no-sidebar |
 | `systems-thinking-reverse-practice.html` | 1, 16, 22 |
 | `systems-thinking-map-practice.html` | 16, 20, 22 |
@@ -466,7 +478,7 @@ Also brought `.page-header--compact` (defined only in the `glossary`/`resources`
 | `resources.html` | 3, 16, content-pad-x |
 | `index.html` | 10, 14, 16, 19 |
 | `about.html` | about-copy, 16, content-pad-x |
-| `styles.css` | 11, 16, print-rewrite, content-pad-x, caption-space, embed-bg, foundations-videos, print-black |
+| `styles.css` | 11, 16, print-rewrite, content-pad-x, caption-space, embed-bg, foundations-videos, print-black, print-dfn |
 | `nav.js` | footer bump, 16, 18, footer bump 2, 22, footer bump 3, print-scripts |
 | `ingredients-overview.html` | 14, 16 |
 | `story-apo-island.html` | 14, 16, 19 |

@@ -2210,18 +2210,12 @@ input:focus-visible {
         word-break: break-all;
     }
 
-    /* ---- 4. Glossary <dfn> tooltips can't be hovered on paper, so print
-       the definition inline instead of just losing it. ---- */
+    /* ---- 4. Glossary <dfn> tooltips can't be hovered on paper, so
+       glossary terms print in italics only, without definitions. ---- */
     dfn {
-        border-bottom: none;
-        font-style: italic;
-        cursor: auto;
-    }
-    dfn::after {
-        content: " (" attr(data-definition) ")";
-        font-style: normal;
-        font-size: 0.85em;
-        color: #555;
+        border-bottom: none !important;
+        font-style: italic !important;
+        cursor: auto !important;
     }
 
     /* ---- 5. Page headers/hero: both the dark-gradient .page-header and the
