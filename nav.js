@@ -136,7 +136,7 @@
         }
 
         var upper =
-            '<div class="etp-foot-grid" style="max-width:1200px;margin:0 auto;padding:54px 52px 44px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;">' +
+            '<div class="etp-foot-grid" style="max-width:calc(var(--max-width) + 2 * var(--content-pad-x));margin:0 auto;padding:54px var(--content-pad-x) 44px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;">' +
                 '<div>' +
                     '<img src="images/etp-logo.png" alt="EcoTipping Points" style="height:26px;width:auto;display:block;margin-bottom:16px;">' +
                     '<p style="' + F + 'font-size:16px;line-height:1.5;color:#4d564e;max-width:280px;margin:0;">A practical toolkit for facilitating community-scale ecological restoration, grounded in systems thinking and field experience.</p>' +
@@ -162,10 +162,10 @@
 
         var bar =
             '<div style="background:#173a2b;color:#a6c0b0;">' +
-                '<div style="max-width:1200px;margin:0 auto;padding:18px 52px;' + F + 'font-size:12px;letter-spacing:0.04em;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;">' +
+                '<div style="max-width:calc(var(--max-width) + 2 * var(--content-pad-x));margin:0 auto;padding:18px var(--content-pad-x);' + F + 'font-size:12px;letter-spacing:0.04em;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;">' +
                     '<span>©2026 EcoTipping Points</span>' +
                     '<div style="text-align:right;">' +
-                        '<div>v0.6.7.5.8 · 9/24/26</div>' +
+                        '<div>v0.6.7.5.10 · 9/24/26</div>' +
                         '<div style="margin-top:4px;">Archive: <a href="Archive/v0.6.6.0/index.html" target="_blank" style="color:#a6c0b0;text-decoration:underline;">v0.6.6.0</a> · <a href="Archive/0.6.5.2/index.html" target="_blank" style="color:#a6c0b0;text-decoration:underline;">v0.6.5.2</a> · <a href="Archive/0.6.4.1/index.html" target="_blank" style="color:#a6c0b0;text-decoration:underline;">v0.6.4.1</a></div>' +
                     '</div>' +
                 '</div>' +
@@ -184,7 +184,7 @@
             st.id = 'etp-foot-style';
             st.textContent =
                 '@media (max-width:64rem){.etp-foot-grid{grid-template-columns:1fr 1fr!important;}}' +
-                '@media (max-width:40rem){.etp-foot-grid{grid-template-columns:1fr!important;padding:36px 22px 32px!important;}}';
+                '@media (max-width:40rem){.etp-foot-grid{grid-template-columns:1fr!important;padding:36px var(--content-pad-x) 32px!important;}}';
             document.head.appendChild(st);
         }
     }

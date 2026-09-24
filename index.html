@@ -11,7 +11,7 @@
     <style>
         /* Homepage-only layout. Self-contained so it renders correctly
            regardless of styles.css layout classes. */
-        .hp-wrap { max-width: 1200px; margin: 0 auto; padding: 0 52px; }
+        .hp-wrap { max-width: calc(var(--max-width) + 2 * var(--content-pad-x)); margin: 0 auto; padding: 0 var(--content-pad-x); width: 100%; }
         .hp-section { padding: 44px 0; }
         .hp-hero {
             position: relative; min-height: 480px; display: flex; align-items: flex-end;
@@ -66,7 +66,6 @@
             .hp-field { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 48rem) {
-            .hp-wrap { padding: 0 22px; }
             .hp-cards, .hp-field { grid-template-columns: 1fr; }
             .hp-field figure.hp-banner .hp-media { aspect-ratio: 16 / 9; }
             .hp-hero h1 { font-size: 34px; }

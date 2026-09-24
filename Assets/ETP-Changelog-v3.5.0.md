@@ -449,6 +449,23 @@ Also brought `.page-header--compact` (defined only in the `glossary`/`resources`
 
 - Understand It, Recognize It: removed page-level `.mi-body` padding; spacing now comes from `.two-col`, matching Map It, Reverse It and Lock It In. Desktop `.mi-body` rule keeps `font-family`; the mobile `@media (max-width: 48rem)` block held only the padding rule and was removed.
 
+## Site-wide left alignment pass (2026-09-24)
+
+Every page now shares one left edge: nav logo, page-header title, body content (or section rail), story column, homepage hero/sections and footer.
+
+- `styles.css` — `html { scrollbar-gutter: stable; }` so short pages without a scrollbar (e.g. `resources.html`) centre content in the same place as long pages (the logo was shifting ~7px between pages). `.nav-container` and `.subnav-container` moved from `max-width: var(--max-width)` + `--space-lg` (24px) padding to `max-width: calc(var(--max-width) + 2 * var(--content-pad-x))` + `--content-pad-x` padding, matching the content model.
+- `nav.js` — footer grid and bottom bar: `max-width:1200px` + fixed 52px padding → same calc max-width + `var(--content-pad-x)`; the ≤40rem grid override's 22px side padding → `var(--content-pad-x)`.
+- `index.html` — `.hp-wrap` 1200px/52px → same calc max-width + `--content-pad-x`, plus `width: 100%` (the hero's `.hp-wrap` is a flex item and was shrink-to-fitting and centring, which put the hero text 230px off at 1280px). Dropped the ≤48rem `.hp-wrap { padding: 0 22px; }` override; the token handles mobile.
+
+**Before:** nav logo +24px off the content edge at wide widths / −28px at ≤1384px; footer +92px at wide widths, +36px on mobile; homepage hero +230px and sections +40px at 1280px.
+**Verified by measurement:** 31 pages × 10 widths (1920–375px) in headless Chrome: 0 misaligned, 0 horizontal overflow.
+
+**Foundations video black lines (not a code fix):** the custom thumbnails for videos 2–4 (`BMKD6ch8yHo`, `YT9_VnH-T24`, `W3bgxJwGBXU`) were uploaded at ~1.80:1, slightly wider than 16:9. YouTube letterboxes them in its poster image (62px bars in the 640×480 version vs 60px for true 16:9), and the extra shows as 2–3px black lines at the player's top and bottom. Video 1 (`sTKERogh_Es`) is exactly 16:9 and clean. Fix: re-upload those three thumbnails at exactly 1280×720 or 1920×1080. A CSS crop was tried and reverted; the bars scale with the player, so clipping doesn't remove them.
+
+## Brief 23 — Video embed 1px bleed (2026-09-24)
+
+- Brief 23: `.video-embed iframe` bleeds 1px past the container to hide a sub-pixel black line at the player edge during playback. `styles.css` — `top`/`left: -1px`, `width`/`height: calc(100% + 2px)`. Doesn't address the Foundations 2–4 thumbnail letterbox lines (those need re-uploaded thumbnails).
+
 ## Files touched
 
 | File | Briefs |
@@ -476,10 +493,10 @@ Also brought `.page-header--compact` (defined only in the `glossary`/`resources`
 | `foundations.html` | 16, 19 |
 | `glossary.html` | 3, term-hyphen, content-pad-x |
 | `resources.html` | 3, 16, content-pad-x |
-| `index.html` | 10, 14, 16, 19 |
+| `index.html` | 10, 14, 16, 19, align-pass |
 | `about.html` | about-copy, 16, content-pad-x |
-| `styles.css` | 11, 16, print-rewrite, content-pad-x, caption-space, embed-bg, foundations-videos, print-black, print-dfn |
-| `nav.js` | footer bump, 16, 18, footer bump 2, 22, footer bump 3, print-scripts |
+| `styles.css` | 11, 16, print-rewrite, content-pad-x, caption-space, embed-bg, foundations-videos, print-black, print-dfn, align-pass, 23 |
+| `nav.js` | footer bump, 16, 18, footer bump 2, 22, footer bump 3, print-scripts, align-pass, 23 |
 | `ingredients-overview.html` | 14, 16 |
 | `story-apo-island.html` | 14, 16, 19 |
 | `story-khao-din.html` | 14, 16, 19 |
