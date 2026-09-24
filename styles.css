@@ -1715,7 +1715,7 @@ input:focus-visible {
     padding-bottom: 56.25%; /* 16:9 aspect ratio */
     height: 0;
     overflow: hidden;
-    background-color: var(--color-forest-deep);
+    background-color: transparent;
     border-radius: var(--radius);
 }
 
@@ -1802,6 +1802,21 @@ input:focus-visible {
 .video-embed-caption-space {
     padding-bottom: 65.625%; /* 1920x1260: 16:9 frame + 180px caption space */
 }
+
+.video-script { margin-top: var(--space-sm, 0.5rem); }
+.video-script summary {
+    list-style: none;
+    cursor: pointer;
+    color: var(--color-accent);
+    font-size: 0.875rem;
+    display: inline-block;
+}
+.video-script summary::-webkit-details-marker { display: none; }
+.video-script summary:hover { color: var(--color-accent-hover); }
+.video-script .vs-hide { display: none; }
+.video-script[open] .vs-show { display: none; }
+.video-script[open] .vs-hide { display: inline; }
+.video-script-body { margin-top: 0.75rem; }
 
 @media (max-width: 48rem) {
     .story-diagrams {

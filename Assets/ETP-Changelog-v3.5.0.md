@@ -399,17 +399,33 @@ Also brought `.page-header--compact` (defined only in the `glossary`/`resources`
 
 - `systems-thinking-reverse.html` — "Seeing the System in Action" embed: Reverse It video swapped to `g9oi8DMJpFQ` (caption-space version, 1920x1260), replacing `OHgXMIKKOrY`. Container now `video-embed video-embed-caption-space`; iframe title/allow/other attributes unchanged.
 - `styles.css` — added `.video-embed-caption-space { padding-bottom: 65.625%; }` directly after `.video-embed-portrait`. Base `.video-embed` (16:9) untouched; other videos still use it.
+- `styles.css` — `.video-embed-caption-space` gets `background-color: #FDFBF5` to match the video background and hide dark corner artifacts.
 
-**Not verified in a live browser** — no Chrome connection this session. Local server serves the new ID and rule correctly. Open question: YouTube's oEmbed reports `g9oi8DMJpFQ` as 4:3 (1280x960), not 1920x1260 — if that's the processed aspect, a 65.625% box would show side bars. Needs a visual check.
+## Video embed background — transparent site-wide (2026-09-24)
+
+- `styles.css` — `.video-embed` background set to transparent site-wide (was `var(--color-forest-deep)`) to remove dark corner artifacts; `.video-embed-caption-space` background line removed as redundant. Print rules untouched.
+
+## Recognize It — Apo Island story video (2026-09-24)
+
+- `systems-thinking-recognize.html` — Recognize It, Scoping Goals: screenshot (`image17.png`) replaced with an embedded Apo Island story video (`v8oNhckPjFM`). Base `.video-embed` (16:9); `<figure>` and `<figcaption>` unchanged. `image17.png` kept on disk; archive and docx-export references left alone.
+
+## Foundations videos 1–4 — embedded players + inline scripts (2026-09-24)
+
+- Understand It, Recognize It, Map It, Reverse It: Foundations video screenshots replaced with embedded players (videos 1–4); inline View/Hide Script toggle added (`.video-script`); Key Concept boxes removed.
+  - `systems-thinking-understand.html` — `image13.png` → `sTKERogh_Es`
+  - `systems-thinking-recognize.html` — `image14.png` → `BMKD6ch8yHo`
+  - `systems-thinking-map.html` — `image16.png` → `YT9_VnH-T24`
+  - `systems-thinking-reverse.html` — `image27.png` → `W3bgxJwGBXU`
+- `styles.css` — `.video-script` toggle rules added after `.video-embed-caption-space`; link colours use `--color-accent` / `--color-accent-hover`. Image files kept on disk.
 
 ## Files touched
 
 | File | Briefs |
 |------|--------|
-| `systems-thinking-understand.html` | 1, video-swap, 14, 16, 17, content-pad-x |
-| `systems-thinking-map.html` | 1, 9, 9-fu, 12, img-swap, mapseq-style, video-swap, 16, 17 |
-| `systems-thinking-reverse.html` | 1, 2, 6, 7, 9, 9-fu, 12, img-swap, video-swap, 16, 17, 21, 22, caption-space |
-| `systems-thinking-recognize.html` | 9, 9-fu, 16, 17, content-pad-x |
+| `systems-thinking-understand.html` | 1, video-swap, 14, 16, 17, content-pad-x, foundations-videos |
+| `systems-thinking-map.html` | 1, 9, 9-fu, 12, img-swap, mapseq-style, video-swap, 16, 17, foundations-videos |
+| `systems-thinking-reverse.html` | 1, 2, 6, 7, 9, 9-fu, 12, img-swap, video-swap, 16, 17, 21, 22, caption-space, foundations-videos |
+| `systems-thinking-recognize.html` | 9, 9-fu, 16, 17, content-pad-x, apo-video, foundations-videos |
 | `systems-thinking-lock.html` | 13, 14, 16 |
 | `systems-thinking-reverse-practice.html` | 1, 16, 22 |
 | `systems-thinking-map-practice.html` | 16, 20, 22 |
@@ -431,7 +447,7 @@ Also brought `.page-header--compact` (defined only in the `glossary`/`resources`
 | `resources.html` | 3, 16, content-pad-x |
 | `index.html` | 10, 14, 16, 19 |
 | `about.html` | about-copy, 16, content-pad-x |
-| `styles.css` | 11, 16, print-rewrite, content-pad-x, caption-space |
+| `styles.css` | 11, 16, print-rewrite, content-pad-x, caption-space, embed-bg, foundations-videos |
 | `nav.js` | footer bump, 16, 18, footer bump 2, 22, footer bump 3 |
 | `ingredients-overview.html` | 14, 16 |
 | `story-apo-island.html` | 14, 16, 19 |
