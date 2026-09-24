@@ -2328,6 +2328,15 @@ input:focus-visible {
     .video-embed, .story-video, .foundations-thumbnail {
         background: #f1f5f2 !important;
     }
+    .video-embed,
+    .video-embed-caption-space,
+    .video-embed-portrait,
+    .foundations-thumbnail {
+        padding-bottom: 0 !important;
+        height: auto !important;
+        max-width: none !important;
+        aspect-ratio: auto !important;
+    }
     .video-embed::after,
     .story-video::after,
     .foundations-thumbnail::after {

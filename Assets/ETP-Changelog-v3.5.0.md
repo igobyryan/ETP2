@@ -466,15 +466,24 @@ Every page now shares one left edge: nav logo, page-header title, body content (
 
 - Brief 23: `.video-embed iframe` bleeds 1px past the container to hide a sub-pixel black line at the player edge during playback. `styles.css` — `top`/`left: -1px`, `width`/`height: calc(100% + 2px)`. Doesn't address the Foundations 2–4 thumbnail letterbox lines (those need re-uploaded thumbnails).
 
+## Brief 24 — Print: collapse empty video boxes (2026-09-24)
+
+- Brief 24: Print: video containers collapse to the "Video omitted" note (padding-bottom aspect-ratio box reset), removing large blank gaps on pages with videos. `styles.css` print section 8 — `.video-embed`, `.video-embed-caption-space`, `.video-embed-portrait`, `.foundations-thumbnail` get `padding-bottom: 0; height: auto; max-width: none` (all `!important`). Screen rules unchanged.
+- Follow-up: added `aspect-ratio: auto !important` to the same rule. `.foundations-thumbnail` gets its screen height from `aspect-ratio: 16 / 9`, not padding, so without this the six Foundations boxes still printed at full 16:9 height.
+
+## Brief 25 — View/Hide Script on diagram videos (2026-09-24)
+
+- Brief 25: View/Hide Script added to the Map It (vicious cycle), Reverse It (positive tip) and Lock It In diagram videos. `<details class="video-script">` inserted directly after each video's `</figure>` (`9lj0-a6Wp1g`, `g9oi8DMJpFQ`, `un-BTpdRoUU`); script text pasted as supplied, except one typo fix in the Reverse It script ("Island’ s" → "Island’s"). Uses existing `.video-script` CSS and the `nav.js` beforeprint handler; no new CSS/JS.
+
 ## Files touched
 
 | File | Briefs |
 |------|--------|
 | `systems-thinking-understand.html` | 1, video-swap, 14, 16, 17, content-pad-x, foundations-videos, two-col-wrap, mi-body-pad |
-| `systems-thinking-map.html` | 1, 9, 9-fu, 12, img-swap, mapseq-style, video-swap, 16, 17, foundations-videos, caption-space, no-sidebar |
-| `systems-thinking-reverse.html` | 1, 2, 6, 7, 9, 9-fu, 12, img-swap, video-swap, 16, 17, 21, 22, caption-space, foundations-videos, no-sidebar |
+| `systems-thinking-map.html` | 1, 9, 9-fu, 12, img-swap, mapseq-style, video-swap, 16, 17, foundations-videos, caption-space, no-sidebar, 25 |
+| `systems-thinking-reverse.html` | 1, 2, 6, 7, 9, 9-fu, 12, img-swap, video-swap, 16, 17, 21, 22, caption-space, foundations-videos, no-sidebar, 25 |
 | `systems-thinking-recognize.html` | 9, 9-fu, 16, 17, content-pad-x, apo-video, foundations-videos, two-col-wrap, mi-body-pad |
-| `systems-thinking-lock.html` | 13, 14, 16, caption-space, no-sidebar |
+| `systems-thinking-lock.html` | 13, 14, 16, caption-space, no-sidebar, 25 |
 | `systems-thinking-reverse-practice.html` | 1, 16, 22 |
 | `systems-thinking-map-practice.html` | 16, 20, 22 |
 | `ingredient-harmony-ecosystem.html` | 1, 11, 16 |
@@ -495,8 +504,8 @@ Every page now shares one left edge: nav logo, page-header title, body content (
 | `resources.html` | 3, 16, content-pad-x |
 | `index.html` | 10, 14, 16, 19, align-pass |
 | `about.html` | about-copy, 16, content-pad-x |
-| `styles.css` | 11, 16, print-rewrite, content-pad-x, caption-space, embed-bg, foundations-videos, print-black, print-dfn, align-pass, 23 |
-| `nav.js` | footer bump, 16, 18, footer bump 2, 22, footer bump 3, print-scripts, align-pass, 23 |
+| `styles.css` | 11, 16, print-rewrite, content-pad-x, caption-space, embed-bg, foundations-videos, print-black, print-dfn, align-pass, 23, 24 |
+| `nav.js` | footer bump, 16, 18, footer bump 2, 22, footer bump 3, print-scripts, align-pass, 23, 24, 25 |
 | `ingredients-overview.html` | 14, 16 |
 | `story-apo-island.html` | 14, 16, 19 |
 | `story-khao-din.html` | 14, 16, 19 |
