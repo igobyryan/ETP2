@@ -2238,7 +2238,7 @@ input:focus-visible {
     }
     .page-header--photo::before { display: none !important; }
     .page-header h1,
-    .page-header .intro { color: #173a2b !important; text-shadow: none !important; }
+    .page-header .intro { color: #000 !important; text-shadow: none !important; }
     .page-header .label { color: #555 !important; }
 
     .hp-hero {
@@ -2250,7 +2250,7 @@ input:focus-visible {
     .hp-hero img.hp-hero-photo,
     .hp-hero .hp-hero-scrim { display: none !important; }
     .hp-hero h1,
-    .hp-hero p.hp-lead { color: #173a2b !important; text-shadow: none !important; }
+    .hp-hero p.hp-lead { color: #000 !important; text-shadow: none !important; }
     .hp-eyebrow { color: #555 !important; }
 
     /* ---- 6. Two-column layouts: stack the sidebar under the main column,
@@ -2363,6 +2363,15 @@ input:focus-visible {
        item, figure, or carousel slide split across the page break. ---- */
     h2, h3, h4 { page-break-after: avoid; }
     p, li, blockquote, figure { page-break-inside: avoid; }
+
+    /* ---- 11. Video scripts: nav.js opens every details.video-script on
+       beforeprint; hide the View/Hide toggle label on paper. ---- */
+    .video-script summary { display: none !important; }
+    .video-script-body { margin-top: 0 !important; }
+
+    /* ---- 12. Body text and headings print as pure black. ---- */
+    body, p, li, td, th, dd, dt, blockquote, figcaption,
+    h1, h2, h3, h4, h5, h6 { color: #000 !important; }
 
     body { background: white; }
 }

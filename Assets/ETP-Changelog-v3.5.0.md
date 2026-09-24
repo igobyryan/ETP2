@@ -426,15 +426,26 @@ Also brought `.page-header--compact` (defined only in the `glossary`/`resources`
 
 - `systems-thinking-lock.html` — Lock It In video swapped to `un-BTpdRoUU` (caption-space version, 1920x1260), replacing `1E76zoe6buw`; container uses `.video-embed-caption-space`. Title/allow/other attributes unchanged; no CSS changes.
 
+## Print — video scripts + pure black text (2026-09-24)
+
+- Print: video scripts forced open when printing (`beforeprint`/`afterprint` in `nav.js`); body text and headings print as `#000`.
+  - `styles.css` main `@media print` block — `.video-script summary` hidden, `.video-script-body` top margin zeroed; `body, p, li, td, th, dd, dt, blockquote, figcaption, h1–h6 { color: #000 !important; }`; `.page-header h1/.intro` and `.hp-hero h1/p.hp-lead` changed `#173a2b` → `#000`. `#555` rules and the commented-out v1 block untouched.
+
+## Systems Thinking — right sidebar column removed (2026-09-24)
+
+- Map It, Reverse It, Lock It In: removed the 280px right sidebar column (was narrowing the main column on wide screens); "In the field" box moved inline above Next Steps on Map It and Reverse It.
+  - Page `<style>` blocks: `.two-col { grid-template-columns: 1fr; }` (all three); `.mi-body > .mi-practice { margin-top: 42px; max-width: 760px; }` (Map It, Reverse It). Shared `.two-col` in `styles.css` unchanged.
+  - Map It, Reverse It: `<aside class="sidebar">` deleted after moving its `.mi-practice` box; box text/markup unchanged.
+
 ## Files touched
 
 | File | Briefs |
 |------|--------|
 | `systems-thinking-understand.html` | 1, video-swap, 14, 16, 17, content-pad-x, foundations-videos |
-| `systems-thinking-map.html` | 1, 9, 9-fu, 12, img-swap, mapseq-style, video-swap, 16, 17, foundations-videos, caption-space |
-| `systems-thinking-reverse.html` | 1, 2, 6, 7, 9, 9-fu, 12, img-swap, video-swap, 16, 17, 21, 22, caption-space, foundations-videos |
+| `systems-thinking-map.html` | 1, 9, 9-fu, 12, img-swap, mapseq-style, video-swap, 16, 17, foundations-videos, caption-space, no-sidebar |
+| `systems-thinking-reverse.html` | 1, 2, 6, 7, 9, 9-fu, 12, img-swap, video-swap, 16, 17, 21, 22, caption-space, foundations-videos, no-sidebar |
 | `systems-thinking-recognize.html` | 9, 9-fu, 16, 17, content-pad-x, apo-video, foundations-videos |
-| `systems-thinking-lock.html` | 13, 14, 16, caption-space |
+| `systems-thinking-lock.html` | 13, 14, 16, caption-space, no-sidebar |
 | `systems-thinking-reverse-practice.html` | 1, 16, 22 |
 | `systems-thinking-map-practice.html` | 16, 20, 22 |
 | `ingredient-harmony-ecosystem.html` | 1, 11, 16 |
@@ -455,8 +466,8 @@ Also brought `.page-header--compact` (defined only in the `glossary`/`resources`
 | `resources.html` | 3, 16, content-pad-x |
 | `index.html` | 10, 14, 16, 19 |
 | `about.html` | about-copy, 16, content-pad-x |
-| `styles.css` | 11, 16, print-rewrite, content-pad-x, caption-space, embed-bg, foundations-videos |
-| `nav.js` | footer bump, 16, 18, footer bump 2, 22, footer bump 3 |
+| `styles.css` | 11, 16, print-rewrite, content-pad-x, caption-space, embed-bg, foundations-videos, print-black |
+| `nav.js` | footer bump, 16, 18, footer bump 2, 22, footer bump 3, print-scripts |
 | `ingredients-overview.html` | 14, 16 |
 | `story-apo-island.html` | 14, 16, 19 |
 | `story-khao-din.html` | 14, 16, 19 |
