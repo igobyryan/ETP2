@@ -488,15 +488,19 @@ Every page now shares one left edge: nav logo, page-header title, body content (
 - Brief 29: Apo Island story: diagram videos swapped to current caption-space versions (`9lj0-a6Wp1g`, `g9oi8DMJpFQ`) and retitled to match YouTube; Lock It In video (`un-BTpdRoUU`) added as a third; all three with View/Hide Script.
   - `story-apo-island.html` `.story-diagrams-stacked`: headings/iframe titles → "Apo Island Fisheries: Map it" / "Reverse It" / "Lock it in"; replaced `o7ILnJ2n9us` and `4bCn2wlPnVM`; all three containers `video-embed video-embed-caption-space`. Script blocks copied unchanged (re-indented only) from the Brief 25 blocks on Map It, Reverse It and Lock It In. No CSS changes; the stacked single column (max 600px) takes a third item without layout changes.
 
+## Brief 31 — Systems Thinking modules commented out (2026-09-25)
+
+- Brief 31: Systems Thinking: "Who Holds the Knowledge" (overview) and "Ingredients for Success" modules (Understand, Recognize, Map, Reverse, Lock) commented out, not deleted. Each block wrapped in `<!-- HIDDEN 2026-09-25 (Brief 31): … module ... -->`, markup unchanged. Lock It In's closing "Ingredients for Success" step (Explore button) untouched; CSS unchanged.
+
 ## Files touched
 
 | File | Briefs |
 |------|--------|
-| `systems-thinking-understand.html` | 1, video-swap, 14, 16, 17, content-pad-x, foundations-videos, two-col-wrap, mi-body-pad |
-| `systems-thinking-map.html` | 1, 9, 9-fu, 12, img-swap, mapseq-style, video-swap, 16, 17, foundations-videos, caption-space, no-sidebar, 25 |
-| `systems-thinking-reverse.html` | 1, 2, 6, 7, 9, 9-fu, 12, img-swap, video-swap, 16, 17, 21, 22, caption-space, foundations-videos, no-sidebar, 25 |
-| `systems-thinking-recognize.html` | 9, 9-fu, 16, 17, content-pad-x, apo-video, foundations-videos, two-col-wrap, mi-body-pad |
-| `systems-thinking-lock.html` | 13, 14, 16, caption-space, no-sidebar, 25 |
+| `systems-thinking-understand.html` | 1, video-swap, 14, 16, 17, content-pad-x, foundations-videos, two-col-wrap, mi-body-pad, 31 |
+| `systems-thinking-map.html` | 1, 9, 9-fu, 12, img-swap, mapseq-style, video-swap, 16, 17, foundations-videos, caption-space, no-sidebar, 25, 31 |
+| `systems-thinking-reverse.html` | 1, 2, 6, 7, 9, 9-fu, 12, img-swap, video-swap, 16, 17, 21, 22, caption-space, foundations-videos, no-sidebar, 25, 31 |
+| `systems-thinking-recognize.html` | 9, 9-fu, 16, 17, content-pad-x, apo-video, foundations-videos, two-col-wrap, mi-body-pad, 31 |
+| `systems-thinking-lock.html` | 13, 14, 16, caption-space, no-sidebar, 25, 31 |
 | `systems-thinking-reverse-practice.html` | 1, 16, 22 |
 | `systems-thinking-map-practice.html` | 16, 20, 22 |
 | `ingredient-harmony-ecosystem.html` | 1, 11, 16 |
@@ -518,10 +522,10 @@ Every page now shares one left edge: nav logo, page-header title, body content (
 | `index.html` | 10, 14, 16, 19, align-pass, 27 |
 | `about.html` | about-copy, 16, content-pad-x |
 | `styles.css` | 11, 16, print-rewrite, content-pad-x, caption-space, embed-bg, foundations-videos, print-black, print-dfn, align-pass, 23, 24 |
-| `nav.js` | footer bump, 16, 18, footer bump 2, 22, footer bump 3, print-scripts, align-pass, 23, 24, 25, 26, 27, 29 |
+| `nav.js` | footer bump, 16, 18, footer bump 2, 22, footer bump 3, print-scripts, align-pass, 23, 24, 25, 26, 27, 29, 31 |
 | `ingredients-overview.html` | 14, 16 |
 | `story-apo-island.html` | 14, 16, 19, 26, 29 |
 | `story-khao-din.html` | 14, 16, 19, 26 |
 | `story-punukula.html` | 14, 16, 19, 26 |
 | `story-gopalpura.html` | 14, 16, 19, 26 |
-| `systems-thinking-overview.html` | 15, 16, 17 |
+| `systems-thinking-overview.html` | 15, 16, 17, 31 |
